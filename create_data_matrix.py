@@ -269,6 +269,8 @@ if __name__ == '__main__':
     # Store dataframe with the newly added columns
     data_spiral_wnd.to_csv('data_spiral_wnd.csv')
     
+
+    
     
     
     
