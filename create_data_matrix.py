@@ -265,7 +265,7 @@ if __name__ == '__main__':
     # Do pairplot
     plt.figure(dpi = 500)
     sns.pairplot(data_spiral_wnd[['ar', 'lrr', 'srr', 'alr', 'sdr', 'smr', 'ft']], hue='ft')
-    
+    plt.show()
     # Store dataframe with the newly added columns
     data_spiral_wnd.to_csv('data_spiral_wnd.csv')
     
