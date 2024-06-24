@@ -13,6 +13,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
+import os
 
 
 def do_pairplots(dataframe):
@@ -244,7 +245,10 @@ if __name__ == '__main__':
     for testID in range(1, 417):
     
         # (1) Load json file to dictionary
-        json_dir = r'/Users/miguelgomez/Documents/GitHub/RC_Column_Model/test_data/test_' + str(testID).zfill(3) +'.json'
+        current_dir = os.getcwd()
+        json_dir = current_dir + '/test_data/test_' + str(testID).zfill(3) +'.json'
+
+        # json_dir = r'/Users/miguelgomez/Documents/GitHub/RC_Column_Model/test_data/test_' + str(testID).zfill(3) +'.json'
         rawdata = load_json(json_dir)
         
         # (2) Check if its spiral
@@ -261,13 +265,18 @@ if __name__ == '__main__':
     # data_spiral.to_csv('spiral_data.csv')
     
     ndparams, data_spiral_wnd = get_nd_params_sp(data_spiral)
+    #data_spiral_wnd['testcf'] = pd.Categorical(data_spiral_wnd['testcf']).codes
+    print(pd.Categorical(data_spiral_wnd['testcf']).categories)
+
+    data_spiral_wnd['ft'] = pd.Categorical(data_spiral_wnd['ft']).codes
     
     # Do pairplot
-    plt.figure(dpi = 500)
-    sns.pairplot(data_spiral_wnd[['ar', 'lrr', 'srr', 'alr', 'sdr', 'smr', 'ft']], hue='ft')
+    sns.pairplot(data_spiral_wnd[['ar', 'lrr', 'srr', 'alr', 'sdr', 'smr', 'ft', 'testcf']], hue='testcf')
+    
     plt.show()
+
     # Store dataframe with the newly added columns
-    data_spiral_wnd.to_csv('data_spiral_wnd.csv')
+    # data_spiral_wnd.to_csv('data_spiral_wnd.csv')
     
 
     
