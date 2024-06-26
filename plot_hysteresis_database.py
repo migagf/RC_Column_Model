@@ -126,7 +126,7 @@ def get_moment_rotation(test_data, plot=False):
     return moment_rotation, elastic_stiffness
 
 
-def save_normalized_hysteresis(normalized_hyst, filename='none', npts=10):
+def save_normalized_hysteresis(normalized_hyst, filename='none', npts=10, plot=False):
     '''
     This function saves the normalized hysteresis curve to a csv file
     '''
@@ -140,13 +140,16 @@ def save_normalized_hysteresis(normalized_hyst, filename='none', npts=10):
         # Downsample the hysteresis curve to npts * n_crosses points
         downsampled_disp = np.interp(np.linspace(0, len(normalized_hyst['disp']), npts * n_crosses), np.arange(0, len(normalized_hyst['disp'])), normalized_hyst['disp'])
         downsampled_force = np.interp(np.linspace(0, len(normalized_hyst['force']), npts * n_crosses), np.arange(0, len(normalized_hyst['force'])), normalized_hyst['force'])
-        
-        plt.figure()
-        plt.plot(downsampled_disp, downsampled_force, 'k.-', linewidth=0.2)
-        plt.show()
-        #df = pd.DataFrame(normalized_hyst)
-        #df.to_csv(filename, index=False)
+
+        df = pd.DataFrame(normalized_hyst)
+        df.to_csv(filename, index=False)
         state = 1
+
+        if plot:
+            plt.figure()
+            plt.plot(downsampled_disp, downsampled_force, 'k.-', linewidth=0.2)
+            plt.show()
+        
     except:
         state = 0
 
@@ -249,8 +252,9 @@ if __name__ == "__main__":
    
     # Load the database
     data = pd.read_csv('data_spiral_wnd.csv')
-    
+    print(data)
     # For each curve:    
+
     for ii in range(0, len(data)):
         
         # (1) Create name of file
@@ -266,14 +270,29 @@ if __name__ == "__main__":
         moment_rotation, elastic_stiffness = get_moment_rotation(test_data, plot=False)
 
         # (5) Get backbone curve
-        mr_backbone, yield_point, normalized_hyst = get_backbone_curve(moment_rotation, plot=False)
+        # mr_backbone is the backbone of the moment-rotation
+        mr_backbone, yield_point, normalized_hyst = get_backbone_curve(moment_rotation, plot=True)
         
         # (6) Save the normalized hysteresis curve to a csv file
+
+        # Create filename
+        filename = 'normalized_hysteresis/test_' + str(data.id[ii]).zfill(3) + '.csv'
+
+        # Save the file
+        #state = save_normalized_hysteresis(normalized_hyst, filename, npts=10)
+        #if state == 0:
+        #    print('Error saving file: ' + filename)
+        #else:
+        #    print('File saved: ' + filename)
+
+        # To do:
+        # Write the file with the nondimensional parameters
+        # Write the file with the solver with quoFEM
 
         # df = pd.DataFrame(normalized_hyst)
         # print(df)
         # df.to_csv('normalized_hysteresis.csv', index=False)
-        save_normalized_hysteresis(normalized_hyst)
+        
 
 
 
