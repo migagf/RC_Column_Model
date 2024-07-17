@@ -31,10 +31,12 @@ def save_results(response, filename='results.out'):
 
 
 def compute_error(model, data):
-    #print(len(data))
-    err = np.sum(np.abs(model - data)) / len(data)
-    # print(err)
+    
+    err = np.sqrt(np.sum((model - data)**2) / len(data))
 
+    if np.isnan(err):
+        err = 100
+    
     return err
 
 
