@@ -10,10 +10,29 @@ import pandas as pd
 import numpy as np
 import json
 import os
+import scipy as sp
+
+
+def save_csv(filename, array, save_type='row'):
+    ''' 
+    Function to save to csv file
+    '''
+    
+    if save_type == 'row':
+        # Save array as a row csv
+        array.tofile(filename, sep=',', format='%10.5f')
+        
+    else:
+        # Save array as a column csv
+        array.tofile(filename, sep='\n', format='%10.5f')
+        
+    pass
 
 
 def plot_hysteresis(disp, force, label):
-    
+    '''
+     
+    '''
     plt.plot(disp, force, label=label)
     
     pass
@@ -28,13 +47,65 @@ def load_json(json_dir):
     return data
 
 
-def compute_elastic_stiffness(test_data):
-    ''' 
-    This function computes the elastic stiffness of the column test
-    '''
-
-    stiffness = []
-    return stiffness
+def create_calibration_file(test_data, test_id, destination, plot=False):
+    
+    state = 1
+    
+    try:
+        disp = np.array(test_data["data"]["disp"])
+        force = np.array(test_data["data"]["force"])
+        
+        # Get total number of points and create "time"
+        npts = len(disp)
+        tt = np.arange(0, npts)
+        
+        #plt.figure(dpi=500)
+        #plt.plot(disp, force)
+        
+        #plt.figure(dpi=500)
+        #plt.plot(disp)
+        
+        # Run through displacement values and get crosses by zero
+        zero_cross = 0
+        
+        for ii in range(0, len(disp)-1):
+            if disp[ii+1] * disp[ii] < 0:
+                zero_cross += 1
+        
+        print('Have ', zero_cross, 'crosses by zero')
+        
+        # Create interpolation objects for force and displacement
+        disp_int = sp.interpolate.interp1d(tt, disp)
+        force_int = sp.interpolate.interp1d(tt, force)
+        
+        # Interpolation for calibration
+        cal_tt = np.linspace(0, npts-1, 10 * zero_cross)
+        cal_disp = disp_int(cal_tt)
+        cal_force = force_int(cal_tt)
+        
+        plt.figure(dpi=500)
+        plt.plot(disp, force, 'k-')
+        plt.plot(cal_disp, cal_force, 'r.-')
+        plt.title(test_id)
+        
+        # Interpolation for running the analysis
+        run_tt = np.linspace(0, npts-1, 100 * zero_cross)
+        run_disp = disp_int(run_tt)
+        run_force = force_int(run_tt)
+        
+        #plt.figure(dpi=500)
+        #plt.plot(run_disp, run_force, 'b.', markersize=0.8)
+        #plt.plot(disp, force, 'r.-', linewidth=0.1, markersize=0.5)
+        
+        # Save the calibration file as row file
+        save_csv(destination + 'cal_'+test_id+'.csv', run_disp, save_type='row')
+        
+                 
+    except Exception as que_paso:
+        print('Problem encountered when trying to save force-deformation \n', que_paso)
+        state = 0
+    
+    return state
 
 
 def get_effective_force(test_data, plot=False):
@@ -258,7 +329,8 @@ if __name__ == "__main__":
     for ii in range(0, len(data)):
         
         # (1) Create name of file
-        filename = json_dir + 'test_' + str(data.id[ii]).zfill(3) + '.json'
+        test_id = str(data.id[ii]).zfill(3)
+        filename = json_dir + 'test_' + test_id + '.json'
         
         # (2) Import JSON file as dictionary
         test_data = load_json(filename)
@@ -266,17 +338,21 @@ if __name__ == "__main__":
         # (3) Check P-Delta, and get effecttive force if needed
         test_data['data'] = get_effective_force(test_data, False)
         
+        # (4) Save the effective force-displacement curves in their separate files
+        create_calibration_file(test_data, test_id, destination=json_dir, plot=True)
+        
+        # 
         # (4) Get the elastic stiffness and substract elastic deformation
-        moment_rotation, elastic_stiffness = get_moment_rotation(test_data, plot=False)
+        # moment_rotation, elastic_stiffness = get_moment_rotation(test_data, plot=False)
 
         # (5) Get backbone curve
         # mr_backbone is the backbone of the moment-rotation
-        mr_backbone, yield_point, normalized_hyst = get_backbone_curve(moment_rotation, plot=True)
+        # mr_backbone, yield_point, normalized_hyst = get_backbone_curve(moment_rotation, plot=True)
         
         # (6) Save the normalized hysteresis curve to a csv file
 
         # Create filename
-        filename = 'normalized_hysteresis/test_' + str(data.id[ii]).zfill(3) + '.csv'
+        # filename = 'normalized_hysteresis/test_' + str(data.id[ii]).zfill(3) + '.csv'
 
         # Save the file
         #state = save_normalized_hysteresis(normalized_hyst, filename, npts=10)
