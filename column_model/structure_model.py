@@ -300,7 +300,7 @@ class TH_Solver:
         model.commit_state()
         
 
-def run_pushover(model, disp, plot=False):
+def run_pushover(model, disp, plot=False, show_info=False):
     '''
     Take the structure defined in model and run a pushover analysis
     '''
@@ -339,13 +339,17 @@ def run_pushover(model, disp, plot=False):
             x =  x - np.linalg.inv(dPu) @ Pu
             
             err = np.linalg.norm(Pu)
-            print('Eq. iter=', iters, ' - Error=', err)
+            
+            if show_info:
+                print('Eq. iter=', iters, ' - Error=', err)
             iters += 1
             
         lf.append(x[0])
         model.commit_state()
         ut = model.cstate["un"]
-        print(ut, u_target)
+
+        if show_info:
+            print(ut, u_target)
     
     if plot:
         plt.figure(dpi = 300)

@@ -98,7 +98,7 @@ def create_calibration_file(test_data, test_id, destination, plot=False):
         #plt.plot(disp, force, 'r.-', linewidth=0.1, markersize=0.5)
         
         # Save the calibration file as row file
-        save_csv(destination + 'cal_'+test_id+'.csv', run_disp, save_type='row')
+        save_csv(destination + 'cal_'+test_id+'.csv', cal_force, save_type='row')
         
                  
     except Exception as que_paso:

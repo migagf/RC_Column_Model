@@ -13,8 +13,6 @@ sigp = 2.0
     
 rsmax = 0.9
 
-n = 2.0
-
 alpha = 0.001
 alpha1 = 2.0
 alpha2 = 0.1

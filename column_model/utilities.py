@@ -65,3 +65,34 @@ def get_elastic_properties(test_data):
         I = np.pi * d ** 4 / 64 # mm^4
     
     return E, I, L
+
+
+def save_response(filename, array, save_type='row'):
+    ''' 
+    Function to save to csv file
+    '''
+    
+    if save_type == 'row':
+        # Save array as a row file
+        array.tofile(filename, sep=',', format='%10.5f')
+        
+    else:
+        # Save array as a column file
+        array.tofile(filename, sep='\n', format='%10.5f')
+        
+    pass
+
+
+def interpolator(original_array, new_length):
+    '''
+    Function to interpolate an array to a new length
+
+    '''
+    # Get the original length
+    original_length = len(original_array)
+    
+    # Create the new array
+    interpolated_array = np.interp(np.linspace(0, original_length, new_length), np.arange(original_length), original_array)
+
+    return interpolated_array
+
