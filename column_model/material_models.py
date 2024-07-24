@@ -56,7 +56,7 @@ class bw_material():
         Tznew = 1.0
     
         count = 0
-        maxiter = 500
+        maxiter = 50
     
         while np.abs(Tzold - Tznew) > 1.0e-6 and count < maxiter:
         
@@ -233,7 +233,7 @@ class deg_bw_material():
         Tznew = 1.0
         
         count = 0
-        maxiter = 1000
+        maxiter = 50
         
         while np.abs(Tzold - Tznew) > 1.0e-8 and count < maxiter:
             
@@ -557,7 +557,7 @@ class deg_bw_material_mod():
             #Tznew = 1.0
             
             count = 0
-            maxiter = 1000
+            maxiter = 50
             
             while np.abs(Tzold - Tznew) > 1.0e-8 and count < maxiter:
                 

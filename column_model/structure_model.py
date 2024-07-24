@@ -322,7 +322,7 @@ def run_pushover(model, disp, plot=False, show_info=False):
         
         iters = 0
         
-        while err > 1.0e-6 and iters < 100:
+        while err > 1.0e-6 and iters < 20:
             
             # Define u from state determination
             u_trial = np.array([u_target, x[1], x[2]])

@@ -32,18 +32,18 @@ plt.rcParams.update({
 # Define location of the calibration files
 filesdir = r'C:\Users\Miguel.MIGUEL-DESK\Documents\GitHub\RC_Column_Model\test_data'
 calfilesdir = r'C:\Users\Miguel.MIGUEL-DESK\Documents\GitHub\RC_Column_Model\test_data\calibration_files'
+testid = 260
 
 g = 386  #in/s2
-
 
 if __name__ == "__main__":
     
     # Load an experiment from the PEER performance database
-    with open(filesdir + '/test_260.json') as file:
+    with open(filesdir + '/test_' + str(testid).zfill(3) + '.json') as file:
         test_data = json.load(file)
     
     # Get number of points in the calibration data file
-    with open(calfilesdir + '/cal_260.csv') as file:
+    with open(calfilesdir + '/cal_' + str(testid).zfill(3) + '.csv') as file:
         cal_data = np.genfromtxt(file, delimiter=',')
         npts = cal_data.shape[0]
         print('Calibration file has', npts, 'points')
@@ -59,7 +59,7 @@ if __name__ == "__main__":
     
     # Stiffness and strength of the plastic hinge (no need to update)
     k0 = stiffness
-    sy0 = strength
+    sy0 = kappa * strength
 
     # Put them all in a list
     n = 2.0
@@ -78,7 +78,9 @@ if __name__ == "__main__":
     
     # Define the strains for the pushover analysis
     strains = np.array(test_data["data"]["disp"])
-    
+    #print(len(strains))
+    strains = interpolator(strains, 30*npts)
+    #print(len(strains))
     # Define cycles for pushover
     t0 = time.time()
     force = run_pushover(model, strains, plot=False, show_info=False)
@@ -88,14 +90,15 @@ if __name__ == "__main__":
     
     peak_force = np.max(force)
 
-    """     
+         
     plt.figure()
     plt.plot(100 * np.array(test_data["data"]["disp"])/L, 1000 * np.array(test_data["data"]["force"])/peak_force, 'b:')
     plt.plot(100 * np.array(strains)/L, np.array(force)/peak_force, 'r--')
     plt.xlabel('Drift Ratio (%)')
     plt.ylabel('Lateral Force')
     plt.show() 
-    """
+    
+
     # Save the response into response.out
     force = np.array(force)/1000
     
@@ -110,5 +113,6 @@ if __name__ == "__main__":
     """
     # Save response to file
     save_response(filename='results.out', array=interpolated_force, save_type='column')
+    
 
 

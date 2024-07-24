@@ -3,6 +3,8 @@ Model parameters to be updated
 '''
 
 gamma = 0.8
+kappa = 1.0
+
 eta1 = 10.0
     
 sig = 0.45

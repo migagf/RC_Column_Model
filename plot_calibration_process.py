@@ -21,12 +21,17 @@ localworkdir = r'C:\Users\Miguel.MIGUEL-DESK\Documents\quoFEM\LocalWorkDir\tmp.S
 
 alldirs = os.listdir(localworkdir)
 
+
 with open(filesdir + '/test_260.json') as file:
     test_data = json.load(file)
+
 
 force = np.array(test_data["data"]["force"])
 disp = np.array(test_data["data"]["disp"])
 
+
+plt.figure(dpi=300)
+plt.plot(disp, force, 'k')
 
 for folder in alldirs:
     
@@ -42,9 +47,10 @@ for folder in alldirs:
             
             int_disp = np.interp(np.linspace(0, len(disp), len(sim_force)), np.arange(len(disp)), disp)
             
-            plt.figure(dpi=300)
-            plt.plot(disp, force, 'k')
-            plt.plot(int_disp, sim_force, 'r.--')
+            plt.plot(int_disp, sim_force, 'r.--', linewidth=0.1, alpha=0.1)
         except:
             
             pass
+
+plt.axis([-60, 60, -200, 200])
+plt.show()
