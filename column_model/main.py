@@ -9,7 +9,6 @@ Created on Wed Jul 17 18:20:55 2024
 # import os
 import numpy as np
 # import pandas as pd
-import matplotlib.pyplot as plt
 import time
 import json
 
@@ -32,8 +31,11 @@ plt.rcParams.update({
 # Define location of the calibration files
 filesdir = r'C:\Users\Miguel.MIGUEL-DESK\Documents\GitHub\RC_Column_Model\test_data'
 calfilesdir = r'C:\Users\Miguel.MIGUEL-DESK\Documents\GitHub\RC_Column_Model\test_data\calibration_files'
-testid = 263
+testid = 265
 do_plots = True
+
+if do_plots:
+    import matplotlib.pyplot as plt
 
 g = 386  #in/s2
 
@@ -63,7 +65,7 @@ if __name__ == "__main__":
     sy0 = kappa * strength
 
     # Put them all in a list
-    n = 2.0
+    n = np.floor(n)
     deg_bw_params = [eta1, k0, sy0, sig, lam, mup, sigp, rsmax, n, alpha, alpha1, alpha2, betam1]
     
     #% Create Plastic Hinge
@@ -93,10 +95,12 @@ if __name__ == "__main__":
 
     if do_plots:     
         plt.figure()
-        plt.plot(100 * np.array(test_data["data"]["disp"])/L, 1000 * np.array(test_data["data"]["force"])/peak_force, 'b:')
-        plt.plot(100 * np.array(strains)/L, np.array(force)/peak_force, 'r--')
+        plt.plot(100 * np.array(test_data["data"]["disp"])/L, 1000 * np.array(test_data["data"]["force"])/peak_force, 'b--', label='exp')
+        plt.plot(100 * np.array(strains)/L, np.array(force)/peak_force, 'r-', linewidth=0.75, label='model')
         plt.xlabel('Drift Ratio (%)')
         plt.ylabel('Lateral Force')
+        plt.legend()
+        plt.grid()
         plt.show() 
 
     # Save the response into response.out
