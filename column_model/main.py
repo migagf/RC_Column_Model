@@ -32,7 +32,8 @@ plt.rcParams.update({
 # Define location of the calibration files
 filesdir = r'C:\Users\Miguel.MIGUEL-DESK\Documents\GitHub\RC_Column_Model\test_data'
 calfilesdir = r'C:\Users\Miguel.MIGUEL-DESK\Documents\GitHub\RC_Column_Model\test_data\calibration_files'
-testid = 260
+testid = 262
+do_plots = False
 
 g = 386  #in/s2
 
@@ -90,14 +91,13 @@ if __name__ == "__main__":
     
     peak_force = np.max(force)
 
-         
-    plt.figure()
-    plt.plot(100 * np.array(test_data["data"]["disp"])/L, 1000 * np.array(test_data["data"]["force"])/peak_force, 'b:')
-    plt.plot(100 * np.array(strains)/L, np.array(force)/peak_force, 'r--')
-    plt.xlabel('Drift Ratio (%)')
-    plt.ylabel('Lateral Force')
-    plt.show() 
-    
+    if do_plots:     
+        plt.figure()
+        plt.plot(100 * np.array(test_data["data"]["disp"])/L, 1000 * np.array(test_data["data"]["force"])/peak_force, 'b:')
+        plt.plot(100 * np.array(strains)/L, np.array(force)/peak_force, 'r--')
+        plt.xlabel('Drift Ratio (%)')
+        plt.ylabel('Lateral Force')
+        plt.show() 
 
     # Save the response into response.out
     force = np.array(force)/1000
