@@ -31,8 +31,8 @@ plt.rcParams.update({
 # Define location of the calibration files
 filesdir = r'C:\Users\Miguel.MIGUEL-DESK\Documents\GitHub\RC_Column_Model\test_data'
 calfilesdir = r'C:\Users\Miguel.MIGUEL-DESK\Documents\GitHub\RC_Column_Model\test_data\calibration_files'
-testid = 265
-do_plots = True
+testid = 268
+do_plots = False
 
 if do_plots:
     import matplotlib.pyplot as plt
