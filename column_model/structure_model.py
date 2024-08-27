@@ -311,7 +311,6 @@ def run_pushover(model, disp, plot=False, show_info=False):
     
     lf = []
     
-    
     for u_target in disp:
         
         # Get last commited displacement state
@@ -345,6 +344,8 @@ def run_pushover(model, disp, plot=False, show_info=False):
             iters += 1
             
         lf.append(x[0])
+        #print(model.ph.tstate["rs"])
+
         model.commit_state()
         ut = model.cstate["un"]
 

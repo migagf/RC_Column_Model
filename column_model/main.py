@@ -6,7 +6,7 @@ Created on Wed Jul 17 18:20:55 2024
 @author: miguelgomez
 """
 
-# import os
+import os
 import numpy as np
 # import pandas as pd
 import time
@@ -29,10 +29,10 @@ plt.rcParams.update({
 # filesdir = r'/Users/miguelgomez/Documents/GitHub/RC_Column_Model/test_data'
 
 # Define location of the calibration files
-filesdir = r'C:\Users\Miguel.MIGUEL-DESK\Documents\GitHub\RC_Column_Model\test_data'
-calfilesdir = r'C:\Users\Miguel.MIGUEL-DESK\Documents\GitHub\RC_Column_Model\test_data\calibration_files'
-testid = 268
-do_plots = False
+#filesdir = r'C:\Users\Miguel.MIGUEL-DESK\Documents\GitHub\RC_Column_Model\test_data'
+#calfilesdir = r'C:\Users\Miguel.MIGUEL-DESK\Documents\GitHub\RC_Column_Model\test_data\calibration_files'
+
+do_plots = True
 
 if do_plots:
     import matplotlib.pyplot as plt
@@ -42,11 +42,13 @@ g = 386  #in/s2
 if __name__ == "__main__":
     
     # Load an experiment from the PEER performance database
-    with open(filesdir + '/test_' + str(testid).zfill(3) + '.json') as file:
+    #with open(filesdir + '/test_' + str(testid).zfill(3) + '.json') as file:
+    with open(os.path.join(os.getcwd(), 'test_file.json')) as file:
         test_data = json.load(file)
     
     # Get number of points in the calibration data file
-    with open(calfilesdir + '/cal_' + str(testid).zfill(3) + '.csv') as file:
+    #with open(calfilesdir + '/cal_' + str(testid).zfill(3) + '.csv') as file:
+    with open(os.path.join(os.getcwd(), 'cal_file.csv')) as file:
         cal_data = np.genfromtxt(file, delimiter=',')
         npts = cal_data.shape[0]
         print('Calibration file has', npts, 'points')
@@ -57,11 +59,11 @@ if __name__ == "__main__":
     E, I, L = get_elastic_properties(test_data)
     
     # Stiffness and strength of the plastic hinge
-    stiffness =  10 * 3 * E * I / L   # kN-mm
+    stiffness =  3 * E * I / L   # kN-mm
     strength = 1000 * np.max(test_data["data"]["force"]) * L
     
     # Stiffness and strength of the plastic hinge (no need to update)
-    k0 = stiffness
+    k0 = kappa_k * stiffness
     sy0 = kappa * strength
 
     # Put them all in a list
@@ -69,7 +71,7 @@ if __name__ == "__main__":
     deg_bw_params = [eta1, k0, sy0, sig, lam, mup, sigp, rsmax, n, alpha, alpha1, alpha2, betam1]
     
     #% Create Plastic Hinge
-    my_ph = deg_bw_material(deg_bw_params)
+    my_ph = deg_bw_material_mod(deg_bw_params)
     
     # Elastic Parameters, mass and additional damping
     el_params = [gamma * E * I, L]   # [EI, L]

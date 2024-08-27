@@ -17,12 +17,13 @@ filesdir = r'C:\Users\Miguel.MIGUEL-DESK\Documents\GitHub\RC_Column_Model\test_d
 calfilesdir = r'C:\Users\Miguel.MIGUEL-DESK\Documents\GitHub\RC_Column_Model\test_data\calibration_files'
 
 # quoFEM local work dir
-localworkdir = r'C:\Users\Miguel.MIGUEL-DESK\Documents\quoFEM\LocalWorkDir\tmp.SimCenter'
+# localworkdir = r'C:\Users\Miguel.MIGUEL-DESK\Documents\quoFEM\LocalWorkDir\CAL_269_500'
+localworkdir = r'C:\Users\Miguel.MIGUEL-DESK\Documents\quoFEM\LocalWorkDir\tmp.simcenter'
 
 alldirs = os.listdir(localworkdir)
 
 
-with open(filesdir + '/test_260.json') as file:
+with open(filesdir + '/test_254.json') as file:
     test_data = json.load(file)
 
 
@@ -33,7 +34,9 @@ disp = np.array(test_data["data"]["disp"])
 plt.figure(dpi=300)
 plt.plot(disp, force, 'k')
 
-for folder in alldirs:
+
+
+for folder in alldirs[0:100]:
     
     if folder.startswith('workdir'):
         
@@ -47,10 +50,13 @@ for folder in alldirs:
             
             int_disp = np.interp(np.linspace(0, len(disp), len(sim_force)), np.arange(len(disp)), disp)
             
-            plt.plot(int_disp, sim_force, 'r.--', linewidth=0.1, alpha=0.1)
+            plt.plot(int_disp, sim_force, 'r.-', linewidth=0.5, alpha=0.1)
+            # plt.show()
         except:
-            
+            print('Could not plot')
             pass
 
-plt.axis([-60, 60, -200, 200])
+#plt.axis([-40, 40, -350, 350])
+plt.xlabel('Displacement (mm)')
+plt.ylabel('Lateral Force (kN)')
 plt.show()
