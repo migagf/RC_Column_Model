@@ -36,7 +36,7 @@ plt.plot(disp, force, 'k')
 
 
 
-for folder in alldirs[0:100]:
+for folder in alldirs[0::]:
     
     if folder.startswith('workdir'):
         
