@@ -557,9 +557,9 @@ class deg_bw_material_mod():
             #Tznew = 1.0
             
             count = 0
-            maxiter = 50
+            maxiter = 100
             
-            while np.abs(Tzold - Tznew) > 1.0e-8 and count < maxiter:
+            while np.abs(Tzold - Tznew) > 1.0e-10 and count < maxiter:
                 
                 # Function f(Tz):
                 A = 1 - (eta1 * np.sign(Tz * dstrain) + eta2) * np.abs(Tz / stress_y) ** n

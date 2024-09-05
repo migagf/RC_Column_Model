@@ -2,25 +2,25 @@
 Model parameters to be updated
 '''
 
-gamma = 0.8
-kappa = 1.0
+gamma = 1.07838
+kappa = 0.9199
 
-eta1 = 10.0
+eta1 = 3.26
     
-sig = 0.45
-lam = 0.45
+sig = 0.37
+lam = 0.58
     
-mup = 0.5
-sigp = 2.0
+mup = 1.99
+sigp = 1.44
     
-rsmax = 0.9
+rsmax = 0.876
 
-alpha = 0.001
-alpha1 = 2.0
-alpha2 = 0.1
+alpha = 0.001095
+alpha1 = 3.73
+alpha2 = 0.22
     
-betam1 = 0.0001
+betam1 = 0.00100599
 
-n = 1.0
+n = 5.36745
 
-kappa_k = 1.0
+kappa_k = 3.98812

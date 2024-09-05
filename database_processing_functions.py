@@ -314,6 +314,20 @@ def get_backbone_curve(cyclic_test, plot=False):
     return backbone, yield_point, normalized_hyst
 
 
+def get_nondimensional_parameters(test_data, plot=False):
+    ndp = {
+        'a1': 0,  # Axial load level
+        'a2': 0,  # Aspect ratio
+        'a3': 0,  # Long. Reinforcement Ratio
+        'a4': 0,  # Trans. Reinforcement Ratio
+        'a5': 0,  # Spacing of trans. reinforcement
+        'a6': 0,  # Shear to moment capacity ratio
+        }
+
+    # Extract values from test_data
+    
+    return ndp
+
 '''
 if __name__ == "__main__":
     

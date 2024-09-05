@@ -50,7 +50,7 @@ for folder in alldirs[0::]:
             
             int_disp = np.interp(np.linspace(0, len(disp), len(sim_force)), np.arange(len(disp)), disp)
             
-            plt.plot(int_disp, sim_force, 'r-', linewidth=0.5, alpha=0.1)
+            plt.plot(int_disp, sim_force, 'r-', linewidth=0.5, alpha=0.5)
             # plt.show()
         except:
             print('Could not plot')

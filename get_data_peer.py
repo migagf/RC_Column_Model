@@ -325,21 +325,21 @@ if __name__ == '__main__':
     
     for ii in range(1, 2):
         
-        # Create name of the file
+        # (1) Create name of the file
         filename = files_dir + '/test_' + str(ii).zfill(3) + '.json'
         
-        # URL to find the information from the test
+        # (2) URL to find the information from the test
         url_ii = url + str(ii)
         
-        # Get information without format and url of test data
+        # (3) Get information without format and url of test data
         text_ii, hlk_ii = get_table(url_ii)
         
-        # Format test data and put it in a dictionary
+        # (4) Format test data and put it in a dictionary
         test_data_ii = get_test_data(text_ii, hlk_ii)
         
         # Write JSON object to file for each test
         with open(filename, "w") as outfile: 
-            json.dump(test_data_ii, outfile)
+            json.dump(test_data_ii, outfile, indent=4)
         
         
     

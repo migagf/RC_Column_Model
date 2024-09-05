@@ -203,7 +203,7 @@ def load_step(pf, u_trial, model):
     pu = pf - model.tstate["pr"]
     err = np.linalg.norm(pu)
     
-    while err > 1.0e-8 and cont < maxiter:
+    while err > 1.0e-12 and cont < maxiter:
         du_trial = np.linalg.solve(model.tstate["stiffness"], pu)
         u_trial = u_trial + du_trial
         
