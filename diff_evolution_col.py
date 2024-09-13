@@ -49,15 +49,6 @@ test_files_dir = r'C:\Users\Miguel.MIGUEL-DESK\Documents\GitHub\RC_Column_Model\
 # model_files_dir = r'C:\Users\Miguel.MIGUEL-DESK\Documents\GitHub\RC_Column_Model\column_model'
 model_files_dir = r'C:\Users\Miguel.MIGUEL-DESK\Documents\GitHub\RC_Column_Model'
 cal_file_dir = r'C:\Users\Miguel.MIGUEL-DESK\Documents\GitHub\RC_Column_Model'
-test_id = 267
-
-# Copy the test file
-shutil.copyfile(os.path.join(test_files_dir, f'test_{test_id}.json'), os.path.join(model_files_dir, 'test_file.json'))
-
-# Copy the calibration file
-shutil.copyfile(os.path.join(test_files_dir, f'cal_{test_id}.csv'), os.path.join(cal_file_dir, 'calibration_file.csv'))
-shutil.copyfile(os.path.join(test_files_dir, f'cal_{test_id}.csv'), os.path.join(model_files_dir, 'cal_file.csv'))
-
 
 def compute_error(model, data):
 
@@ -126,6 +117,8 @@ def compute_loss(model, experiment, type='force'):
         loss = 0.0001 * np.sqrt(np.sum((energy_m - energy_e)**2) / len(energy_e)) + np.sqrt(np.sum((force_m - force_e)**2) / len(force_e))
     
     # print(loss)
+    if np.isnan(loss):
+        loss = 100
 
     return loss
 
@@ -201,6 +194,8 @@ def get_residual(ModelParams, test_data, show_plots=False):
         plt.figure()
         plt.plot(force_exp_int, 'k.', label='Experimental')
         plt.plot(force_model_int, 'r.', label='Model')
+        plt.savefig(os.getcwd() + r'/plots/force_test'+str(test_id).zfill(3)+'.pdf')
+        plt.close()
 
     # residual = compute_error(force_exp_int, force_model_int)
     model_data = {"disp": strains, "force": force_model}
@@ -216,7 +211,8 @@ def get_residual(ModelParams, test_data, show_plots=False):
         plt.ylabel('Lateral Force')
         plt.legend()
         plt.grid()
-        plt.show() 
+        plt.savefig(os.getcwd() + r'/plots/plot_test'+str(test_id).zfill(3)+'.pdf')
+        plt.close()
 
     # Save the response into response.out
     # force = np.array(force_model)/1000
@@ -225,92 +221,104 @@ def get_residual(ModelParams, test_data, show_plots=False):
 
 
 if __name__ == "__main__":
-    
-    # Load an experiment from the PEER performance database
-    #with open(filesdir + '/test_' + str(testid).zfill(3) + '.json') as file:
-    with open(os.path.join(os.getcwd(), 'test_file.json')) as file:
-        test_data = json.load(file)
-    
-    # Get number of points in the calibration data file
-    #with open(calfilesdir + '/cal_' + str(testid).zfill(3) + '.csv') as file:
-    #with open(os.path.join(os.getcwd(), 'cal_file.csv')) as file:
-    #    cal_data = np.genfromtxt(file, delimiter=',')
-    #    npts = cal_data.shape[0]
-    #    print('Calibration file has', npts, 'points')
 
-    test_data["data"] = get_effective_force(test_data)
-    
-    # ModelParams = [eta1, kappa_k, kappa, sig, lam, mup, sigp, rsmax, n, alpha, alpha1, alpha2, betam1]
-    parameters = np.array([
-        1.0, # eta1 [0.1, 10.0] Shape control
-        5.0, # kappa_k [0.5, 5.0] Modifies the stiffness of the plastic hinge
-        1.0, # kappa [0.95, 1.05] Modifies the strength of the plastic hinge
-        0.6, # sig [0.02, 0.95] Pinching Parameter
-        0.6, # lam [0.02, 0.95] Pinching Parameter
-        1.0, # mup [0.1, 5.0] Pinching parameter 
-        2.0, # sigp [0.1, 5.0] Pinching parameter
-        0.8, # rsmax [0.01, 1.0] Pinching parameter
-        2.0, # n [1.0, 10.0] Exponent
-        0.0, # alpha [0.0, 0.05] Post yield stiffness
-        10.0,  # alpha1 [0.5, 10.0] Stiffness degradation
-        0.1, # alpha2 [0.01, 2.0] Shape control
-        0.005, # betam1 [0.0, 0.05] Strength degradation
-        2.0 # gamma [0.1, 2.0] Elastic stiffness modifier
-        ])
-    
-    res_0 = get_residual(parameters, test_data, show_plots=True)
-    print(res_0)
-    
-    bounds = [
-        (0.5, 2.0), 
-        (0.5, 10.0), 
-        (0.95, 1.05), 
-        (0.02, 0.95), 
-        (0.02, 0.95), 
-        (0.1, 5.0), 
-        (0.1, 5.0), 
-        (0.01, 1.0), 
-        (1.0, 10), 
-        (0.0, 0.05), 
-        (0.5, 10), 
-        (0.01, 2.0), 
-        (0.0, 0.05),
-        (0.1, 2.0)
-        ]
-    
-    #M_hist, H_hist, theta_all = run_model(parameters, ThetaIn)
-    #plt.plot(theta_all, M_hist)
-    #plt.show()
+    for test_id in range(274, 417):
 
-    # Run the optimization and time it
-    start_time = time.time()
-    optimum = differential_evolution(get_residual, args=(test_data, False), bounds=bounds, maxiter=10, popsize=15, disp=True, workers=30, polish=False)
-    end_time = time.time()
+        try:
+            # Copy the test file
+            shutil.copyfile(os.path.join(test_files_dir, f'test_{test_id}.json'), os.path.join(model_files_dir, 'test_file.json'))
 
-    print(optimum.x)
-    get_residual(optimum.x, test_data, show_plots=True)
-    
-    
+            # Copy the calibration file
+            shutil.copyfile(os.path.join(test_files_dir, f'cal_{test_id}.csv'), os.path.join(cal_file_dir, 'calibration_file.csv'))
+            shutil.copyfile(os.path.join(test_files_dir, f'cal_{test_id}.csv'), os.path.join(model_files_dir, 'cal_file.csv'))
 
-    # Next lines are just for testing..
+            # Load an experiment from the PEER performance database
+            #with open(filesdir + '/test_' + str(testid).zfill(3) + '.json') as file:
+            with open(os.path.join(os.getcwd(), 'test_file.json')) as file:
+                test_data = json.load(file)
+            
+            # Get number of points in the calibration data file
+            #with open(calfilesdir + '/cal_' + str(testid).zfill(3) + '.csv') as file:
+            #with open(os.path.join(os.getcwd(), 'cal_file.csv')) as file:
+            #    cal_data = np.genfromtxt(file, delimiter=',')
+            #    npts = cal_data.shape[0]
+            #    print('Calibration file has', npts, 'points')
 
-    #interpolated_force = interpolator(force, npts)
-    #interpolated_displacement = interpolator(strains, npts)
+            test_data["data"] = get_effective_force(test_data)
+            
+            # ModelParams = [eta1, kappa_k, kappa, sig, lam, mup, sigp, rsmax, n, alpha, alpha1, alpha2, betam1]
+            parameters = np.array([
+                1.0, # eta1 [0.1, 10.0] Shape control
+                5.0, # kappa_k [0.5, 5.0] Modifies the stiffness of the plastic hinge
+                1.0, # kappa [0.95, 1.05] Modifies the strength of the plastic hinge
+                0.6, # sig [0.02, 0.95] Pinching Parameter
+                0.6, # lam [0.02, 0.95] Pinching Parameter
+                1.0, # mup [0.1, 5.0] Pinching parameter 
+                2.0, # sigp [0.1, 5.0] Pinching parameter
+                0.8, # rsmax [0.01, 1.0] Pinching parameter
+                2.0, # n [1.0, 10.0] Exponent
+                0.0, # alpha [0.0, 0.05] Post yield stiffness
+                10.0,  # alpha1 [0.5, 10.0] Stiffness degradation
+                0.1, # alpha2 [0.01, 2.0] Shape control
+                0.005, # betam1 [0.0, 0.05] Strength degradation
+                2.0 # gamma [0.1, 2.0] Elastic stiffness modifier
+                ])
+            
+            res_0 = get_residual(parameters, test_data, show_plots=True)
+            print(res_0)
+            
+            bounds = [
+                (0.5, 2.0), 
+                (0.5, 10.0), 
+                (0.95, 1.05), 
+                (0.02, 0.95), 
+                (0.02, 0.95), 
+                (0.1, 5.0), 
+                (0.1, 5.0), 
+                (0.01, 1.0), 
+                (1.0, 10), 
+                (0.0, 0.05), 
+                (0.5, 10), 
+                (0.01, 2.0), 
+                (0.0, 0.05),
+                (0.1, 2.0)
+                ]
+            
+            #M_hist, H_hist, theta_all = run_model(parameters, ThetaIn)
+            #plt.plot(theta_all, M_hist)
+            #plt.show()
 
-    """
-    plt.figure()
-    plt.plot(strains, force, 'k-', linewidth=0.5)
-    plt.plot(interpolated_displacement, interpolated_force, 'r.')
-    plt.show()
-    """
-    # Save response to file
-    #save_response(filename='results.out', array=interpolated_force, save_type='column')
-    
-    # Save the optimum parameters
-    best_fit_dict = best_fit_parameters(optimum.x)
+            # Run the optimization and time it
+            start_time = time.time()
+            optimum = differential_evolution(get_residual, args=(test_data, False), bounds=bounds, maxiter=7, popsize=15, disp=True, workers=32, polish=False)
+            end_time = time.time()
 
-    test_data["best_fit"] = best_fit_dict
+            print(optimum.x)
+            get_residual(optimum.x, test_data, show_plots=True)
+            
+            # Next lines are just for testing..
 
-    with open(os.getcwd() + '/calibrated_curves/test_'+str(test_id).zfill(3)+'.json', 'w') as f:
-        json.dump(test_data, f, indent=4)
+            #interpolated_force = interpolator(force, npts)
+            #interpolated_displacement = interpolator(strains, npts)
+
+            """
+            plt.figure()
+            plt.plot(strains, force, 'k-', linewidth=0.5)
+            plt.plot(interpolated_displacement, interpolated_force, 'r.')
+            plt.show()
+            """
+            # Save response to file
+            #save_response(filename='results.out', array=interpolated_force, save_type='column')
+            
+            # Save the optimum parameters
+            best_fit_dict = best_fit_parameters(optimum.x)
+
+            test_data["best_fit"] = best_fit_dict
+
+            with open(os.getcwd() + '/calibrated_curves/test_'+str(test_id).zfill(3)+'.json', 'w') as f:
+                json.dump(test_data, f, indent=4)
+
+        except Exception as e:
+            print(f"Error processing test ID {test_id}: {e}")
+            continue
 
