@@ -23,7 +23,7 @@ def get_effective_force(test_data, plot=False):
         effective_force = force + disp * test_data['AxLoad'] / test_data['L_Inflection']
 
         # Update the data dictionary
-        test_data['data']['force'] = effective_force
+        test_data['data']['force'] = effective_force.tolist()
 
         if plot:
             plt.figure()

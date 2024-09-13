@@ -137,7 +137,7 @@ class structure_model():
         if len(self.cstate["stiffness"]) == 0 or len(self.mass) == 0:
             print("ERROR - Mass or Stiffness Matrix have not been defined... Run assemble() commands")
         else:
-            print("Running Eigenvalue Analysis ... ")
+            # print("Running Eigenvalue Analysis ... ")
             w, v = eig(inv(self.mass) @ self.cstate["stiffness"] * g)
             self.eigenfreqs = np.sqrt(w) / (2 * np.pi)
             self.modeshapes = v
@@ -150,7 +150,7 @@ class structure_model():
                     ithmodeshape = v[:, i]
                     for j in range(0, 3):
                         print("{:6.3f}".format(float(ithmodeshape[j])))
-            print("Eigenvalue Analysis Done \n")
+            # print("Eigenvalue Analysis Done \n")
         
         if plot:
             pass

@@ -16,6 +16,7 @@ import requests
 from bs4 import BeautifulSoup
 import re
 import json
+import os
 
 
 def find_float(text):
@@ -320,10 +321,12 @@ def get_test_data(text_vec, data_url):
 # Run the script
 if __name__ == '__main__':
     
-    files_dir = r'/Users/miguelgomez/Documents/GitHub/RC_Column_Model/test_data'
+    current_workdir = os.getcwd()
+    files_dir = os.path.join(current_workdir, 'test_data') # r'/Users/miguelgomez/Documents/GitHub/RC_Column_Model/test_data'
+
     url = 'https://nisee.berkeley.edu/spd/servlet/display?format=html&id='
     
-    for ii in range(1, 2):
+    for ii in range(1, 417):
         
         # (1) Create name of the file
         filename = files_dir + '/test_' + str(ii).zfill(3) + '.json'
@@ -340,6 +343,7 @@ if __name__ == '__main__':
         # Write JSON object to file for each test
         with open(filename, "w") as outfile: 
             json.dump(test_data_ii, outfile, indent=4)
+            print('File created', filename)
         
         
     

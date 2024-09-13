@@ -375,6 +375,8 @@ class deg_bw_material():
 class deg_bw_material_mod():
     '''
     This is a degrading bouc wen material class
+    Modified to include reloading stiffness
+
     '''
     def __init__(self, params):
         self.params = {
@@ -557,15 +559,15 @@ class deg_bw_material_mod():
             #Tznew = 1.0
             
             count = 0
-            maxiter = 100
+            maxiter = 500
             
-            while np.abs(Tzold - Tznew) > 1.0e-10 and count < maxiter:
+            while np.abs(Tzold - Tznew) > 1.0e-6 and count < maxiter:
                 
                 # Function f(Tz):
                 A = 1 - (eta1 * np.sign(Tz * dstrain) + eta2) * np.abs(Tz / stress_y) ** n
                 kh = (rk - alpha) * k0 * A
                 
-                s = max([rs * (emax_pos - emax_neg), 0.001])
+                s = max([rs * (emax_pos - emax_neg), 0.0001])
     
                 B = np.exp(- 0.5 * ((Tz - stress_bar * np.sign(dstrain)) / (stress_sig)) ** 2)
     
@@ -598,7 +600,7 @@ class deg_bw_material_mod():
                     Tz = 0.001
                 
                 if count == maxiter and self.conv_flag == True:
-                    print('MaxIter reached in PH iterations')
+                    # print('MaxIter reached in PH iterations')
                     self.conv_flag = False
                     
             # Upon convergence of Tz...

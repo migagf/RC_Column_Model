@@ -7,6 +7,8 @@ from ph_model.Functions import *
 from scipy.optimize import differential_evolution
 import time
 
+# This code runs a parameter estimation using moment-rotation data...
+# Uses a differential evolution algorithm to find the optimum parameters
 
 def get_residual(ModelParams, ThetaIn, MThetaOut):
     '''
@@ -28,7 +30,7 @@ if __name__ == '__main__':
     #                        sig_p, Rsmax, N, alpha, alpha_1, alpha_2, betam1])
     
     # Check files in normalized_hysteresis folder
-    data = pd.read_csv('normalized_hysteresis/test_360.csv')
+    data = pd.read_csv('normalized_hysteresis/test_267.csv')
     ThetaIn = np.array(data['disp'])
     MThetaOut = np.array(data['force'])
     
@@ -49,16 +51,20 @@ if __name__ == '__main__':
 
     # Run the optimization and time it
     start_time = time.time()
-    optimum = differential_evolution(get_residual, args=(ThetaIn, MThetaOut), bounds=bounds, maxiter=100, popsize=50, disp=True, workers=40, polish=True)
+    # optimum = differential_evolution(get_residual, args=(ThetaIn, MThetaOut), bounds=bounds, maxiter=10, popsize=50, disp=True, workers=10, polish=False)
     end_time = time.time()
 
     execution_time = end_time - start_time
 
     print("Execution time:", execution_time, "seconds")
-    print(optimum.x)
-
+    #print(optimum.x)
+    optimumx = [8.54062516e-01, 9.60280603e-01, 9.76523884e-01, 2.34825174e-01,
+                2.14672046e-01, 2.06251329e+00, 1.48512456e+00, 9.01229695e-01,
+                8.05707272e+00, 4.86674713e-03, 1.85995448e+00, 6.21563532e-01,
+                4.07576188e-02]
+    
     # Run the model with optimum parameters
-    MthetaOpt, EHOpt, ThetaOpt = run_model(optimum.x, ThetaIn)
+    MthetaOpt, EHOpt, ThetaOpt = run_model(optimumx, ThetaIn)
 
     # Plot the response
     plt.plot(ThetaOpt, MthetaOpt)

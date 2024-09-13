@@ -31,8 +31,20 @@ def load_json(json_dir):
     return data
 
 
+def get_rect_props(rawdata, testID):
+    '''
+    Extract the properties of a rectangular column test and store them in a list
+
+    '''
+
+    pass
+
+
 def get_spiral_props(rawdata, testID):
-    
+    '''
+    Extract the properties of a spiral column test and store them in a list
+    '''
+
     props = []
     
     # String Data
@@ -112,7 +124,7 @@ def get_nd_params_sp(all_data):
         alr = test_data['axl'] / ax_cap
         
         # (6) Spiral diameter ratio
-        sdr = test_data['dsp'] / test_data['dlb']
+        sdr = (6 * test_data['dsp']) / test_data['s']
         
         # (7) Estimate of the shear strength and the moment strength
         Vs = get_shear_strength(test_data)
@@ -129,10 +141,9 @@ def get_nd_params_sp(all_data):
 
 def get_shear_strength(test_data):
     '''
-    Calculation of the shear strength based on 
-    
-    Sezen and Moehle (2004)
-    
+    Calculation of the shear strength based on the equations of Sezen and Moehle (2004)
+    (Only working for spiral columns right now...)
+
     '''
     
     # Get material properties
@@ -231,6 +242,7 @@ def get_moment_strength(test_data):
 # Run the script
 if __name__ == '__main__':
     
+    # Properties of spiral columns
     spiral_cols = [
         'id', 'name', 'type', 'testcf', 'pd', 'ft', 'axl', 'diam', 'l',
         'fpc', 'fyl', 'fsul', 'fyt', 'fsut', 'dlb', 'nlb',
@@ -276,7 +288,7 @@ if __name__ == '__main__':
     plt.show()
 
     # Store dataframe with the newly added columns
-    # data_spiral_wnd.to_csv('data_spiral_wnd.csv')
+    data_spiral_wnd.to_csv('data_spiral_wnd.csv')
     
 
     

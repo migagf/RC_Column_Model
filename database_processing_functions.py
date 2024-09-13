@@ -89,9 +89,11 @@ def create_calibration_file(test_data, test_id, destination, plot=False):
         cal_force = force_int(cal_tt)
         
         plt.figure(dpi=200)
-        plt.plot(disp, force, 'k-', linewidth=0.2)
-        plt.plot(cal_disp, cal_force, 'r.-', linewidth=0.1, markersize=0.5)
+        plt.plot(np.array(disp)/test_data['L_Inflection'], force, 'k-', linewidth=0.2)
+        plt.plot(np.array(cal_disp)/test_data['L_Inflection'], cal_force, 'r.-', linewidth=0.1, markersize=0.5)
         plt.title(test_id)
+        plt.xlim(-0.05, 0.05)
+        plt.ylim(-350, 350)
         
         # Interpolation for running the analysis
         run_tt = np.linspace(0, npts-1, 100 * zero_cross)
@@ -312,21 +314,6 @@ def get_backbone_curve(cyclic_test, plot=False):
         plt.show()
 
     return backbone, yield_point, normalized_hyst
-
-
-def get_nondimensional_parameters(test_data, plot=False):
-    ndp = {
-        'a1': 0,  # Axial load level
-        'a2': 0,  # Aspect ratio
-        'a3': 0,  # Long. Reinforcement Ratio
-        'a4': 0,  # Trans. Reinforcement Ratio
-        'a5': 0,  # Spacing of trans. reinforcement
-        'a6': 0,  # Shear to moment capacity ratio
-        }
-
-    # Extract values from test_data
-    
-    return ndp
 
 '''
 if __name__ == "__main__":
