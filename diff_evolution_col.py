@@ -214,9 +214,9 @@ def get_residual(ModelParams, test_data, show_plots=False):
         plt.figure()
         plt.plot(force_exp_int, 'k.', label='Experimental')
         plt.plot(force_model_int, 'r.', label='Model')
-        plt.show()
-        #plt.savefig(os.getcwd() + r'/plots/force_test'+str(test_id).zfill(3)+'.pdf')
-        #plt.close()
+        # plt.show()
+        plt.savefig(os.getcwd() + r'/plots/force_test'+str(test_id).zfill(3)+'.pdf')
+        plt.close()
 
     # residual = compute_error(force_exp_int, force_model_int)
     model_data = {"disp": strains, "force": force_model}
@@ -232,9 +232,9 @@ def get_residual(ModelParams, test_data, show_plots=False):
         plt.ylabel('Lateral Force')
         plt.legend()
         plt.grid()
-        plt.show()
-        # plt.savefig(os.getcwd() + r'/plots/plot_test'+str(test_id).zfill(3)+'.pdf')
-        # plt.close()
+        #plt.show()
+        plt.savefig(os.getcwd() + r'/plots/plot_test'+str(test_id).zfill(3)+'.pdf')
+        plt.close()
 
     # Save the response into response.out
     # force = np.array(force_model)/1000
@@ -348,8 +348,8 @@ def run_model(ModelParams, test_data, show_plots=False):
 
 if __name__ == "__main__":
     maxID = 416
-    fullrange = range(1, maxID + 1)
-    
+    fullrange = range(91, maxID + 1)
+
     for id in fullrange:
         test_id = str(id).zfill(3)
         try:
@@ -418,7 +418,7 @@ if __name__ == "__main__":
 
             # Run the optimization and time it
             start_time = time.time()
-            optimum = differential_evolution(get_residual, args=(test_data, False), bounds=bounds, maxiter=10, popsize=10, disp=True, workers=30, polish=False)
+            optimum = differential_evolution(get_residual, args=(test_data, False), bounds=bounds, maxiter=8, popsize=30, disp=True, workers=30, polish=False)
             end_time = time.time()
 
             print(optimum.x)
@@ -443,7 +443,7 @@ if __name__ == "__main__":
 
             test_data["best_fit"] = best_fit_dict
 
-            with open(os.getcwd() + '/calibrated_curves_03/test_'+str(test_id).zfill(3)+'.json', 'w') as f:
+            with open(os.getcwd() + '/cals_dr_005/test_'+str(test_id).zfill(3)+'.json', 'w') as f:
                 json.dump(test_data, f, indent=4)
 
         except Exception as e:

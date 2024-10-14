@@ -1,0 +1,145 @@
+,id,name,use
+0,254,"Davey 1975, No. 1",1
+1,255,"Davey 1975, No. 2",1
+2,256,"Davey 1975, No. 3",1
+3,257,"Munro et al. 1976, No. 1",1
+4,258,"Ng et al. 1978, No. 2",1
+5,259,"Ng et al. 1978, No. 3",1
+6,260,"Ang et al. 1981, No. 1",1
+7,261,"Ang et al 1981, No. 2",1
+8,262,"Potangaroa et al. 1979, No. 1",1
+9,263,"Potangaroa et al. 1979, No. 3",0
+10,264,"Potangaroa et al. 1979, No. 4",1
+11,265,"Potangaroa et al. 1979, No. 5A",1
+12,266,"Potangaroa et al. 1979, No. 5B",0
+13,267,"Ang et al. 1985, No. 1",0
+14,268,"Ang et al. 1985, No. 2",1
+15,269,"Ang et al. 1985, No. 3",0
+16,270,"Ang et al. 1985, No. 4",1
+17,271,"Ang et al. 1985, No. 5",1
+18,272,"Ang et al. 1985, No. 6",1
+19,273,"Ang et al. 1985, No. 7",1
+20,274,"Ang et al. 1985, No. 8",1
+21,275,"Ang et al. 1985, No. 9",1
+22,276,"Ang et al. 1985, No. 10",1
+23,277,"Ang et al. 1985, No. 11",1
+24,278,"Ang et al. 1985, No. 12",1
+25,279,"Ang et al. 1985, No. 13",1
+26,280,"Ang et al. 1985, No. 14",1
+27,282,"Ang et al. 1985, No. 16",1
+28,283,"Ang et al. 1985, No. 17",1
+29,284,"Ang et al. 1985, No. 18",1
+30,286,"Ang et al. 1985, No. 20",1
+31,287,"Ang et al. 1985, No. 21",0
+32,288,"Ang et al. 1985, No. 22",1
+33,289,"Ang et al. 1985, No. 23",1
+34,290,"Ang et al. 1985, No. 24",1
+35,291,"Ang et al. 1985, No. 25",1
+36,292,"Zahn et al. 1986, No. 5",1
+37,293,"Zahn et al. 1986, No. 6",1
+38,294,"Watson and Park 1989, No 10",1
+39,295,"Watson and Park 1989, No 11",0
+40,296,"Wong et al. 1990, No. 1",1
+41,297,"Wong et al. 1990, No. 2",0
+42,299,"Petrovski and Ristic 1984, M1E1",0
+43,303,"Lim et al. 1990, Con1",1
+44,304,"Lim et al. 1990, Con2",0
+45,305,"Lim et al. 1990, Con3",1
+46,306,"NIST, Full Scale Flexure",1
+47,307,"NIST, Full Scale Shear",1
+48,308,"NIST, Model N1",1
+49,309,"NIST, Model N2",1
+50,310,"NIST, Model N3",0
+51,311,"NIST, Model N4",1
+52,312,"NIST, Model N5",1
+53,313,"NIST, Model N6",1
+54,314,"BRI No. 2 (Japan), spbaa1",1
+55,315,"BRI No. 3 (Japan), ws21bs",1
+56,316,"BRI No. 3 (Japan), ws22bs",1
+57,318,"BRI No. 3 (Japan), ws26bs",1
+58,319,"BRI No. 3 (Japan), ws27bs",1
+59,320,"Arakawa et al. 1987, No. 1",1
+60,321,"Arakawa et al. 1987, No. 2",1
+61,322,"Arakawa et al. 1987, No. 3",0
+62,323,"Arakawa et al. 1987, No. 4",1
+63,325,"Arakawa et al. 1987, No. 8",1
+64,326,"Arakawa et al. 1987, No. 9",1
+65,327,"Arakawa et al. 1987, No. 10",1
+66,328,"Arakawa et al. 1987, No. 11",0
+67,329,"Arakawa et al. 1987, No. 12",1
+68,331,"Arakawa et al. 1987, No. 14",1
+69,332,"Arakawa et al. 1988, No. 15",1
+70,333,"Arakawa et al. 1988, No. 16",1
+71,334,"Arakawa et al. 1988, No. 17",1
+72,335,"Arakawa et al. 1988, No. 18",0
+73,336,"Arakawa et al. 1988, No. 19",1
+74,337,"Arakawa et al. 1988, No. 20",1
+75,338,"Arakawa et al. 1988, No. 21",1
+76,339,"Arakawa et al. 1988, No. 22",1
+77,340,"Arakawa et al. 1988, No. 23",1
+78,341,"Arakawa et al. 1988, No. 24",1
+79,343,"Arakawa et al. 1988, No. 26",1
+80,344,"Arakawa et al. 1988, No. 27",1
+81,345,"Arakawa et al. 1988, No. 28",1
+82,346,"Kunnath et al. 1997, A2",1
+83,347,"Kunnath et al. 1997, A3",0
+84,348,"Kunnath et al. 1997, A4",0
+85,349,"Kunnath et al. 1997, A5",0
+86,350,"Kunnath et al. 1997, A6",0
+87,351,"Kunnath et al. 1997, A7",1
+88,352,"Kunnath et al. 1997, A8",1
+89,353,"Kunnath et al. 1997, A9",1
+90,354,"Kunnath et al. 1997, A10",1
+91,355,"Kunnath et al. 1997, A11",1
+92,356,"Kunnath et al. 1997, A12",1
+93,357,"Benzoni and Priestley 1994, NR1",1
+94,358,"Benzoni and Priestley 1994, NR2",1
+95,359,"Hose et al., 1997, SRPH1",1
+96,360,"Vu et al. 1998, NH1",1
+97,361,"Vu et al. 1998, NH2",1
+98,362,"Vu et al. 1998, NH3",1
+99,363,"Vu et al. 1998, NH4",1
+100,364,"Vu et al. 1998, NH5",1
+101,365,"Vu et al. 1998, NH6",1
+102,366,"Kowalsky et al. 1996, FL1",0
+103,367,"Kowalsky et al. 1996, FL2",1
+104,368,"Kowalsky et al. 1996, FL3",1
+105,369,"Lehman et al. 1998, 415",1
+106,371,"Lehman et al. 1998, 1015",0
+107,372,"Lehman et al. 1998, 407",0
+108,373,"Lehman et al. 1998, 430",1
+109,374,"Calderone et al. 2000, 328",1
+110,375,"Calderone et al. 2000, 828",1
+111,376,"Calderone et al. 2000, 1028",0
+112,377,"Sritharan et al. 1995, IC1",1
+113,379,"Sritharan et al. 1995, IC3",1
+114,380,"Saatcioglu and Baingo 1999, RC1",1
+115,381,"Saatcioglu and Baingo 1999, RC2",1
+116,382,"Saatcioglu and Baingo 1999, RC3",1
+117,383,"Saatcioglu and Baingo 1999, RC4",1
+118,384,"Saatcioglu and Baingo 1999, RC6",1
+119,385,"Saatcioglu and Baingo 1999, RC7",1
+120,386,"Saatcioglu and Baingo 1999, RC8",1
+121,387,"Saatcioglu and Baingo 1999, RC9",1
+122,392,"Henry 1998, 415p",1
+123,393,"Henry 1998, 415s",1
+124,394,"Chai, Priestley, and Seible 1991, Test 3",1
+125,395,"Soderstrom 2001,C1",1
+126,396,"Soderstrom 2001,C2",1
+127,397,"Soderstrom 2001,C3",1
+128,398,"Soderstrom 2001,C4",1
+129,399,"Graff, 2001,C5",1
+130,400,"Graff, 2001,C6",1
+131,401,"Graff, 2001,C7",1
+132,402,"Graff, 2001,C8",1
+133,404,"Kowalsky and Moyer, 2001, 2",0
+134,407,"Coffman et al. 1993, Column 1",0
+135,408,"Hamilton, 2002, UCI1",1
+136,409,"Hamilton, 2002, UCI2",0
+137,410,"Hamilton, 2002, UCI3",0
+138,411,"Hamilton, 2002, UCI4",0
+139,412,"Hamilton, 2002, UCI5",1
+140,413,"Hamilton, 2002, UCI6",0
+141,414,"McDaniel, 1997, S1",1
+142,415,"McDaniel, 1997, S1-2",1
+143,416,"McDaniel, 1997, S2",1
