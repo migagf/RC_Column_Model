@@ -11,6 +11,6 @@ This is a readme file for the RC Column Model process
 
     The result will be a file:
     "data_spiral_wnd.csv" which will contain both, the raw data for each of the spiral colums, and 6 additional values, corresponding 
-    to the non-dimensional parameters.
+    to the non-dimensional parameters. It will also save the name of the test, to keep track of it.
 
 (3) 

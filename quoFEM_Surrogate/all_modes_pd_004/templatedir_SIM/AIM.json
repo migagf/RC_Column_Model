@@ -1,0 +1,170 @@
+{
+    "Applications": {
+        "UQ": {
+            "Application": "SimCenter-UQ",
+            "ApplicationData": {
+            }
+        }
+    },
+    "EDP": [
+        {
+            "length": 1,
+            "name": "eta_1",
+            "type": "scalar"
+        },
+        {
+            "length": 1,
+            "name": "kappa_k",
+            "type": "scalar"
+        },
+        {
+            "length": 1,
+            "name": "kappa",
+            "type": "scalar"
+        },
+        {
+            "length": 1,
+            "name": "sig",
+            "type": "scalar"
+        },
+        {
+            "length": 1,
+            "name": "lam",
+            "type": "scalar"
+        },
+        {
+            "length": 1,
+            "name": "mup",
+            "type": "scalar"
+        },
+        {
+            "length": 1,
+            "name": "sigp",
+            "type": "scalar"
+        },
+        {
+            "length": 1,
+            "name": "rsmax",
+            "type": "scalar"
+        },
+        {
+            "length": 1,
+            "name": "n",
+            "type": "scalar"
+        },
+        {
+            "length": 1,
+            "name": "alpha",
+            "type": "scalar"
+        },
+        {
+            "length": 1,
+            "name": "alpha1",
+            "type": "scalar"
+        },
+        {
+            "length": 1,
+            "name": "alpha2",
+            "type": "scalar"
+        },
+        {
+            "length": 1,
+            "name": "betam1",
+            "type": "scalar"
+        },
+        {
+            "length": 1,
+            "name": "gamma",
+            "type": "scalar"
+        }
+    ],
+    "FEM": {
+    },
+    "UQ": {
+        "surrogateMethodInfo": {
+            "advancedOpt": false,
+            "inpFile": "C:/Users/Miguel.MIGUEL-DESK/Documents/GitHub/RC_Column_Model/quoFEM_Surrogate/all_modes_pd_004/input_train.txt",
+            "kernel": "Radial Basis",
+            "linear": false,
+            "logTransform": false,
+            "method": "Import Data File",
+            "nuggetOpt": "Optimize",
+            "nuggetString": "NA",
+            "outFile": "C:/Users/Miguel.MIGUEL-DESK/Documents/GitHub/RC_Column_Model/quoFEM_Surrogate/all_modes_pd_004/output_train.txt",
+            "outputData": true,
+            "parallelExecution": true
+        },
+        "uqType": "Train GP Surrogate Model"
+    },
+    "WorkflowType": "Building Simulation",
+    "localAppDir": "C:/Program Files/SimCenter/quoFEM",
+    "randomVariables": [
+        {
+            "distribution": "",
+            "inputType": "Parameters",
+            "lowerbound": 0,
+            "name": "RV_column1",
+            "refCount": 2,
+            "upperbound": 0,
+            "value": "RV.RV_column1",
+            "variableClass": "NA"
+        },
+        {
+            "distribution": "",
+            "inputType": "Parameters",
+            "lowerbound": 0,
+            "name": "RV_column2",
+            "refCount": 2,
+            "upperbound": 0,
+            "value": "RV.RV_column2",
+            "variableClass": "NA"
+        },
+        {
+            "distribution": "",
+            "inputType": "Parameters",
+            "lowerbound": 0,
+            "name": "RV_column3",
+            "refCount": 2,
+            "upperbound": 0,
+            "value": "RV.RV_column3",
+            "variableClass": "NA"
+        },
+        {
+            "distribution": "",
+            "inputType": "Parameters",
+            "lowerbound": 0,
+            "name": "RV_column4",
+            "refCount": 2,
+            "upperbound": 0,
+            "value": "RV.RV_column4",
+            "variableClass": "NA"
+        },
+        {
+            "distribution": "",
+            "inputType": "Parameters",
+            "lowerbound": 0,
+            "name": "RV_column5",
+            "refCount": 2,
+            "upperbound": 0,
+            "value": "RV.RV_column5",
+            "variableClass": "NA"
+        },
+        {
+            "distribution": "",
+            "inputType": "Parameters",
+            "lowerbound": 0,
+            "name": "RV_column6",
+            "refCount": 2,
+            "upperbound": 0,
+            "value": "RV.RV_column6",
+            "variableClass": "NA"
+        }
+    ],
+    "remoteAppDir": "C:/Program Files/SimCenter/quoFEM",
+    "resultType": "SimCenterUQResultsSampling",
+    "runDir": "C:/Users/Miguel.MIGUEL-DESK/Documents/quoFEM/LocalWorkDir/tmp.SimCenter",
+    "runType": "runningLocal",
+    "summary": [
+    ],
+    "workingDir": "C:/Users/Miguel.MIGUEL-DESK/Documents/quoFEM/LocalWorkDir"
+}
