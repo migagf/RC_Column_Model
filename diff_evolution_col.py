@@ -347,8 +347,8 @@ def run_model(ModelParams, test_data, show_plots=False):
 
 
 if __name__ == "__main__":
-    maxID = 100
-    fullrange = range(1, maxID + 1)
+    maxID = 417
+    fullrange = range(155, maxID + 1)
 
     for id in fullrange:
         test_id = str(id).zfill(3)
@@ -406,7 +406,7 @@ if __name__ == "__main__":
                 (0.01, 1.0),  # rsmax [0.01, 1.0] Pinching parameter
                 (1.0, 10),    # n [1.0, 10.0] Exponent
                 (0.0, 0.05),  # alpha [0.0, 0.05] Post yield stiffness
-                (0.1, 10),    # alpha1 [0.5, 10.0] Stiffness degradation
+                (0.01, 10),    # alpha1 [0.5, 10.0] Stiffness degradation
                 (0.01, 2.0),  # alpha2 [0.01, 2.0] Shape control
                 (0.0, 0.05),  # betam1 [0.0, 0.05] Strength degradation
                 (0.1, 1.0)    # gamma [0.1, 1.0] Elastic stiffness modifier
@@ -418,7 +418,7 @@ if __name__ == "__main__":
 
             # Run the optimization and time it
             start_time = time.time()
-            optimum = differential_evolution(get_residual, args=(test_data, False), bounds=bounds, maxiter=10, popsize=32, disp=True, workers=64, polish=False)
+            optimum = differential_evolution(get_residual, args=(test_data, False), bounds=bounds, maxiter=10, popsize=64, disp=True, workers=24, polish=False)
             end_time = time.time()
 
             print(optimum.x)
