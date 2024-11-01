@@ -591,7 +591,8 @@ def main(params_dir,surrogate_dir,json_dir,result_file,input_json):
             y_pred_var_tmp_tmp = np.squeeze(y_pred_var_tmp_tmp)
         y_pred_var_tmp[:, ny] = y_pred_var_tmp_tmp
         y_pred_var_m_tmp[:, ny] = y_pred_var_tmp_tmp + np.squeeze(nugget_var_list[ny])
-        y_samp_tmp = np.random.normal(y_pred_median_tmp, np.sqrt(y_pred_var_m_tmp[:, ny]))
+        # Here i'm doing stuff
+        y_samp_tmp = np.random.normal(y_pred_median_tmp, np.sqrt(0.1*y_pred_var_m_tmp[:, ny]))
 
         if did_logtransform:
             y_pred_median[:,ny]= np.exp(y_pred_median_tmp)
@@ -851,7 +852,7 @@ def main(params_dir,surrogate_dir,json_dir,result_file,input_json):
 
     #error_file.close()
     file_object.close()
-    return y_pred_median
+    return y_pred_subset
 
 def predict(m, X, did_mf):
 
