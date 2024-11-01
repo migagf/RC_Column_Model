@@ -106,7 +106,7 @@ def main(params_dir,surrogate_dir,json_dir,result_file,input_json):
     when_inaccurate = inp_fem["femOption"]
     do_mf = inp_tmp
     print(sampNum)
-    np.random.seed(int(inp_fem["gpSeed"])+int(sampNum))
+    # np.random.seed(int(inp_fem["gpSeed"])+int(sampNum))
 
     # sampNum=0
 

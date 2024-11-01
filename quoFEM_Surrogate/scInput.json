@@ -88,7 +88,7 @@
     ],
     "FEM": {
         "femOption": "continue",
-        "gpSeed": 1,
+        "gpSeed": 2,
         "predictionOption": "Random sample under prediction uncertainty",
         "varThres": 0.02
     },
@@ -97,7 +97,7 @@
             "RVdataGroup": "",
             "method": "Monte Carlo",
             "samples": 1,
-            "seed": 308
+            "seed": 500
         },
         "uqType": "Forward Propagation"
     },

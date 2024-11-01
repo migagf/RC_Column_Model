@@ -246,11 +246,16 @@ def get_residual(ModelParams, test_data, show_plots=False):
     return residual
 
 
-def run_model(ModelParams, test_data, show_plots=False):
+def run_model(ModelParams, test_data):
     '''
-    Compute the residual between the model and the experimental data
+    Run model and compute the residual between the experimental and the numerical data
+    for both the force and the energy
     
     '''
+    # Define the max drift ratio for analysis
+    peak_dr = 0.05
+    
+    # Get model parameters from ModelParams list
     eta1 = ModelParams[0]
     kappa_k = ModelParams[1]
     kappa = ModelParams[2]
@@ -294,10 +299,17 @@ def run_model(ModelParams, test_data, show_plots=False):
     
     # Define the strains for the pushover analysis
     strains = np.array(test_data["data"]["disp"])
+    
+    # Cut the strains up to 5% drift ratio
+    index = np.array(np.where(np.abs(strains) >= peak_dr * L))
 
-    #print(len(strains))
-    #strains = interpolator(strains, npts)
-    # print(len(strains))
+    # Check if index is empty
+    if index.size == 0:
+        index_min = len(strains)
+    else:
+        index_min = np.min(index)
+
+    strains = strains[0:index_min]
 
     # Define cycles for pushover
     #t0 = time.time()
@@ -306,49 +318,22 @@ def run_model(ModelParams, test_data, show_plots=False):
 
     # print('Finished... Run Time = ', t1-t0, 'sec')
     force_exp = 1000 * np.array(test_data["data"]["force"])
-    peak_force = np.max(force_exp)
 
+    # Cut the vector of forces so it has the same length as the strains
+    force_exp = force_exp[0:index_min] 
 
-    # Sub-sample force_exp and force_model to 10% of the total length
-    npts = len(strains)
-    red_npts = int(0.1 * npts)
-
-    force_model_int = interpolator(force_model, red_npts) / peak_force
-    force_exp_int = interpolator(force_exp, red_npts) / peak_force
-
-    #if show_plots:
-    #    plt.figure()
-    #    plt.plot(force_exp_int, 'k.', label='Experimental')
-    #    plt.plot(force_model_int, 'r.', label='Model')
-    #    plt.savefig(os.getcwd() + r'/plots/force_test'+str(test_id).zfill(3)+'.pdf')
-    #    plt.close()
-
+    peak_force_exp = np.max(np.abs(force_exp))
+    peak_force_model = np.max(np.abs(force_model))
     # residual = compute_error(force_exp_int, force_model_int)
-    model_data = {"disp": strains, "force": force_model}
-    exp_data = {"disp": strains, "force": force_exp}
+    model_data = {"disp": np.array(strains) / L, "force": np.array(force_model) / peak_force_model}
+    exp_data = {"disp": np.array(strains) / L, "force": np.array(force_exp) / peak_force_exp}
 
-    residual = compute_loss(model_data, exp_data, type='all')
-
-    if show_plots:     
-        plt.plot(100 * np.array(test_data["data"]["disp"])/L, force_exp/peak_force, 'b--', label='exp')
-        plt.plot(100 * np.array(strains)/L, np.array(force_model)/peak_force, 'r-', linewidth=0.75, label='model')
-        plt.xlabel('Drift Ratio (%)')
-        plt.ylabel('Lateral Force')
-        plt.legend()
-        plt.grid()
-        # plt.show()
-        #plt.savefig(os.getcwd() + r'/plots/plot_test'+str(test_id).zfill(3)+'.pdf')
-        #plt.close()
-
-    # Save the response into response.out
-    force = np.array(force_model)/1000
-
-    return force
+    return model_data, exp_data
 
 
 if __name__ == "__main__":
     maxID = 417
-    fullrange = range(155, maxID + 1)
+    fullrange = range(162, maxID + 1)
 
     for id in fullrange:
         test_id = str(id).zfill(3)
@@ -418,7 +403,7 @@ if __name__ == "__main__":
 
             # Run the optimization and time it
             start_time = time.time()
-            optimum = differential_evolution(get_residual, args=(test_data, False), bounds=bounds, maxiter=10, popsize=64, disp=True, workers=24, polish=False)
+            optimum = differential_evolution(get_residual, args=(test_data, False), bounds=bounds, maxiter=8, popsize=32, disp=True, workers=26, polish=False)
             end_time = time.time()
 
             print(optimum.x)
