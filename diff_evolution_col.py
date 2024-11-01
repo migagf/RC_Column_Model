@@ -333,7 +333,7 @@ def run_model(ModelParams, test_data):
 
 if __name__ == "__main__":
     maxID = 417
-    fullrange = range(162, maxID + 1)
+    fullrange = range(232, maxID + 1)
 
     for id in fullrange:
         test_id = str(id).zfill(3)
@@ -403,7 +403,7 @@ if __name__ == "__main__":
 
             # Run the optimization and time it
             start_time = time.time()
-            optimum = differential_evolution(get_residual, args=(test_data, False), bounds=bounds, maxiter=8, popsize=32, disp=True, workers=26, polish=False)
+            optimum = differential_evolution(get_residual, args=(test_data, False), bounds=bounds, maxiter=8, popsize=32, disp=True, workers=15, polish=False)
             end_time = time.time()
 
             print(optimum.x)
