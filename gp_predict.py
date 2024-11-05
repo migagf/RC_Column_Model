@@ -85,7 +85,7 @@ def main(params_dir,surrogate_dir,json_dir,result_file,input_json):
     #     error_exit(msg)
 
 
-    print(dakota_path)
+    # print(dakota_path)
     with open(dakota_path) as f: # current input file
         try:
             inp_tmp = json.load(f)
@@ -105,7 +105,7 @@ def main(params_dir,surrogate_dir,json_dir,result_file,input_json):
     norm_var_thr = inp_fem["varThres"]
     when_inaccurate = inp_fem["femOption"]
     do_mf = inp_tmp
-    print(sampNum)
+    # print(sampNum)
     # np.random.seed(int(inp_fem["gpSeed"])+int(sampNum))
 
     # sampNum=0
@@ -591,8 +591,9 @@ def main(params_dir,surrogate_dir,json_dir,result_file,input_json):
             y_pred_var_tmp_tmp = np.squeeze(y_pred_var_tmp_tmp)
         y_pred_var_tmp[:, ny] = y_pred_var_tmp_tmp
         y_pred_var_m_tmp[:, ny] = y_pred_var_tmp_tmp + np.squeeze(nugget_var_list[ny])
-        # Here i'm doing stuff
-        y_samp_tmp = np.random.normal(y_pred_median_tmp, np.sqrt(0.1*y_pred_var_m_tmp[:, ny]))
+
+        # Here is where the sampling is done (can change variance)
+        y_samp_tmp = np.random.normal(y_pred_median_tmp, np.sqrt(y_pred_var_m_tmp[:, ny]))
 
         if did_logtransform:
             y_pred_median[:,ny]= np.exp(y_pred_median_tmp)
@@ -852,7 +853,7 @@ def main(params_dir,surrogate_dir,json_dir,result_file,input_json):
 
     #error_file.close()
     file_object.close()
-    return y_pred_subset
+    return y_pred_median, y_pred_var_m_tmp
 
 def predict(m, X, did_mf):
 
