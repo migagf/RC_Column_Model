@@ -331,7 +331,30 @@ def run_model(ModelParams, test_data):
     return model_data, exp_data
 
 
+def smooth_data(non_smoothed_data, npts=10, do_plots=False):
+    '''
+    Smooth the data using a moving average of npts
+    '''
+    # Get the force and displacement data
+    force = np.array(non_smoothed_data["force"])
+    disp = np.array(non_smoothed_data["disp"])
+
+    # Smooth the data using a moving average
+    force_smoothed = np.convolve(force, np.ones((npts,))/npts, mode='valid')
+    disp_smoothed = np.convolve(disp, np.ones((npts,))/npts, mode='valid')
+
+    # Plot the smoothed data and the original data
+    if do_plots:
+        plt.figure()
+        plt.plot(disp, force, 'k-', linewidth=0.5)
+        plt.plot(disp_smoothed, force_smoothed, 'r--', linewidth=0.5)
+        plt.show()
+
+    return {"disp": disp_smoothed, "force": force_smoothed}
+
 if __name__ == "__main__":
+    # Run the calibrations for all tests
+
     maxID = 417
     fullrange = range(241, maxID + 1)
 
@@ -350,6 +373,9 @@ if __name__ == "__main__":
             with open(os.path.join(os.getcwd(), 'test_file.json')) as file:
                 test_data = json.load(file)
             
+            # Smooth the data using a moving average
+            test_data["data"] = smooth_data(test_data["data"], npts=20, do_plots=True)
+
             # Get number of points in the calibration data file
             #with open(calfilesdir + '/cal_' + str(testid).zfill(3) + '.csv') as file:
             #with open(os.path.join(os.getcwd(), 'cal_file.csv')) as file:
