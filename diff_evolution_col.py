@@ -186,9 +186,7 @@ def get_residual(ModelParams, test_data, show_plots=False):
         index_min = np.min(index)
 
     strains = strains[0:index_min]
-    
-    #print(len(strains))
-    #strains = interpolator(strains, npts)
+
     # print(len(strains))
 
     # Define cycles for pushover
@@ -338,28 +336,79 @@ def smooth_data(non_smoothed_data, npts=10, do_plots=False):
     # Get the force and displacement data
     force = np.array(non_smoothed_data["force"])
     disp = np.array(non_smoothed_data["disp"])
+    # Start displacement and force at 0
+    disp = disp - disp[0]
+    force = force - force[0]
 
+    # Reduce the number of points in the data
+    print('Original length', len(disp))
+
+    # Count number of cycles as number of crosses per zero displacement
+    indicator = disp[0:-1] * disp[1:] < 0
+    nzeros = np.sum(indicator)
+
+    # Use 10 times the number of zeros as the number of points for the pushover
+    disp = interpolator(disp, 100*nzeros)
+    force = interpolator(force, 100*nzeros)
+
+    print('Final length', len(disp))
+    
     # Smooth the data using a moving average
     force_smoothed = np.convolve(force, np.ones((npts,))/npts, mode='valid')
     disp_smoothed = np.convolve(disp, np.ones((npts,))/npts, mode='valid')
+    
+    # Delete first npts - 1 points
+    disp_smoothed = disp_smoothed[npts - 1:]
+    force_smoothed = force_smoothed[npts - 1:]
+
+    # Delete initial values for which force is less than 0.5% of the peak force
+    peak_force = np.max(force_smoothed)
+    index = np.array(np.where(force_smoothed >= 0.005 * peak_force))
+    index_min = np.min(index)
+    disp_smoothed = disp_smoothed[index_min:]
+    force_smoothed = force_smoothed[index_min:]
+
+    # Start displacement and force at 0
+    disp_smoothed = (disp_smoothed - disp_smoothed[0]).tolist()
+    force_smoothed = (force_smoothed - force_smoothed[0]).tolist()
 
     # Plot the smoothed data and the original data
     if do_plots:
         plt.figure()
-        plt.plot(disp, force, 'k-', linewidth=0.5)
-        plt.plot(disp_smoothed, force_smoothed, 'r--', linewidth=0.5)
+        plt.plot(disp, force, 'k-', linewidth=0.1)
+        plt.plot(disp_smoothed, force_smoothed, 'r-', linewidth=2.0)
         plt.show()
 
     return {"disp": disp_smoothed, "force": force_smoothed}
+
+
+def send_email(message):
+    '''
+    Send an email with the message to my bot in Telegram
+    '''
+    import requests
+    # Get token from file
+    with open(r"C:\Users\Miguel.MIGUEL-DESK\Documents\myfile.txt") as f:
+        token = f.read()
+
+    url = f"https://api.telegram.org/bot{token}"
+    params = {"chat_id": "7619956282", "text": message}
+    r = requests.get(url + "/sendMessage", params=params)
+
 
 if __name__ == "__main__":
     # Run the calibrations for all tests
 
     maxID = 417
     fullrange = range(241, maxID + 1)
+    
+    # Smoothing started at 241
 
     for id in fullrange:
+
         test_id = str(id).zfill(3)
+        send_email(f"Starting test ID {test_id}")
+
         try:
             # Copy the test file
             shutil.copyfile(os.path.join(test_files_dir, f'test_{test_id}.json'), os.path.join(model_files_dir, 'test_file.json'))
@@ -373,9 +422,18 @@ if __name__ == "__main__":
             with open(os.path.join(os.getcwd(), 'test_file.json')) as file:
                 test_data = json.load(file)
             
-            # Smooth the data using a moving average
-            test_data["data"] = smooth_data(test_data["data"], npts=20, do_plots=True)
+            # Smooth the data using a moving average            
+            smoothed_data = smooth_data(test_data["data"], npts=20, do_plots=True)
+            
+            # Visual check
+            is_good = input("Is the data good? (yes/no): ")
 
+            while is_good != 'yes':
+                npts = int(input("Enter the number of points for the moving average: "))
+                smoothed_data = smooth_data(test_data["data"], npts=npts, do_plots=True)
+                is_good = input("Is the data good? (yes/no): ")
+
+            test_data["data"] = smoothed_data
             # Get number of points in the calibration data file
             #with open(calfilesdir + '/cal_' + str(testid).zfill(3) + '.csv') as file:
             #with open(os.path.join(os.getcwd(), 'cal_file.csv')) as file:
@@ -431,7 +489,8 @@ if __name__ == "__main__":
             start_time = time.time()
             optimum = differential_evolution(get_residual, args=(test_data, False), bounds=bounds, maxiter=8, popsize=32, disp=True, workers=20, polish=False)
             end_time = time.time()
-
+            
+            send_email(f"Finished test ID {test_id} in {end_time - start_time} seconds")
             print(optimum.x)
             get_residual(optimum.x, test_data, show_plots=True)
             
@@ -459,5 +518,7 @@ if __name__ == "__main__":
 
         except Exception as e:
             print(f"Error processing test ID {test_id}: {e}")
+            send_email(f"Error processing test ID {test_id}: {e}")
+
             continue
 

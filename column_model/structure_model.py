@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import time
 
 g = 386
 
@@ -321,7 +322,7 @@ def run_pushover(model, disp, plot=False, show_info=False):
         
         iters = 0
         
-        while err > 1.0e-6 and iters < 20:
+        while err > 1.0e-6 and iters < 100:
             
             # Define u from state determination
             u_trial = np.array([u_target, x[1], x[2]])
@@ -333,7 +334,7 @@ def run_pushover(model, disp, plot=False, show_info=False):
             
             Pu = x[0] * Pref - pr
             
-            dPu = np.array([[1, 0, 0],[0, -kt[1,1], -kt[1,2]],[0, -kt[2,1], -kt[2,2]]])
+            dPu = np.array([[1, 0, 0], [0, -kt[1,1], -kt[1,2]],[0, -kt[2,1], -kt[2,2]]])
             
             x =  x - np.linalg.inv(dPu) @ Pu
             
