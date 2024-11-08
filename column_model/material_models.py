@@ -575,7 +575,7 @@ class deg_bw_material_mod():
                 if B < 1.0e-20:
                     B = 1.0e-20
     
-                ks = ((1 / np.sqrt(2 * np.pi)) * (s / stress_sig) * B) ** (-1)  
+                ks = min(((1 / np.sqrt(2 * np.pi)) * (s / stress_sig) * B) ** (-1), 1000)  
                 kr = (kh * ks) / (kh + ks)
                 f = kr * dstrain - Tz + stress_st
                 

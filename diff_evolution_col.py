@@ -5,6 +5,7 @@ Created on Wed Jul 17 18:20:55 2024
 
 @author: miguelgomez
 """
+notifications = True
 
 import os
 import numpy as np
@@ -132,7 +133,7 @@ def get_residual(ModelParams, test_data, show_plots=False):
     
     '''
     peak_dr = 0.05   # Max drift ratio of analysis
-
+    
     eta1 = ModelParams[0]
     kappa_k = ModelParams[1]
     kappa = ModelParams[2]
@@ -211,10 +212,10 @@ def get_residual(ModelParams, test_data, show_plots=False):
 
         plt.figure()
         plt.plot(force_exp_int, 'k.', label='Experimental')
-        plt.plot(force_model_int, 'r.', label='Model')
+        # plt.plot(force_model_int, 'r.', label='Model')
         # plt.show()
         plt.savefig(os.getcwd() + r'/plots/force_test'+str(test_id).zfill(3)+'.pdf')
-        plt.close()
+        #plt.close()
 
     # residual = compute_error(force_exp_int, force_model_int)
     model_data = {"disp": strains, "force": force_model}
@@ -230,7 +231,7 @@ def get_residual(ModelParams, test_data, show_plots=False):
         plt.ylabel('Lateral Force')
         plt.legend()
         plt.grid()
-        #plt.show()
+        # plt.show()
         plt.savefig(os.getcwd() + r'/plots/plot_test'+str(test_id).zfill(3)+'.pdf')
         plt.close()
 
@@ -329,13 +330,14 @@ def run_model(ModelParams, test_data):
     return model_data, exp_data
 
 
-def smooth_data(non_smoothed_data, npts=10, do_plots=False):
+def smooth_data(non_smoothed_data, npts=5, do_plots=False):
     '''
     Smooth the data using a moving average of npts
     '''
     # Get the force and displacement data
     force = np.array(non_smoothed_data["force"])
     disp = np.array(non_smoothed_data["disp"])
+
     # Start displacement and force at 0
     disp = disp - disp[0]
     force = force - force[0]
@@ -343,40 +345,52 @@ def smooth_data(non_smoothed_data, npts=10, do_plots=False):
     # Reduce the number of points in the data
     print('Original length', len(disp))
 
+    # Delete initial values for which force is less than 1.0% of the peak force
+    peak_force = np.max(force)
+
+    index = np.array(np.where(force >= 0.01 * peak_force))
+    index_min = np.min(index)
+    disp = disp[index_min:]
+    force = force[index_min:]
+    
     # Count number of cycles as number of crosses per zero displacement
     indicator = disp[0:-1] * disp[1:] < 0
+    
     nzeros = np.sum(indicator)
 
-    # Use 10 times the number of zeros as the number of points for the pushover
-    disp = interpolator(disp, 100*nzeros)
-    force = interpolator(force, 100*nzeros)
+    # Use 25 times the number of zeros as the number of points for the pushover
+    disp = interpolator(disp, 25*nzeros)
+    force = interpolator(force, 25*nzeros)
 
     print('Final length', len(disp))
     
     # Smooth the data using a moving average
-    force_smoothed = np.convolve(force, np.ones((npts,))/npts, mode='valid')
-    disp_smoothed = np.convolve(disp, np.ones((npts,))/npts, mode='valid')
+    force_smoothed = np.convolve(force, np.ones((npts,))/npts, mode='same')
+    disp_smoothed = np.convolve(disp, np.ones((npts,))/npts, mode='same')
     
     # Delete first npts - 1 points
     disp_smoothed = disp_smoothed[npts - 1:]
     force_smoothed = force_smoothed[npts - 1:]
 
-    # Delete initial values for which force is less than 0.5% of the peak force
-    peak_force = np.max(force_smoothed)
-    index = np.array(np.where(force_smoothed >= 0.005 * peak_force))
-    index_min = np.min(index)
-    disp_smoothed = disp_smoothed[index_min:]
-    force_smoothed = force_smoothed[index_min:]
-
     # Start displacement and force at 0
-    disp_smoothed = (disp_smoothed - disp_smoothed[0]).tolist()
-    force_smoothed = (force_smoothed - force_smoothed[0]).tolist()
+    #disp_smoothed = (disp_smoothed - 0*disp_smoothed[0]).tolist()
+    #force_smoothed = (force_smoothed - 0*force_smoothed[0]).tolist()
+    # Add zero at the beggining of disp_smoothed and force_smoothed
+    # Center the displacements
+    
+    # Initial stiffness
+    ini_st = (force_smoothed[1] - force_smoothed[0]) / (disp_smoothed[1] - disp_smoothed[0])
+    disp_smoothed = disp_smoothed - force_smoothed[0] / ini_st
+
+    disp_smoothed = np.insert(disp_smoothed, 0, 0)
+    force_smoothed = np.insert(force_smoothed, 0, 0)
 
     # Plot the smoothed data and the original data
     if do_plots:
         plt.figure()
         plt.plot(disp, force, 'k-', linewidth=0.1)
-        plt.plot(disp_smoothed, force_smoothed, 'r-', linewidth=2.0)
+        plt.plot(disp_smoothed, force_smoothed, 'r-', linewidth=1.0)
+        plt.grid()
         plt.show()
 
     return {"disp": disp_smoothed, "force": force_smoothed}
@@ -400,14 +414,16 @@ if __name__ == "__main__":
     # Run the calibrations for all tests
 
     maxID = 417
-    fullrange = range(241, maxID + 1)
+    fullrange = range(242, maxID + 1)
     
     # Smoothing started at 241
 
     for id in fullrange:
 
         test_id = str(id).zfill(3)
-        send_email(f"Starting test ID {test_id}")
+
+        if notifications:
+            send_email(f"Starting test ID {test_id}")
 
         try:
             # Copy the test file
@@ -423,7 +439,7 @@ if __name__ == "__main__":
                 test_data = json.load(file)
             
             # Smooth the data using a moving average            
-            smoothed_data = smooth_data(test_data["data"], npts=20, do_plots=True)
+            smoothed_data = smooth_data(test_data["data"], npts=5, do_plots=True)
             
             # Visual check
             is_good = input("Is the data good? (yes/no): ")
@@ -443,6 +459,7 @@ if __name__ == "__main__":
 
             test_data["data"] = get_effective_force(test_data)
             
+
             # ModelParams = [eta1, kappa_k, kappa, sig, lam, mup, sigp, rsmax, n, alpha, alpha1, alpha2, betam1]
             parameters = np.array([
                 1.0, # eta1 [0.1, 10.0] Shape control
@@ -487,7 +504,7 @@ if __name__ == "__main__":
 
             # Run the optimization and time it
             start_time = time.time()
-            optimum = differential_evolution(get_residual, args=(test_data, False), bounds=bounds, maxiter=8, popsize=32, disp=True, workers=20, polish=False)
+            optimum = differential_evolution(get_residual, args=(test_data, False), bounds=bounds, maxiter=10, popsize=32, disp=True, workers=32, polish=False)
             end_time = time.time()
             
             send_email(f"Finished test ID {test_id} in {end_time - start_time} seconds")
@@ -515,10 +532,12 @@ if __name__ == "__main__":
 
             with open(os.getcwd() + '/cals_dr_005/test_'+str(test_id).zfill(3)+'.json', 'w') as f:
                 json.dump(test_data, f, indent=4)
-
+        
         except Exception as e:
             print(f"Error processing test ID {test_id}: {e}")
-            send_email(f"Error processing test ID {test_id}: {e}")
+            
+            if notifications:
+                send_email(f"Error processing test ID {test_id}: {e}")
 
             continue
-
+        
