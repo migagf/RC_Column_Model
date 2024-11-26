@@ -153,7 +153,7 @@ def get_residual(ModelParams, test_data, show_plots=False):
     E, I, L = get_elastic_properties(test_data)
     
     # Stiffness and strength of the plastic hinge
-    stiffness =  5 * 3 * E * I / L   # kN-mm
+    stiffness =  10 * 3 * E * I / L   # kN-mm
     strength = 1000 * np.max(test_data["data"]["force"]) * L
     
     # Stiffness and strength of the plastic hinge (no need to update)
@@ -212,7 +212,7 @@ def get_residual(ModelParams, test_data, show_plots=False):
 
         plt.figure()
         plt.plot(force_exp_int, 'k.', label='Experimental')
-        # plt.plot(force_model_int, 'r.', label='Model')
+        plt.plot(force_model_int, 'r.', label='Model')
         # plt.show()
         plt.savefig(os.getcwd() + r'/plots/force_test'+str(test_id).zfill(3)+'.pdf')
         #plt.close()
@@ -233,7 +233,7 @@ def get_residual(ModelParams, test_data, show_plots=False):
         plt.grid()
         # plt.show()
         plt.savefig(os.getcwd() + r'/plots/plot_test'+str(test_id).zfill(3)+'.pdf')
-        plt.close()
+        # plt.close()
 
     # Save the response into response.out
     # force = np.array(force_model)/1000
@@ -274,7 +274,7 @@ def run_model(ModelParams, test_data):
     E, I, L = get_elastic_properties(test_data)
     
     # Stiffness and strength of the plastic hinge
-    stiffness =  3 * E * I / L   # kN-mm
+    stiffness =  10 * 3 * E * I / L   # kN-mm
     strength = 1000 * np.max(test_data["data"]["force"]) * L
     
     # Stiffness and strength of the plastic hinge (no need to update)
@@ -341,9 +341,19 @@ def smooth_data(non_smoothed_data, npts=5, do_plots=False):
     # Start displacement and force at 0
     disp = disp - disp[0]
     force = force - force[0]
-
+    
     # Reduce the number of points in the data
     print('Original length', len(disp))
+    
+    # Count number of cycles as number of crosses per zero displacement
+    indicator = disp[0:-1] * disp[1:] < 0
+    nzeros = np.sum(indicator)
+
+    # Use 25 times the number of zeros as the number of points for the pushover
+    disp = interpolator(disp, 25*nzeros)
+    force = interpolator(force, 25*nzeros)
+
+    print('Final length', len(disp))
 
     # Delete initial values for which force is less than 1.0% of the peak force
     peak_force = np.max(force)
@@ -352,18 +362,7 @@ def smooth_data(non_smoothed_data, npts=5, do_plots=False):
     index_min = np.min(index)
     disp = disp[index_min:]
     force = force[index_min:]
-    
-    # Count number of cycles as number of crosses per zero displacement
-    indicator = disp[0:-1] * disp[1:] < 0
-    
-    nzeros = np.sum(indicator)
-
-    # Use 25 times the number of zeros as the number of points for the pushover
-    disp = interpolator(disp, 25*nzeros)
-    force = interpolator(force, 25*nzeros)
-
-    print('Final length', len(disp))
-    
+        
     # Smooth the data using a moving average
     force_smoothed = np.convolve(force, np.ones((npts,))/npts, mode='same')
     disp_smoothed = np.convolve(disp, np.ones((npts,))/npts, mode='same')
@@ -382,8 +381,8 @@ def smooth_data(non_smoothed_data, npts=5, do_plots=False):
     ini_st = (force_smoothed[1] - force_smoothed[0]) / (disp_smoothed[1] - disp_smoothed[0])
     disp_smoothed = disp_smoothed - force_smoothed[0] / ini_st
 
-    disp_smoothed = np.insert(disp_smoothed, 0, 0)
-    force_smoothed = np.insert(force_smoothed, 0, 0)
+    disp_smoothed = (np.insert(disp_smoothed, 0, 0)).tolist()
+    force_smoothed = (np.insert(force_smoothed, 0, 0)).tolist()
 
     # Plot the smoothed data and the original data
     if do_plots:
@@ -414,7 +413,7 @@ if __name__ == "__main__":
     # Run the calibrations for all tests
 
     maxID = 417
-    fullrange = range(242, maxID + 1)
+    fullrange = range(300, maxID + 1)
     
     # Smoothing started at 241
 
@@ -439,11 +438,11 @@ if __name__ == "__main__":
                 test_data = json.load(file)
             
             # Smooth the data using a moving average            
-            smoothed_data = smooth_data(test_data["data"], npts=5, do_plots=True)
+            smoothed_data = smooth_data(test_data["data"], npts=1, do_plots=False)
             
             # Visual check
-            is_good = input("Is the data good? (yes/no): ")
-
+            #is_good = input("Is the data good? (yes/no): ")
+            is_good = 'yes'
             while is_good != 'yes':
                 npts = int(input("Enter the number of points for the moving average: "))
                 smoothed_data = smooth_data(test_data["data"], npts=npts, do_plots=True)
@@ -463,7 +462,7 @@ if __name__ == "__main__":
             # ModelParams = [eta1, kappa_k, kappa, sig, lam, mup, sigp, rsmax, n, alpha, alpha1, alpha2, betam1]
             parameters = np.array([
                 1.0, # eta1 [0.1, 10.0] Shape control
-                5.0, # kappa_k [1.0, 10.0] Modifies the stiffness of the plastic hinge
+                1.0, # kappa_k [1.0, 10.0] Modifies the stiffness of the plastic hinge
                 1.0, # kappa [0.95, 1.05] Modifies the strength of the plastic hinge
                 0.6, # sig [0.02, 0.95] Pinching Parameter
                 0.6, # lam [0.02, 0.95] Pinching Parameter
@@ -483,8 +482,8 @@ if __name__ == "__main__":
             
             bounds = [
                 (0.5, 2.0),   # eta1 [0.1, 10.0] Shape control
-                (0.95, 1.05),  # kappa_k [1.0, 5.0] Modifies the stiffness of the plastic hinge
-                (0.95, 1.05), # kappa [0.95, 1.05] Modifies the strength of the plastic hinge
+                (0.10, 5.50),  # kappa_k [1.0, 5.0] Modifies the stiffness of the plastic hinge
+                (0.90, 1.10), # kappa [0.95, 1.05] Modifies the strength of the plastic hinge
                 (0.02, 0.95), # sig [0.02, 0.95] Pinching Parameter
                 (0.02, 0.95), # lam [0.02, 0.95] Pinching Parameter
                 (0.1, 10.0),   # mup [0.1, 5.0] Pinching parameter
@@ -504,13 +503,13 @@ if __name__ == "__main__":
 
             # Run the optimization and time it
             start_time = time.time()
-            optimum = differential_evolution(get_residual, args=(test_data, False), bounds=bounds, maxiter=10, popsize=32, disp=True, workers=32, polish=False)
+            optimum = differential_evolution(get_residual, args=(test_data, False), bounds=bounds, maxiter=10, popsize=64, disp=True, workers=32, polish=False)
             end_time = time.time()
             
-            send_email(f"Finished test ID {test_id} in {end_time - start_time} seconds")
-            print(optimum.x)
-            get_residual(optimum.x, test_data, show_plots=True)
             
+            print(optimum.x)
+            fin_res = get_residual(optimum.x, test_data, show_plots=True)
+            send_email(f"Finished test ID {test_id} in {end_time - start_time} seconds with residual {fin_res}")
             # Next lines are just for testing..
 
             #interpolated_force = interpolator(force, npts)

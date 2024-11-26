@@ -128,7 +128,9 @@ plt.show()
 
 
 nondim_params_all = df.iloc[:, 17:23]
-nondim_params_all.median()
+# nondim_params_all.median()
+
+
 
 # Now, lets generate a grid of values for nondimensional parameters 
 from tqdm import tqdm
