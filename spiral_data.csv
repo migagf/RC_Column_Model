@@ -1,164 +1,164 @@
-,id,name,type,testcf,pd,ft,axl,diam,l,fpc,fyl,fsul,fyt,fsut,dlb,nlb,cc,dsp,s
-0,254,"Davey 1975, No. 1",Spiral,Cantilever with Hammer Head,Feff provided,Flexure,380.0,500.0,2750.0,33.2,373.0,564.0,312.0,0,18.4,20.0,20.2,6.5,65.0
-1,255,"Davey 1975, No. 2",Spiral,Cantilever with Hammer Head,Feff provided,Flexure,380.0,500.0,1750.0,34.8,371.0,562.0,312.0,0,18.4,20.0,20.2,6.5,65.0
-2,256,"Davey 1975, No. 3",Spiral,Cantilever with Hammer Head,Feff provided,Flexure,380.0,500.0,3250.0,33.8,373.0,563.0,342.0,0,18.4,20.0,20.2,6.5,65.0
-3,257,"Munro et al. 1976, No. 1",Spiral,Cantilever with Hammer Head,Feff provided,Flexure,26.4,500.0,2730.0,40.0,305.0,411.0,389.0,0,18.4,20.0,20.2,8.0,34.0
-4,258,"Ng et al. 1978, No. 2",Spiral,Cantilever with Hammer Head,Feff provided,Flexure,16.9,250.0,1340.0,35.1,305.0,411.0,263.0,0,13.0,10.0,10.8,4.4,14.0
-5,259,"Ng et al. 1978, No. 3",Spiral,Cantilever with Hammer Head,Feff provided,Flexure,550.0,250.0,930.0,33.0,294.0,396.0,207.0,0,12.0,10.0,10.2,4.3,10.0
-6,260,"Ang et al. 1981, No. 1",Spiral,Double Ended,Shear provided,Flexure,680.0,400.0,1600.0,26.0,308.0,465.0,308.0,0,16.0,16.0,16.0,6.0,40.0
-7,261,"Ang et al 1981, No. 2",Spiral,Double Ended,Shear provided,Flexure,2111.0,400.0,1600.0,28.5,308.0,465.0,280.0,0,16.0,16.0,18.0,10.0,55.0
-8,262,"Potangaroa et al. 1979, No. 1",Spiral,Double Ended,Shear provided,Flexure,1920.0,600.0,1200.0,28.4,303.0,409.0,300.0,0,24.0,16.0,25.0,10.0,75.0
-9,263,"Potangaroa et al. 1979, No. 3",Spiral,Double Ended,Shear provided,Flexure-Shear,4300.0,600.0,1200.0,26.6,303.0,409.0,300.0,0,24.0,16.0,25.0,10.0,50.0
-10,264,"Potangaroa et al. 1979, No. 4",Spiral,Double Ended,Shear provided,Flexure,3785.0,600.0,1200.0,32.9,303.0,409.0,423.0,0,24.0,16.0,25.0,10.0,70.0
-11,265,"Potangaroa et al. 1979, No. 5A",Spiral,Double Ended,Shear provided,Flexure,3385.0,600.0,1200.0,32.5,307.0,414.0,280.0,0,24.0,16.0,28.0,16.0,55.0
-12,266,"Potangaroa et al. 1979, No. 5B",Spiral,Double Ended,Shear provided,Flexure,6770.0,600.0,1200.0,32.5,307.0,414.0,280.0,0,24.0,16.0,28.0,16.0,55.0
-13,267,"Ang et al. 1985, No. 1",Spiral,Cantilever with Flexible Base,Shear provided,Flexure-Shear,0.0,400.0,800.0,37.5,436.0,674.0,328.0,0,16.0,20.0,18.0,6.0,60.0
-14,268,"Ang et al. 1985, No. 2",Spiral,Cantilever with Flexible Base,Shear provided,Flexure-Shear,0.0,400.0,800.0,37.2,296.0,457.0,328.0,0,16.0,20.0,18.0,6.0,60.0
-15,269,"Ang et al. 1985, No. 3",Spiral,Cantilever with Flexible Base,Shear provided,Flexure-Shear,0.0,400.0,1000.0,36.0,436.0,674.0,328.0,0,16.0,20.0,18.0,6.0,60.0
-16,270,"Ang et al. 1985, No. 4",Spiral,Cantilever with Flexible Base,Shear provided,Shear,0.0,400.0,800.0,30.6,436.0,674.0,316.0,0,16.0,20.0,20.0,10.0,165.0
-17,271,"Ang et al. 1985, No. 5",Spiral,Cantilever with Flexible Base,Shear provided,Flexure-Shear,0.0,400.0,800.0,31.1,436.0,674.0,328.0,0,16.0,20.0,18.0,6.0,40.0
-18,272,"Ang et al. 1985, No. 6",Spiral,Cantilever with Flexible Base,Shear provided,Shear,0.0,400.0,600.0,30.1,436.0,674.0,328.0,0,16.0,20.0,18.0,6.0,60.0
-19,273,"Ang et al. 1985, No. 7",Spiral,Cantilever with Flexible Base,Shear provided,Shear,0.0,400.0,800.0,29.5,448.0,693.0,372.0,0,16.0,20.0,18.0,6.0,80.0
-20,274,"Ang et al. 1985, No. 8",Spiral,Cantilever with Flexible Base,Shear provided,Flexure-Shear,721.0,400.0,800.0,28.7,448.0,693.0,372.0,0,16.0,20.0,18.0,6.0,30.0
-21,275,"Ang et al. 1985, No. 9",Spiral,Cantilever with Flexible Base,Shear provided,Flexure,751.0,400.0,1000.0,29.9,448.0,693.0,372.0,0,16.0,20.0,18.0,6.0,30.0
-22,276,"Ang et al. 1985, No. 10",Spiral,Cantilever with Flexible Base,Shear provided,Flexure-Shear,784.0,400.0,800.0,31.2,448.0,693.0,332.0,0,16.0,20.0,21.0,12.0,120.0
-23,277,"Ang et al. 1985, No. 11",Spiral,Cantilever with Flexible Base,Shear provided,Flexure-Shear,751.0,400.0,800.0,29.9,448.0,693.0,372.0,0,16.0,20.0,18.0,6.0,60.0
-24,278,"Ang et al. 1985, No. 12",Spiral,Cantilever with Flexible Base,Shear provided,Flexure-Shear,359.0,400.0,600.0,28.6,436.0,674.0,328.0,0,16.0,20.0,18.0,6.0,30.0
-25,279,"Ang et al. 1985, No. 13",Spiral,Cantilever with Flexible Base,Shear provided,Flexure-Shear,455.0,400.0,800.0,36.2,436.0,679.0,326.0,0,16.0,20.0,18.0,6.0,30.0
-26,280,"Ang et al. 1985, No. 14",Spiral,Cantilever with Flexible Base,Shear provided,Flexure-Shear,0.0,400.0,800.0,33.7,424.0,671.0,326.0,0,24.0,9.0,18.0,6.0,60.0
-27,281,"Ang et al. 1985, No. 15",Spiral,Cantilever with Flexible Base,Shear provided,Flexure-Shear,0.0,400.0,800.0,34.8,436.0,679.0,326.0,0,16.0,12.0,18.0,6.0,60.0
-28,282,"Ang et al. 1985, No. 16",Spiral,Cantilever with Flexible Base,Shear provided,Shear,420.0,400.0,800.0,33.4,436.0,679.0,326.0,0,16.0,20.0,18.0,6.0,60.0
-29,283,"Ang et al. 1985, No. 17",Spiral,Cantilever with Flexible Base,Shear provided,Flexure-Shear,431.0,400.0,1000.0,34.3,436.0,679.0,326.0,0,16.0,20.0,18.0,6.0,60.0
-30,284,"Ang et al. 1985, No. 18",Spiral,Cantilever with Flexible Base,Shear provided,Shear,440.0,400.0,600.0,35.0,436.0,674.0,326.0,0,16.0,20.0,18.0,6.0,60.0
-31,285,"Ang et al. 1985, No. 19",Spiral,Cantilever with Flexible Base,Shear provided,Shear,432.0,400.0,600.0,34.4,436.0,679.0,326.0,0,16.0,20.0,18.0,6.0,80.0
-32,286,"Ang et al. 1985, No. 20",Spiral,Cantilever with Flexible Base,Shear provided,Shear,807.0,400.0,700.0,36.7,482.0,758.0,326.0,0,16.0,20.0,18.0,6.0,80.0
-33,287,"Ang et al. 1985, No. 21",Spiral,Cantilever with Flexible Base,Shear provided,Shear,0.0,400.0,800.0,33.2,436.0,679.0,326.0,0,16.0,20.0,18.0,6.0,80.0
-34,288,"Ang et al. 1985, No. 22",Spiral,Cantilever with Flexible Base,Shear provided,Shear,0.0,400.0,800.0,30.9,436.0,679.0,310.0,0,16.0,20.0,20.0,10.0,220.0
-35,289,"Ang et al. 1985, No. 23",Spiral,Cantilever with Flexible Base,Shear provided,Flexure-Shear,0.0,400.0,800.0,32.3,436.0,679.0,332.0,0,16.0,20.0,21.0,12.0,160.0
-36,290,"Ang et al. 1985, No. 24",Spiral,Cantilever with Flexible Base,Shear provided,Flexure-Shear,0.0,400.0,800.0,33.1,436.0,679.0,310.0,0,16.0,20.0,20.0,10.0,110.0
-37,291,"Ang et al. 1985, No. 25",Spiral,Cantilever with Flexible Base,Shear provided,Shear,0.0,400.0,600.0,32.8,296.0,457.0,0.0,0,16.0,20.0,0.0,0.0,0.0
-38,292,"Zahn et al. 1986, No. 5",Spiral,Double Ended,Shear provided,Flexure,555.0,400.0,1600.0,32.3,337.0,491.0,466.0,0,16.0,16.0,18.0,10.0,135.0
-39,293,"Zahn et al. 1986, No. 6",Spiral,Double Ended,Shear provided,Flexure,2080.0,400.0,1600.0,27.0,337.0,491.0,466.0,0,16.0,16.0,18.0,10.0,75.0
-40,294,"Watson and Park 1989, No 10",Spiral,Double Ended,Shear provided,Flexure,2652.0,400.0,1600.0,40.0,474.0,633.3,372.0,0,16.0,12.0,17.0,8.0,84.0
-41,295,"Watson and Park 1989, No 11",Spiral,Double Ended,Shear provided,Flexure,3620.0,400.0,1600.0,39.0,474.0,633.3,338.0,0,16.0,12.0,18.0,10.0,57.0
-42,296,"Wong et al. 1990, No. 1",Spiral,Cantilever,Shear provided,Flexure,907.0,400.0,800.0,38.0,423.0,577.0,300.0,0,16.0,20.0,20.0,10.0,60.0
-43,297,"Wong et al. 1990, No. 2",Spiral,Cantilever,Shear provided,Flexure-Shear,1813.0,400.0,800.0,37.0,475.0,625.0,340.0,0,16.0,20.0,18.0,6.0,65.0
-44,298,"Wong et al. 1990, No. 3",Spiral,Cantilever,Shear provided,Flexure,1813.0,400.0,800.0,37.0,475.0,625.0,300.0,0,16.0,20.0,20.0,10.0,60.0
-45,299,"Petrovski and Ristic 1984, M1E1",Spiral,Cantilever,Not defined in report,Flexure,145.0,307.0,1910.0,38.8,240.0,0.0,240.0,0,12.0,12.0,36.0,6.0,75.0
-46,300,"Petrovsky and Ristic 1984, M1E2",Spiral,Cantilever,Not defined in report,Flexure,254.0,307.0,1910.0,36.2,240.0,0.0,240.0,0,12.0,12.0,36.0,6.0,75.0
-47,301,"Petrovsky and Ristic 1984, M2E1",Spiral,Cantilever,Not defined in report,Flexure-Shear,145.0,307.0,900.0,35.9,240.0,0.0,240.0,0,12.0,12.0,36.0,6.0,75.0
-48,302,"Petrovsky and Ristic 1984, M2E2",Spiral,Cantilever,Not defined in report,Flexure-Shear,254.0,307.0,895.0,34.4,240.0,0.0,240.0,0,12.0,12.0,36.0,6.0,75.0
-49,303,"Lim et al. 1990, Con1",Spiral,Cantilever,Feff provided,Flexure,151.0,152.0,1140.0,34.5,448.0,0.0,620.0,0,12.7,8.0,10.2,3.7,22.0
-50,304,"Lim et al. 1990, Con2",Spiral,Cantilever,Feff provided,Flexure,151.0,152.0,570.0,34.5,448.0,0.0,620.0,0,12.7,8.0,10.2,3.7,22.0
-51,305,"Lim et al. 1990, Con3",Spiral,Cantilever,Feff provided,Flexure,220.0,152.0,570.0,34.5,448.0,0.0,620.0,0,12.7,8.0,10.2,3.7,22.0
-52,306,"NIST, Full Scale Flexure",Spiral,Cantilever,Shear provided,Flexure,4450.0,1520.0,9140.0,35.8,475.0,0.0,493.0,0,43.0,25.0,58.7,15.9,89.0
-53,307,"NIST, Full Scale Shear",Spiral,Cantilever,Shear provided,Flexure,4450.0,1520.0,4570.0,34.3,475.0,0.0,435.0,0,43.0,25.0,60.3,19.1,54.0
-54,308,"NIST, Model N1",Spiral,Cantilever,Shear provided,Flexure,120.0,250.0,750.0,24.1,446.0,0.0,441.0,0,7.0,25.0,9.9,3.1,9.0
-55,309,"NIST, Model N2",Spiral,Cantilever,Shear provided,Flexure,239.0,250.0,750.0,23.1,446.0,0.0,441.0,0,7.0,25.0,9.9,3.1,9.0
-56,310,"NIST, Model N3",Spiral,Cantilever,Shear provided,Flexure,120.0,250.0,1500.0,25.4,446.0,0.0,476.0,0,7.0,25.0,9.7,2.7,14.0
-57,311,"NIST, Model N4",Spiral,Cantilever,Shear provided,Flexure,120.0,250.0,750.0,24.4,446.0,0.0,441.0,0,7.0,25.0,9.9,3.1,9.0
-58,312,"NIST, Model N5",Spiral,Cantilever,Shear provided,Flexure,239.0,250.0,750.0,24.3,446.0,0.0,441.0,0,7.0,25.0,9.9,3.1,9.0
-59,313,"NIST, Model N6",Spiral,Cantilever,Shear provided,Flexure,120.0,250.0,1500.0,23.3,446.0,0.0,476.0,0,7.0,25.0,9.7,2.7,14.0
-60,314,"BRI No. 2 (Japan), spbaa1",Spiral,Double Cantilever,Shear provided,Flexure,184.0,250.0,375.0,26.5,399.0,0.0,355.0,0,9.6,4.0,40.0,8.9,50.0
-61,315,"BRI No. 3 (Japan), ws21bs",Spiral,Double Cantilever,Shear provided,Flexure-Shear,322.0,250.0,250.0,26.5,375.0,0.0,334.5,0,9.5,8.0,40.0,8.9,33.0
-62,316,"BRI No. 3 (Japan), ws22bs",Spiral,Double Cantilever,Shear provided,Flexure,322.0,250.0,500.0,31.6,375.0,0.0,366.0,0,9.5,8.0,38.0,5.9,63.0
-63,317,"BRI No. 3 (Japan), ws25bs",Spiral,Double Cantilever,Shear provided,Flexure-Shear,161.0,250.0,250.0,26.5,382.0,0.0,334.5,0,12.7,8.0,40.0,8.9,46.0
-64,318,"BRI No. 3 (Japan), ws26bs",Spiral,Double Cantilever,Shear provided,Flexure-Shear,161.0,250.0,500.0,31.6,382.0,0.0,386.5,0,12.7,8.0,37.0,3.9,37.0
-65,319,"BRI No. 3 (Japan), ws27bs",Spiral,Double Cantilever,Shear provided,Flexure,322.0,250.0,500.0,31.6,345.0,0.0,334.5,0,15.9,8.0,40.0,8.9,42.0
-66,320,"Arakawa et al. 1987, No. 1",Spiral,Double Cantilever,Feff provided,Shear,0.0,275.0,300.0,28.8,366.0,0.0,368.0,0,16.0,12.0,20.0,6.0,100.0
-67,321,"Arakawa et al. 1987, No. 2",Spiral,Double Cantilever,Feff provided,Shear,0.0,275.0,300.0,29.3,366.0,0.0,368.0,0,16.0,12.0,20.0,6.0,50.0
-68,322,"Arakawa et al. 1987, No. 3",Spiral,Double Cantilever,Feff provided,Shear,215.0,275.0,300.0,28.6,366.0,0.0,0.0,0,16.0,12.0,23.0,0.0,0.0
-69,323,"Arakawa et al. 1987, No. 4",Spiral,Double Cantilever,Feff provided,Shear,215.0,275.0,300.0,29.8,366.0,0.0,368.0,0,16.0,12.0,20.0,6.0,100.0
-70,324,"Arakawa et al. 1987, No. 6",Spiral,Double Cantilever,Feff provided,Shear,215.0,275.0,300.0,28.6,366.0,0.0,368.0,0,16.0,12.0,20.0,6.0,50.0
-71,325,"Arakawa et al. 1987, No. 8",Spiral,Double Cantilever,Feff provided,Shear,215.0,275.0,300.0,31.4,366.0,0.0,368.0,0,16.0,12.0,20.0,6.0,35.0
-72,326,"Arakawa et al. 1987, No. 9",Spiral,Double Cantilever,Feff provided,Shear,215.0,275.0,300.0,30.5,366.0,0.0,368.0,0,16.0,16.0,20.0,6.0,50.0
-73,327,"Arakawa et al. 1987, No. 10",Spiral,Double Cantilever,Feff provided,Flexure-Shear,215.0,275.0,300.0,30.2,366.0,0.0,368.0,0,16.0,8.0,20.0,6.0,50.0
-74,328,"Arakawa et al. 1987, No. 11",Spiral,Double Cantilever,Feff provided,Shear,430.0,275.0,300.0,28.7,366.0,0.0,0.0,0,16.0,12.0,23.0,0.0,0.0
-75,329,"Arakawa et al. 1987, No. 12",Spiral,Double Cantilever,Feff provided,Shear,430.0,275.0,300.0,27.8,366.0,0.0,368.0,0,16.0,12.0,20.0,6.0,100.0
-76,330,"Arakawa et al. 1987, No. 13",Spiral,Double Cantilever,Feff provided,Shear,430.0,275.0,300.0,30.5,366.0,0.0,368.0,0,16.0,12.0,20.0,6.0,50.0
-77,331,"Arakawa et al. 1987, No. 14",Spiral,Double Cantilever,Feff provided,Shear,430.0,275.0,300.0,31.3,366.0,0.0,368.0,0,16.0,12.0,20.0,6.0,35.0
-78,332,"Arakawa et al. 1988, No. 15",Spiral,Double Cantilever,Feff provided,Flexure-Shear,0.0,275.0,450.0,32.0,363.0,0.0,381.0,0,16.0,12.0,20.0,6.0,75.0
-79,333,"Arakawa et al. 1988, No. 16",Spiral,Double Cantilever,Feff provided,Flexure,0.0,275.0,450.0,31.3,363.0,0.0,381.0,0,16.0,12.0,20.0,6.0,35.0
-80,334,"Arakawa et al. 1988, No. 17",Spiral,Double Cantilever,Feff provided,Shear,215.0,275.0,300.0,31.3,363.0,0.0,381.0,0,16.0,12.0,20.0,6.0,75.0
-81,335,"Arakawa et al. 1988, No. 18",Spiral,Double Cantilever,Feff provided,Shear,215.0,275.0,450.0,31.1,363.0,0.0,0.0,0,16.0,12.0,23.0,0.0,0.0
-82,336,"Arakawa et al. 1988, No. 19",Spiral,Double Cantilever,Feff provided,Shear,215.0,275.0,450.0,31.2,363.0,0.0,381.0,0,16.0,12.0,20.0,6.0,75.0
-83,337,"Arakawa et al. 1988, No. 20",Spiral,Double Cantilever,Feff provided,Flexure,215.0,275.0,450.0,29.3,363.0,0.0,381.0,0,16.0,12.0,20.0,6.0,35.0
-84,338,"Arakawa et al. 1988, No. 21",Spiral,Double Cantilever,Feff provided,Flexure,215.0,275.0,600.0,30.5,363.0,0.0,381.0,0,16.0,12.0,20.0,6.0,75.0
-85,339,"Arakawa et al. 1988, No. 22",Spiral,Double Cantilever,Feff provided,Shear,215.0,275.0,450.0,20.5,363.0,0.0,381.0,0,16.0,12.0,20.0,6.0,75.0
-86,340,"Arakawa et al. 1988, No. 23",Spiral,Double Cantilever,Feff provided,Flexure-Shear,215.0,275.0,450.0,42.2,363.0,0.0,381.0,0,16.0,12.0,20.0,6.0,75.0
-87,341,"Arakawa et al. 1988, No. 24",Spiral,Double Cantilever,Feff provided,Shear,430.0,275.0,300.0,31.1,363.0,0.0,381.0,0,16.0,12.0,20.0,6.0,75.0
-88,342,"Arakawa et al. 1988, No. 25",Spiral,Double Cantilever,Feff provided,Shear,430.0,275.0,450.0,29.7,363.0,0.0,381.0,0,16.0,12.0,20.0,6.0,75.0
-89,343,"Arakawa et al. 1988, No. 26",Spiral,Double Cantilever,Feff provided,Flexure,430.0,275.0,600.0,30.9,363.0,0.0,381.0,0,16.0,12.0,20.0,6.0,75.0
-90,344,"Arakawa et al. 1988, No. 27",Spiral,Double Cantilever,Feff provided,Shear,430.0,275.0,450.0,18.9,363.0,0.0,381.0,0,16.0,12.0,20.0,6.0,75.0
-91,345,"Arakawa et al. 1988, No. 28",Spiral,Double Cantilever,Feff provided,Shear,430.0,275.0,450.0,41.3,363.0,0.0,381.0,0,16.0,12.0,20.0,6.0,75.0
-92,346,"Kunnath et al. 1997, A2",Spiral,Cantilever,Shear provided,Flexure,200.0,305.0,1372.0,29.0,448.0,690.0,434.0,0,9.5,21.0,14.5,4.0,19.0
-93,347,"Kunnath et al. 1997, A3",Spiral,Cantilever,Shear provided,Flexure,200.0,305.0,1372.0,29.0,448.0,690.0,434.0,0,9.5,21.0,14.5,4.0,19.0
-94,348,"Kunnath et al. 1997, A4",Spiral,Cantilever,Shear provided,Flexure,222.0,305.0,1372.0,35.5,448.0,690.0,434.0,0,9.5,21.0,14.5,4.0,19.0
-95,349,"Kunnath et al. 1997, A5",Spiral,Cantilever,Shear provided,Flexure,222.0,305.0,1372.0,35.5,448.0,690.0,434.0,0,9.5,21.0,14.5,4.0,19.0
-96,350,"Kunnath et al. 1997, A6",Spiral,Cantilever,Shear provided,Flexure,222.0,305.0,1372.0,35.5,448.0,690.0,434.0,0,9.5,21.0,14.5,4.0,19.0
-97,351,"Kunnath et al. 1997, A7",Spiral,Cantilever,Shear provided,Flexure,222.0,305.0,1372.0,32.8,448.0,690.0,434.0,0,9.5,21.0,14.5,4.0,19.0
-98,352,"Kunnath et al. 1997, A8",Spiral,Cantilever,Shear provided,Flexure,222.0,305.0,1372.0,32.8,448.0,690.0,434.0,0,9.5,21.0,14.5,4.0,19.0
-99,353,"Kunnath et al. 1997, A9",Spiral,Cantilever,Shear provided,Flexure,222.0,305.0,1372.0,32.5,448.0,690.0,434.0,0,9.5,21.0,14.5,4.0,19.0
-100,354,"Kunnath et al. 1997, A10",Spiral,Cantilever,Shear provided,Flexure,200.0,305.0,1372.0,27.0,448.0,690.0,434.0,0,9.5,21.0,14.5,4.0,19.0
-101,355,"Kunnath et al. 1997, A11",Spiral,Cantilever,Shear provided,Flexure,200.0,305.0,1372.0,27.0,448.0,690.0,434.0,0,9.5,21.0,14.5,4.0,19.0
-102,356,"Kunnath et al. 1997, A12",Spiral,Cantilever,Shear provided,Flexure,200.0,305.0,1372.0,27.0,448.0,690.0,434.0,0,9.5,21.0,14.5,4.0,19.0
-103,357,"Benzoni and Priestley 1994, NR1",Spiral,Cantilever,Feff provided,Flexure-Shear,503.0,610.0,914.5,30.0,462.0,0.0,361.0,0,12.7,12.0,15.9,6.4,76.2
-104,358,"Benzoni and Priestley 1994, NR2",Spiral,Cantilever,Feff provided,Flexure-Shear,503.0,610.0,914.5,30.0,462.0,0.0,361.0,0,12.7,24.0,15.9,6.4,127.0
-105,359,"Hose et al., 1997, SRPH1",Spiral,Cantilever,Feff provided,Flexure,1780.0,610.0,3660.0,41.1,455.0,746.0,414.0,0,22.2,20.0,27.8,9.5,57.0
-106,360,"Vu et al. 1998, NH1",Spiral,Double Cantilever,Feff provided,Flexure,1928.0,457.0,910.0,38.3,427.5,0.0,430.2,0,15.9,20.0,24.8,9.5,60.0
-107,361,"Vu et al. 1998, NH2",Spiral,Double Cantilever,Feff provided,Flexure-Shear,634.0,457.0,910.0,39.2,427.5,0.0,430.2,0,15.9,20.0,24.8,9.5,60.0
-108,362,"Vu et al. 1998, NH3",Spiral,Double Cantilever,Feff provided,Flexure,970.0,457.0,910.0,39.4,427.5,0.0,430.2,0,15.9,20.0,24.8,9.5,60.0
-109,363,"Vu et al. 1998, NH4",Spiral,Double Cantilever,Feff provided,Flexure-Shear,850.0,457.0,910.0,35.0,468.2,0.0,434.4,0,19.0,30.0,26.4,12.7,45.0
-110,364,"Vu et al. 1998, NH5",Spiral,Double Cantilever,Feff provided,Flexure-Shear,490.0,457.0,910.0,35.2,507.5,0.0,448.2,0,15.9,20.0,24.8,9.5,80.0
-111,365,"Vu et al. 1998, NH6",Spiral,Double Cantilever,Feff provided,Flexure,1914.0,457.0,910.0,35.0,486.2,0.0,434.4,0,19.0,30.0,26.4,12.7,40.0
-112,366,"Kowalsky et al. 1996, FL1",Spiral,Cantilever,Feff provided,Flexure,1780.0,457.0,3656.0,36.6,477.0,0.0,445.0,0,15.9,30.0,30.2,9.5,76.0
-113,367,"Kowalsky et al. 1996, FL2",Spiral,Cantilever,Feff provided,Flexure,1780.0,457.0,3656.0,40.0,477.0,0.0,437.0,0,15.9,30.0,30.2,6.4,51.0
-114,368,"Kowalsky et al. 1996, FL3",Spiral,Cantilever,Feff provided,Flexure,1780.0,457.0,3656.0,38.6,477.0,0.0,445.0,0,15.9,30.0,30.2,9.5,76.0
-115,369,"Lehman et al. 1998, 415",Spiral,Cantilever,P Ram rotation decreases V,Flexure,653.86,609.6,2438.4,31.0,462.0,630.0,606.8,0,15.9,22.0,22.2,6.4,31.8
-116,370,"Lehman et al. 1998, 815",Spiral,Cantilever,P Ram rotation decreases V,Flexure,653.86,609.6,4876.8,31.0,462.0,630.0,606.8,0,15.9,22.0,22.2,6.4,31.8
-117,371,"Lehman et al. 1998, 1015",Spiral,Cantilever,P Ram rotation decreases V,Flexure,653.86,609.6,6096.0,31.0,462.0,630.0,606.8,0,15.9,22.0,22.2,6.4,31.8
-118,372,"Lehman et al. 1998, 407",Spiral,Cantilever,P Ram rotation decreases V,Flexure,653.86,609.6,2438.4,31.0,462.0,630.0,606.8,0,15.9,11.0,22.2,6.4,31.8
-119,373,"Lehman et al. 1998, 430",Spiral,Cantilever,P Ram rotation decreases V,Flexure,653.86,609.6,2438.4,31.0,462.0,630.0,606.8,0,15.9,44.0,22.2,6.4,31.8
-120,374,"Calderone et al. 2000, 328",Spiral,Cantilever,P Ram rotation decreases V,Flexure,911.84,609.6,1828.8,34.5,441.3,602.0,606.8,0,19.0,28.0,28.6,6.4,25.4
-121,375,"Calderone et al. 2000, 828",Spiral,Cantilever,P Ram rotation decreases V,Flexure,911.84,609.6,4876.8,34.5,441.3,602.0,606.8,0,19.0,28.0,28.6,6.4,25.4
-122,376,"Calderone et al. 2000, 1028",Spiral,Cantilever,P Ram rotation decreases V,Flexure,911.84,609.6,6096.0,34.5,441.3,602.0,606.8,0,19.0,28.0,28.6,6.4,25.4
-123,377,"Sritharan et al. 1995, IC1",Spiral,Cantilever,Feff provided,Flexure,400.0,600.0,1800.0,31.4,448.0,739.0,431.0,0,22.2,14.0,30.2,9.5,97.0
-124,378,"Sritharan et al. 1995, B105IC2",Spiral,Cantilever,Feff provided,Flexure,400.0,600.0,1800.0,34.6,448.0,739.0,431.0,0,22.2,14.0,30.2,9.5,97.0
-125,379,"Sritharan et al. 1995, IC3",Spiral,Cantilever,Feff provided,Flexure,400.0,600.0,1800.0,33.0,461.0,775.0,434.0,0,22.2,14.0,30.2,9.5,64.0
-126,380,"Saatcioglu and Baingo 1999, RC1",Spiral,Cantilever,P Ram rotation decreases V,Flexure,1000.0,250.0,1645.0,65.0,419.0,0.0,1000.0,0,16.0,8.0,13.8,7.5,50.0
-127,381,"Saatcioglu and Baingo 1999, RC2",Spiral,Cantilever,P Ram rotation decreases V,Flexure,1000.0,250.0,1645.0,65.0,419.0,0.0,420.0,0,16.0,8.0,15.6,11.3,50.0
-128,382,"Saatcioglu and Baingo 1999, RC3",Spiral,Cantilever,P Ram rotation decreases V,Flexure,1850.0,250.0,1645.0,90.0,419.0,0.0,1000.0,0,16.0,8.0,13.8,7.5,50.0
-129,383,"Saatcioglu and Baingo 1999, RC4",Spiral,Cantilever,P Ram rotation decreases V,Flexure,1850.0,250.0,1645.0,90.0,419.0,0.0,580.0,0,16.0,8.0,14.0,8.0,50.0
-130,384,"Saatcioglu and Baingo 1999, RC6",Spiral,Cantilever,P Ram rotation decreases V,Flexure,1850.0,250.0,1645.0,90.0,419.0,0.0,420.0,0,16.0,8.0,15.6,11.3,100.0
-131,385,"Saatcioglu and Baingo 1999, RC7",Spiral,Cantilever,P Ram rotation decreases V,Flexure,925.0,250.0,1645.0,90.0,419.0,0.0,1000.0,0,16.0,8.0,13.8,7.5,50.0
-132,386,"Saatcioglu and Baingo 1999, RC8",Spiral,Cantilever,P Ram rotation decreases V,Flexure,1850.0,250.0,1645.0,90.0,419.0,0.0,1000.0,0,16.0,8.0,13.8,7.5,50.0
-133,387,"Saatcioglu and Baingo 1999, RC9",Spiral,Cantilever,P Ram rotation decreases V,Flexure,1850.0,250.0,1645.0,90.0,419.0,0.0,420.0,0,16.0,8.0,13.8,11.3,50.0
-134,388,"Nelson and Price 2000, Col1",Spiral,Cantilever,P Ram rotation decreases V,Flexure,1450.0,508.0,1524.0,56.2,455.0,723.5,455.0,0,16.0,10.0,21.3,4.5,102.0
-135,389,"Nelson and Price 2000, Col2",Spiral,Cantilever,P Ram rotation decreases V,Flexure,1243.0,508.0,1524.0,56.3,455.0,723.5,455.0,0,16.0,10.0,21.3,4.5,102.0
-136,390,"Nelson and Price 2000, Col3",Spiral,Cantilever,P Ram rotation decreases V,Flexure,1139.0,508.0,1524.0,57.0,455.0,723.5,455.0,0,16.0,10.0,21.3,4.5,102.0
-137,391,"Nelson and Price 2000, Col4",Spiral,Cantilever,P Ram rotation decreases V,Flexure,1139.0,508.0,1524.0,52.7,455.0,723.5,455.0,0,16.0,10.0,21.3,4.5,102.0
-138,392,"Henry 1998, 415p",Spiral,Cantilever,P Ram rotation decreases V,Flexure,1308.0,609.6,2438.4,37.2,462.0,0.0,606.8,0,15.9,22.0,22.2,6.4,31.8
-139,393,"Henry 1998, 415s",Spiral,Cantilever,P Ram rotation decreases V,Flexure,654.0,609.6,2438.4,37.2,462.0,0.0,606.8,0,15.9,22.0,22.2,6.4,63.5
-140,394,"Chai, Priestley, and Seible 1991, Test 3",Spiral,Cantilever,P Ram rotation decreases V,Flexure,1779.0,609.6,3657.0,32.6,315.1,497.8,351.6,0,19.0,26.0,20.0,6.4,127.0
-141,395,"Soderstrom 2001,C1",Spiral,Cantilever,Shear provided,Flexure,0.0,419.0,1968.5,60.6,429.5,717.0,413.7,0,22.2,8.0,55.6,9.5,50.8
-142,396,"Soderstrom 2001,C2",Spiral,Cantilever,Shear provided,Flexure,0.0,419.0,1968.5,62.6,429.5,717.0,413.7,0,22.2,8.0,55.6,9.5,50.8
-143,397,"Soderstrom 2001,C3",Spiral,Cantilever,Shear provided,Flexure,0.0,419.0,1968.5,69.6,429.5,717.0,413.7,0,22.2,8.0,55.8,10.0,50.8
-144,398,"Soderstrom 2001,C4",Spiral,Cantilever,Shear provided,Flexure,987.5,419.0,1968.5,69.6,429.5,717.0,413.7,0,22.2,8.0,55.8,10.0,50.8
-145,399,"Graff, 2001,C5",Spiral,Cantilever,Shear provided,Flexure,987.5,419.0,1968.5,69.6,491.6,820.5,413.7,0,22.2,8.0,55.8,10.0,50.8
-146,400,"Graff, 2001,C6",Spiral,Cantilever,Shear provided,Flexure,987.5,419.0,1968.5,69.6,506.0,710.2,413.7,0,22.2,8.0,55.8,10.0,50.8
-147,401,"Graff, 2001,C7",Spiral,Cantilever,Shear provided,Flexure,987.5,419.0,1968.5,69.6,506.0,710.2,413.7,0,22.2,8.0,55.8,10.0,50.8
-148,402,"Graff, 2001,C8",Spiral,Cantilever,Shear provided,Flexure,987.5,419.0,1968.5,69.6,491.6,820.5,413.7,0,22.2,8.0,55.8,10.0,50.8
-149,403,"Kowalsky and Moyer, 2001, 1",Spiral,Cantilever,Feff provided,Flexure,231.3,457.2,2438.4,32.7,565.4,696.4,434.4,0,19.0,12.0,12.7,9.5,76.2
-150,404,"Kowalsky and Moyer, 2001, 2",Spiral,Cantilever,Feff provided,Flexure,231.3,457.2,2438.4,34.2,565.4,696.4,434.4,0,19.0,12.0,12.7,9.5,76.2
-151,405,"Kowalsky and Moyer, 2001, 3",Spiral,Cantilever,Feff provided,Flexure,231.3,457.2,2438.4,31.7,565.4,696.4,434.4,0,19.0,12.0,12.7,9.5,76.2
-152,406,"Kowalsky and Moyer, 2001, 4",Spiral,Cantilever,Feff provided,Flexure,231.3,457.2,2438.4,33.9,565.4,696.4,434.4,0,19.0,12.0,12.7,9.5,76.2
-153,407,"Coffman et al. 1993, Column 1",Spiral,Cantilever,P Ram rotation decreases V,Flexure,700.0,457.2,2863.9,22.0,379.0,0.0,379.0,0,19.0,9.0,38.1,9.5,305.0
-154,408,"Hamilton, 2002, UCI1",Spiral,Cantilever,Feff provided,Flexure,0.0,406.4,1854.2,36.5,458.5,646.0,691.5,0,12.7,12.0,15.0,4.5,31.8
-155,409,"Hamilton, 2002, UCI2",Spiral,Cantilever,Feff provided,Flexure,0.0,406.4,1854.2,36.5,458.5,646.0,691.5,0,12.7,12.0,15.0,4.5,31.8
-156,410,"Hamilton, 2002, UCI3",Spiral,Cantilever,Feff provided,Flexure-Shear,0.0,406.4,1047.8,34.7,458.5,646.0,691.5,0,12.7,14.0,10.4,4.5,171.4
-157,411,"Hamilton, 2002, UCI4",Spiral,Cantilever,Feff provided,Flexure-Shear,0.0,406.4,1047.8,34.7,458.5,646.0,691.5,0,12.7,14.0,10.4,4.5,171.4
-158,412,"Hamilton, 2002, UCI5",Spiral,Cantilever,Feff provided,Flexure-Shear,0.0,406.4,1047.8,35.4,458.5,646.0,691.5,0,12.7,12.0,10.4,4.5,63.5
-159,413,"Hamilton, 2002, UCI6",Spiral,Cantilever,Feff provided,Flexure,0.0,406.4,1854.2,35.6,458.5,646.0,691.5,0,12.7,12.0,15.0,4.5,31.8
-160,414,"McDaniel, 1997, S1",Spiral,Cantilever,Shear provided,Shear,18.8,609.6,1219.2,29.8,454.0,729.6,200.0,0,15.9,20.0,18.6,4.9,101.6
-161,415,"McDaniel, 1997, S1-2",Spiral,Cantilever,Shear provided,Shear,18.8,609.6,1219.2,26.8,454.0,729.6,200.0,0,15.9,20.0,18.6,4.9,101.6
-162,416,"McDaniel, 1997, S2",Spiral,Cantilever,Shear provided,Shear,18.8,609.6,1219.2,31.2,437.6,688.0,200.0,0,15.9,20.0,18.6,4.9,101.6
+,id,name,type,testcf,pd,ft,axl,diam,l,fpc,fyl,fsul,fyt,fsut,dlb,nlb,cc,dsp,s,use
+0,254,"Davey 1975, No. 1",Spiral,Cantilever with Hammer Head,Feff provided,Flexure,380.0,500.0,2750.0,33.2,373.0,564.0,312.0,0,18.4,20.0,20.2,6.5,65.0,0
+1,255,"Davey 1975, No. 2",Spiral,Cantilever with Hammer Head,Feff provided,Flexure,380.0,500.0,1750.0,34.8,371.0,562.0,312.0,0,18.4,20.0,20.2,6.5,65.0,0
+2,256,"Davey 1975, No. 3",Spiral,Cantilever with Hammer Head,Feff provided,Flexure,380.0,500.0,3250.0,33.8,373.0,563.0,342.0,0,18.4,20.0,20.2,6.5,65.0,0
+3,257,"Munro et al. 1976, No. 1",Spiral,Cantilever with Hammer Head,Feff provided,Flexure,26.4,500.0,2730.0,40.0,305.0,411.0,389.0,0,18.4,20.0,20.2,8.0,34.0,0
+4,258,"Ng et al. 1978, No. 2",Spiral,Cantilever with Hammer Head,Feff provided,Flexure,16.9,250.0,1340.0,35.1,305.0,411.0,263.0,0,13.0,10.0,10.8,4.4,14.0,0
+5,259,"Ng et al. 1978, No. 3",Spiral,Cantilever with Hammer Head,Feff provided,Flexure,550.0,250.0,930.0,33.0,294.0,396.0,207.0,0,12.0,10.0,10.2,4.3,10.0,0
+6,260,"Ang et al. 1981, No. 1",Spiral,Double Ended,Shear provided,Flexure,680.0,400.0,1600.0,26.0,308.0,465.0,308.0,0,16.0,16.0,16.0,6.0,40.0,0
+7,261,"Ang et al 1981, No. 2",Spiral,Double Ended,Shear provided,Flexure,2111.0,400.0,1600.0,28.5,308.0,465.0,280.0,0,16.0,16.0,18.0,10.0,55.0,0
+8,262,"Potangaroa et al. 1979, No. 1",Spiral,Double Ended,Shear provided,Flexure,1920.0,600.0,1200.0,28.4,303.0,409.0,300.0,0,24.0,16.0,25.0,10.0,75.0,0
+9,263,"Potangaroa et al. 1979, No. 3",Spiral,Double Ended,Shear provided,Flexure-Shear,4300.0,600.0,1200.0,26.6,303.0,409.0,300.0,0,24.0,16.0,25.0,10.0,50.0,0
+10,264,"Potangaroa et al. 1979, No. 4",Spiral,Double Ended,Shear provided,Flexure,3785.0,600.0,1200.0,32.9,303.0,409.0,423.0,0,24.0,16.0,25.0,10.0,70.0,0
+11,265,"Potangaroa et al. 1979, No. 5A",Spiral,Double Ended,Shear provided,Flexure,3385.0,600.0,1200.0,32.5,307.0,414.0,280.0,0,24.0,16.0,28.0,16.0,55.0,0
+12,266,"Potangaroa et al. 1979, No. 5B",Spiral,Double Ended,Shear provided,Flexure,6770.0,600.0,1200.0,32.5,307.0,414.0,280.0,0,24.0,16.0,28.0,16.0,55.0,1
+13,267,"Ang et al. 1985, No. 1",Spiral,Cantilever with Flexible Base,Shear provided,Flexure-Shear,0.0,400.0,800.0,37.5,436.0,674.0,328.0,0,16.0,20.0,18.0,6.0,60.0,0
+14,268,"Ang et al. 1985, No. 2",Spiral,Cantilever with Flexible Base,Shear provided,Flexure-Shear,0.0,400.0,800.0,37.2,296.0,457.0,328.0,0,16.0,20.0,18.0,6.0,60.0,0
+15,269,"Ang et al. 1985, No. 3",Spiral,Cantilever with Flexible Base,Shear provided,Flexure-Shear,0.0,400.0,1000.0,36.0,436.0,674.0,328.0,0,16.0,20.0,18.0,6.0,60.0,1
+16,270,"Ang et al. 1985, No. 4",Spiral,Cantilever with Flexible Base,Shear provided,Shear,0.0,400.0,800.0,30.6,436.0,674.0,316.0,0,16.0,20.0,20.0,10.0,165.0,1
+17,271,"Ang et al. 1985, No. 5",Spiral,Cantilever with Flexible Base,Shear provided,Flexure-Shear,0.0,400.0,800.0,31.1,436.0,674.0,328.0,0,16.0,20.0,18.0,6.0,40.0,1
+18,272,"Ang et al. 1985, No. 6",Spiral,Cantilever with Flexible Base,Shear provided,Shear,0.0,400.0,600.0,30.1,436.0,674.0,328.0,0,16.0,20.0,18.0,6.0,60.0,1
+19,273,"Ang et al. 1985, No. 7",Spiral,Cantilever with Flexible Base,Shear provided,Shear,0.0,400.0,800.0,29.5,448.0,693.0,372.0,0,16.0,20.0,18.0,6.0,80.0,1
+20,274,"Ang et al. 1985, No. 8",Spiral,Cantilever with Flexible Base,Shear provided,Flexure-Shear,721.0,400.0,800.0,28.7,448.0,693.0,372.0,0,16.0,20.0,18.0,6.0,30.0,1
+21,275,"Ang et al. 1985, No. 9",Spiral,Cantilever with Flexible Base,Shear provided,Flexure,751.0,400.0,1000.0,29.9,448.0,693.0,372.0,0,16.0,20.0,18.0,6.0,30.0,1
+22,276,"Ang et al. 1985, No. 10",Spiral,Cantilever with Flexible Base,Shear provided,Flexure-Shear,784.0,400.0,800.0,31.2,448.0,693.0,332.0,0,16.0,20.0,21.0,12.0,120.0,1
+23,277,"Ang et al. 1985, No. 11",Spiral,Cantilever with Flexible Base,Shear provided,Flexure-Shear,751.0,400.0,800.0,29.9,448.0,693.0,372.0,0,16.0,20.0,18.0,6.0,60.0,1
+24,278,"Ang et al. 1985, No. 12",Spiral,Cantilever with Flexible Base,Shear provided,Flexure-Shear,359.0,400.0,600.0,28.6,436.0,674.0,328.0,0,16.0,20.0,18.0,6.0,30.0,1
+25,279,"Ang et al. 1985, No. 13",Spiral,Cantilever with Flexible Base,Shear provided,Flexure-Shear,455.0,400.0,800.0,36.2,436.0,679.0,326.0,0,16.0,20.0,18.0,6.0,30.0,1
+26,280,"Ang et al. 1985, No. 14",Spiral,Cantilever with Flexible Base,Shear provided,Flexure-Shear,0.0,400.0,800.0,33.7,424.0,671.0,326.0,0,24.0,9.0,18.0,6.0,60.0,1
+27,281,"Ang et al. 1985, No. 15",Spiral,Cantilever with Flexible Base,Shear provided,Flexure-Shear,0.0,400.0,800.0,34.8,436.0,679.0,326.0,0,16.0,12.0,18.0,6.0,60.0,1
+28,282,"Ang et al. 1985, No. 16",Spiral,Cantilever with Flexible Base,Shear provided,Shear,420.0,400.0,800.0,33.4,436.0,679.0,326.0,0,16.0,20.0,18.0,6.0,60.0,1
+29,283,"Ang et al. 1985, No. 17",Spiral,Cantilever with Flexible Base,Shear provided,Flexure-Shear,431.0,400.0,1000.0,34.3,436.0,679.0,326.0,0,16.0,20.0,18.0,6.0,60.0,1
+30,284,"Ang et al. 1985, No. 18",Spiral,Cantilever with Flexible Base,Shear provided,Shear,440.0,400.0,600.0,35.0,436.0,674.0,326.0,0,16.0,20.0,18.0,6.0,60.0,1
+31,285,"Ang et al. 1985, No. 19",Spiral,Cantilever with Flexible Base,Shear provided,Shear,432.0,400.0,600.0,34.4,436.0,679.0,326.0,0,16.0,20.0,18.0,6.0,80.0,1
+32,286,"Ang et al. 1985, No. 20",Spiral,Cantilever with Flexible Base,Shear provided,Shear,807.0,400.0,700.0,36.7,482.0,758.0,326.0,0,16.0,20.0,18.0,6.0,80.0,1
+33,287,"Ang et al. 1985, No. 21",Spiral,Cantilever with Flexible Base,Shear provided,Shear,0.0,400.0,800.0,33.2,436.0,679.0,326.0,0,16.0,20.0,18.0,6.0,80.0,0
+34,288,"Ang et al. 1985, No. 22",Spiral,Cantilever with Flexible Base,Shear provided,Shear,0.0,400.0,800.0,30.9,436.0,679.0,310.0,0,16.0,20.0,20.0,10.0,220.0,1
+35,289,"Ang et al. 1985, No. 23",Spiral,Cantilever with Flexible Base,Shear provided,Flexure-Shear,0.0,400.0,800.0,32.3,436.0,679.0,332.0,0,16.0,20.0,21.0,12.0,160.0,1
+36,290,"Ang et al. 1985, No. 24",Spiral,Cantilever with Flexible Base,Shear provided,Flexure-Shear,0.0,400.0,800.0,33.1,436.0,679.0,310.0,0,16.0,20.0,20.0,10.0,110.0,1
+37,291,"Ang et al. 1985, No. 25",Spiral,Cantilever with Flexible Base,Shear provided,Shear,0.0,400.0,600.0,32.8,296.0,457.0,0.0,0,16.0,20.0,0.0,0.0,0.0,1
+38,292,"Zahn et al. 1986, No. 5",Spiral,Double Ended,Shear provided,Flexure,555.0,400.0,1600.0,32.3,337.0,491.0,466.0,0,16.0,16.0,18.0,10.0,135.0,1
+39,293,"Zahn et al. 1986, No. 6",Spiral,Double Ended,Shear provided,Flexure,2080.0,400.0,1600.0,27.0,337.0,491.0,466.0,0,16.0,16.0,18.0,10.0,75.0,1
+40,294,"Watson and Park 1989, No 10",Spiral,Double Ended,Shear provided,Flexure,2652.0,400.0,1600.0,40.0,474.0,633.3,372.0,0,16.0,12.0,17.0,8.0,84.0,1
+41,295,"Watson and Park 1989, No 11",Spiral,Double Ended,Shear provided,Flexure,3620.0,400.0,1600.0,39.0,474.0,633.3,338.0,0,16.0,12.0,18.0,10.0,57.0,1
+42,296,"Wong et al. 1990, No. 1",Spiral,Cantilever,Shear provided,Flexure,907.0,400.0,800.0,38.0,423.0,577.0,300.0,0,16.0,20.0,20.0,10.0,60.0,1
+43,297,"Wong et al. 1990, No. 2",Spiral,Cantilever,Shear provided,Flexure-Shear,1813.0,400.0,800.0,37.0,475.0,625.0,340.0,0,16.0,20.0,18.0,6.0,65.0,0
+44,298,"Wong et al. 1990, No. 3",Spiral,Cantilever,Shear provided,Flexure,1813.0,400.0,800.0,37.0,475.0,625.0,300.0,0,16.0,20.0,20.0,10.0,60.0,1
+45,299,"Petrovski and Ristic 1984, M1E1",Spiral,Cantilever,Not defined in report,Flexure,145.0,307.0,1910.0,38.8,240.0,0.0,240.0,0,12.0,12.0,36.0,6.0,75.0,1
+46,300,"Petrovsky and Ristic 1984, M1E2",Spiral,Cantilever,Not defined in report,Flexure,254.0,307.0,1910.0,36.2,240.0,0.0,240.0,0,12.0,12.0,36.0,6.0,75.0,1
+47,301,"Petrovsky and Ristic 1984, M2E1",Spiral,Cantilever,Not defined in report,Flexure-Shear,145.0,307.0,900.0,35.9,240.0,0.0,240.0,0,12.0,12.0,36.0,6.0,75.0,1
+48,302,"Petrovsky and Ristic 1984, M2E2",Spiral,Cantilever,Not defined in report,Flexure-Shear,254.0,307.0,895.0,34.4,240.0,0.0,240.0,0,12.0,12.0,36.0,6.0,75.0,1
+49,303,"Lim et al. 1990, Con1",Spiral,Cantilever,Feff provided,Flexure,151.0,152.0,1140.0,34.5,448.0,0.0,620.0,0,12.7,8.0,10.2,3.7,22.0,1
+50,304,"Lim et al. 1990, Con2",Spiral,Cantilever,Feff provided,Flexure,151.0,152.0,570.0,34.5,448.0,0.0,620.0,0,12.7,8.0,10.2,3.7,22.0,1
+51,305,"Lim et al. 1990, Con3",Spiral,Cantilever,Feff provided,Flexure,220.0,152.0,570.0,34.5,448.0,0.0,620.0,0,12.7,8.0,10.2,3.7,22.0,1
+52,306,"NIST, Full Scale Flexure",Spiral,Cantilever,Shear provided,Flexure,4450.0,1520.0,9140.0,35.8,475.0,0.0,493.0,0,43.0,25.0,58.7,15.9,89.0,1
+53,307,"NIST, Full Scale Shear",Spiral,Cantilever,Shear provided,Flexure,4450.0,1520.0,4570.0,34.3,475.0,0.0,435.0,0,43.0,25.0,60.3,19.1,54.0,1
+54,308,"NIST, Model N1",Spiral,Cantilever,Shear provided,Flexure,120.0,250.0,750.0,24.1,446.0,0.0,441.0,0,7.0,25.0,9.9,3.1,9.0,0
+55,309,"NIST, Model N2",Spiral,Cantilever,Shear provided,Flexure,239.0,250.0,750.0,23.1,446.0,0.0,441.0,0,7.0,25.0,9.9,3.1,9.0,1
+56,310,"NIST, Model N3",Spiral,Cantilever,Shear provided,Flexure,120.0,250.0,1500.0,25.4,446.0,0.0,476.0,0,7.0,25.0,9.7,2.7,14.0,1
+57,311,"NIST, Model N4",Spiral,Cantilever,Shear provided,Flexure,120.0,250.0,750.0,24.4,446.0,0.0,441.0,0,7.0,25.0,9.9,3.1,9.0,1
+58,312,"NIST, Model N5",Spiral,Cantilever,Shear provided,Flexure,239.0,250.0,750.0,24.3,446.0,0.0,441.0,0,7.0,25.0,9.9,3.1,9.0,1
+59,313,"NIST, Model N6",Spiral,Cantilever,Shear provided,Flexure,120.0,250.0,1500.0,23.3,446.0,0.0,476.0,0,7.0,25.0,9.7,2.7,14.0,1
+60,314,"BRI No. 2 (Japan), spbaa1",Spiral,Double Cantilever,Shear provided,Flexure,184.0,250.0,375.0,26.5,399.0,0.0,355.0,0,9.6,4.0,40.0,8.9,50.0,1
+61,315,"BRI No. 3 (Japan), ws21bs",Spiral,Double Cantilever,Shear provided,Flexure-Shear,322.0,250.0,250.0,26.5,375.0,0.0,334.5,0,9.5,8.0,40.0,8.9,33.0,1
+62,316,"BRI No. 3 (Japan), ws22bs",Spiral,Double Cantilever,Shear provided,Flexure,322.0,250.0,500.0,31.6,375.0,0.0,366.0,0,9.5,8.0,38.0,5.9,63.0,1
+63,317,"BRI No. 3 (Japan), ws25bs",Spiral,Double Cantilever,Shear provided,Flexure-Shear,161.0,250.0,250.0,26.5,382.0,0.0,334.5,0,12.7,8.0,40.0,8.9,46.0,0
+64,318,"BRI No. 3 (Japan), ws26bs",Spiral,Double Cantilever,Shear provided,Flexure-Shear,161.0,250.0,500.0,31.6,382.0,0.0,386.5,0,12.7,8.0,37.0,3.9,37.0,1
+65,319,"BRI No. 3 (Japan), ws27bs",Spiral,Double Cantilever,Shear provided,Flexure,322.0,250.0,500.0,31.6,345.0,0.0,334.5,0,15.9,8.0,40.0,8.9,42.0,1
+66,320,"Arakawa et al. 1987, No. 1",Spiral,Double Cantilever,Feff provided,Shear,0.0,275.0,300.0,28.8,366.0,0.0,368.0,0,16.0,12.0,20.0,6.0,100.0,1
+67,321,"Arakawa et al. 1987, No. 2",Spiral,Double Cantilever,Feff provided,Shear,0.0,275.0,300.0,29.3,366.0,0.0,368.0,0,16.0,12.0,20.0,6.0,50.0,0
+68,322,"Arakawa et al. 1987, No. 3",Spiral,Double Cantilever,Feff provided,Shear,215.0,275.0,300.0,28.6,366.0,0.0,0.0,0,16.0,12.0,23.0,0.0,0.0,1
+69,323,"Arakawa et al. 1987, No. 4",Spiral,Double Cantilever,Feff provided,Shear,215.0,275.0,300.0,29.8,366.0,0.0,368.0,0,16.0,12.0,20.0,6.0,100.0,0
+70,324,"Arakawa et al. 1987, No. 6",Spiral,Double Cantilever,Feff provided,Shear,215.0,275.0,300.0,28.6,366.0,0.0,368.0,0,16.0,12.0,20.0,6.0,50.0,0
+71,325,"Arakawa et al. 1987, No. 8",Spiral,Double Cantilever,Feff provided,Shear,215.0,275.0,300.0,31.4,366.0,0.0,368.0,0,16.0,12.0,20.0,6.0,35.0,1
+72,326,"Arakawa et al. 1987, No. 9",Spiral,Double Cantilever,Feff provided,Shear,215.0,275.0,300.0,30.5,366.0,0.0,368.0,0,16.0,16.0,20.0,6.0,50.0,1
+73,327,"Arakawa et al. 1987, No. 10",Spiral,Double Cantilever,Feff provided,Flexure-Shear,215.0,275.0,300.0,30.2,366.0,0.0,368.0,0,16.0,8.0,20.0,6.0,50.0,1
+74,328,"Arakawa et al. 1987, No. 11",Spiral,Double Cantilever,Feff provided,Shear,430.0,275.0,300.0,28.7,366.0,0.0,0.0,0,16.0,12.0,23.0,0.0,0.0,1
+75,329,"Arakawa et al. 1987, No. 12",Spiral,Double Cantilever,Feff provided,Shear,430.0,275.0,300.0,27.8,366.0,0.0,368.0,0,16.0,12.0,20.0,6.0,100.0,1
+76,330,"Arakawa et al. 1987, No. 13",Spiral,Double Cantilever,Feff provided,Shear,430.0,275.0,300.0,30.5,366.0,0.0,368.0,0,16.0,12.0,20.0,6.0,50.0,1
+77,331,"Arakawa et al. 1987, No. 14",Spiral,Double Cantilever,Feff provided,Shear,430.0,275.0,300.0,31.3,366.0,0.0,368.0,0,16.0,12.0,20.0,6.0,35.0,1
+78,332,"Arakawa et al. 1988, No. 15",Spiral,Double Cantilever,Feff provided,Flexure-Shear,0.0,275.0,450.0,32.0,363.0,0.0,381.0,0,16.0,12.0,20.0,6.0,75.0,1
+79,333,"Arakawa et al. 1988, No. 16",Spiral,Double Cantilever,Feff provided,Flexure,0.0,275.0,450.0,31.3,363.0,0.0,381.0,0,16.0,12.0,20.0,6.0,35.0,1
+80,334,"Arakawa et al. 1988, No. 17",Spiral,Double Cantilever,Feff provided,Shear,215.0,275.0,300.0,31.3,363.0,0.0,381.0,0,16.0,12.0,20.0,6.0,75.0,1
+81,335,"Arakawa et al. 1988, No. 18",Spiral,Double Cantilever,Feff provided,Shear,215.0,275.0,450.0,31.1,363.0,0.0,0.0,0,16.0,12.0,23.0,0.0,0.0,1
+82,336,"Arakawa et al. 1988, No. 19",Spiral,Double Cantilever,Feff provided,Shear,215.0,275.0,450.0,31.2,363.0,0.0,381.0,0,16.0,12.0,20.0,6.0,75.0,1
+83,337,"Arakawa et al. 1988, No. 20",Spiral,Double Cantilever,Feff provided,Flexure,215.0,275.0,450.0,29.3,363.0,0.0,381.0,0,16.0,12.0,20.0,6.0,35.0,1
+84,338,"Arakawa et al. 1988, No. 21",Spiral,Double Cantilever,Feff provided,Flexure,215.0,275.0,600.0,30.5,363.0,0.0,381.0,0,16.0,12.0,20.0,6.0,75.0,1
+85,339,"Arakawa et al. 1988, No. 22",Spiral,Double Cantilever,Feff provided,Shear,215.0,275.0,450.0,20.5,363.0,0.0,381.0,0,16.0,12.0,20.0,6.0,75.0,0
+86,340,"Arakawa et al. 1988, No. 23",Spiral,Double Cantilever,Feff provided,Flexure-Shear,215.0,275.0,450.0,42.2,363.0,0.0,381.0,0,16.0,12.0,20.0,6.0,75.0,1
+87,341,"Arakawa et al. 1988, No. 24",Spiral,Double Cantilever,Feff provided,Shear,430.0,275.0,300.0,31.1,363.0,0.0,381.0,0,16.0,12.0,20.0,6.0,75.0,1
+88,342,"Arakawa et al. 1988, No. 25",Spiral,Double Cantilever,Feff provided,Shear,430.0,275.0,450.0,29.7,363.0,0.0,381.0,0,16.0,12.0,20.0,6.0,75.0,0
+89,343,"Arakawa et al. 1988, No. 26",Spiral,Double Cantilever,Feff provided,Flexure,430.0,275.0,600.0,30.9,363.0,0.0,381.0,0,16.0,12.0,20.0,6.0,75.0,1
+90,344,"Arakawa et al. 1988, No. 27",Spiral,Double Cantilever,Feff provided,Shear,430.0,275.0,450.0,18.9,363.0,0.0,381.0,0,16.0,12.0,20.0,6.0,75.0,1
+91,345,"Arakawa et al. 1988, No. 28",Spiral,Double Cantilever,Feff provided,Shear,430.0,275.0,450.0,41.3,363.0,0.0,381.0,0,16.0,12.0,20.0,6.0,75.0,1
+92,346,"Kunnath et al. 1997, A2",Spiral,Cantilever,Shear provided,Flexure,200.0,305.0,1372.0,29.0,448.0,690.0,434.0,0,9.5,21.0,14.5,4.0,19.0,1
+93,347,"Kunnath et al. 1997, A3",Spiral,Cantilever,Shear provided,Flexure,200.0,305.0,1372.0,29.0,448.0,690.0,434.0,0,9.5,21.0,14.5,4.0,19.0,0
+94,348,"Kunnath et al. 1997, A4",Spiral,Cantilever,Shear provided,Flexure,222.0,305.0,1372.0,35.5,448.0,690.0,434.0,0,9.5,21.0,14.5,4.0,19.0,0
+95,349,"Kunnath et al. 1997, A5",Spiral,Cantilever,Shear provided,Flexure,222.0,305.0,1372.0,35.5,448.0,690.0,434.0,0,9.5,21.0,14.5,4.0,19.0,0
+96,350,"Kunnath et al. 1997, A6",Spiral,Cantilever,Shear provided,Flexure,222.0,305.0,1372.0,35.5,448.0,690.0,434.0,0,9.5,21.0,14.5,4.0,19.0,0
+97,351,"Kunnath et al. 1997, A7",Spiral,Cantilever,Shear provided,Flexure,222.0,305.0,1372.0,32.8,448.0,690.0,434.0,0,9.5,21.0,14.5,4.0,19.0,0
+98,352,"Kunnath et al. 1997, A8",Spiral,Cantilever,Shear provided,Flexure,222.0,305.0,1372.0,32.8,448.0,690.0,434.0,0,9.5,21.0,14.5,4.0,19.0,1
+99,353,"Kunnath et al. 1997, A9",Spiral,Cantilever,Shear provided,Flexure,222.0,305.0,1372.0,32.5,448.0,690.0,434.0,0,9.5,21.0,14.5,4.0,19.0,1
+100,354,"Kunnath et al. 1997, A10",Spiral,Cantilever,Shear provided,Flexure,200.0,305.0,1372.0,27.0,448.0,690.0,434.0,0,9.5,21.0,14.5,4.0,19.0,1
+101,355,"Kunnath et al. 1997, A11",Spiral,Cantilever,Shear provided,Flexure,200.0,305.0,1372.0,27.0,448.0,690.0,434.0,0,9.5,21.0,14.5,4.0,19.0,1
+102,356,"Kunnath et al. 1997, A12",Spiral,Cantilever,Shear provided,Flexure,200.0,305.0,1372.0,27.0,448.0,690.0,434.0,0,9.5,21.0,14.5,4.0,19.0,1
+103,357,"Benzoni and Priestley 1994, NR1",Spiral,Cantilever,Feff provided,Flexure-Shear,503.0,610.0,914.5,30.0,462.0,0.0,361.0,0,12.7,12.0,15.9,6.4,76.2,1
+104,358,"Benzoni and Priestley 1994, NR2",Spiral,Cantilever,Feff provided,Flexure-Shear,503.0,610.0,914.5,30.0,462.0,0.0,361.0,0,12.7,24.0,15.9,6.4,127.0,0
+105,359,"Hose et al., 1997, SRPH1",Spiral,Cantilever,Feff provided,Flexure,1780.0,610.0,3660.0,41.1,455.0,746.0,414.0,0,22.2,20.0,27.8,9.5,57.0,1
+106,360,"Vu et al. 1998, NH1",Spiral,Double Cantilever,Feff provided,Flexure,1928.0,457.0,910.0,38.3,427.5,0.0,430.2,0,15.9,20.0,24.8,9.5,60.0,1
+107,361,"Vu et al. 1998, NH2",Spiral,Double Cantilever,Feff provided,Flexure-Shear,634.0,457.0,910.0,39.2,427.5,0.0,430.2,0,15.9,20.0,24.8,9.5,60.0,0
+108,362,"Vu et al. 1998, NH3",Spiral,Double Cantilever,Feff provided,Flexure,970.0,457.0,910.0,39.4,427.5,0.0,430.2,0,15.9,20.0,24.8,9.5,60.0,1
+109,363,"Vu et al. 1998, NH4",Spiral,Double Cantilever,Feff provided,Flexure-Shear,850.0,457.0,910.0,35.0,468.2,0.0,434.4,0,19.0,30.0,26.4,12.7,45.0,1
+110,364,"Vu et al. 1998, NH5",Spiral,Double Cantilever,Feff provided,Flexure-Shear,490.0,457.0,910.0,35.2,507.5,0.0,448.2,0,15.9,20.0,24.8,9.5,80.0,1
+111,365,"Vu et al. 1998, NH6",Spiral,Double Cantilever,Feff provided,Flexure,1914.0,457.0,910.0,35.0,486.2,0.0,434.4,0,19.0,30.0,26.4,12.7,40.0,1
+112,366,"Kowalsky et al. 1996, FL1",Spiral,Cantilever,Feff provided,Flexure,1780.0,457.0,3656.0,36.6,477.0,0.0,445.0,0,15.9,30.0,30.2,9.5,76.0,1
+113,367,"Kowalsky et al. 1996, FL2",Spiral,Cantilever,Feff provided,Flexure,1780.0,457.0,3656.0,40.0,477.0,0.0,437.0,0,15.9,30.0,30.2,6.4,51.0,1
+114,368,"Kowalsky et al. 1996, FL3",Spiral,Cantilever,Feff provided,Flexure,1780.0,457.0,3656.0,38.6,477.0,0.0,445.0,0,15.9,30.0,30.2,9.5,76.0,1
+115,369,"Lehman et al. 1998, 415",Spiral,Cantilever,P Ram rotation decreases V,Flexure,653.86,609.6,2438.4,31.0,462.0,630.0,606.8,0,15.9,22.0,22.2,6.4,31.8,1
+116,370,"Lehman et al. 1998, 815",Spiral,Cantilever,P Ram rotation decreases V,Flexure,653.86,609.6,4876.8,31.0,462.0,630.0,606.8,0,15.9,22.0,22.2,6.4,31.8,0
+117,371,"Lehman et al. 1998, 1015",Spiral,Cantilever,P Ram rotation decreases V,Flexure,653.86,609.6,6096.0,31.0,462.0,630.0,606.8,0,15.9,22.0,22.2,6.4,31.8,0
+118,372,"Lehman et al. 1998, 407",Spiral,Cantilever,P Ram rotation decreases V,Flexure,653.86,609.6,2438.4,31.0,462.0,630.0,606.8,0,15.9,11.0,22.2,6.4,31.8,0
+119,373,"Lehman et al. 1998, 430",Spiral,Cantilever,P Ram rotation decreases V,Flexure,653.86,609.6,2438.4,31.0,462.0,630.0,606.8,0,15.9,44.0,22.2,6.4,31.8,1
+120,374,"Calderone et al. 2000, 328",Spiral,Cantilever,P Ram rotation decreases V,Flexure,911.84,609.6,1828.8,34.5,441.3,602.0,606.8,0,19.0,28.0,28.6,6.4,25.4,1
+121,375,"Calderone et al. 2000, 828",Spiral,Cantilever,P Ram rotation decreases V,Flexure,911.84,609.6,4876.8,34.5,441.3,602.0,606.8,0,19.0,28.0,28.6,6.4,25.4,1
+122,376,"Calderone et al. 2000, 1028",Spiral,Cantilever,P Ram rotation decreases V,Flexure,911.84,609.6,6096.0,34.5,441.3,602.0,606.8,0,19.0,28.0,28.6,6.4,25.4,0
+123,377,"Sritharan et al. 1995, IC1",Spiral,Cantilever,Feff provided,Flexure,400.0,600.0,1800.0,31.4,448.0,739.0,431.0,0,22.2,14.0,30.2,9.5,97.0,1
+124,378,"Sritharan et al. 1995, B105IC2",Spiral,Cantilever,Feff provided,Flexure,400.0,600.0,1800.0,34.6,448.0,739.0,431.0,0,22.2,14.0,30.2,9.5,97.0,0
+125,379,"Sritharan et al. 1995, IC3",Spiral,Cantilever,Feff provided,Flexure,400.0,600.0,1800.0,33.0,461.0,775.0,434.0,0,22.2,14.0,30.2,9.5,64.0,1
+126,380,"Saatcioglu and Baingo 1999, RC1",Spiral,Cantilever,P Ram rotation decreases V,Flexure,1000.0,250.0,1645.0,65.0,419.0,0.0,1000.0,0,16.0,8.0,13.8,7.5,50.0,1
+127,381,"Saatcioglu and Baingo 1999, RC2",Spiral,Cantilever,P Ram rotation decreases V,Flexure,1000.0,250.0,1645.0,65.0,419.0,0.0,420.0,0,16.0,8.0,15.6,11.3,50.0,1
+128,382,"Saatcioglu and Baingo 1999, RC3",Spiral,Cantilever,P Ram rotation decreases V,Flexure,1850.0,250.0,1645.0,90.0,419.0,0.0,1000.0,0,16.0,8.0,13.8,7.5,50.0,0
+129,383,"Saatcioglu and Baingo 1999, RC4",Spiral,Cantilever,P Ram rotation decreases V,Flexure,1850.0,250.0,1645.0,90.0,419.0,0.0,580.0,0,16.0,8.0,14.0,8.0,50.0,1
+130,384,"Saatcioglu and Baingo 1999, RC6",Spiral,Cantilever,P Ram rotation decreases V,Flexure,1850.0,250.0,1645.0,90.0,419.0,0.0,420.0,0,16.0,8.0,15.6,11.3,100.0,1
+131,385,"Saatcioglu and Baingo 1999, RC7",Spiral,Cantilever,P Ram rotation decreases V,Flexure,925.0,250.0,1645.0,90.0,419.0,0.0,1000.0,0,16.0,8.0,13.8,7.5,50.0,1
+132,386,"Saatcioglu and Baingo 1999, RC8",Spiral,Cantilever,P Ram rotation decreases V,Flexure,1850.0,250.0,1645.0,90.0,419.0,0.0,1000.0,0,16.0,8.0,13.8,7.5,50.0,1
+133,387,"Saatcioglu and Baingo 1999, RC9",Spiral,Cantilever,P Ram rotation decreases V,Flexure,1850.0,250.0,1645.0,90.0,419.0,0.0,420.0,0,16.0,8.0,13.8,11.3,50.0,1
+134,388,"Nelson and Price 2000, Col1",Spiral,Cantilever,P Ram rotation decreases V,Flexure,1450.0,508.0,1524.0,56.2,455.0,723.5,455.0,0,16.0,10.0,21.3,4.5,102.0,0
+135,389,"Nelson and Price 2000, Col2",Spiral,Cantilever,P Ram rotation decreases V,Flexure,1243.0,508.0,1524.0,56.3,455.0,723.5,455.0,0,16.0,10.0,21.3,4.5,102.0,0
+136,390,"Nelson and Price 2000, Col3",Spiral,Cantilever,P Ram rotation decreases V,Flexure,1139.0,508.0,1524.0,57.0,455.0,723.5,455.0,0,16.0,10.0,21.3,4.5,102.0,0
+137,391,"Nelson and Price 2000, Col4",Spiral,Cantilever,P Ram rotation decreases V,Flexure,1139.0,508.0,1524.0,52.7,455.0,723.5,455.0,0,16.0,10.0,21.3,4.5,102.0,0
+138,392,"Henry 1998, 415p",Spiral,Cantilever,P Ram rotation decreases V,Flexure,1308.0,609.6,2438.4,37.2,462.0,0.0,606.8,0,15.9,22.0,22.2,6.4,31.8,1
+139,393,"Henry 1998, 415s",Spiral,Cantilever,P Ram rotation decreases V,Flexure,654.0,609.6,2438.4,37.2,462.0,0.0,606.8,0,15.9,22.0,22.2,6.4,63.5,1
+140,394,"Chai, Priestley, and Seible 1991, Test 3",Spiral,Cantilever,P Ram rotation decreases V,Flexure,1779.0,609.6,3657.0,32.6,315.1,497.8,351.6,0,19.0,26.0,20.0,6.4,127.0,1
+141,395,"Soderstrom 2001,C1",Spiral,Cantilever,Shear provided,Flexure,0.0,419.0,1968.5,60.6,429.5,717.0,413.7,0,22.2,8.0,55.6,9.5,50.8,0
+142,396,"Soderstrom 2001,C2",Spiral,Cantilever,Shear provided,Flexure,0.0,419.0,1968.5,62.6,429.5,717.0,413.7,0,22.2,8.0,55.6,9.5,50.8,1
+143,397,"Soderstrom 2001,C3",Spiral,Cantilever,Shear provided,Flexure,0.0,419.0,1968.5,69.6,429.5,717.0,413.7,0,22.2,8.0,55.8,10.0,50.8,1
+144,398,"Soderstrom 2001,C4",Spiral,Cantilever,Shear provided,Flexure,987.5,419.0,1968.5,69.6,429.5,717.0,413.7,0,22.2,8.0,55.8,10.0,50.8,1
+145,399,"Graff, 2001,C5",Spiral,Cantilever,Shear provided,Flexure,987.5,419.0,1968.5,69.6,491.6,820.5,413.7,0,22.2,8.0,55.8,10.0,50.8,1
+146,400,"Graff, 2001,C6",Spiral,Cantilever,Shear provided,Flexure,987.5,419.0,1968.5,69.6,506.0,710.2,413.7,0,22.2,8.0,55.8,10.0,50.8,0
+147,401,"Graff, 2001,C7",Spiral,Cantilever,Shear provided,Flexure,987.5,419.0,1968.5,69.6,506.0,710.2,413.7,0,22.2,8.0,55.8,10.0,50.8,1
+148,402,"Graff, 2001,C8",Spiral,Cantilever,Shear provided,Flexure,987.5,419.0,1968.5,69.6,491.6,820.5,413.7,0,22.2,8.0,55.8,10.0,50.8,1
+149,403,"Kowalsky and Moyer, 2001, 1",Spiral,Cantilever,Feff provided,Flexure,231.3,457.2,2438.4,32.7,565.4,696.4,434.4,0,19.0,12.0,12.7,9.5,76.2,1
+150,404,"Kowalsky and Moyer, 2001, 2",Spiral,Cantilever,Feff provided,Flexure,231.3,457.2,2438.4,34.2,565.4,696.4,434.4,0,19.0,12.0,12.7,9.5,76.2,1
+151,405,"Kowalsky and Moyer, 2001, 3",Spiral,Cantilever,Feff provided,Flexure,231.3,457.2,2438.4,31.7,565.4,696.4,434.4,0,19.0,12.0,12.7,9.5,76.2,0
+152,406,"Kowalsky and Moyer, 2001, 4",Spiral,Cantilever,Feff provided,Flexure,231.3,457.2,2438.4,33.9,565.4,696.4,434.4,0,19.0,12.0,12.7,9.5,76.2,0
+153,407,"Coffman et al. 1993, Column 1",Spiral,Cantilever,P Ram rotation decreases V,Flexure,700.0,457.2,2863.9,22.0,379.0,0.0,379.0,0,19.0,9.0,38.1,9.5,305.0,0
+154,408,"Hamilton, 2002, UCI1",Spiral,Cantilever,Feff provided,Flexure,0.0,406.4,1854.2,36.5,458.5,646.0,691.5,0,12.7,12.0,15.0,4.5,31.8,1
+155,409,"Hamilton, 2002, UCI2",Spiral,Cantilever,Feff provided,Flexure,0.0,406.4,1854.2,36.5,458.5,646.0,691.5,0,12.7,12.0,15.0,4.5,31.8,0
+156,410,"Hamilton, 2002, UCI3",Spiral,Cantilever,Feff provided,Flexure-Shear,0.0,406.4,1047.8,34.7,458.5,646.0,691.5,0,12.7,14.0,10.4,4.5,171.4,0
+157,411,"Hamilton, 2002, UCI4",Spiral,Cantilever,Feff provided,Flexure-Shear,0.0,406.4,1047.8,34.7,458.5,646.0,691.5,0,12.7,14.0,10.4,4.5,171.4,0
+158,412,"Hamilton, 2002, UCI5",Spiral,Cantilever,Feff provided,Flexure-Shear,0.0,406.4,1047.8,35.4,458.5,646.0,691.5,0,12.7,12.0,10.4,4.5,63.5,1
+159,413,"Hamilton, 2002, UCI6",Spiral,Cantilever,Feff provided,Flexure,0.0,406.4,1854.2,35.6,458.5,646.0,691.5,0,12.7,12.0,15.0,4.5,31.8,0
+160,414,"McDaniel, 1997, S1",Spiral,Cantilever,Shear provided,Shear,18.8,609.6,1219.2,29.8,454.0,729.6,200.0,0,15.9,20.0,18.6,4.9,101.6,0
+161,415,"McDaniel, 1997, S1-2",Spiral,Cantilever,Shear provided,Shear,18.8,609.6,1219.2,26.8,454.0,729.6,200.0,0,15.9,20.0,18.6,4.9,101.6,1
+162,416,"McDaniel, 1997, S2",Spiral,Cantilever,Shear provided,Shear,18.8,609.6,1219.2,31.2,437.6,688.0,200.0,0,15.9,20.0,18.6,4.9,101.6,1

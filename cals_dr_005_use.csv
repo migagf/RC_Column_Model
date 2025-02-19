@@ -1,0 +1,417 @@
+﻿id,use,why,type
+1,1,,Rectangular
+2,1,,Rectangular
+3,1,,Rectangular
+4,1,,Rectangular
+5,1,,Rectangular
+6,1,,Rectangular
+7,1,,Rectangular
+8,0,not good,Rectangular
+9,1,,Rectangular
+10,1,,Rectangular
+11,1,,Rectangular
+12,1,,Rectangular
+13,1,,Rectangular
+14,1,,Rectangular
+15,1,,Rectangular
+16,1,,Rectangular
+17,1,,Rectangular
+18,1,,Rectangular
+19,1,,Rectangular
+20,1,,Rectangular
+21,1,,Rectangular
+22,1,,Rectangular
+23,1,,Rectangular
+24,1,,Rectangular
+25,1,,Rectangular
+26,1,,Rectangular
+27,1,,Rectangular
+28,1,,Rectangular
+29,1,,Rectangular
+30,0,few cycles,Rectangular
+31,1,,Rectangular
+32,1,,Rectangular
+33,1,,Rectangular
+34,1,,Rectangular
+35,0,experiment looks bad,Rectangular
+36,0,experiment looks bad,Rectangular
+37,0,,Rectangular
+38,0,few cycles,Rectangular
+39,0,experiment looks bad,Rectangular
+40,0,experiment looks bad,Rectangular
+41,0,calibration looks bad,Rectangular
+42,0,experiment looks bad,Rectangular
+43,0,experiment looks bad,Rectangular
+44,1,,Rectangular
+45,1,,Rectangular
+46,1,,Rectangular
+47,1,,Rectangular
+48,0,calibration looks bad,Rectangular
+49,1,,Rectangular
+50,1,,Rectangular
+51,1,,Rectangular
+52,1,,Rectangular
+53,1,,Rectangular
+54,1,,Rectangular
+55,1,,Rectangular
+56,1,,Rectangular
+57,1,,Rectangular
+58,1,,Rectangular
+59,1,,Rectangular
+60,1,,Rectangular
+61,1,,Rectangular
+62,1,,Rectangular
+63,1,,Rectangular
+64,1,,Rectangular
+65,1,,Rectangular
+66,1,,Rectangular
+67,1,,Rectangular
+68,1,,Rectangular
+69,1,,Rectangular
+70,0,few cycles,Rectangular
+71,0,few cycles,Rectangular
+72,0,few cycles,Rectangular
+73,0,few cycles,Rectangular
+74,0,few cycles,Rectangular
+75,0,few cycles,Rectangular
+76,1,,Rectangular
+77,1,,Rectangular
+78,1,,Rectangular
+79,1,,Rectangular
+80,1,,Rectangular
+81,1,,Rectangular
+82,1,,Rectangular
+83,1,,Rectangular
+84,0,monotonic,Rectangular
+85,0,monotonic,Rectangular
+86,0,monotonic,Rectangular
+87,0,monotonic,Rectangular
+88,0,calibration looks bad,Rectangular
+89,0,file not existent,Rectangular
+90,0,file not existent,Rectangular
+91,0,file not existent,Rectangular
+92,0,file not existent,Rectangular
+93,0,file not existent,Rectangular
+94,0,file not existent,Rectangular
+95,1,,Rectangular
+96,1,,Rectangular
+97,1,,Rectangular
+98,1,,Rectangular
+99,1,,Rectangular
+100,1,,Rectangular
+101,1,,Rectangular
+102,1,,Rectangular
+103,1,,Rectangular
+104,1,,Rectangular
+105,1,,Rectangular
+106,1,,Rectangular
+107,1,,Rectangular
+108,1,,Rectangular
+109,0,few cycles,Rectangular
+110,0,few cycles,Rectangular
+111,0,few cycles,Rectangular
+112,1,,Rectangular
+113,1,,Rectangular
+114,1,,Rectangular
+115,1,,Rectangular
+116,1,,Rectangular
+117,1,,Rectangular
+118,1,,Rectangular
+119,1,,Rectangular
+120,1,,Rectangular
+121,0,calibration looks bad,Rectangular
+122,0,few cycles,Rectangular
+123,0,few cycles,Rectangular
+124,0,few cycles,Rectangular
+125,1,,Rectangular
+126,1,,Rectangular
+127,1,,Rectangular
+128,1,,Rectangular
+129,0,few cycles,Rectangular
+130,0,few cycles,Rectangular
+131,0,few cycles,Rectangular
+132,0,few cycles,Rectangular
+133,0,calibration looks bad,Rectangular
+134,0,calibration looks bad,Rectangular
+135,0,calibration looks bad,Rectangular
+136,1,,Rectangular
+137,1,,Rectangular
+138,0,calibration looks bad,Rectangular
+139,1,,Rectangular
+140,1,,Rectangular
+141,1,,Rectangular
+142,1,,Rectangular
+143,1,,Rectangular
+144,1,,Rectangular
+145,1,,Rectangular
+146,1,,Rectangular
+147,1,,Rectangular
+148,1,,Rectangular
+149,1,,Rectangular
+150,1,,Rectangular
+151,1,,Rectangular
+152,1,,Rectangular
+153,0,calibration looks bad,Rectangular
+154,1,,Rectangular
+155,1,,Rectangular
+156,1,,Rectangular
+157,0,calibration looks bad,Rectangular
+158,0,calibration looks bad,Rectangular
+159,0,calibration looks bad,Rectangular
+160,0,calibration looks bad,Rectangular
+161,0,calibration looks bad,Rectangular
+162,0,calibration looks bad,Rectangular
+163,1,,Rectangular
+164,0,calibration looks bad,Rectangular
+165,1,,Rectangular
+166,1,,Rectangular
+167,1,,Rectangular
+168,1,,Rectangular
+169,1,,Rectangular
+170,1,,Rectangular
+171,1,,Rectangular
+172,1,,Rectangular
+173,1,,Rectangular
+174,1,,Rectangular
+175,1,,Rectangular
+176,1,,Rectangular
+177,1,,Rectangular
+178,1,,Rectangular
+179,1,,Rectangular
+180,1,,Rectangular
+181,1,,Rectangular
+182,0,calibration looks bad,Rectangular
+183,1,,Rectangular
+184,1,,Rectangular
+185,1,,Rectangular
+186,1,,Rectangular
+187,0,calibration looks bad,Rectangular
+188,0,data looks bad but should be fixable,Rectangular
+189,1,,Rectangular
+190,1,,Rectangular
+191,1,,Rectangular
+192,1,,Rectangular
+193,1,,Rectangular
+194,1,,Rectangular
+195,1,,Rectangular
+196,1,,Rectangular
+197,1,,Rectangular
+198,0,file not existent,Rectangular
+199,1,,Rectangular
+200,0,calibration looks bad,Rectangular
+201,1,,Rectangular
+202,0,calibration looks bad,Rectangular
+203,1,,Rectangular
+204,1,,Rectangular
+205,1,,Rectangular
+206,1,,Rectangular
+207,1,,Rectangular
+208,1,,Rectangular
+209,1,,Rectangular
+210,1,,Rectangular
+211,0,calibration looks bad,Rectangular
+212,1,,Rectangular
+213,1,,Rectangular
+214,0,few cycles,Rectangular
+215,1,,Rectangular
+216,1,,Rectangular
+217,1,,Rectangular
+218,1,,Rectangular
+219,1,,Rectangular
+220,1,,Rectangular
+221,1,,Rectangular
+222,1,,Rectangular
+223,1,,Rectangular
+224,1,,Rectangular
+225,1,,Rectangular
+226,1,,Rectangular
+227,0,calibration looks bad,Rectangular
+228,1,,Rectangular
+229,1,,Rectangular
+230,0,,Rectangular
+231,0,calibration looks bad,Rectangular
+232,0,calibration looks bad,Rectangular
+233,0,calibration looks bad,Rectangular
+234,1,,Rectangular
+235,0,file not existent,Rectangular
+236,0,file not existent,Rectangular
+237,1,,Rectangular
+238,1,,Rectangular
+239,1,,Rectangular
+240,0,"(up to here, all have a lot of noise)",Rectangular
+241,1,,Rectangular
+242,1,,Rectangular
+243,1,,Rectangular
+244,1,,Rectangular
+245,1,"(Careful with this one, this is not full reversal)",Rectangular
+246,1,,Rectangular
+247,0,empty plot,Rectangular
+248,0,empty plot,Rectangular
+249,0,empty plot,Rectangular
+250,0,empty plot,Rectangular
+251,0,empty plot,Rectangular
+252,0,file not existent,Rectangular
+253,0,file not existent,Rectangular
+254,0,empty plot,Spiral
+255,0,empty plot,Spiral
+256,0,empty plot,Spiral
+257,0,empty plot,Spiral
+258,0,empty plot,Spiral
+259,0,empty plot,Spiral
+260,0,empty plot,Spiral
+261,0,empty plot,Spiral
+262,0,empty plot,Spiral
+263,0,empty plot,Spiral
+264,0,empty plot,Spiral
+265,0,empty plot,Spiral
+266,1,,Spiral
+267,0,calibration looks bad,Spiral
+268,0,calibration looks bad,Spiral
+269,1,,Spiral
+270,1,,Spiral
+271,1,,Spiral
+272,1,,Spiral
+273,1,,Spiral
+274,1,,Spiral
+275,1,,Spiral
+276,1,,Spiral
+277,1,,Spiral
+278,1,,Spiral
+279,1,,Spiral
+280,1,,Spiral
+281,1,,Spiral
+282,1,,Spiral
+283,1,,Spiral
+284,1,,Spiral
+285,1,,Spiral
+286,1,,Spiral
+287,0,monotonic,Spiral
+288,1,,Spiral
+289,1,,Spiral
+290,1,,Spiral
+291,1,,Spiral
+292,1,,Spiral
+293,1,,Spiral
+294,1,,Spiral
+295,1,,Spiral
+296,1,,Spiral
+297,0,data looks bad,Spiral
+298,1,,Spiral
+299,1,,Spiral
+300,1,,Spiral
+301,1,,Spiral
+302,1,,Spiral
+303,1,,Spiral
+304,1,,Spiral
+305,1,,Spiral
+306,1,,Spiral
+307,1,,Spiral
+308,0,few cycles,Spiral
+309,1,,Spiral
+310,1,,Spiral
+311,1,,Spiral
+312,1,,Spiral
+313,1,,Spiral
+314,1,,Spiral
+315,1,,Spiral
+316,1,,Spiral
+317,0,calibration looks bad,Spiral
+318,1,,Spiral
+319,1,,Spiral
+320,1,,Spiral
+321,0,calibration looks bad,Spiral
+322,1,,Spiral
+323,0,calibration looks bad,Spiral
+324,0,calibration looks bad,Spiral
+325,1,,Spiral
+326,1,,Spiral
+327,1,,Spiral
+328,1,,Spiral
+329,1,,Spiral
+330,1,,Spiral
+331,1,,Spiral
+332,1,,Spiral
+333,1,,Spiral
+334,1,,Spiral
+335,1,,Spiral
+336,1,,Spiral
+337,1,,Spiral
+338,1,,Spiral
+339,0,calibration looks bad,Spiral
+340,1,,Spiral
+341,1,,Spiral
+342,0,calibration looks bad,Spiral
+343,1,,Spiral
+344,1,,Spiral
+345,1,,Spiral
+346,1,,Spiral
+347,0,experiment looks bad,Spiral
+348,0,experiment looks bad,Spiral
+349,0,monotonic,Spiral
+350,0,monotonic,Spiral
+351,0,experiment looks bad,Spiral
+352,1,,Spiral
+353,1,,Spiral
+354,1,,Spiral
+355,1,,Spiral
+356,1,,Spiral
+357,1,,Spiral
+358,0,calibration looks bad,Spiral
+359,1,,Spiral
+360,1,,Spiral
+361,0,calibration looks bad,Spiral
+362,1,,Spiral
+363,1,,Spiral
+364,1,,Spiral
+365,1,,Spiral
+366,1,,Spiral
+367,1,,Spiral
+368,1,,Spiral
+369,1,,Spiral
+370,0,calibration looks bad,Spiral
+371,0,file not existent,Spiral
+372,0,calibration looks bad,Spiral
+373,1,,Spiral
+374,1,,Spiral
+375,1,,Spiral
+376,0,file not existent,Spiral
+377,1,,Spiral
+378,0,empty plot,Spiral
+379,1,,Spiral
+380,1,,Spiral
+381,1,,Spiral
+382,0,calibration looks bad,Spiral
+383,1,,Spiral
+384,1,,Spiral
+385,1,,Spiral
+386,1,,Spiral
+387,1,,Spiral
+388,0,file not existent,Spiral
+389,0,file not existent,Spiral
+390,0,file not existent,Spiral
+391,0,file not existent,Spiral
+392,1,,Spiral
+393,1,,Spiral
+394,1,,Spiral
+395,0,calibration looks bad,Spiral
+396,1,,Spiral
+397,1,,Spiral
+398,1,,Spiral
+399,1,,Spiral
+400,0,calibration looks bad,Spiral
+401,1,,Spiral
+402,1,,Spiral
+403,1,,Spiral
+404,1,,Spiral
+405,0,monotonic,Spiral
+406,0,monotonic,Spiral
+407,0,experiment looks bad,Spiral
+408,1,,Spiral
+409,0,few cycles,Spiral
+410,0,file not existent,Spiral
+411,0,experiment looks bad,Spiral
+412,1,,Spiral
+413,0,monotonic,Spiral
+414,0,experiment looks bad,Spiral
+415,1,,Spiral
+416,1,,Spiral

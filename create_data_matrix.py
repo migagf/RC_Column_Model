@@ -445,7 +445,30 @@ if __name__ == '__main__':
             print('Error in test', testID, 'Y', que_paso)
             continue
     
+     
+    # Read the cals_dr_005.csv file (use or don't use)
+    cals_dr_005 = pd.read_csv('cals_dr_005_use.csv')
+    print(cals_dr_005.columns)
     
+    # Extract rows where cals_dr_005 in type are Rectangular
+    use_rect_data = cals_dr_005[cals_dr_005['type'] == 'Rectangular']
+    use_spiral_data = cals_dr_005[cals_dr_005['type'] == 'Spiral']
+
+    use_rect_data = use_rect_data['use']
+    use_spiral_data = use_spiral_data['use']
+    
+    use_rect_data = use_rect_data.reset_index(drop=True)
+    use_spiral_data = use_spiral_data.reset_index(drop=True)
+
+    print(use_spiral_data)
+    # Check that use_rect data and data_rect have the same length
+    print(len(use_rect_data), len(data_rect))
+    print(len(use_spiral_data), len(data_spiral))
+
+    # Add the use column to the dataframes
+    data_rect['use'] = use_rect_data
+    data_spiral['use'] = use_spiral_data
+
     # Store dataframe into a csv file
     data_spiral.to_csv('spiral_data.csv')
     data_rect.to_csv('rect_data.csv')
@@ -463,11 +486,15 @@ if __name__ == '__main__':
     data_spiral_wnd['ft'] = pd.Categorical(data_spiral_wnd['ft']).codes
     data_rect_wnd['ft'] = pd.Categorical(data_rect_wnd['ft']).codes
     
+    # RELEVANT!! Drop rows where the use column is 0
+    data_spiral_wnd = data_spiral_wnd[data_spiral_wnd['use'] == 1]
+    data_rect_wnd = data_rect_wnd[data_rect_wnd['use'] == 1]
+
     # Do pairplot for spiral columns
-    sns.pairplot(data_spiral_wnd[['ar', 'lrr', 'srr', 'alr', 'sdr', 'smr', 'ft', 'testcf']], hue='ft')
+    sns.pairplot(data_spiral_wnd[['ar', 'lrr', 'srr', 'alr', 'sdr', 'smr', 'ft']], hue='ft')
     plt.show()
 
-    sns.pairplot(data_rect_wnd[['ar', 'lrr', 'srr', 'alr', 'sdr', 'smr', 'ft', 'testcf']], hue='ft')
+    sns.pairplot(data_rect_wnd[['ar', 'lrr', 'srr', 'alr', 'sdr', 'smr', 'ft']], hue='ft')
     plt.show()
 
     # Store dataframe with the newly added columns

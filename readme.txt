@@ -6,7 +6,7 @@ This is a readme file for the RC Column Model process
     
     get_data_peer is a standalone function meaning that it does not call any functions other than the defined in there.
 
-(2) Run the create_data_matrix.py code to compute the non-dimensional parameters for each column. Right now, it olny does the job for
+(2) Run the create_data_matrix.py code to compute the non-dimensional parameters for each column. Right now, it only does the job for
     spiral columns. In the future, rectangular columns in the database will also be added.
 
     The result will be a file:
