@@ -376,9 +376,4 @@ if __name__ == "__main__":
         # print(df)
         # df.to_csv('normalized_hysteresis.csv', index=False)
         
-
-
-
-
-
 '''

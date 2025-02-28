@@ -16,9 +16,15 @@ import seaborn as sns
 import os
 
 
-def do_pairplots(dataframe):
-    plt.figure(dpi = 500)
-    sns.pairplot(dataframe)
+def do_pairplot(dataframe, subset, hue):
+    # Define tex type
+    plt.rc('text', usetex=True)
+    plt.rc('font', family='serif')
+
+    sns.pairplot(dataframe[subset], hue=hue, height=1.5)
+    # Use latex for the labels
+    plt.show()
+
     pass
 
 
@@ -79,9 +85,8 @@ def get_rect_props(rawdata, testID):
 def get_spiral_props(rawdata, testID):
     '''
     Extract the properties of a spiral column test and store them in a list.
-    The final goal is to put them in a dataframe.
-    '''
 
+    '''
     props = []
     
     # String Data
@@ -124,7 +129,7 @@ def get_nd_params(test_data):
 
     It returns two dataframes:
         - The first one contains the nondimensional parameters
-        - The second one contains the original data plus the nondimensional parameters as additional columns
+        - The second one contains the original test data plus the nondimensional parameters as additional columns
     
     For spiral columns, the properties are:
         'id', 'name', 'type', 'testcf', 'pd', 'ft', 'axl', 'diam', 'l',
@@ -138,99 +143,99 @@ def get_nd_params(test_data):
     '''
     
     if test_data['type'] == 'Spiral':
-            
-        # (2) Aspect Ratio
+        # ---------------------- Spiral Column -----------------------------
+        # (1) Aspect Ratio
         ar = test_data['diam'] / test_data['l']
             
-        # (3) Longitudinal Reinforcement Ratio
+        # (2) Longitudinal Reinforcement Ratio
         ag = np.pi * (test_data['diam']) ** 2 / 4   # gross area (mm2)
         alr = test_data['nlb'] * np.pi * (test_data['dlb']) ** 2 / 4 # long. reinf. area (mm2)
         rhol = alr / ag
-            
-        lrr = test_data['fyl'] * rhol / test_data['fpc']
-            
-        # (4) Spiral Reinforcement Ratio
-        d_core = test_data['diam'] - 2 * test_data['cc']   # diameter of the core (mm)
+        
+        lrr = rhol * (test_data['fyl'] / test_data['fpc'])
+        
+        # (3) Transverse Reinforcement Ratio
+        '''d_core = test_data['diam'] - 2 * test_data['cc']   # diameter of the core (mm)
         asp = np.pi * test_data['dsp'] ** 2 / 4  # area of spiral reinf (mm2)
-        rhosp = 4 * asp / (np.pi * d_core ** 2)
+        rhosp = 4 * asp / (np.pi * d_core ** 2)'''
+
+        asv = np.pi * test_data['dsp'] ** 2 / 2  # area of two legs of spiral reinf (mm2)
+        rhot = asv / (test_data['diam'] * test_data['s'])  # transverse reinforcement ratio in the region of close spacing of stirrups
         
         if test_data['fyt'] == 0:
             # fyt = 0, then use fyl
-            srr = test_data['fyl'] * rhosp / test_data['fpc']
+            trr = rhot * (test_data['fyl'] / test_data['fpc'])
         else:
-            srr = test_data['fyt'] * rhosp / test_data['fpc']
-            
-        # (5) Axial Load Ratio
+            trr = rhot * (test_data['fyt'] / test_data['fpc'])
+        
+        # (4) Axial Load Ratio
         ax_cap = test_data['fpc'] * ag / 1000    # kN
-        
         alr = test_data['axl'] / ax_cap
-        
-        # (6) Spiral diameter ratio
+
+        # (5) Transverse spacing ratio
         if test_data['s'] == 0:
-            sdr = 10
+            tsr = 2.0
         else:
-            sdr = (6 * test_data['dsp']) / test_data['s']
-        
-        # (7) Estimate of the shear strength and the moment strength
+            tsr = test_data['s'] / (6 * test_data['dsp'])
+
+        # (6) Estimate of the shear strength and the moment strength
         Vs = get_shear_strength(test_data)
-        Vm = get_moment_strength(test_data)
+        Vp = get_moment_strength(test_data)
         
-        smr = Vm/Vs
+        vpvs = Vp/Vs
 
     else:
-        
-        # (2) Aspect Ratio
+        # If the column is rectangular
+
+        # (1) Aspect ratio
         ar = test_data['d'] / test_data['l']
         
-        # (3) Longitudinal Reinforcement Ratio
+        # (2) Longitudinal reinforcement ratio
         ag = test_data['w'] * test_data['d']
         
         # The area of the longitudinal reinforcement is the area of the bars times the number of bars
         alr = test_data['nlb'] * np.pi * (test_data['dlb']) ** 2 / 4
         rhol = alr / ag
 
-        lrr = test_data['fyl'] * rhol / test_data['fpc']
+        lrr = rhol * (test_data['fyl'] / test_data['fpc'])
 
-        # (4) Spiral Reinforcement Ratio
-        d_core = test_data['d'] - 2 * test_data['cc_per']
-
+        # (3) Transverse reinforcement ratio
         # Area of the transverse reinforcement is the number of shear legs times
-        #  the area of the transverse bars in the region of close spacing
-        atr = test_data['nsl'] * np.pi * (test_data['dtb_rcs']) ** 2 / 4
-        rhot = atr / (test_data['w'] * test_data['s_rcs'])
+        # the area of the transverse bars in the region of close spacing
+        asv = test_data['nsl'] * np.pi * (test_data['dtb_rcs']) ** 2 / 4
+        rhot = asv / (test_data['w'] * test_data['s_rcs'])
 
         if test_data['fyt'] == 0:
             # fyt = 0, then use fyl
-            srr = test_data['fyl'] * rhot / test_data['fpc']   # CHECK THIS!!!
+            trr = rhot * (test_data['fyl'] / test_data['fpc'])   # CHECK THIS!!!
         else:
-            srr = test_data['fyt'] * rhot / test_data['fpc']
+            trr = rhot * (test_data['fyt'] / test_data['fpc'])
         
-        # (5) Axial Load Ratio
+        # (4) Axial load ratio
         ax_cap = test_data['fpc'] * ag / 1000   # kN
         alr = test_data['axl'] / ax_cap
 
-        # (6) Spiral diameter ratio
+        # (5) Transverse spacing ratio
         if test_data['s_rcs'] == 0:
-            sdr = 10
+            tsr = 2.0
         else:
-            sdr = (6 * test_data['dtb_rcs']) / test_data['s_rcs']
+            tsr = test_data['s_rcs'] / (6 * test_data['dtb_rcs'])
 
-        # (7) Estimate of the shear strength and the moment strength
+        # (6) Estimate of the shear strength and the moment strength
         Vs = get_shear_strength(test_data)
-        Vm = get_moment_strength(test_data)
+        Vp = get_moment_strength(test_data)
 
-        smr = Vm / Vs
+        vpvs = Vp / Vs
 
-    return [ar, lrr, srr, alr, sdr, smr]
+    return [ar, lrr, trr, alr, tsr, vpvs]
 
 
 def get_shear_strength(test_data):
     '''
-    Calculation of the shear strength based on the equations of Sezen and Moehle (2004)
-    (Only working for spiral columns right now...)
+    Calculation of the shear strength bassed on the equations of Sezen and Moehle (2004)
 
     '''
-    
+
     # Get material properties
     fpc = test_data['fpc']   # (MPa)
     fyl = test_data['fyl']   # (MPa)
@@ -244,7 +249,7 @@ def get_shear_strength(test_data):
         d = test_data['d']
 
     length = test_data['l']   # (mm)
-        
+    
     if test_data['type'] == 'Spiral':
         dtb = test_data['dsp']    # (mm)
         s = test_data['s']        # (mm)
@@ -295,11 +300,25 @@ def get_shear_strength(test_data):
     return Vt
 
 
-def get_moment_strength(test_data):
+def get_moment_strength(test_data, props='expected'):
     '''
-    Computation of the moment strength using Restrepo Equations
+    Computation of the probable moment strength
+    Ref: Restrepo and Rodriguez (2013)
+
+    Props can be either nominal or expected.
     
     '''
+    
+    if props == 'expected':
+        # If using expected properties
+        lam_h = 1.15
+        lam_co = 1.0
+    else:
+        # If using nominal properties
+        lam_h = 1.25
+        lam_co = 1.7
+
+
     if test_data['type'] == 'Spiral':
         # Get material properties
         fpc = test_data['fpc']   # (MPa)
@@ -317,24 +336,24 @@ def get_moment_strength(test_data):
         
         # Compute extra parameters 
         ag = np.pi * (diam) ** 2 / 4   # (mm2)
-        
-        al = np.pi * nlb / 2 * dlb ** 2 / 4 # (mm2)
-        
+        al = np.pi * nlb * (dlb) ** 2 / 4 # (mm2)
         
         # Computations
-        xc = diam * (0.32 * p / (ag * fpc) + 0.1)  # distance to neutral axis (mm)
+        xc = diam * (0.32 * p / (lam_co * ag * fpc) + 0.1)  # distance to neutral axis (mm)
         rhol = al / ag  # longitudinal reinf. ratio (-)
         
         a1 = rhol * fyl / fpc * (0.23 + 1/3 * (1/2 - xc/diam)) # nd param
         a2 = p / (ag * fpc) * (1/2 - xc/diam)
         
-        mcd = np.pi / 4 * (1.15 * a1 + a2)
+        mcd = np.pi / 4 * (lam_h * a1 + a2)
         
         Mcd = mcd * fpc * diam ** 3
         
         Vm = (Mcd / length) / 1000
 
     else:
+        # If the column is rectangular
+
         # Get material properties
         fpc = test_data['fpc']   # (MPa)
         fyl = test_data['fyl']   # (MPa)
@@ -353,16 +372,16 @@ def get_moment_strength(test_data):
         # Compute extra parameters
         ag = w * d   # (mm2)
         
-        al = np.pi * (nlb / 2) * dlb ** 2 / 4 # (mm2)
+        al = np.pi * nlb * (dlb ** 2 / 4) # (mm2)
         
         # Computations
-        xc = d * (0.34 * p / (ag * fpc) + 0.07)  # distance to neutral axis (mm)
+        xc = d * (0.34 * p / (lam_co * ag * fpc) + 0.07)  # distance to neutral axis (mm)
         rhol = al / ag  # longitudinal reinf. ratio (-)
         
         a1 = rhol * fyl / fpc * (0.30 + 1/4 * (1/2 - xc/d)) # nd param
         a2 = p / (ag * fpc) * (1/2 - xc/d)
         
-        mcd = 1.15 * a1 + a2
+        mcd = lam_h * a1 + a2
         
         Mcd = mcd * fpc * w * d ** 2
         
@@ -371,7 +390,6 @@ def get_moment_strength(test_data):
     return Vm
 
 
-# Run the script
 if __name__ == '__main__':
     
     # Properties of spiral columns
@@ -379,7 +397,7 @@ if __name__ == '__main__':
         'id', 'name', 'type', 'testcf', 'pd', 'ft', 'axl', 'diam', 'l',
         'fpc', 'fyl', 'fsul', 'fyt', 'fsut', 'dlb', 'nlb',
         'cc', 'dsp', 's'
-        ]
+    ]
     
     # Properties of rectangular columns
     rect_cols = [
@@ -397,10 +415,10 @@ if __name__ == '__main__':
 
     # Create dataframe for nondimensional parameters (actually, can save this only and make things easier)
     ndparams_spiral = pd.DataFrame(columns=['ar', 'lrr', 'srr', 'alr', 'sdr', 'smr'])
-    ndparams_rect = pd.DataFrame(columns=['ar', 'lrr', 'srr', 'alr', 'sdr', 'smr'])
+    ndparams_rect   = pd.DataFrame(columns=['ar', 'lrr', 'srr', 'alr', 'sdr', 'smr'])
 
     for testID in range(1, 417):
-    
+
         # (1) Load json file to dictionary
         current_dir = os.getcwd()
         json_dir = current_dir + '/test_data/test_' + str(testID).zfill(3) +'.json'
@@ -491,39 +509,19 @@ if __name__ == '__main__':
     data_rect_wnd = data_rect_wnd[data_rect_wnd['use'] == 1]
 
     # Do pairplot for spiral columns
-    sns.pairplot(data_spiral_wnd[['ar', 'lrr', 'srr', 'alr', 'sdr', 'smr', 'ft']], hue='ft')
-    plt.show()
+    #sns.pairplot(data_spiral_wnd[['ar', 'lrr', 'srr', 'alr', 'sdr', 'smr', 'ft']], hue='ft')
+    #plt.show()
+    do_pairplot(data_spiral_wnd, ['ar', 'lrr', 'srr', 'alr', 'sdr', 'smr', 'ft'], 'ft')
+    #plt.show()
 
-    sns.pairplot(data_rect_wnd[['ar', 'lrr', 'srr', 'alr', 'sdr', 'smr', 'ft']], hue='ft')
-    plt.show()
+    # Do pairplot for rectangular columns
+    do_pairplot(data_rect_wnd, ['ar', 'lrr', 'srr', 'alr', 'sdr', 'smr', 'ft'], 'ft')
+
+    #sns.pairplot(data_rect_wnd[['ar', 'lrr', 'srr', 'alr', 'sdr', 'smr', 'ft']], hue='ft')
+    #plt.show()
 
     # Store dataframe with the newly added columns
     data_spiral_wnd.to_csv('data_spiral_wnd.csv')
     data_rect_wnd.to_csv('data_rect_wnd.csv')
 
     plt.show()
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
