@@ -8,6 +8,7 @@ Created on Wed May 22 13:26:28 2024
 
 @author: miguelgomez
 """
+
 import json
 import pandas as pd
 import numpy as np
@@ -21,7 +22,8 @@ def do_pairplot(dataframe, subset, hue):
     plt.rc('text', usetex=True)
     plt.rc('font', family='serif')
 
-    sns.pairplot(dataframe[subset], hue=hue, height=1.5)
+    sns.pairplot(dataframe[subset], hue=hue, height=1.5, plot_kws={'alpha':0.5})
+
     # Use latex for the labels
     plt.show()
 
@@ -145,7 +147,7 @@ def get_nd_params(test_data):
     if test_data['type'] == 'Spiral':
         # ---------------------- Spiral Column -----------------------------
         # (1) Aspect Ratio
-        ar = test_data['diam'] / test_data['l']
+        ar = 1 / (test_data['diam'] / test_data['l'])
             
         # (2) Longitudinal Reinforcement Ratio
         ag = np.pi * (test_data['diam']) ** 2 / 4   # gross area (mm2)
@@ -187,8 +189,8 @@ def get_nd_params(test_data):
     else:
         # If the column is rectangular
 
-        # (1) Aspect ratio
-        ar = test_data['d'] / test_data['l']
+        # (1) Aspect ratio (as defined by the concrete people)
+        ar = 1 / (test_data['d'] / test_data['l'])
         
         # (2) Longitudinal reinforcement ratio
         ag = test_data['w'] * test_data['d']
@@ -232,8 +234,8 @@ def get_nd_params(test_data):
 
 def get_shear_strength(test_data):
     '''
-    Calculation of the shear strength bassed on the equations of Sezen and Moehle (2004)
-
+    Calculation of the shear strength based on the equations of Sezen and Moehle (2004)
+    
     '''
 
     # Get material properties
@@ -243,7 +245,7 @@ def get_shear_strength(test_data):
     
     # Get geometry parameters
     if test_data['type'] == 'Spiral':
-        diam = test_data['diam']  # (mm)
+        d = test_data['diam']  # (mm)
     else:
         w = test_data['w']
         d = test_data['d']
@@ -261,25 +263,34 @@ def get_shear_strength(test_data):
     # Get axial load
     p = test_data['axl'] * 1000   # (N)
     
+    # k factor in Sezen and Moehle (2004) for ductility-displacement dependence of the shear strength
+    k = 0.9
+
+    # Compute a/d ratio
+    a_dratio = length / d
+    if a_dratio > 4.0:
+        a_dratio = 4.0
+    elif a_dratio < 2.0:
+        a_dratio = 2.0
+
     if test_data['type'] == 'Spiral':
-        # Compute extra parameters
-        d = 0.8 * diam
-        ag = np.pi * (diam) ** 2 / 4   # (mm2)
+        # Gross area of the cross section
+        ag = np.pi * (d) ** 2 / 4   # (mm2)
 
         # Mean shear stress at the onset of shear crack
-        vc = 0.5 * np.sqrt(fpc) / (length / diam) * np.sqrt(1 + p / (0.5 * np.sqrt(fpc) * ag)) * 0.8
+        vc = 0.5 * np.sqrt(fpc) / (a_dratio) * np.sqrt(1 + p / (0.5 * np.sqrt(fpc) * ag))
         nsl = 2
 
     else:
-        d = 0.8 * d
-        ag = w * d
+        # Gross area of the cross section
+        ag = w * d  # (mm2)
 
         # Mean shear stress at the onset of shear crack
-        vc = 0.5 * np.sqrt(fpc) / (length / d) * np.sqrt(1 + p / (0.5 * np.sqrt(fpc) * ag)) * 0.8
+        vc = 0.5 * np.sqrt(fpc) / (a_dratio) * np.sqrt(1 + p / (0.5 * np.sqrt(fpc) * ag))
         nsl = test_data['nsl']
         
     # Concrete contribution to shear strenght
-    Vc = vc * ag / 1000
+    Vc = vc * 0.8 * ag / 1000
     
     # Transverse reinforcement contribution to the shear strength
     #print('concrete contribution', Vc)
@@ -287,12 +298,12 @@ def get_shear_strength(test_data):
     av = nsl * np.pi * (dtb) ** 2 / 4
     
     if s == 0:
-            Vs = 0
+        Vs = 0
     else:
         if fyt == 0:
-            Vs = (av * fyl * d / s) / 1000
+            Vs = k * (av * fyl * d / s) / 1000
         else:
-            Vs = (av * fyt * d / s) / 1000
+            Vs = k * (av * fyt * d / s) / 1000
             
     #print('reinforcement constribution', Vs)
     Vt = Vc + Vs
@@ -305,7 +316,8 @@ def get_moment_strength(test_data, props='expected'):
     Computation of the probable moment strength
     Ref: Restrepo and Rodriguez (2013)
 
-    Props can be either nominal or expected.
+    Props can be either nominal or expected. Use nominal for design values, use expected when using for 
+    experimental data, where the values of concrete and steel strength were obtaied from measurements.
     
     '''
     
@@ -346,10 +358,9 @@ def get_moment_strength(test_data, props='expected'):
         a2 = p / (ag * fpc) * (1/2 - xc/diam)
         
         mcd = np.pi / 4 * (lam_h * a1 + a2)
-        
         Mcd = mcd * fpc * diam ** 3
         
-        Vm = (Mcd / length) / 1000
+        Vpr = (Mcd / length) / 1000
 
     else:
         # If the column is rectangular
@@ -382,12 +393,11 @@ def get_moment_strength(test_data, props='expected'):
         a2 = p / (ag * fpc) * (1/2 - xc/d)
         
         mcd = lam_h * a1 + a2
-        
         Mcd = mcd * fpc * w * d ** 2
         
-        Vm = (Mcd / length) / 1000
+        Vpr = (Mcd / length) / 1000
     
-    return Vm
+    return Vpr
 
 
 if __name__ == '__main__':
@@ -418,7 +428,6 @@ if __name__ == '__main__':
     ndparams_rect   = pd.DataFrame(columns=['ar', 'lrr', 'srr', 'alr', 'sdr', 'smr'])
 
     for testID in range(1, 417):
-
         # (1) Load json file to dictionary
         current_dir = os.getcwd()
         json_dir = current_dir + '/test_data/test_' + str(testID).zfill(3) +'.json'
@@ -435,13 +444,12 @@ if __name__ == '__main__':
                 # Get the properties of the spiral column in a list
                 props = get_spiral_props(rawdata, testID)
                 
-                # Get the hysteresis data
-                # hysteresis = rawdata['data']
                 # Append the properties to the dataframe
                 data_spiral.loc[len(data_spiral)] = props
                 
                 # Get nondimensional parameters for the spiral column
                 ndparams_ii = get_nd_params(data_spiral.loc[len(data_spiral)-1])
+
                 # Append at the end of the dataframe
                 ndparams_spiral.loc[len(ndparams_spiral)+1] = ndparams_ii
 
@@ -450,20 +458,21 @@ if __name__ == '__main__':
                 props = get_rect_props(rawdata, testID)
 
                 # Get the hysteresis data
-                # hysteresis = rawdata['data']
-                # Append the properties to the dataframe
                 data_rect.loc[len(data_rect)] = props
                 
                 # Get nondimensional parameters for the rectangular column
                 ndparams_ii = get_nd_params(data_rect.loc[len(data_rect)-1])
+
                 # Append at the end of the dataframe
                 ndparams_rect.loc[len(ndparams_rect)] = ndparams_ii
 
         except Exception as que_paso:
+
             print('Error in test', testID, 'Y', que_paso)
+
             continue
     
-     
+
     # Read the cals_dr_005.csv file (use or don't use)
     cals_dr_005 = pd.read_csv('cals_dr_005_use.csv')
     print(cals_dr_005.columns)
@@ -479,6 +488,7 @@ if __name__ == '__main__':
     use_spiral_data = use_spiral_data.reset_index(drop=True)
 
     print(use_spiral_data)
+
     # Check that use_rect data and data_rect have the same length
     print(len(use_rect_data), len(data_rect))
     print(len(use_spiral_data), len(data_spiral))
@@ -509,19 +519,11 @@ if __name__ == '__main__':
     data_rect_wnd = data_rect_wnd[data_rect_wnd['use'] == 1]
 
     # Do pairplot for spiral columns
-    #sns.pairplot(data_spiral_wnd[['ar', 'lrr', 'srr', 'alr', 'sdr', 'smr', 'ft']], hue='ft')
-    #plt.show()
     do_pairplot(data_spiral_wnd, ['ar', 'lrr', 'srr', 'alr', 'sdr', 'smr', 'ft'], 'ft')
-    #plt.show()
-
+    
     # Do pairplot for rectangular columns
     do_pairplot(data_rect_wnd, ['ar', 'lrr', 'srr', 'alr', 'sdr', 'smr', 'ft'], 'ft')
 
-    #sns.pairplot(data_rect_wnd[['ar', 'lrr', 'srr', 'alr', 'sdr', 'smr', 'ft']], hue='ft')
-    #plt.show()
-
     # Store dataframe with the newly added columns
-    data_spiral_wnd.to_csv('data_spiral_wnd.csv')
-    data_rect_wnd.to_csv('data_rect_wnd.csv')
-
-    plt.show()
+    # data_spiral_wnd.to_csv('data_spiral_wnd.csv')
+    # data_rect_wnd.to_csv('data_rect_wnd.csv')
