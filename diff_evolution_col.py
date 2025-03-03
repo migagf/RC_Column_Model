@@ -274,7 +274,7 @@ def run_model(ModelParams, test_data):
     E, I, L = get_elastic_properties(test_data)
     
     # Stiffness and strength of the plastic hinge
-    stiffness =  10 * 3 * E * I / L   # kN-mm
+    stiffness =  5 * 3 * E * I / L   # kN-mm
     strength = 1000 * np.max(test_data["data"]["force"]) * L
     
     # Stiffness and strength of the plastic hinge (no need to update)
@@ -310,6 +310,9 @@ def run_model(ModelParams, test_data):
 
     strains = strains[0:index_min]
 
+    # define strains but with 10000 points
+    strains = interpolator(strains, 10000)
+
     # Define cycles for pushover
     #t0 = time.time()
     force_model = run_pushover(model, strains, plot=False, show_info=False)
@@ -320,6 +323,9 @@ def run_model(ModelParams, test_data):
 
     # Cut the vector of forces so it has the same length as the strains
     force_exp = force_exp[0:index_min] 
+    
+    # Generate force_exp with 10000 points
+    force_exp = interpolator(force_exp, 10000)
 
     peak_force_exp = np.max(np.abs(force_exp))
     peak_force_model = np.max(np.abs(force_model))

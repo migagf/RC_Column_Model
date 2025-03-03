@@ -10,7 +10,7 @@ from create_data_matrix import *
 import matplotlib.pyplot as plt
 
 # Plot Surrogate Predictions
-from gp_predict import *
+from gp_predict_old import *
 from diff_evolution_col import *
 import matplotlib.pyplot as plt
 import seaborn as sns
