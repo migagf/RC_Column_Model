@@ -14,7 +14,7 @@ import scipy as sp
 
 
 def save_csv(filename, array, save_type='row'):
-    ''' 
+    '''
     Function to save to csv file
     '''
     

@@ -1494,3 +1494,970 @@
  c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1259: RuntimeWarning:invalid value encountered in scalar divide
  C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:126: RuntimeWarning:invalid value encountered in divide
  C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:134: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:divide by zero encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:126: RuntimeWarning:divide by zero encountered in divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:134: RuntimeWarning:divide by zero encountered in divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:135: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:126: RuntimeWarning:divide by zero encountered in divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:134: RuntimeWarning:divide by zero encountered in divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:135: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in multiply
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:126: RuntimeWarning:divide by zero encountered in divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:134: RuntimeWarning:divide by zero encountered in divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:135: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:divide by zero encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:126: RuntimeWarning:divide by zero encountered in divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:134: RuntimeWarning:divide by zero encountered in divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:135: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:divide by zero encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:126: RuntimeWarning:divide by zero encountered in divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:134: RuntimeWarning:divide by zero encountered in divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:135: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:126: RuntimeWarning:divide by zero encountered in divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:134: RuntimeWarning:divide by zero encountered in divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:135: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:divide by zero encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:126: RuntimeWarning:divide by zero encountered in divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:134: RuntimeWarning:divide by zero encountered in divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:135: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:126: RuntimeWarning:divide by zero encountered in divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:134: RuntimeWarning:divide by zero encountered in divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:135: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in multiply
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:126: RuntimeWarning:divide by zero encountered in divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:134: RuntimeWarning:divide by zero encountered in divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:135: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in multiply
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:126: RuntimeWarning:divide by zero encountered in divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:134: RuntimeWarning:divide by zero encountered in divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:135: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:divide by zero encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:126: RuntimeWarning:divide by zero encountered in divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:134: RuntimeWarning:divide by zero encountered in divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:135: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:126: RuntimeWarning:divide by zero encountered in divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:134: RuntimeWarning:divide by zero encountered in divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:135: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:126: RuntimeWarning:divide by zero encountered in divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:134: RuntimeWarning:divide by zero encountered in divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:135: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:126: RuntimeWarning:divide by zero encountered in divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:134: RuntimeWarning:divide by zero encountered in divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:135: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:divide by zero encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:127: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:126: RuntimeWarning:divide by zero encountered in divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:134: RuntimeWarning:divide by zero encountered in divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:135: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:divide by zero encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in multiply
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:divide by zero encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:127: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:126: RuntimeWarning:divide by zero encountered in divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:134: RuntimeWarning:divide by zero encountered in divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:135: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:126: RuntimeWarning:divide by zero encountered in divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:134: RuntimeWarning:divide by zero encountered in divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:135: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:divide by zero encountered in scalar divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:126: RuntimeWarning:divide by zero encountered in divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:134: RuntimeWarning:divide by zero encountered in divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:135: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:126: RuntimeWarning:divide by zero encountered in divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:134: RuntimeWarning:divide by zero encountered in divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:135: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:126: RuntimeWarning:divide by zero encountered in divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:134: RuntimeWarning:divide by zero encountered in divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:135: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:divide by zero encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\Documents\GitHub\RC_Column_Model\column_model\material_models.py:583: RuntimeWarning:divide by zero encountered in scalar power
+ c:\Users\Miguel.MIGUEL-DESK\Documents\GitHub\RC_Column_Model\column_model\material_models.py:583: RuntimeWarning:invalid value encountered in scalar multiply
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:126: RuntimeWarning:divide by zero encountered in divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:134: RuntimeWarning:divide by zero encountered in divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:135: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:126: RuntimeWarning:divide by zero encountered in divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:134: RuntimeWarning:divide by zero encountered in divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:135: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in multiply
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:divide by zero encountered in scalar divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:126: RuntimeWarning:divide by zero encountered in divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:134: RuntimeWarning:divide by zero encountered in divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:135: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in multiply
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:126: RuntimeWarning:divide by zero encountered in divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:134: RuntimeWarning:divide by zero encountered in divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:135: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:126: RuntimeWarning:divide by zero encountered in divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:134: RuntimeWarning:divide by zero encountered in divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:135: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:divide by zero encountered in scalar divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:126: RuntimeWarning:divide by zero encountered in divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:134: RuntimeWarning:divide by zero encountered in divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:135: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in multiply
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:divide by zero encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:126: RuntimeWarning:divide by zero encountered in divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:134: RuntimeWarning:divide by zero encountered in divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:135: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in multiply
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:126: RuntimeWarning:divide by zero encountered in divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:134: RuntimeWarning:divide by zero encountered in divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:135: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:126: RuntimeWarning:divide by zero encountered in divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:134: RuntimeWarning:divide by zero encountered in divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:135: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:126: RuntimeWarning:divide by zero encountered in divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:134: RuntimeWarning:divide by zero encountered in divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:135: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:divide by zero encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:divide by zero encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:126: RuntimeWarning:divide by zero encountered in divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:134: RuntimeWarning:divide by zero encountered in divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:135: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in multiply
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:126: RuntimeWarning:divide by zero encountered in divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:134: RuntimeWarning:divide by zero encountered in divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:135: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:126: RuntimeWarning:divide by zero encountered in divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:134: RuntimeWarning:divide by zero encountered in divide
+ C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_2568\4095213613.py:135: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1242: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1243: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:divide by zero encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1244: RuntimeWarning:invalid value encountered in divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in add
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1266: RuntimeWarning:invalid value encountered in scalar divide
+ c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\numpy\lib\function_base.py:1250: RuntimeWarning:invalid value encountered in multiply
