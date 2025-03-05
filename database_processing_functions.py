@@ -185,7 +185,7 @@ def send_email(message):
     r = requests.get(url + "/sendMessage", params=params)
 
 
-def create_calibration_file(test_data, test_id, destination, plot=False, save_csv=False):
+def create_calibration_file(test_data, test_id, destination, plot=False, save_cal=False):
     
     state = 1
     
@@ -273,7 +273,7 @@ def create_calibration_file(test_data, test_id, destination, plot=False, save_cs
         else:
             pass
 
-        if save_csv:
+        if save_cal:
             # Save the calibration file as column file
             save_csv(destination + 'cal_' + test_id + '.csv', cal_force, save_type='row')
                  

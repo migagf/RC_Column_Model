@@ -35,12 +35,13 @@ for ii in range(selii, selii+1):
     
     # (2) Import JSON file as dictionary
     test_data = load_json(filename)
+    print(test_data['Name'])
 
     # (3) Check P-Delta, and get effecttive force if needed
     test_data['data'] = get_effective_force(test_data, False)
 
     # (4) Create the calibration file
-    state, cal_data, run_data = create_calibration_file(test_data, test_id, destination=json_dir, plot=True)
+    state, cal_data, run_data = create_calibration_file(test_data, test_id, destination=json_dir, plot=True, save_cal=True)
 
     # Add run_data and cal_data into the dictionary
     test_data['run_data'] = run_data

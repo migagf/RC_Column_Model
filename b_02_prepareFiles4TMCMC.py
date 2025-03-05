@@ -44,5 +44,4 @@ for file in os.listdir(os.path.join(current_folder, 'column_model')):
     if file.endswith('.py'):
         src_file = os.path.join(current_folder, 'column_model', file)
         dest_file = os.path.join(model_files_dir, file)
-        if not os.path.exists(dest_file):
-            shutil.copyfile(src_file, dest_file)
+        shutil.copyfile(src_file, dest_file)

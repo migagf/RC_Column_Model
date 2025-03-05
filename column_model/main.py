@@ -32,7 +32,7 @@ plt.rcParams.update({
 #filesdir = r'C:\Users\Miguel.MIGUEL-DESK\Documents\GitHub\RC_Column_Model\test_data'
 #calfilesdir = r'C:\Users\Miguel.MIGUEL-DESK\Documents\GitHub\RC_Column_Model\test_data\calibration_files'
 
-do_plots = True
+do_plots = False
 
 if do_plots:
     import matplotlib.pyplot as plt
@@ -45,15 +45,6 @@ if __name__ == "__main__":
     #with open(filesdir + '/test_' + str(testid).zfill(3) + '.json') as file:
     with open(os.path.join(os.getcwd(), 'test_file.json')) as file:
         test_data = json.load(file)
-    
-    # Get number of points in the calibration data file
-    #with open(calfilesdir + '/cal_' + str(testid).zfill(3) + '.csv') as file:
-    with open(os.path.join(os.getcwd(), 'cal_file.csv')) as file:
-        cal_data = np.genfromtxt(file, delimiter=',')
-        npts = cal_data.shape[0]
-        print('Calibration file has', npts, 'points')
-
-    test_data["data"] = get_effective_force(test_data)
     
     # Define the elastic properties of the column
     E, I, L = get_elastic_properties(test_data)
@@ -70,7 +61,7 @@ if __name__ == "__main__":
     n = np.floor(n)
     deg_bw_params = [eta1, k0, sy0, sig, lam, mup, sigp, rsmax, n, alpha, alpha1, alpha2, betam1]
     
-    #% Create Plastic Hinge
+    # Create Plastic Hinge
     my_ph = deg_bw_material_mod(deg_bw_params)
     
     # Elastic Parameters, mass and additional damping
@@ -83,10 +74,8 @@ if __name__ == "__main__":
     
     # Define the strains for the pushover analysis
     strains = np.array(test_data["run_data"]["disp"])
-    #print(len(strains))
-    # strains = interpolator(strains, 30*npts)
-    #print(len(strains))
-    # Define cycles for pushover
+    
+    # Run the pushover analysis
     t0 = time.time()
     force = run_pushover(model, strains, plot=False, show_info=False)
     t1 = time.time()
@@ -108,18 +97,22 @@ if __name__ == "__main__":
     # Save the response into response.out
     force = np.array(force)/1000
     
+    # Get npts in the calibration data
+    npts = test_data['cal_data']['npts']
+    
     interpolated_force = interpolator(force, npts)
     interpolated_displacement = interpolator(strains, npts)
 
-    """
-    plt.figure()
+
+    '''plt.figure()
     plt.plot(strains, force, 'k-', linewidth=0.5)
     plt.plot(interpolated_displacement, interpolated_force, 'r.')
-    plt.show()
-    """
-    
+    plt.savefig('hysteresis.png')'''
+    # Compute mean absolute error
+    error = np.mean(np.abs(np.array(test_data["cal_data"]["force"]) - interpolated_force))/np.max(test_data["cal_data"]["force"])
+
     # Save response to file
     save_response(filename='results.out', array=interpolated_force, save_type='column')
-    
+    save_response(filename='mae.out', array=error, save_type='column')
 
 
