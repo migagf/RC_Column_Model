@@ -88,12 +88,24 @@ def create_calibration_file(test_data, test_id, destination, plot=False):
         cal_disp = disp_int(cal_tt)
         cal_force = force_int(cal_tt)
         
-        plt.figure(dpi=200)
-        plt.plot(np.array(disp)/test_data['L_Inflection'], force, 'k-', linewidth=0.2)
-        plt.plot(np.array(cal_disp)/test_data['L_Inflection'], cal_force, 'r.-', linewidth=0.1, markersize=0.5)
-        plt.title(test_id)
-        plt.xlim(-0.05, 0.05)
-        plt.ylim(-350, 350)
+        if plot:
+            # Plot displacement-force curve
+            plt.figure(dpi=200)
+            plt.plot(np.array(disp)/test_data['L_Inflection'], force, 'k-', linewidth=0.05)
+            plt.plot(np.array(cal_disp)/test_data['L_Inflection'], cal_force, 'r.-', linewidth=0.1, markersize=0.5)
+            plt.title(test_id)
+            #plt.xlim(-0.05, 0.05)
+            #plt.ylim(-350, 350)
+            plt.show()
+
+            # Plot force vs time
+            plt.figure(dpi=200)
+            plt.plot(tt, force, 'k-', linewidth=0.05, label='Raw Data')
+            plt.plot(cal_tt, cal_force, 'r.-', linewidth=0.1, markersize=0.5, label='For Calibration')
+            plt.title(test_id)
+            plt.show()
+        else:
+            pass
         
         # Interpolation for running the analysis
         run_tt = np.linspace(0, npts-1, 100 * zero_cross)
@@ -117,7 +129,7 @@ def create_calibration_file(test_data, test_id, destination, plot=False):
 
 def get_effective_force(test_data, plot=False):
     '''
-    This function takes the test data, and computes the effective force by getting rid of the P-Delta effect
+    This function takes the test data, and computes the effective force by eliminating the P-Delta effect
     '''
 
     # Check if the P-Delta effect is present
@@ -143,7 +155,7 @@ def get_effective_force(test_data, plot=False):
             plt.show()
     else:
         # Feff directly reported. Do nothing
-
+        print("Effective force was directly reported, no need to do anything")
         pass
 
     return test_data['data']
