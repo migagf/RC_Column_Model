@@ -37,6 +37,9 @@ def save_csv(filename, array, save_type='row'):
     '''
     Function to save to csv file for calibrations
     '''
+    # if array is a list, convert to numpy array
+    if type(array) == list:
+        array = np.array(array)
     
     if save_type == 'row':
         # Save array as a row csv
@@ -236,16 +239,24 @@ def create_calibration_file(test_data, test_id, destination, plot=False, save_ca
         run_disp = disp_int(run_tt)
         run_force = force_int(run_tt)
         
+        # Convert to lists
+        cal_disp = (cal_disp).tolist()
+        cal_force = (cal_force).tolist()
+        run_disp = (run_disp).tolist()
+        run_force = (run_force).tolist()
+
         # Create dictionaries with the calibration and running data
         cal_data = {
-            'disp': cal_disp.tolist(),
-            'force': cal_force.tolist(),
+            'disp': cal_disp,
+            'force': cal_force,
             'npts': len(cal_disp)
         }
+        
+        print('for quoFEM, the number of points is ', len(cal_disp))
 
         run_data = {
-            'disp': run_disp.tolist(),
-            'force': run_force.tolist(),
+            'disp': run_disp,
+            'force': run_force,
             'npts': len(run_disp)
         }
 
@@ -302,7 +313,7 @@ def get_effective_force(test_data, plot=False):
         effective_force = force + disp * test_data['AxLoad'] / test_data['L_Inflection']
 
         # Update the data dictionary
-        test_data['data']['force'] = effective_force
+        test_data['data']['force'] = effective_force.tolist()
 
         if plot:
             plt.figure()

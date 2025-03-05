@@ -24,8 +24,8 @@ maxii = len(data)
 #selId = int(input('Select test id (0 to ' + str(maxii) + '): '))
 
 # 
-selii = 0
-for ii in range(selii, selii+1):
+# selii = 1
+for ii in range(26, maxii+1):
     
     # (1) Create name of file
     print(ii)
@@ -69,8 +69,8 @@ for ii in range(selii, selii+1):
     
 
 # Create pairplot of the data withh hue='stiff_type'
-import seaborn as sns
-sns.pairplot(nondim_params, hue='stiff_type')
+# import seaborn as sns
+# sns.pairplot(nondim_params, hue='stiff_type')
 
 
 # Note: cases are in the median of the distributions for all the possible parameters... Not too good.

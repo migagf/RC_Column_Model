@@ -326,7 +326,7 @@ if __name__ == '__main__':
 
     url = 'https://nisee.berkeley.edu/spd/servlet/display?format=html&id='
     
-    for ii in range(1, 417):
+    for ii in range(275, 276):
         
         # (1) Create name of the file
         filename = files_dir + '/test_' + str(ii).zfill(3) + '.json'
