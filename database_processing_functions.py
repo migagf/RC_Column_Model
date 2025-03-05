@@ -13,9 +13,21 @@ import os
 import scipy as sp
 
 
+# Index of the functions in this file
+# 1. save_csv
+# 2. plot_hysteresis
+# 3. load_json
+# 4. create_calibration_file
+# 5. get_effective_force
+# 6. get_moment_rotation
+# 7. save_normalized_hysteresis
+# 8. get_backbone_curve
+# 9. send_email
+# 10. smooth_data
+
 def save_csv(filename, array, save_type='row'):
     '''
-    Function to save to csv file
+    Function to save to csv file for calibrations
     '''
     
     if save_type == 'row':
@@ -31,7 +43,9 @@ def save_csv(filename, array, save_type='row'):
 
 def plot_hysteresis(disp, force, label):
     '''
-     
+    Function to plot the hysteresis loop
+    disp: displacement
+    force: force
     '''
     plt.plot(disp, force, label=label)
     
@@ -47,19 +61,133 @@ def load_json(json_dir):
     return data
 
 
-def create_calibration_file(test_data, test_id, destination, plot=False):
+def interpolator(original_array, new_length):
+    '''
+    Function to interpolate an array to a new length
+
+    '''
+    # Get the original length
+    original_length = len(original_array)
+    
+    # Create the new array
+    interpolated_array = np.interp(np.linspace(0, original_length, new_length), np.arange(original_length), original_array)
+
+    return interpolated_array
+
+
+def smooth_data(non_smoothed_data, npts=5, do_plots=False):
+    '''
+    Smooth the data using a moving average of npts
+
+    '''
+    # Get the force and displacement data
+    force = np.array(non_smoothed_data["force"])
+    disp = np.array(non_smoothed_data["disp"])
+
+    # Start displacement and force at 0
+    disp = disp - disp[0]
+    force = force - force[0]
+    
+    # Reduce the number of points in the data
+    print('Original length', len(disp))
+    
+    # Count number of cycles as number of crosses per zero displacement
+    indicator = disp[0:-1] * disp[1:] < 0
+    nzeros = np.sum(indicator)
+
+    # Increase the number of points by a factor of 10
+    disp = interpolator(disp, 10*len(disp))
+    force = interpolator(force, 10*len(force))
+
+    # Delete initial values for which force is less than 5.0% of the peak force
+    peak_force = np.max(force)
+
+    index = np.array(np.where(force >= 0.05 * peak_force))
+    index_min = np.min(index)
+    disp = disp[index_min:]
+    force = force[index_min:]
+        
+    # Smooth the data using a moving average
+    force_smoothed = np.convolve(force, np.ones((npts,))/npts, mode='same')
+    disp_smoothed = np.convolve(disp, np.ones((npts,))/npts, mode='same')
+    
+    # Delete first npts - 1 points
+    disp_smoothed = disp_smoothed[npts - 1:]
+    force_smoothed = force_smoothed[npts - 1:]
+
+    # Start displacement and force at 0
+    #disp_smoothed = (disp_smoothed - 0*disp_smoothed[0]).tolist()
+    #force_smoothed = (force_smoothed - 0*force_smoothed[0]).tolist()
+    # Add zero at the beggining of disp_smoothed and force_smoothed
+    # Center the displacements
+    
+    # Initial secant stiffness
+    ini_st = (force_smoothed[0]) / (disp_smoothed[0])
+    
+    # Insert 10*npts equispaced points at the beggining of the disp_smoothed vector,
+    # starting from zero and ending at the first value of disp_smoothed
+
+    add_disp = np.linspace(0, disp_smoothed[0], 10*npts)
+    add_force = ini_st * add_disp
+    disp_smoothed = np.concatenate((add_disp, disp_smoothed))
+    force_smoothed = np.concatenate((add_force, force_smoothed))
+
+    # Delete the last 10*npts points
+    disp_smoothed = disp_smoothed[:-10*npts]
+    force_smoothed = force_smoothed[:-10*npts]
+
+    # Go back to the original length
+    disp_smoothed = interpolator(disp_smoothed, int(len(disp_smoothed)/10))
+    force_smoothed = interpolator(force_smoothed, int(len(force_smoothed)/10))
+
+    # Turn into lists
+    disp_smoothed = disp_smoothed.tolist()
+    force_smoothed = force_smoothed.tolist()
+    print('Final length', len(disp_smoothed))
+
+    # Plot the smoothed data and the original data
+    if do_plots:
+        plt.figure()
+        plt.plot(disp, force, 'k-', linewidth=0.1)
+        plt.plot(disp_smoothed, force_smoothed, 'r-', linewidth=0.1)
+        plt.plot(disp_smoothed[0:20], force_smoothed[0:20], 'r.-', markersize=2.0, linewidth=1.0)
+        plt.grid()
+        plt.show()
+
+    return {"disp": disp_smoothed, "force": force_smoothed}
+
+
+def send_email(message):
+    '''
+    Send an email with the message to my bot in Telegram
+    '''
+    import requests
+    # Get token from file
+    with open(r"C:\Users\Miguel.MIGUEL-DESK\Documents\myfile.txt") as f:
+        token = f.read()
+
+    url = f"https://api.telegram.org/bot{token}"
+    params = {"chat_id": "7619956282", "text": message}
+    r = requests.get(url + "/sendMessage", params=params)
+
+
+def create_calibration_file(test_data, test_id, destination, plot=False, save_csv=False):
     
     state = 1
     
     try:
-        disp = np.array(test_data["data"]["disp"])
-        force = np.array(test_data["data"]["force"])
-        
-        # Smooth out displacement and force data using moving average of 5 points
-        window_size = 3
-        disp = np.convolve(disp, np.ones(window_size)/window_size, mode='valid')
-        force = np.convolve(force, np.ones(window_size)/window_size, mode='valid')
+        # Smooth the force-displacement data. Use 1 point for the moving average.
+        smoothed_data = smooth_data(test_data["data"], npts=5, do_plots=True)
+        is_good = input("Is the data good? (y/n): ")
 
+        while is_good != 'y':
+            npts = int(input("Enter the number of points for the moving average: "))
+            smoothed_data = smooth_data(test_data["data"], npts=npts, do_plots=True)
+            is_good = input("Is the data good? (y/n): ")
+
+        disp = np.array(smoothed_data["disp"])
+        force = np.array(smoothed_data["force"])
+        
         # Get total number of points and create "time"
         npts = len(disp)
         tt = np.arange(0, npts)
@@ -84,7 +212,7 @@ def create_calibration_file(test_data, test_id, destination, plot=False):
         force_int = sp.interpolate.interp1d(tt, force)
         
         # Interpolation for calibration
-        cal_tt = np.linspace(0, npts-1, 11 * zero_cross)
+        cal_tt = np.linspace(0, npts-1, 11 * zero_cross) # 11 points per crossing
         cal_disp = disp_int(cal_tt)
         cal_force = force_int(cal_tt)
         
@@ -108,17 +236,18 @@ def create_calibration_file(test_data, test_id, destination, plot=False):
             pass
         
         # Interpolation for running the analysis
-        run_tt = np.linspace(0, npts-1, 100 * zero_cross)
+        run_tt = np.linspace(0, npts-1, 110 * zero_cross)
         run_disp = disp_int(run_tt)
         run_force = force_int(run_tt)
         
-        #plt.figure(dpi=500)
-        #plt.plot(run_disp, run_force, 'b.', markersize=0.8)
-        #plt.plot(disp, force, 'r.-', linewidth=0.1, markersize=0.5)
-        
-        # Save the calibration file as row file
-        save_csv(destination + 'cal_' + test_id + '.csv', cal_force, save_type='row')
-        
+        '''plt.figure(dpi=200)
+        plt.plot(run_disp, run_force, 'b.', markersize=0.8)
+        plt.plot(disp, force, 'r.-', linewidth=0.1, markersize=0.5)
+        plt.show()'''
+
+        if save_csv:
+            # Save the calibration file as column file
+            save_csv(destination + 'cal_' + test_id + '.csv', cal_force, save_type='row')
                  
     except Exception as que_paso:
         print('Problem encountered when trying to save force-deformation \n', que_paso)
@@ -130,6 +259,7 @@ def create_calibration_file(test_data, test_id, destination, plot=False):
 def get_effective_force(test_data, plot=False):
     '''
     This function takes the test data, and computes the effective force by eliminating the P-Delta effect
+
     '''
 
     # Check if the P-Delta effect is present
@@ -153,6 +283,9 @@ def get_effective_force(test_data, plot=False):
             plt.legend()
             plt.title(test_data['P_Delta'])
             plt.show()
+        
+        # Update the 'P_Delta' field to 'Feff computed'
+        test_data['P_Delta'] = 'Feff computed'
     else:
         # Feff directly reported. Do nothing
         print("Effective force was directly reported, no need to do anything")
@@ -326,66 +459,3 @@ def get_backbone_curve(cyclic_test, plot=False):
         plt.show()
 
     return backbone, yield_point, normalized_hyst
-
-'''
-if __name__ == "__main__":
-    
-    #This code plots the force-displacement relations for the concrete column
-    #tests in the database
-    
-    
-    # Get current folder
-    current_folder = os.getcwd()
-
-    # Folder with the JSON files
-    json_dir = current_folder + '/test_data/'
-   
-    # Load the database
-    data = pd.read_csv('data_spiral_wnd.csv')
-    print(data)
-    # For each curve:    
-
-    for ii in range(0, len(data)):
-        
-        # (1) Create name of file
-        test_id = str(data.id[ii]).zfill(3)
-        filename = json_dir + 'test_' + test_id + '.json'
-        
-        # (2) Import JSON file as dictionary
-        test_data = load_json(filename)
-
-        # (3) Check P-Delta, and get effecttive force if needed
-        test_data['data'] = get_effective_force(test_data, False)
-        
-        # (4) Save the effective force-displacement curves in their separate files
-        create_calibration_file(test_data, test_id, destination=json_dir, plot=True)
-        
-        # 
-        # (4) Get the elastic stiffness and substract elastic deformation
-        # moment_rotation, elastic_stiffness = get_moment_rotation(test_data, plot=False)
-
-        # (5) Get backbone curve
-        # mr_backbone is the backbone of the moment-rotation
-        # mr_backbone, yield_point, normalized_hyst = get_backbone_curve(moment_rotation, plot=True)
-        
-        # (6) Save the normalized hysteresis curve to a csv file
-
-        # Create filename
-        # filename = 'normalized_hysteresis/test_' + str(data.id[ii]).zfill(3) + '.csv'
-
-        # Save the file
-        #state = save_normalized_hysteresis(normalized_hyst, filename, npts=10)
-        #if state == 0:
-        #    print('Error saving file: ' + filename)
-        #else:
-        #    print('File saved: ' + filename)
-
-        # To do:
-        # Write the file with the nondimensional parameters
-        # Write the file with the solver with quoFEM
-
-        # df = pd.DataFrame(normalized_hyst)
-        # print(df)
-        # df.to_csv('normalized_hysteresis.csv', index=False)
-        
-'''

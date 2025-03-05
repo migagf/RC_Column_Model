@@ -14,6 +14,9 @@ import time
 import json
 from scipy import integrate
 
+from database_processing_functions import smooth_data
+from database_processing_functions import send_email
+
 # Import functions to create model
 from column_model.material_models import *
 from column_model.structure_model import *
@@ -51,6 +54,8 @@ test_files_dir = r'C:\Users\Miguel.MIGUEL-DESK\Documents\GitHub\RC_Column_Model\
 model_files_dir = r'C:\Users\Miguel.MIGUEL-DESK\Documents\GitHub\RC_Column_Model'
 cal_file_dir = r'C:\Users\Miguel.MIGUEL-DESK\Documents\GitHub\RC_Column_Model'
 
+
+# Functions required for differential evolution calibration
 def compute_error(model, data):
 
     err = np.sqrt(np.sum((model - data)**2) / len(data))
@@ -334,85 +339,6 @@ def run_model(ModelParams, test_data):
     exp_data = {"disp": np.array(strains) / L, "force": np.array(force_exp) / peak_force_exp}
 
     return model_data, exp_data
-
-
-def smooth_data(non_smoothed_data, npts=5, do_plots=False):
-    '''
-    Smooth the data using a moving average of npts
-    '''
-    # Get the force and displacement data
-    force = np.array(non_smoothed_data["force"])
-    disp = np.array(non_smoothed_data["disp"])
-
-    # Start displacement and force at 0
-    disp = disp - disp[0]
-    force = force - force[0]
-    
-    # Reduce the number of points in the data
-    print('Original length', len(disp))
-    
-    # Count number of cycles as number of crosses per zero displacement
-    indicator = disp[0:-1] * disp[1:] < 0
-    nzeros = np.sum(indicator)
-
-    # Use 25 times the number of zeros as the number of points for the pushover
-    disp = interpolator(disp, 25*nzeros)
-    force = interpolator(force, 25*nzeros)
-
-    print('Final length', len(disp))
-
-    # Delete initial values for which force is less than 1.0% of the peak force
-    peak_force = np.max(force)
-
-    index = np.array(np.where(force >= 0.01 * peak_force))
-    index_min = np.min(index)
-    disp = disp[index_min:]
-    force = force[index_min:]
-        
-    # Smooth the data using a moving average
-    force_smoothed = np.convolve(force, np.ones((npts,))/npts, mode='same')
-    disp_smoothed = np.convolve(disp, np.ones((npts,))/npts, mode='same')
-    
-    # Delete first npts - 1 points
-    disp_smoothed = disp_smoothed[npts - 1:]
-    force_smoothed = force_smoothed[npts - 1:]
-
-    # Start displacement and force at 0
-    #disp_smoothed = (disp_smoothed - 0*disp_smoothed[0]).tolist()
-    #force_smoothed = (force_smoothed - 0*force_smoothed[0]).tolist()
-    # Add zero at the beggining of disp_smoothed and force_smoothed
-    # Center the displacements
-    
-    # Initial stiffness
-    ini_st = (force_smoothed[1] - force_smoothed[0]) / (disp_smoothed[1] - disp_smoothed[0])
-    disp_smoothed = disp_smoothed - force_smoothed[0] / ini_st
-
-    disp_smoothed = (np.insert(disp_smoothed, 0, 0)).tolist()
-    force_smoothed = (np.insert(force_smoothed, 0, 0)).tolist()
-
-    # Plot the smoothed data and the original data
-    if do_plots:
-        plt.figure()
-        plt.plot(disp, force, 'k-', linewidth=0.1)
-        plt.plot(disp_smoothed, force_smoothed, 'r-', linewidth=1.0)
-        plt.grid()
-        plt.show()
-
-    return {"disp": disp_smoothed, "force": force_smoothed}
-
-
-def send_email(message):
-    '''
-    Send an email with the message to my bot in Telegram
-    '''
-    import requests
-    # Get token from file
-    with open(r"C:\Users\Miguel.MIGUEL-DESK\Documents\myfile.txt") as f:
-        token = f.read()
-
-    url = f"https://api.telegram.org/bot{token}"
-    params = {"chat_id": "7619956282", "text": message}
-    r = requests.get(url + "/sendMessage", params=params)
 
 
 if __name__ == "__main__":
