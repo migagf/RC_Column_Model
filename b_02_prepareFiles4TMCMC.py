@@ -11,7 +11,10 @@ current_folder = os.getcwd()
 
 # Folder with the JSON files with test data
 json_dir = current_folder + '/test_data/'
-   
+
+# Folder with the model files
+model_files_dir = current_folder + '/column_model/'
+
 # Load the database
 data = pd.read_csv('merged_data.csv')
 
@@ -36,5 +39,10 @@ shutil.copyfile(os.path.join(json_dir, f'test_{test_id}.json'), os.path.join(mod
 # Copy the calibration file
 shutil.copyfile(os.path.join(json_dir, f'cal_{test_id}.csv'), os.path.join(model_files_dir, 'cal_file.csv'))
 
-
-
+# Copy all files in the colum_model folder into the calibration folder
+for file in os.listdir(os.path.join(current_folder, 'column_model')):
+    if file.endswith('.py'):
+        src_file = os.path.join(current_folder, 'column_model', file)
+        dest_file = os.path.join(model_files_dir, file)
+        if not os.path.exists(dest_file):
+            shutil.copyfile(src_file, dest_file)

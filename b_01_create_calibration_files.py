@@ -23,8 +23,8 @@ data = pd.read_csv('merged_data.csv')
 maxii = len(data)
 #selId = int(input('Select test id (0 to ' + str(maxii) + '): '))
 
-# Restart in 15
-selii = 1
+# 
+selii = 0
 for ii in range(selii, selii+1):
     
     # (1) Create name of file

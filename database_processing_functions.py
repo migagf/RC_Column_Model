@@ -239,12 +239,14 @@ def create_calibration_file(test_data, test_id, destination, plot=False, save_cs
         # Create dictionaries with the calibration and running data
         cal_data = {
             'disp': cal_disp.tolist(),
-            'force': cal_force.tolist()
+            'force': cal_force.tolist(),
+            'npts': len(cal_disp)
         }
 
         run_data = {
             'disp': run_disp.tolist(),
-            'force': run_force.tolist()
+            'force': run_force.tolist(),
+            'npts': len(run_disp)
         }
 
         if plot:
