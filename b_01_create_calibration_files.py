@@ -23,9 +23,12 @@ data = pd.read_csv('merged_data.csv')
 maxii = len(data)
 #selId = int(input('Select test id (0 to ' + str(maxii) + '): '))
 
-for ii in range(0, maxii):
+# Restart in 15
+selii = 1
+for ii in range(selii, selii+1):
     
     # (1) Create name of file
+    print(ii)
     test_id = str(int(data.UniqueId[ii])).zfill(3)
     filename = json_dir + 'test_' + test_id + '.json'
     print(filename)
@@ -37,8 +40,17 @@ for ii in range(0, maxii):
     test_data['data'] = get_effective_force(test_data, False)
 
     # (4) Create the calibration file
-    create_calibration_file(test_data, test_id, destination=json_dir, plot=False)
-    
+    state, cal_data, run_data = create_calibration_file(test_data, test_id, destination=json_dir, plot=True)
+
+    # Add run_data and cal_data into the dictionary
+    test_data['run_data'] = run_data
+    test_data['cal_data'] = cal_data
+
+    # (5) Save the dictionary as a JSON file
+    save_json(test_data, filename)
+
+    print('---')
+
     # (5) Extract the nondimensional parameters from the csv file (last 6 columns)
     nondim_params = data.iloc[ii, -8::]
     # print(nondim_params)

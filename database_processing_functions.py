@@ -25,6 +25,14 @@ import scipy as sp
 # 9. send_email
 # 10. smooth_data
 
+def save_json(data, filename):
+    '''
+    Function to save a dictionary as a JSON file
+    '''
+    with open(filename, 'w') as file:
+        json.dump(data, file, indent=4)
+
+
 def save_csv(filename, array, save_type='row'):
     '''
     Function to save to csv file for calibrations
@@ -75,9 +83,15 @@ def interpolator(original_array, new_length):
     return interpolated_array
 
 
-def smooth_data(non_smoothed_data, npts=5, do_plots=False):
+def smooth_data(non_smoothed_data, npts=5, dpts=0.05, do_plots=False):
     '''
     Smooth the data using a moving average of npts
+    
+    Inputs:
+    non_smoothed_data: dictionary with keys 'disp' and 'force'
+    npts: number of points for the moving average
+    dpts: percentage of the peak force to start the curve
+    do_plots: boolean to plot the smoothed data
 
     '''
     # Get the force and displacement data
@@ -102,7 +116,7 @@ def smooth_data(non_smoothed_data, npts=5, do_plots=False):
     # Delete initial values for which force is less than 5.0% of the peak force
     peak_force = np.max(force)
 
-    index = np.array(np.where(force >= 0.05 * peak_force))
+    index = np.array(np.where(force >= dpts * peak_force))
     index_min = np.min(index)
     disp = disp[index_min:]
     force = force[index_min:]
@@ -177,12 +191,13 @@ def create_calibration_file(test_data, test_id, destination, plot=False, save_cs
     
     try:
         # Smooth the force-displacement data. Use 1 point for the moving average.
-        smoothed_data = smooth_data(test_data["data"], npts=5, do_plots=True)
+        smoothed_data = smooth_data(test_data["data"], do_plots=True)
         is_good = input("Is the data good? (y/n): ")
 
         while is_good != 'y':
             npts = int(input("Enter the number of points for the moving average: "))
-            smoothed_data = smooth_data(test_data["data"], npts=npts, do_plots=True)
+            dpts = float(input("Enter the percentage of the peak force to start the curve: "))
+            smoothed_data = smooth_data(test_data["data"], npts=npts, dpts=dpts, do_plots=True)
             is_good = input("Is the data good? (y/n): ")
 
         disp = np.array(smoothed_data["disp"])
@@ -212,10 +227,26 @@ def create_calibration_file(test_data, test_id, destination, plot=False, save_cs
         force_int = sp.interpolate.interp1d(tt, force)
         
         # Interpolation for calibration
-        cal_tt = np.linspace(0, npts-1, 11 * zero_cross) # 11 points per crossing
+        cal_tt = np.linspace(0, npts-1, 11 * zero_cross) # 11 points per crossing by zero
         cal_disp = disp_int(cal_tt)
         cal_force = force_int(cal_tt)
         
+        # Interpolation for running the analysis
+        run_tt = np.linspace(0, npts-1, 110 * zero_cross) # 110 points per crossing by zero
+        run_disp = disp_int(run_tt)
+        run_force = force_int(run_tt)
+        
+        # Create dictionaries with the calibration and running data
+        cal_data = {
+            'disp': cal_disp.tolist(),
+            'force': cal_force.tolist()
+        }
+
+        run_data = {
+            'disp': run_disp.tolist(),
+            'force': run_force.tolist()
+        }
+
         if plot:
             # Plot displacement-force curve
             plt.figure(dpi=200)
@@ -232,18 +263,13 @@ def create_calibration_file(test_data, test_id, destination, plot=False, save_cs
             plt.plot(cal_tt, cal_force, 'r.-', linewidth=0.1, markersize=0.5, label='For Calibration')
             plt.title(test_id)
             plt.show()
+
+            plt.figure(dpi=200)
+            plt.plot(run_disp, run_force, 'b.', markersize=0.8)
+            plt.plot(disp, force, 'r.-', linewidth=0.1, markersize=0.5)
+            plt.show()
         else:
             pass
-        
-        # Interpolation for running the analysis
-        run_tt = np.linspace(0, npts-1, 110 * zero_cross)
-        run_disp = disp_int(run_tt)
-        run_force = force_int(run_tt)
-        
-        '''plt.figure(dpi=200)
-        plt.plot(run_disp, run_force, 'b.', markersize=0.8)
-        plt.plot(disp, force, 'r.-', linewidth=0.1, markersize=0.5)
-        plt.show()'''
 
         if save_csv:
             # Save the calibration file as column file
@@ -253,7 +279,7 @@ def create_calibration_file(test_data, test_id, destination, plot=False, save_cs
         print('Problem encountered when trying to save force-deformation \n', que_paso)
         state = 0
     
-    return state
+    return state, cal_data, run_data
 
 
 def get_effective_force(test_data, plot=False):

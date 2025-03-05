@@ -82,9 +82,9 @@ if __name__ == "__main__":
     model = structure_model(el_params, my_ph, mass, damping)
     
     # Define the strains for the pushover analysis
-    strains = np.array(test_data["data"]["disp"])
+    strains = np.array(test_data["run_data"]["disp"])
     #print(len(strains))
-    strains = interpolator(strains, 30*npts)
+    # strains = interpolator(strains, 30*npts)
     #print(len(strains))
     # Define cycles for pushover
     t0 = time.time()
