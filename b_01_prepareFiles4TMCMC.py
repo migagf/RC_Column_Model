@@ -3,7 +3,10 @@ import os
 import shutil
 
 # Set directory containing the test data
-test_files_dir = r'C:\Users\Miguel.MIGUEL-DESK\Documents\GitHub\RC_Column_Model\test_data'
+os.getcwd()
+
+dir_to_test_files = os.path.join(os.getcwd(), 'test_data')
+#test_files_dir = r'C:\Users\Miguel.MIGUEL-DESK\Documents\GitHub\RC_Column_Model\test_data'
 
 # Process the test data to create a calibration file
 
