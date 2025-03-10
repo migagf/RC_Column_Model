@@ -1,9 +1,11 @@
 import os
 import pandas as pd
 import numpy as np
+import shutil
 
 from database_processing_functions import *
 from a_02_create_data_matrix import *
+from b_02_prepareFiles4TMCMC import *
 
 '''
 This code plots the force-displacement relations for the concrete column
@@ -22,11 +24,16 @@ data = pd.read_csv('merged_data.csv')
 # For each curve:    
 maxii = len(data)
 #selId = int(input('Select test id (0 to ' + str(maxii) + '): '))
+import argparse
+parser = argparse.ArgumentParser(description='Process test id.')
 
-# 
-# selii = 1
-for ii in range(26, maxii+1):
+if __name__ == '__main__':
+    # Create an argument parser to get the ii value from user input
     
+    parser.add_argument('ii', type=int, help='Test id (0 to ' + str(maxii) + ')')
+    args = parser.parse_args()
+    ii = args.ii
+
     # (1) Create name of file
     print(ii)
     test_id = str(int(data.UniqueId[ii])).zfill(3)
@@ -66,9 +73,14 @@ for ii in range(26, maxii+1):
 
     # Get last 7 values in data in a new dataframe
     nondim_params = data.iloc[:, -8::]
-    
 
-# Create pairplot of the data withh hue='stiff_type'
+    # Save files for TMCMC
+    prepare_files_for_TMCMC(current_folder, json_dir, data, ii)
+
+
+
+
+'''# Create pairplot of the data withh hue='stiff_type'
 # import seaborn as sns
 # sns.pairplot(nondim_params, hue='stiff_type')
 
@@ -101,4 +113,4 @@ for ii in range(26, maxii+1):
 
 # df = pd.DataFrame(normalized_hyst)
 # print(df)
-# df.to_csv('normalized_hysteresis.csv', index=False)
+# df.to_csv('normalized_hysteresis.csv', index=False)'''

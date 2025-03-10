@@ -109,10 +109,10 @@ if __name__ == "__main__":
     plt.plot(interpolated_displacement, interpolated_force, 'r.')
     plt.savefig('hysteresis.png')'''
     # Compute mean absolute error
-    error = np.mean(np.abs(np.array(test_data["cal_data"]["force"]) - interpolated_force))/np.max(test_data["cal_data"]["force"])
+    #error = np.mean(np.abs(np.array(test_data["cal_data"]["force"]) - interpolated_force))/np.max(test_data["cal_data"]["force"])
 
     # Save response to file
     save_response(filename='results.out', array=interpolated_force, save_type='column')
-    save_response(filename='mae.out', array=error, save_type='column')
+    #save_response(filename='mae.out', array=error, save_type='column')
 
 

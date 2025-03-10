@@ -4,25 +4,29 @@ import shutil
 import pandas as pd
 
 # Set directory containing the test data
-os.getcwd()
+# os.getcwd()
 
-# Get current folder
-current_folder = os.getcwd()
+def prepare_files_for_TMCMC(current_folder, json_dir, data, ii):
+        
+    # Get current folder
+    # current_folder = os.getcwd()
 
-# Folder with the JSON files with test data
-json_dir = current_folder + '/test_data/'
+    # Folder with the JSON files with test data
+    # json_dir = current_folder + '/test_data/'
 
-# Folder with the model files
-model_files_dir = current_folder + '/column_model/'
+    # Folder with the model files
+    model_files_dir = current_folder + '/column_model/'
 
-# Load the database
-data = pd.read_csv('merged_data.csv')
+    # Load the database
+    # data = pd.read_csv('merged_data.csv')
 
-# For each curve
-iniii = 2
-maxii = 26 # len(data) (have only processed 15 of the curves)
+    # For each curve
+    # iniii = 2
+    # maxii = 26 # len(data) (have only processed 15 of the curves)
 
-for ii in range(iniii, maxii+1):
+    # selii = 1
+    # for ii in range(selii, selii+1):
+    print('Saving files for test ' + str(ii))
     test_id = str(int(data.UniqueId[ii])).zfill(3)
     folder_name = 'test_' + test_id
 
@@ -46,3 +50,6 @@ for ii in range(iniii, maxii+1):
             src_file = os.path.join(current_folder, 'column_model', file)
             dest_file = os.path.join(model_files_dir, file)
             shutil.copyfile(src_file, dest_file)
+
+    print('Done saving files')
+    print('===')
