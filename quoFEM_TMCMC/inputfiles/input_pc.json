@@ -3,8 +3,8 @@
         "FEM": {
             "Application": "OpenSeesPy",
             "ApplicationData": {
-                "MS_Path": "C:/Users/Miguel.MIGUEL-DESK/Documents/GitHub/RC_Column_Model/quoFEM_TMCMC/test_005",
-                "PA_Path": "C:/Users/Miguel.MIGUEL-DESK/Documents/GitHub/RC_Column_Model/quoFEM_TMCMC/test_005",
+                "MS_Path": "C:/Users/Miguel.MIGUEL-DESK/Documents/GitHub/RC_Column_Model/quoFEM_TMCMC/test_336",
+                "PA_Path": "C:/Users/Miguel.MIGUEL-DESK/Documents/GitHub/RC_Column_Model/quoFEM_TMCMC/test_336",
                 "mainScript": "main.py",
                 "parametersScript": "model_parameters.py",
                 "postprocessScript": ""
@@ -18,7 +18,7 @@
     },
     "EDP": [
         {
-            "length": 231,
+            "length": 264,
             "name": "force",
             "type": "field"
         }
@@ -27,7 +27,7 @@
     },
     "UQ": {
         "calDataFile": "cal_file.csv",
-        "calDataFilePath": "C:/Users/Miguel.MIGUEL-DESK/Documents/GitHub/RC_Column_Model/quoFEM_TMCMC/test_005",
+        "calDataFilePath": "C:/Users/Miguel.MIGUEL-DESK/Documents/GitHub/RC_Column_Model/quoFEM_TMCMC/test_336",
         "logLikelihoodFile": "",
         "logLikelihoodPath": "",
         "method": "Bayesian Calibration",

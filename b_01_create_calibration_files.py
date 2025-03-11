@@ -48,7 +48,7 @@ if __name__ == '__main__':
     test_data['data'] = get_effective_force(test_data, False)
 
     # (4) Create the calibration file
-    state, cal_data, run_data = create_calibration_file(test_data, test_id, destination=json_dir, plot=True, save_cal=True)
+    state, cal_data, run_data = create_calibration_file(test_data, test_id, destination=json_dir, plot=False, save_cal=True)
 
     # Add run_data and cal_data into the dictionary
     test_data['run_data'] = run_data
