@@ -29,8 +29,11 @@ def save_json(data, filename):
     '''
     Function to save a dictionary as a JSON file
     '''
+    os.remove(filename)
     with open(filename, 'w') as file:
         json.dump(data, file, indent=4)
+    
+    print('File saved as ', filename)
 
 
 def save_csv(filename, array, save_type='row'):
@@ -191,7 +194,10 @@ def send_email(message):
 def create_calibration_file(test_data, test_id, destination, plot=False, save_cal=False):
     
     state = 1
-    
+    # Turn nans into zeros for the force-displacement data
+    test_data["data"]["disp"] = [0 if np.isnan(x) else x for x in test_data["data"]["disp"]]
+    test_data["data"]["force"] = [0 if np.isnan(x) else x for x in test_data["data"]["force"]]
+
     try:
         # Smooth the force-displacement data. Use 1 point for the moving average.
         smoothed_data = smooth_data(test_data["data"], do_plots=True)
@@ -231,13 +237,13 @@ def create_calibration_file(test_data, test_id, destination, plot=False, save_ca
         
         # Interpolation for calibration
         cal_tt = np.linspace(0, npts-1, 11 * zero_cross) # 11 points per crossing by zero
-        cal_disp = disp_int(cal_tt)
-        cal_force = force_int(cal_tt)
+        cal_disp = np.nan_to_num(disp_int(cal_tt))
+        cal_force = np.nan_to_num(force_int(cal_tt))
         
         # Interpolation for running the analysis
         run_tt = np.linspace(0, npts-1, 110 * zero_cross) # 110 points per crossing by zero
-        run_disp = disp_int(run_tt)
-        run_force = force_int(run_tt)
+        run_disp = np.nan_to_num(disp_int(run_tt))
+        run_force = np.nan_to_num(force_int(run_tt))
         
         # Convert to lists
         cal_disp = (cal_disp).tolist()

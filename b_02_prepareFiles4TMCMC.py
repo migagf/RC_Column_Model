@@ -135,8 +135,16 @@ def update_calibrations_log(current_folder, data, ii):
             except Exception as que_paso:
                 print(f'Error processing test {ii}. Possibly missing test_ folder \n', que_paso)
         else:
+            UniqueId = str(int(data.UniqueId[ii])).zfill(3)
             # Print a message if the entry already exists
-            print(f'Entry for calId {calId} already exists in the log.')
+            print(f'Entry for calId {calId} already exists in the log., updating')
+            test_file_path = os.path.join(current_folder, 'quoFEM_TMCMC', f'test_{UniqueId}', 'test_file.json')
+            with open(test_file_path, 'r') as f:
+                test_data = json.load(f)
+                        
+            npts = test_data['cal_data']['npts']
+            calibrations_log_df.loc[calibrations_log_df['calId'] == calId, 'npts'] = npts
+            calibrations_log_df.to_csv(destination, index=False)
     pass
 
 
