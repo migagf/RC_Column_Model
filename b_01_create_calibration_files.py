@@ -17,7 +17,7 @@ current_folder = os.getcwd()
 
 # Folder with the JSON files
 json_dir = current_folder + '/test_data/'
-   
+
 # Load the database
 data = pd.read_csv('merged_data.csv')
 # print(data)
@@ -76,8 +76,9 @@ if __name__ == '__main__':
 
     # Save files for TMCMC
     prepare_files_for_TMCMC(current_folder, json_dir, data, ii)
-
-
+    
+    # Update calibrations log file
+    update_calibrations_log(current_folder, data, ii)
 
 
 '''# Create pairplot of the data withh hue='stiff_type'
