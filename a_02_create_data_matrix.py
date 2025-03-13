@@ -511,8 +511,8 @@ if __name__ == '__main__':
     data_spiral['use'] = use_spiral_data
 
     # Store dataframe into a csv file
-    data_spiral.to_csv('spiral_data.csv')
-    data_rect.to_csv('rect_data.csv')
+    data_spiral.to_csv('data_spiral.csv')
+    data_rect.to_csv('data_rect.csv')
 
     # Add the nondimensional parameters to the data_spiral dataframe
     data_spiral_wnd = pd.concat([data_spiral, ndparams_spiral], axis=1)
@@ -540,3 +540,4 @@ if __name__ == '__main__':
     # Store dataframe with the newly added columns
     data_spiral_wnd.to_csv('data_spiral_wnd.csv')
     data_rect_wnd.to_csv('data_rect_wnd.csv')
+
