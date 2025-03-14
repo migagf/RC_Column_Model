@@ -414,7 +414,7 @@ def get_moment_strength(test_data, props='expected'):
 
 
 if __name__ == '__main__':
-    do_pairplots = False
+    do_pairplots = True
 
     # Properties of spiral columns
     spiral_cols = [
@@ -441,7 +441,7 @@ if __name__ == '__main__':
     ndparams_spiral = pd.DataFrame(columns=['ar', 'lrr', 'srr', 'alr', 'sdr', 'smr'])
     ndparams_rect   = pd.DataFrame(columns=['ar', 'lrr', 'srr', 'alr', 'sdr', 'smr'])
     ndparams_all = pd.DataFrame(columns=['ar', 'lrr', 'srr', 'alr', 'sdr', 'smr'])
-
+    
     # testID is the UniqueId
     for testID in range(1, 417):
         # (1) Load json file to dictionary
@@ -524,11 +524,12 @@ if __name__ == '__main__':
     data_rect_wnd = pd.concat([data_rect, ndparams_rect], axis=1)
 
     #data_spiral_wnd['testcf'] = pd.Categorical(data_spiral_wnd['testcf']).codes
-    print(pd.Categorical(data_spiral_wnd['testcf']).categories)
+    # print(pd.Categorical(data_spiral_wnd['testcf']).categories)
 
     # Get the nondimensional parameters for the spiral columns
-    data_spiral_wnd['ft'] = pd.Categorical(data_spiral_wnd['ft']).codes
-    data_rect_wnd['ft'] = pd.Categorical(data_rect_wnd['ft']).codes
+    # No need to turn this into codes...
+    # data_spiral_wnd['ft'] = pd.Categorical(data_spiral_wnd['ft']).codes
+    # data_rect_wnd['ft'] = pd.Categorical(data_rect_wnd['ft']).codes
     
     # RELEVANT!! Drop rows where the use column is 0
     data_spiral_wnd = data_spiral_wnd[data_spiral_wnd['use'] == 1]
@@ -555,29 +556,36 @@ if __name__ == '__main__':
 
     # Change type of UniqueId to integer
     merged_data['UniqueId'] = merged_data['UniqueId'].astype(int)
-    # Sort merged_data per UniqueId
+
+
+    # The following lines are for correspondence between new dataset and old DesignSafe Id
+    # Sort merged_data by UniqueId
+    merged_data = merged_data.sort_values(by='UniqueId')
+
+    # Restart index in merged_data
+    merged_data = merged_data.reset_index(drop=True)
 
     # Load merged_data.csv from old folder
     old_merged_data = pd.read_csv('old/merged_data.csv')
 
-    # Add the index of the old_merged data as another column in the old merged data
+    # Store index as new column in old_merged_data
     old_merged_data['id'] = old_merged_data.index
 
-    # Sort the old merged data by UniqueId
+    # Sort old_merged_data by UniqueId
     old_merged_data = old_merged_data.sort_values(by='UniqueId')
-    print(old_merged_data[['Name', 'id', 'UniqueId']])
 
-    # Sort the new merged data by UniqueId
-    merged_data = merged_data.sort_values(by='UniqueId')
-    print(merged_data[['Name', 'UniqueId']])
+    # Restart index in old_merged_data
+    old_merged_data = old_merged_data.reset_index(drop=True)
 
-    # Add the index of the old_merged data as another column in the new merged data
+    # Add the id column to merged_data
     merged_data['id'] = old_merged_data['id']
 
-    # Sort the merged data by id
+    # Sort merged_data by id
     merged_data = merged_data.sort_values(by='id')
 
-    # Drop the id column
-    # merged_data = merged_data.drop(columns=['id'])
-    # Store the merged data into a csv file
-    merged_data.to_csv('data_all.csv', index=False)
+    # Drop the id column and reset index
+    merged_data = merged_data.drop(columns='id')
+    merged_data = merged_data.reset_index(drop=True)
+    
+    # Store merged_data into a csv file
+    merged_data.to_csv('data_all.csv')
