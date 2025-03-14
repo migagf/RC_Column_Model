@@ -19,7 +19,7 @@ current_folder = os.getcwd()
 json_dir = current_folder + '/test_data/'
 
 # Load the database
-data = pd.read_csv('merged_data.csv')
+data = pd.read_csv('data_all.csv')
 # print(data)
 # For each curve:    
 maxii = len(data)

@@ -23,6 +23,7 @@ def find_float(text):
     # Define a regular expression pattern to match floats
     #pattern = r'[-+]?[0-9],?[0-9]*/.?[0-9]+'
     pattern = r'\b\d{1,3}(?:,\d{3})*(?:\.\d+)?\b'
+    
     # Use re.findall to find all occurrences of floats in the text
     floats = re.findall(pattern, text)
     

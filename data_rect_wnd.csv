@@ -1,4 +1,4 @@
-,id,name,type,testcf,pd,ft,axl,w,d,l,fpc,fyl,fsul,fyt,fsut,dlb,dlb_c,nlb,cc_per,nib_per,cc_par,nib_par,nsl,dtb_rcs,s_rcs,use,ar,lrr,srr,alr,sdr,smr
+,UniqueId,name,type,testcf,pd,ft,axl,w,d,l,fpc,fyl,fsul,fyt,fsut,dlb,dlb_c,nlb,cc_per,nib_per,cc_par,nib_par,nsl,dtb_rcs,s_rcs,use,ar,lrr,srr,alr,sdr,smr
 0,1,"Gill et al. 1979, No. 1",Rectangular,Double Ended,Feff computed,0,1815.0,550.0,550.0,1200.0,23.1,375.0,635.6,297.0,416.8,24.0,24.0,12.0,40.0,2.0,40.0,2.0,4.0,10.0,80.0,1,2.181818181818182,0.2913315501450661,0.09179978533216927,0.2597402597402597,1.3333333333333333,0.648662878889607
 1,2,"Gill et al. 1979, No. 2",Rectangular,Double Ended,Feff computed,0,2680.0,550.0,550.0,1200.0,41.4,375.0,635.6,316.0,440.6,24.0,24.0,12.0,38.0,2.0,38.0,2.0,4.0,12.0,75.0,1,2.181818181818182,0.1625545605881891,0.08370957816363633,0.21399768435341557,1.0416666666666667,0.523924079239485
 2,3,"Gill et al. 1979, No. 3",Rectangular,Double Ended,Feff computed,0,2719.0,550.0,550.0,1200.0,21.4,375.0,635.6,297.0,416.8,24.0,24.0,12.0,40.0,2.0,40.0,2.0,4.0,10.0,75.0,1,2.181818181818182,0.31447471067060884,0.10569844441984351,0.4200200818722484,1.25,0.6398198520675843

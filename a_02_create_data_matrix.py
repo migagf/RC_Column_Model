@@ -414,17 +414,18 @@ def get_moment_strength(test_data, props='expected'):
 
 
 if __name__ == '__main__':
-    
+    do_pairplots = False
+
     # Properties of spiral columns
     spiral_cols = [
-        'id', 'name', 'type', 'testcf', 'pd', 'ft', 'axl', 'diam', 'l',
+        'UniqueId', 'name', 'type', 'testcf', 'pd', 'ft', 'axl', 'diam', 'l',
         'fpc', 'fyl', 'fsul', 'fyt', 'fsut', 'dlb', 'nlb',
         'cc', 'dsp', 's'
     ]
     
     # Properties of rectangular columns
     rect_cols = [
-        'id', 'name', 'type', 'testcf', 'pd', 'ft', 'axl', 'w', 'd', 'l',
+        'UniqueId', 'name', 'type', 'testcf', 'pd', 'ft', 'axl', 'w', 'd', 'l',
         'fpc', 'fyl', 'fsul', 'fyt', 'fsut', 'dlb', 'dlb_c', 'nlb',
         'cc_per', 'nib_per', 'cc_par', 'nib_par', 'nsl', 'dtb_rcs', 's_rcs'
     ]
@@ -436,10 +437,12 @@ if __name__ == '__main__':
     # For all tests...
     sp_ii = 0
 
-    # Create dataframe for nondimensional parameters (actually, can save this only and make things easier)
+    # Create dataframe for nondimensional parameters
     ndparams_spiral = pd.DataFrame(columns=['ar', 'lrr', 'srr', 'alr', 'sdr', 'smr'])
     ndparams_rect   = pd.DataFrame(columns=['ar', 'lrr', 'srr', 'alr', 'sdr', 'smr'])
+    ndparams_all = pd.DataFrame(columns=['ar', 'lrr', 'srr', 'alr', 'sdr', 'smr'])
 
+    # testID is the UniqueId
     for testID in range(1, 417):
         # (1) Load json file to dictionary
         current_dir = os.getcwd()
@@ -464,7 +467,7 @@ if __name__ == '__main__':
                 ndparams_ii = get_nd_params(data_spiral.loc[len(data_spiral)-1])
 
                 # Append at the end of the dataframe
-                ndparams_spiral.loc[len(ndparams_spiral)+1] = ndparams_ii
+                ndparams_spiral.loc[len(ndparams_spiral)] = ndparams_ii
 
             else:
                 # Get the properties of the rectangular column in a list
@@ -531,13 +534,50 @@ if __name__ == '__main__':
     data_spiral_wnd = data_spiral_wnd[data_spiral_wnd['use'] == 1]
     data_rect_wnd = data_rect_wnd[data_rect_wnd['use'] == 1]
 
-    # Do pairplot for spiral columns
-    do_pairplot(data_spiral_wnd, ['ar', 'lrr', 'srr', 'alr', 'sdr', 'smr', 'ft'], 'ft')
-    
-    # Do pairplot for rectangular columns
-    do_pairplot(data_rect_wnd, ['ar', 'lrr', 'srr', 'alr', 'sdr', 'smr', 'ft'], 'ft')
+    if do_pairplots:
+        # Do pairplot for spiral columns
+        do_pairplot(data_spiral_wnd, ['ar', 'lrr', 'srr', 'alr', 'sdr', 'smr', 'ft'], 'ft')
+        
+        # Do pairplot for rectangular columns
+        do_pairplot(data_rect_wnd, ['ar', 'lrr', 'srr', 'alr', 'sdr', 'smr', 'ft'], 'ft')
 
     # Store dataframe with the newly added columns
     data_spiral_wnd.to_csv('data_spiral_wnd.csv')
     data_rect_wnd.to_csv('data_rect_wnd.csv')
 
+    # Merge the two dataframes
+    data_wnd = pd.concat([data_spiral_wnd, data_rect_wnd])
+
+    # New dataframe with columns: ['UniqueId', 'Name', 'Type', 'FailureType', 'ar', 'lrr', 'srr', 'alr', 'sdr', 'smr']
+
+    merged_data = data_wnd[['UniqueId', 'name', 'type', 'ft', 'ar', 'lrr', 'srr', 'alr', 'sdr', 'smr']].copy()
+    merged_data.columns = ['UniqueId', 'Name', 'Type', 'FailureType', 'ar', 'lrr', 'srr', 'alr', 'sdr', 'smr']
+
+    # Change type of UniqueId to integer
+    merged_data['UniqueId'] = merged_data['UniqueId'].astype(int)
+    # Sort merged_data per UniqueId
+
+    # Load merged_data.csv from old folder
+    old_merged_data = pd.read_csv('old/merged_data.csv')
+
+    # Add the index of the old_merged data as another column in the old merged data
+    old_merged_data['id'] = old_merged_data.index
+
+    # Sort the old merged data by UniqueId
+    old_merged_data = old_merged_data.sort_values(by='UniqueId')
+    print(old_merged_data[['Name', 'id', 'UniqueId']])
+
+    # Sort the new merged data by UniqueId
+    merged_data = merged_data.sort_values(by='UniqueId')
+    print(merged_data[['Name', 'UniqueId']])
+
+    # Add the index of the old_merged data as another column in the new merged data
+    merged_data['id'] = old_merged_data['id']
+
+    # Sort the merged data by id
+    merged_data = merged_data.sort_values(by='id')
+
+    # Drop the id column
+    # merged_data = merged_data.drop(columns=['id'])
+    # Store the merged data into a csv file
+    merged_data.to_csv('data_all.csv', index=False)
