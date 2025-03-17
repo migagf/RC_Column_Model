@@ -588,4 +588,7 @@ if __name__ == '__main__':
     merged_data = merged_data.reset_index(drop=True)
     
     # Store merged_data into a csv file
-    merged_data.to_csv('data_all.csv')
+    # merged_data.to_csv('data_all.csv')
+
+    # Do pairplot for all columns
+    # do_pairplot(merged_data, ['ar', 'lrr', 'srr', 'alr', 'sdr', 'smr', 'FailureType'], 'FailureType')
