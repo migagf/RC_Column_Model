@@ -154,7 +154,7 @@ if __name__ == '__main__':
     # The directory where the files are stored
     remoteWorkDir = r'D:\tacc scratch'
     month = '25_03'
-    day = '14'
+    day = '17'
 
     allJobs = os.listdir(os.path.join(remoteWorkDir, month, day))
 
