@@ -100,7 +100,7 @@ ax.scatter(pca_df['PC1'], pca_df['PC2'], pca_df['residuals'])
 ax.set_xlabel('Principal Component 1')
 ax.set_ylabel('Principal Component 2')
 ax.set_zlabel('Residuals')
-# plt.show()
+plt.show()
 
 '''# Create a new plot with just single parameter vs residual.
 for param in param_columns:
@@ -117,7 +117,7 @@ plt.scatter(pca_df['PC1'], pca_df['residuals'])
 plt.xlabel('Principal Component 1')
 plt.ylabel('Residuals')
 plt.title('PC1 vs Residuals')
-# plt.show()
+plt.show()
 
 # Show coefficients of the PCA
 print(pca.components_)
@@ -133,7 +133,7 @@ plt.title('PCA Coefficients for PC1')
 plt.xticks(range(len(pca.components_[0])), param_columns, rotation=90)
 plt.tight_layout()
 
-# plt.show()
+plt.show()
 
 # Do the same as above for PC2
 plt.figure()
@@ -144,7 +144,7 @@ plt.title('PCA Coefficients for PC2')
 # Add parameter names as x-ticks
 plt.xticks(range(len(pca.components_[1])), param_columns, rotation=90)
 plt.tight_layout()
-# plt.show()
+plt.show()
 
 # Run linear regression from the original normalized parameters to the residuals
 
@@ -171,7 +171,7 @@ plt.xticks(range(len(coefficients)), param_columns, rotation=90)
 plt.tight_layout()
 # Save this plot as a high-resolution png
 plt.savefig('Figures/linear_regression_coefficients.png', dpi=500)
-# plt.show()
+plt.show()
 
 # Print R2 score of the model
 print('R2 score:', model.score(X, y))
@@ -186,5 +186,5 @@ plt.title('Residuals vs Predicted Residuals')
 # Add 1-1 line
 plt.plot([0, 0.5], [0, 0.5], 'r--')
 plt.tight_layout()
-# plt.show()
+plt.show()
 

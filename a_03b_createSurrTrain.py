@@ -45,7 +45,7 @@ plt.scatter(x_values, res_median_minus, label='res_median_minus', marker='s', c=
 plt.axhline(y=0.1, color='r', linestyle='--', linewidth=0.5)
 
 plt.legend()
-#plt.show()
+plt.show()
 
 print(data_all.columns)
 # Select columns to plot
@@ -63,7 +63,7 @@ for par_y in parameter_names:
         axs[i].set_title(f'{par_x} vs {par_y}')
     
     plt.tight_layout()
-    # plt.show()
+    plt.show()
 
 # Drop rows with res_median > 0.1
 data_all = data_all[data_all['res_median'] <= 0.1]
