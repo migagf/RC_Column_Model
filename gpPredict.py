@@ -350,7 +350,7 @@ def main(params_dir, surrogate_dir, json_dir, result_file, input_json):  # noqa:
     for i in range(nrv):
         #name_values = data[i + 1].split()
         name = name_values[i][0]
-        print(name)
+        # print(name)
 
         # = pass if is string. GP cannot handle that
         if ((name == 'MultipleEvent') or (name == 'eventID')) and isEEUQ:  # noqa: PLR1714
@@ -370,7 +370,7 @@ def main(params_dir, surrogate_dir, json_dir, result_file, input_json):  # noqa:
         # = atleast_2d because there may be multiple samples
         #samples = np.atleast_2d([float(vals) for vals in name_values[1:]]).T
         samples = np.atleast_2d([float(name_values[i][1])]).T
-        print(samples)
+        # print(samples)
         ns = len(samples)
         if name not in rv_name_sur:
             rv_name_dummy += [name]
