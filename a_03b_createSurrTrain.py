@@ -64,8 +64,11 @@ for par_y in parameter_names:
     plt.show()
 
 # Split the data using FailureType
+data_shear = pd.concat([data_all[data_all['FailureType'] == 'Shear'], data_all[data_all['FailureType'] == 'Flexure-Shear']])
 data_flexure = data_all[data_all['FailureType'] == 'Flexure']
-data_flexure_shear = data_all[data_all['FailureType'] == 'Flexure-Shear']
+
+print(data_shear.head())
+
 
 # Create pairplot for the calibration parameters
 # sns.pairplot(calibration_info[parameter_names])
