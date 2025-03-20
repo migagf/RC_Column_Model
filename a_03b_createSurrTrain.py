@@ -52,7 +52,7 @@ print(data_all.columns)
 x_parameters = ['ar', 'lrr', 'srr', 'alr', 'sdr', 'smr']
 
 # Create subplots for each par_y in parameter_names
-for par_y in parameter_names:
+'''for par_y in parameter_names:
     fig, axs = plt.subplots(1, len(x_parameters), figsize=(20, 3.5))
     
     # Plot each set of parameters
@@ -63,10 +63,10 @@ for par_y in parameter_names:
         axs[i].set_title(f'{par_x} vs {par_y}')
     
     plt.tight_layout()
-    plt.show()
+    plt.show()'''
 
 # Drop rows with res_median > 0.1
-data_all = data_all[data_all['res_median'] <= 0.1]
+data_all = data_all[data_all['res_median'] <= 0.12]
 
 # Split the data using FailureType
 data_shear = pd.concat([data_all[data_all['FailureType'] == 'Shear'], data_all[data_all['FailureType'] == 'Flexure-Shear']])
@@ -111,9 +111,8 @@ def split_and_save(data, folder_name, seed):
 
 
 
-
-split_and_save(data_shear, 'gpModelShear', seed)
+'''split_and_save(data_shear, 'gpModelShear', seed)
 split_and_save(data_flexure, 'gpModelFlexure', seed)
-split_and_save(data_all, 'gpModelAll', seed)
+split_and_save(data_all, 'gpModelAll', seed)'''
 
 

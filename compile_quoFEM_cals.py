@@ -154,11 +154,12 @@ if __name__ == '__main__':
     # The directory where the files are stored
     remoteWorkDir = r'D:\tacc scratch'
     month = '25_03'
-    day = '17'
+    day = '18'
 
     allJobs = os.listdir(os.path.join(remoteWorkDir, month, day))
-
+    print(len(allJobs), 'jobs found...' )
     for ii in range(0, len(allJobs)):
+
         info, scInput, test_file, results = get_info(os.path.join(remoteWorkDir, month, day, allJobs[ii]))
         try:
             res_stats, best_fit = get_residual_info(test_file, results)

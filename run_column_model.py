@@ -56,7 +56,7 @@ def run_model(test_data, bw_params, do_plots=False):
     alpha2 = bw_params[10]
     betam1 = bw_params[11]
     n = bw_params[12]
-    kappa_k = bw_params[13]
+    kappa_k = float(np.abs(bw_params[13]))
 
     # print(json.dumps(params_dict, indent=4))
 
@@ -101,7 +101,7 @@ def run_model(test_data, bw_params, do_plots=False):
     
     print('Finished... Run Time = ', t1-t0, 'sec')
     
-    peak_force = np.max(force)
+    peak_force = np.max(test_data["data"]["force"])
 
     # Compute drift ratios
     cal_dr = np.array(test_data["cal_data"]["disp"])/L
@@ -130,25 +130,28 @@ def run_model(test_data, bw_params, do_plots=False):
     
     interpolated_force = interpolator(force, npts)
     interpolated_displacement = interpolator(strains, npts)
-
+ 
     # Compute mean absolute error
-    error = np.mean(np.abs(np.array(test_data["cal_data"]["force"]) - interpolated_force))/np.max(test_data["cal_data"]["force"])
-
+    mean_err = np.mean(np.abs(np.array(test_data["cal_data"]["force"]) - interpolated_force)) / peak_force
+    std_err = np.std(np.abs(np.array(test_data["cal_data"]["force"]) - interpolated_force)) / peak_force
+    
     # Create a dictionary with the normalized results as lists
-
     results = {
-        'mae': error,
+        'err_data': {
+            'mean_err': mean_err,
+            'std_err': std_err
+        },
         'cal_data': {
             'drift': cal_dr.tolist(),
-            'nforce': (cal_force / np.max(cal_force)).tolist()
+            'nforce': (cal_force / peak_force / 1000).tolist()
         },
         'exp_data': {
             'drift': exp_dr.tolist(),
-            'nforce': (exp_force / np.max(exp_force)).tolist()
+            'nforce': (exp_force / peak_force).tolist()
         },
         'sim_data': {
             'drift': sim_dr.tolist(),
-            'nforce': (sim_force / np.max(sim_force)).tolist()
+            'nforce': (sim_force / peak_force / 1000).tolist()
         },
     }
 
