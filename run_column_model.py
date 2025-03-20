@@ -32,6 +32,7 @@ if do_plots:
 
 g = 386  #in/s2
 
+
 def run_model(test_data, bw_params, do_plots=False):
 
     # Parameter names:
@@ -102,7 +103,16 @@ def run_model(test_data, bw_params, do_plots=False):
     
     peak_force = np.max(force)
 
-    if do_plots:     
+    # Compute drift ratios
+    cal_dr = np.array(test_data["cal_data"]["disp"])/L
+    exp_dr = np.array(test_data["data"]["disp"])/L
+    sim_dr = np.array(test_data["run_data"]["disp"])/L
+
+    cal_force = np.array(test_data["cal_data"]["force"])
+    exp_force = np.array(test_data["data"]["force"])
+    sim_force = force
+
+    if do_plots:
         plt.figure()
         plt.plot(100 * np.array(test_data["data"]["disp"])/L, 1000 * np.array(test_data["data"]["force"])/peak_force, 'b--', label='exp')
         plt.plot(100 * np.array(strains)/L, np.array(force)/peak_force, 'r-', linewidth=0.75, label='model')
@@ -124,7 +134,25 @@ def run_model(test_data, bw_params, do_plots=False):
     # Compute mean absolute error
     error = np.mean(np.abs(np.array(test_data["cal_data"]["force"]) - interpolated_force))/np.max(test_data["cal_data"]["force"])
 
-    return error, interpolated_force, interpolated_displacement
+    # Create a dictionary with the normalized results as lists
+
+    results = {
+        'mae': error,
+        'cal_data': {
+            'drift': cal_dr.tolist(),
+            'nforce': (cal_force / np.max(cal_force)).tolist()
+        },
+        'exp_data': {
+            'drift': exp_dr.tolist(),
+            'nforce': (exp_force / np.max(exp_force)).tolist()
+        },
+        'sim_data': {
+            'drift': sim_dr.tolist(),
+            'nforce': (sim_force / np.max(sim_force)).tolist()
+        },
+    }
+
+    return results
 
 
 if __name__ == '__main__':
