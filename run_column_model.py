@@ -32,13 +32,16 @@ if do_plots:
 
 g = 386  #in/s2
 
-def run_model(test_file, bw_params, do_plots=False):
+def run_model(test_data, bw_params, do_plots=False):
 
     # Parameter names:
     # 'gamma', 'kappa', 'eta1', 'sig', 'lam', 'mup', 'sigp', 'rsmax', 
     # 'alpha', 'alpha1', 'alpha2', 'betam1', 'n', 'kappa_k'
     
     # Get parameters from bw_params list
+    # bw_params = [gamma, kappa, eta1, sig, lam, mup, sigp, rsmax, alpha, alpha1, alpha2, betam1, n, kappa_k]
+    # Careful with the order of this values!!!
+
     gamma = bw_params[0]
     kappa = bw_params[1]
     eta1 = bw_params[2]
@@ -47,21 +50,23 @@ def run_model(test_file, bw_params, do_plots=False):
     mup = bw_params[5]
     sigp = bw_params[6]
     rsmax = bw_params[7]
-    n = bw_params[8]
-    alpha = bw_params[9]
-    alpha1 = bw_params[10]
-    alpha2 = bw_params[11]
-    betam1 = bw_params[12]
+    alpha = bw_params[8]
+    alpha1 = bw_params[9]
+    alpha2 = bw_params[10]
+    betam1 = bw_params[11]
+    n = bw_params[12]
     kappa_k = bw_params[13]
+
+    # print(json.dumps(params_dict, indent=4))
 
     # Load an experiment from the PEER performance database
     #with open(filesdir + '/test_' + str(testid).zfill(3) + '.json') as file:
-    with open(test_file) as file:
-        test_data = json.load(file)
+    '''with open(test_file) as file:
+        test_data = json.load(file)'''
     
     # Define the elastic properties of the column
     E, I, L = get_elastic_properties(test_data)
-    
+
     # Stiffness and strength of the plastic hinge
     stiffness =  3 * E * I / L   # kN-mm
     strength = 1000 * np.max(test_data["data"]["force"]) * L
@@ -87,7 +92,7 @@ def run_model(test_file, bw_params, do_plots=False):
     
     # Define the strains for the pushover analysis
     strains = np.array(test_data["run_data"]["disp"])
-    
+
     # Run the pushover analysis
     t0 = time.time()
     force = run_pushover(model, strains, plot=False, show_info=False)
@@ -120,3 +125,46 @@ def run_model(test_file, bw_params, do_plots=False):
     error = np.mean(np.abs(np.array(test_data["cal_data"]["force"]) - interpolated_force))/np.max(test_data["cal_data"]["force"])
 
     return error, interpolated_force, interpolated_displacement
+
+
+if __name__ == '__main__':
+    # test_data = r'C:\Users\Miguel.MIGUEL-DESK\Documents\GitHub\RC_Column_Model\test_data\test_001.json'
+    test_json = os.path.join('quoFEM_TMCMC', 'test_001', 'test_file.json')
+
+    # Load test_data json file
+    with open(test_json) as file:
+        test_data = json.load(file)
+
+    '''gamma      1.277177
+    kappa      0.977073
+    eta1       1.845268
+    sig        0.685665
+    lam        0.629793
+    mup        1.650068
+    sigp       0.779072
+    rsmax      0.948117
+    alpha      0.000115
+    alpha1     4.961202
+    alpha2     1.234721
+    betam1     0.000328
+    n          1.504958
+    kappa_k    3.597515'''
+
+    bw_params = [
+        1.277177,  # gamma
+        0.977073,  # kappa
+        1.845268,  # eta1
+        0.685665,  # sig
+        0.629793,  # lam
+        1.650068,  # mup
+        0.779072,  # sigp
+        0.948117,  # rsmax
+        1.504958,  # n
+        0.000115,  # alpha
+        4.961202,  # alpha1
+        1.234721,  # alpha2
+        0.000328,  # betam1
+        3.597515   # kappa_k
+    ]
+
+    error, interpolated_force, interpolated_displacement = run_model(test_data, bw_params, do_plots=True)

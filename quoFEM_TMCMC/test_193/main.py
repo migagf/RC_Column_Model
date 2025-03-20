@@ -32,7 +32,7 @@ plt.rcParams.update({
 #filesdir = r'C:\Users\Miguel.MIGUEL-DESK\Documents\GitHub\RC_Column_Model\test_data'
 #calfilesdir = r'C:\Users\Miguel.MIGUEL-DESK\Documents\GitHub\RC_Column_Model\test_data\calibration_files'
 
-do_plots = False
+do_plots = True
 
 if do_plots:
     import matplotlib.pyplot as plt
@@ -92,7 +92,8 @@ if __name__ == "__main__":
         plt.ylabel('Lateral Force')
         plt.legend()
         plt.grid()
-        plt.show() 
+        plt.savefig('figure.pdf')
+        plt.show()
 
     # Save the response into response.out
     force = np.array(force)/1000
