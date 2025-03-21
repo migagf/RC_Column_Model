@@ -171,36 +171,21 @@ if __name__ == '__main__':
     with open(test_json) as file:
         test_data = json.load(file)
 
-    '''gamma      1.277177
-    kappa      0.977073
-    eta1       1.845268
-    sig        0.685665
-    lam        0.629793
-    mup        1.650068
-    sigp       0.779072
-    rsmax      0.948117
-    alpha      0.000115
-    alpha1     4.961202
-    alpha2     1.234721
-    betam1     0.000328
-    n          1.504958
-    kappa_k    3.597515'''
+    gamma      = 1.277177
+    kappa      = 0.977073
+    eta1       = 1.845268
+    sig        = 0.685665
+    lam        = 0.629793
+    mup        = 1.650068
+    sigp       = 0.779072
+    rsmax      = 0.948117
+    alpha      = 0.000115
+    alpha1     = 4.961202
+    alpha2     = 1.234721
+    betam1     = 0.000328
+    n          = 1.504958
+    kappa_k    = 3.597515
 
-    bw_params = [
-        1.277177,  # gamma
-        0.977073,  # kappa
-        1.845268,  # eta1
-        0.685665,  # sig
-        0.629793,  # lam
-        1.650068,  # mup
-        0.779072,  # sigp
-        0.948117,  # rsmax
-        1.504958,  # n
-        0.000115,  # alpha
-        4.961202,  # alpha1
-        1.234721,  # alpha2
-        0.000328,  # betam1
-        3.597515   # kappa_k
-    ]
-
-    error, interpolated_force, interpolated_displacement = run_model(test_data, bw_params, do_plots=True)
+    bw_params = [gamma, kappa, eta1, sig, lam, mup, sigp, rsmax, alpha, alpha1, alpha2, betam1, n, kappa_k]
+    
+    results = run_model(test_data, bw_params, do_plots=True)
