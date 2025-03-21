@@ -134,12 +134,17 @@ def run_model(test_data, bw_params, do_plots=False):
     # Compute mean absolute error
     mean_err = np.mean(np.abs(np.array(test_data["cal_data"]["force"]) - interpolated_force)) / peak_force
     std_err = np.std(np.abs(np.array(test_data["cal_data"]["force"]) - interpolated_force)) / peak_force
+    no_model_err = np.mean(np.abs(np.array(test_data["cal_data"]["force"]))) / peak_force # This assumes that the model gives 0 force for all displacements
     
+    one_model_err = np.mean(np.abs(1 - np.abs(np.array(test_data["cal_data"]["force"]) / peak_force))) # This assumes that the model gives peak force for all displacements
     # Create a dictionary with the normalized results as lists
+    
     results = {
         'err_data': {
             'mean_err': mean_err,
-            'std_err': std_err
+            'std_err': std_err,
+            'no_model_err': no_model_err,
+            'one_model_err': one_model_err
         },
         'cal_data': {
             'drift': cal_dr.tolist(),
