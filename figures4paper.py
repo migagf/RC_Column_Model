@@ -10,6 +10,8 @@ import pandas as pd
 
 # Import packages for PCA
 from sklearn.decomposition import PCA
+from get_bw_params import *
+from mpl_toolkits.mplot3d import Axes3D
 
 # Use latex for plots
 plt.rc('text', usetex=False)
@@ -82,7 +84,7 @@ plt.show()'''
 # Create a plot of a uniform distribution between 0 and 2
 # Fill the curve with blue color
 
-plt.figure(figsize=(4, 3))
+'''plt.figure(figsize=(4, 3))
 x = np.linspace(1.0, 3.0, 100)
 y = np.ones_like(x) * 0.5
 plt.fill_between(x, y, color='red', alpha=0.4, label='Prior')
@@ -100,7 +102,7 @@ plt.gca().spines['right'].set_visible(False)
 plt.gca().spines['left'].set_visible(False)
 plt.legend()
 plt.savefig(os.path.join(save_figs_to, 'bayesiancal.pdf'), bbox_inches='tight')
-plt.show()
+plt.show()'''
 
 
 
@@ -109,33 +111,40 @@ data_all = pd.read_csv('data_all.csv')
 
 X = data_all[['ar', 'lrr', 'srr', 'alr', 'sdr', 'smr']]
 
-# Do PCA on X
-pca = PCA(n_components=2)
-X_pca = pca.fit_transform(X)
+# Get max and min values of each column
+max_vals = X.max()
+min_vals = X.min()
 
-'''# Plot the PCA
-plt.figure()
-plt.scatter(X_pca[:, 0], X_pca[:, 1], s=5.0)
-plt.xlabel('PCA1')
-plt.ylabel('PCA2')
-plt.title('PCA of the predictors')
-plt.show()'''
+print(max_vals)
+print(min_vals)
 
-# Create a grid with the PCA1 and PCA2
-x = np.linspace(-3, 3, 100)
-y = np.linspace(-2, 2, 100)
-X, Y = np.meshgrid(x, y)
 
-# Use X and Y values to back-calculate the original predictors
-X_back = pca.inverse_transform(np.array([X.flatten(), Y.flatten()]).T)
+ar_values = np.linspace(1.0, 8.0, 10)
+srr_values = np.linspace(0.0, 0.3, 10)
+results = np.zeros((len(ar_values), len(srr_values)))
 
-# Create 3d plots of the original predictors
+
+for i, ar in enumerate(ar_values):
+    for j, srr in enumerate(srr_values):
+        lrr = 0.1
+        alr = 0.2
+        sdr = 0.1
+        smr = 1.0
+
+        bw_model_params, min_error, failure_mode = get_BW_params([ar, lrr, srr, alr, sdr, smr], mode='other')
+        
+        # Store bw_model_params[3]
+        results[i, j] = bw_model_params[3]
+
+# Create a meshgrid for plotting
+AR, SRR = np.meshgrid(ar_values, srr_values)
+
 fig = plt.figure()
 ax = fig.add_subplot(111, projection='3d')
-sc = ax.scatter(X_back[:, 0], X_back[:, 1], X_back[:, 2], s=5.0, c='red')
-ax.set_xlabel('ar')
-ax.set_ylabel('lrr')
-ax.set_zlabel('srr')
-# Include the pointe in the original data
-ax.scatter(data_all['ar'], data_all['lrr'], data_all['srr'], s=5.0, c='blue')
+ax.plot_surface(AR, SRR, results.T, cmap='viridis')
+
+ax.set_xlabel('Aspect ratio')
+ax.set_ylabel('SRR')
+ax.set_zlabel('Sigma')
+ax.set_title('Sigma vs Aspect ratio and SRR')
 plt.show()
