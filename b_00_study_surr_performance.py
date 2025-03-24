@@ -10,7 +10,7 @@ import pandas as pd
 
 
 # Load error_metrics.csv
-error_metrics = pd.read_csv('error_metrics.csv')
+error_metrics = pd.read_csv('error_metrics_interp.csv')
 print(error_metrics)
 
 # Remove points with error > 0.5
