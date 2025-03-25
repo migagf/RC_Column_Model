@@ -176,7 +176,8 @@ AR, SRR = np.meshgrid(ar_values, srr_values)
 
 fig = plt.figure(figsize=(6, 4.5))
 ax = fig.add_subplot(111, projection='3d')
-ax.plot_surface(AR, SRR, sigma1.T, cmap='viridis', alpha=0.8, label='smr=0.5')
+
+ax.plot_surface(AR, SRR, sigma1.T, cmap='cividis', alpha=0.8, label='smr=0.5')
 '''ax.plot_surface(AR, SRR, sigma2.T, cmap='indianred', alpha=0.6, label='smr=1.0')
 ax.plot_surface(AR, SRR, sigma3.T, color='darkred', alpha=0.6, label='smr=1.5')
 '''
@@ -193,6 +194,10 @@ ax.set_yticklabels([0.0, '', 0.3])
 ax.set_zticklabels([0.0, '', 0.5])
 plt.tight_layout()
 plt.savefig(os.path.join(save_figs_to, 'surrogate_picture.pdf'), bbox_inches='tight')
+# Change axes so they look straight
+ax.view_init(30, 45)
+
+
 plt.show()
 
 '''fig = plt.figure()
