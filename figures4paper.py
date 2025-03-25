@@ -21,7 +21,8 @@ save_figs_to = 'Figures'
 with open(os.path.join('quoFEM_TMCMC', 'test_001', 'test_file.json'), 'r') as f:
     test_data = json.load(f)
 
-'''plt.figure(figsize=(3, 2.5))
+'''
+plt.figure(figsize=(3, 2.5))
 # Set xlim
 plt.xlim([-3.1, 3.1])
 plt.ylim([-1.1, 1.1])
@@ -35,9 +36,9 @@ plt.axvline(x=0, color='gray', linestyle='--', linewidth=0.5)
 plt.axhline(y=0, color='gray', linestyle='--', linewidth=0.5)
 plt.plot(100 * np.array(test_data['data']['disp']) / test_data['L_Inflection'], 
          np.array(test_data['data']['force']) / max(test_data['data']['force']), 
-         label='True model', color='red')
+         label='True model', color=[0.3,0.3,0.7], linewidth=1.5)
 plt.xlabel('Drift Ratio $\Delta/L$ (\%)')
-plt.ylabel('Normalized Shear $V/V_{max}$')
+plt.ylabel('Normalized Shear $V/V_{\max}$')
 plt.tight_layout()
 plt.savefig(os.path.join(save_figs_to, 'hysteresis_1.pdf'), bbox_inches='tight')
 plt.show()'''
@@ -61,7 +62,8 @@ kappa_k    = 3.597515
 bw_params = [gamma, kappa, eta1, sig, lam, mup, sigp, rsmax, alpha, alpha1, alpha2, betam1, n, kappa_k]
 results = run_model(test_data, bw_params, do_plots=False)
 
-'''plt.figure(figsize=(3, 2.5))
+'''
+plt.figure(figsize=(3, 2.5))
 # Set xlim
 plt.xlim([-3.1, 3.1])
 plt.ylim([-1.1, 1.1])
@@ -75,28 +77,30 @@ plt.axvline(x=0, color='gray', linestyle='--', linewidth=0.5)
 plt.axhline(y=0, color='gray', linestyle='--', linewidth=0.5)
 plt.plot(100 * np.array(test_data['data']['disp']) / test_data['L_Inflection'], 
          np.array(test_data['data']['force']) / max(test_data['data']['force']), 
-         label='Exp.', color='red')
+         label='Exp.', color=[0.3,0.3,0.7], linewidth=1.0)
 plt.plot(100 * np.array(results['sim_data']['drift']), 
          np.array(results['sim_data']['nforce']), 
-         label='Sim.', color='blue')
+         label='Sim.', color=[0.7,0.3,0.3], linestyle='--', linewidth=1.0)
 plt.legend()
 plt.xlabel('Drift Ratio $\Delta/L$ (\%)')
-plt.ylabel('Normalized Shear $V/V_{max}$')
+plt.ylabel('Normalized Shear $V/V_{\max}$')
 plt.tight_layout()
 plt.savefig(os.path.join(save_figs_to, 'hysteresis_2.pdf'), bbox_inches='tight')
-plt.show()'''
+plt.show()
+'''
 
 # Create a plot of a uniform distribution between 0 and 2
 # Fill the curve with blue color
 
-'''plt.figure(figsize=(3, 2.5))
+'''
+plt.figure(figsize=(3, 2.5))
 x = np.linspace(1.0, 3.0, 100)
 y = np.ones_like(x) * 0.5
-plt.fill_between(x, y, color='red', alpha=0.4, label='Prior')
+plt.fill_between(x, y, color=[0.7, 0.3, 0.3], alpha=0.4, label='Prior')
 # Add a posterior distribution that looks like a truncated normal distribution
 x = np.linspace(1.0, 3.0, 100)
 y = 5 * np.exp(-20 * (x - 2.2)**2)
-plt.fill_between(x, y, color='blue', label='Posterior', alpha=0.4)
+plt.fill_between(x, y, color=[0.3, 0.3, 0.7], label='Posterior', alpha=0.4)
 plt.xlim([0.8, 3.2])
 plt.ylim([0, 5.0])
 plt.xticks([1.0, 2.2, 3.0])
@@ -107,8 +111,8 @@ plt.gca().spines['right'].set_visible(False)
 plt.gca().spines['left'].set_visible(False)
 plt.legend()
 plt.savefig(os.path.join(save_figs_to, 'bayesiancal.pdf'), bbox_inches='tight')
-plt.show()'''
-
+plt.show()
+'''
 
 
 # Load data_all.csv file
@@ -178,9 +182,9 @@ fig = plt.figure(figsize=(6, 4.5))
 ax = fig.add_subplot(111, projection='3d')
 
 ax.plot_surface(AR, SRR, sigma1.T, cmap='cividis', alpha=0.8, label='smr=0.5')
-'''ax.plot_surface(AR, SRR, sigma2.T, cmap='indianred', alpha=0.6, label='smr=1.0')
-ax.plot_surface(AR, SRR, sigma3.T, color='darkred', alpha=0.6, label='smr=1.5')
-'''
+# ax.plot_surface(AR, SRR, sigma2.T, cmap='indianred', alpha=0.6, label='smr=1.0')
+# ax.plot_surface(AR, SRR, sigma3.T, color='darkred', alpha=0.6, label='smr=1.5')
+
 ax.set_xlabel(r'Non-dimensional $p_1$')
 ax.set_ylabel(r'Non-dimensional $p_2$')
 ax.set_zlabel(r'Bouc-Wen parameter $\theta_j$')
@@ -197,8 +201,9 @@ plt.savefig(os.path.join(save_figs_to, 'surrogate_picture.pdf'), bbox_inches='ti
 # Change axes so they look straight
 ax.view_init(30, 45)
 
-
 plt.show()
+
+
 
 '''fig = plt.figure()
 ax = fig.add_subplot(111, projection='3d')
