@@ -154,7 +154,7 @@ if __name__ == '__main__':
     # The directory where the files are stored
     remoteWorkDir = r'D:\tacc scratch'
     month = '25_03'
-    day = '18'
+    day = '11'
 
     allJobs = os.listdir(os.path.join(remoteWorkDir, month, day))
     print(len(allJobs), 'jobs found...' )
@@ -193,11 +193,17 @@ if __name__ == '__main__':
                 existing_location = calibration_info.loc[calibration_info['UniqueId'] == int(info['UniqueId']), 'Location'].values[0]
                 if existing_location == info['Location']:
                     print('Location is the same... Updating the info')
-                    # Replace the row with the new info
-                    calibration_info = calibration_info.replace(info['UniqueId'], info)
+                    # Replace the entire row with the new info
+                    calibration_info.loc[calibration_info['UniqueId'] == info['UniqueId']] = info
+                    # calibration_info = calibration_info.replace(info['UniqueId'], info)
 
                     # Plot and save
                     plot_hysteresis(test_file, results, 'test_' + info['UniqueId'] , save=True)
+                    
+                    if os.path.exists('calibration_info.csv'):
+                        # Remove the existing file
+                        os.remove('calibration_info.csv')
+
                     calibration_info.to_csv('calibration_info.csv', index=False)
                 else:
                     print('Location is different... ')
@@ -208,9 +214,16 @@ if __name__ == '__main__':
                         print('New mean residual is less than the existing one... Updating the info')
                         # Replace the row with the new info
 
-                        calibration_info = calibration_info.replace(info['UniqueId'], info)
+                        # calibration_info = calibration_info.replace(info['UniqueId'], info)
+                        calibration_info.loc[calibration_info['UniqueId'] == info['UniqueId']] = info
+
                         # Plot and save
                         plot_hysteresis(test_file, results, 'test_' + info['UniqueId'] , save=True)
+
+                        if os.path.exists('calibration_info.csv'):
+                            # Remove the existing file
+                            os.remove('calibration_info.csv')
+                            
                         calibration_info.to_csv('calibration_info.csv', index=False)
 
                         #
