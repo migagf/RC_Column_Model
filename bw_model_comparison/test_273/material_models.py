@@ -1168,6 +1168,45 @@ def createCyclicStrain(maxStrains=[0.01, 0.02], dStrain=0.001):
     return cycles, t
 
 
+if __name__ == "__main__":
+
+    
+    import numpy as np
+    
+    # Create cyclic strain data
+    maxStrains = [0.1, 0.25, 0.5, 1.0, 1.5, 2.0, 2.5]
+    dStrain = 0.0002
+    strains, t = createCyclicStrain(maxStrains=maxStrains, dStrain=dStrain)
+    
+    # Material parameters for testing
+    params = [1.0,  # eta1
+              1.0,  # k0
+              1.0,  # sy0
+              0.05,  # sig
+              0.1,  # lam
+              2.0,  # mup
+              2.0,  # sigp
+              0.9,  # rsmax
+              1.0,  # n
+              0.01, # alpha
+              2.0,  # alpha1
+              0.1,  # alpha2
+              0.0]  # betam1
+    # eta1, k0, sy0, sig, lam, mup, sigp, rsmax, n, alpha, alpha1, alpha2, betam1
+    
+    # Create material object
+    bw_material = deg_bw_material_mod(params)
+    
+    # Run material test
+    strain_vec, stress_vec = material_test(bw_material, strains)
+    
+    # Plot the results
+    import matplotlib.pyplot as plt
+
+    plt.figure(figsize=(10, 5))
+    plt.plot(strain_vec, stress_vec, linestyle='-', color='b')
+    plt.show()
+
 
 
 
