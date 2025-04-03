@@ -6,6 +6,9 @@ import os
 
 import seaborn as sns
 import matplotlib.pyplot as plt
+# Use latex
+plt.rc('text', usetex=True)
+plt.rc('font', family='serif')
 
 # Load calibration_info.csv file
 # The calibration_info file contains the best fit for the calibration and the resulting residual statistics
@@ -41,10 +44,21 @@ plt.scatter(x_values, res_median, label='res_median', marker='s', c=data_all['co
 plt.scatter(x_values, res_median_plus, label='res_median_plus', marker='s', c=data_all['color'], s=0.2)
 plt.scatter(x_values, res_median_minus, label='res_median_minus', marker='s', c=data_all['color'], s=0.2)
 
-# Add a horizontal line at 0.1
-plt.axhline(y=0.1, color='r', linestyle='--', linewidth=0.5)
+# Add a horizontal line at 0.12
+plt.axhline(y=0.12, color='k', linestyle='--', linewidth=1.0, alpha=0.5)
+# Add text to the line
+plt.text(40, 0.12, 'MAE threshold = 0.12', color='k', fontsize=10, ha='center', va='bottom')
 
-plt.legend()
+# Add custom legend with colors
+legend_labels = {'Flexure': 'blue', 'Flexure-Shear': 'green', 'Shear': 'red'}
+handles = [plt.Line2D([0], [0], marker='o', color='w', label=label,
+                       markerfacecolor=color, markersize=5) for label, color in legend_labels.items()]
+plt.legend(handles=handles, title='Failure Type', loc='upper right')
+plt.xlabel('Calibration Number')
+plt.ylabel('Mean Average Error')
+plt.grid()
+
+plt.savefig('residuals.pdf')
 plt.show()
 
 print(data_all.columns)
