@@ -561,7 +561,7 @@ class deg_bw_material_mod():
             count = 0
             maxiter = 500
             
-            while np.abs(Tzold - Tznew) > 1.0e-6 and count < maxiter:
+            while np.abs(Tzold - Tznew) > 1.0e-8 and count < maxiter:
                 
                 # Function f(Tz):
                 A = 1 - (eta1 * np.sign(Tz * dstrain) + eta2) * np.abs(Tz / stress_y) ** n
@@ -1174,37 +1174,136 @@ if __name__ == "__main__":
     import numpy as np
     
     # Create cyclic strain data
-    maxStrains = [0.1, 0.25, 0.5, 1.0, 1.5, 2.0, 2.5]
-    dStrain = 0.0002
+    maxStrains = [0.1, 0.5, 1.0, 1.5, 2.0, 2.5, 3.0, 4.0]
+    dStrain = 0.0001
     strains, t = createCyclicStrain(maxStrains=maxStrains, dStrain=dStrain)
     
+
     # Material parameters for testing
-    params = [1.0,  # eta1
-              1.0,  # k0
+    # This is for original model with Rs,max = 0.3
+    params0 = [1.0,  # eta1
+              2.0,  # k0
               1.0,  # sy0
-              0.05,  # sig
+              0.1,  # sig
               0.1,  # lam
-              2.0,  # mup
+              3.0,  # mup
+              1.0,  # sigp
+              0.4,  # rsmax
+              1.0,  # n
+              0.0, # alpha
+              1.0,  # alpha1
+              0.01,  # alpha2
+              0.0]  # betam1
+    
+    # This is for new model, with Rs,max = 0.9
+    # And mu_p = 1.0, sig_p = 1.0
+    params1 = [1.0,  # eta1
+              2.0,  # k0
+              1.0,  # sy0
+              0.1,  # sig
+              0.1,  # lam
+              1.0,  # mup
+              1.0,  # sigp
+              0.9,  # rsmax
+              1.0,  # n
+              0.0, # alpha
+              1.0,  # alpha1
+              0.01,  # alpha2
+              0.0]  # betam1
+
+    # This is for new model, with Rs,max = 0.9
+    # And mu_p = 3.0, sig_p = 1.0
+    params2 = [1.0,  # eta1
+              2.0,  # k0
+              1.0,  # sy0
+              0.1,  # sig
+              0.1,  # lam
+              3.0,  # mup
+              1.0,  # sigp
+              0.9,  # rsmax
+              1.0,  # n
+              0.0, # alpha
+              1.0,  # alpha1
+              0.01,  # alpha2
+              0.0]  # betam1
+    
+    # This is for new model, with Rs,max = 0.8
+    # And mu_p = 1.0 and sig_p = 2.0
+    params3 = [1.0,  # eta1
+              2.0,  # k0
+              1.0,  # sy0
+              0.1,  # sig
+              0.1,  # lam
+              1.0,  # mup
               2.0,  # sigp
               0.9,  # rsmax
               1.0,  # n
-              0.01, # alpha
-              2.0,  # alpha1
-              0.1,  # alpha2
+              0.0, # alpha
+              1.0,  # alpha1
+              0.01,  # alpha2
               0.0]  # betam1
+    
     # eta1, k0, sy0, sig, lam, mup, sigp, rsmax, n, alpha, alpha1, alpha2, betam1
     
     # Create material object
-    bw_material = deg_bw_material_mod(params)
-    
-    # Run material test
-    strain_vec, stress_vec = material_test(bw_material, strains)
+    # Original formulation
+    bw_material_original = deg_bw_material_mod_1(params0)
+    # Run material test for original formulation
+    strain_vec_original, stress_vec_original = material_test(bw_material_original, strains)
+
+
+    # New formulation
+    bw_material_1 = deg_bw_material_mod(params1)
+    bw_material_2 = deg_bw_material_mod(params2)
+    bw_material_3 = deg_bw_material_mod(params3)
+
+    # Run material test for new formulation
+    strain_vec_1, stress_vec_1 = material_test(bw_material_1, strains)
+    strain_vec_2, stress_vec_2 = material_test(bw_material_2, strains)
+    strain_vec_3, stress_vec_3 = material_test(bw_material_3, strains)
     
     # Plot the results
     import matplotlib.pyplot as plt
+    
+    # Use latex
+    plt.rc('text', usetex=True)
+    plt.rc('font', family='serif')
+    plt.figure(figsize=(10, 8))
 
-    plt.figure(figsize=(10, 5))
-    plt.plot(strain_vec, stress_vec, linestyle='-', color='b')
+    plt.subplot(221)
+    plt.title(r"(a) Original BW: $R_{s,max} = 0.6$")
+    plt.plot(strain_vec_original, stress_vec_original, linestyle='-', color='k')
+    plt.axis([-5.0, 5.0, -1.0, 1.0])
+    plt.grid()
+    plt.xlabel(r'$\theta / \theta_y $')
+    plt.ylabel(r'$M/M_y$')
+
+    plt.subplot(222)
+    plt.title(r"(b) Proposed BW: $R_{s,max} = 0.9$, $\mu_p = 1.0$, $\sigma_p = 1.0$")
+    plt.plot(strain_vec_1, stress_vec_1, linestyle='-', color='k')
+    plt.axis([-5.0, 5.0, -1.0, 1.0])
+    plt.grid()
+    plt.xlabel(r'$\theta / \theta_y $')
+    plt.ylabel(r'$M/M_y$')
+
+    plt.subplot(223)
+    plt.title(r"(c) Proposed BW: $R_{s,max} = 0.9$, $\mu_p = 3.0$, $\sigma_p = 1.0$")
+    plt.plot(strain_vec_2, stress_vec_2, linestyle='-', color='k')
+    plt.axis([-5.0, 5.0, -1.0, 1.0])
+    plt.grid()
+    plt.xlabel(r'$\theta / \theta_y $')
+    plt.ylabel(r'$M/M_y$')
+
+    plt.subplot(224)
+    plt.title(r"(d) Proposed BW: $R_{s,max} = 0.9$, $\mu_p = 1.0$, $\sigma_p = 2.0$")
+    plt.plot(strain_vec_3, stress_vec_3, linestyle='-', color='k')
+    plt.axis([-5.0, 5.0, -1.0, 1.0])
+    plt.grid()
+    plt.xlabel(r'$\theta / \theta_y $')
+    plt.ylabel(r'$M/M_y$')
+
+    plt.tight_layout()
+    plt.savefig('material_models.pdf')
     plt.show()
 
 
