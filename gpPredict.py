@@ -249,8 +249,8 @@ def main(params_dir, surrogate_dir, json_dir, result_file, input_json):  # noqa:
                     Y_metadata=None,
                 )
                 # print("Collecting variance field of ny={}".format(ny))
-                for key, val in sur['modelInfo'][g_name_sur[ny] + '_Var'].items():  # noqa: B007, PERF102
-                    exec('m_var.' + key + '= np.array(val)')  # noqa: S102
+                #for key, val in sur['modelInfo'][g_name_sur[ny] + '_Var'].items():  # noqa: B007, PERF102
+                #    exec('m_var.' + key + '= np.array(val)')  # noqa: S102
 
                 log_var_pred, dum = m_var.predict(X_unique)
                 var_pred = np.exp(log_var_pred)

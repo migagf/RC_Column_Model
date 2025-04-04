@@ -6,9 +6,10 @@ import os
 
 import seaborn as sns
 import matplotlib.pyplot as plt
-# Use latex
-plt.rc('text', usetex=True)
-plt.rc('font', family='serif')
+
+# Use latex for plot
+plt.rc('text', usetex=True)  # Use LaTeX for rendering text in plots
+plt.rc('font', family='serif')  # Use serif font for LaTeX text
 
 # Load calibration_info.csv file
 # The calibration_info file contains the best fit for the calibration and the resulting residual statistics
@@ -45,28 +46,18 @@ plt.scatter(x_values, res_median_plus, label='res_median_plus', marker='s', c=da
 plt.scatter(x_values, res_median_minus, label='res_median_minus', marker='s', c=data_all['color'], s=0.2)
 
 # Add a horizontal line at 0.12
-plt.axhline(y=0.12, color='k', linestyle='--', linewidth=1.0, alpha=0.5)
-# Add text to the line
-plt.text(40, 0.12, 'MAE threshold = 0.12', color='k', fontsize=10, ha='center', va='bottom')
+plt.axhline(y=0.1, color='r', linestyle='--', linewidth=0.5)
 
-# Add custom legend with colors
-legend_labels = {'Flexure': 'blue', 'Flexure-Shear': 'green', 'Shear': 'red'}
-handles = [plt.Line2D([0], [0], marker='o', color='w', label=label,
-                       markerfacecolor=color, markersize=5) for label, color in legend_labels.items()]
-plt.legend(handles=handles, title='Failure Type', loc='upper right')
-plt.xlabel('Calibration Number')
-plt.ylabel('Mean Average Error')
-plt.grid()
-
-plt.savefig('residuals.pdf')
+plt.legend()
 plt.show()
 
 print(data_all.columns)
 # Select columns to plot
 x_parameters = ['ar', 'lrr', 'srr', 'alr', 'sdr', 'smr']
+x_parameter_labels = ['AR', 'LRR', 'SRR', 'ALR', 'SDR', 'SR']
 
-# Create subplots for each par_y in parameter_names
-'''for par_y in parameter_names:
+'''# Create subplots for each par_y in parameter_names
+for par_y in parameter_names:
     fig, axs = plt.subplots(1, len(x_parameters), figsize=(20, 3.5))
     
     # Plot each set of parameters
@@ -102,31 +93,30 @@ from sklearn.model_selection import train_test_split
 seed = 0
 
 # Split the data into training and testing
-def split_and_save(data, folder_name, seed):
+def split_and_save(data, folder_name, seed, shuffle_id):
+
     os.makedirs(folder_name, exist_ok=True)
     train = data.sample(frac=0.8, random_state=seed)
     test = data.drop(train.index)
-    train.to_csv(f'{folder_name}/train.csv', index=False)
-    test.to_csv(f'{folder_name}/test.csv', index=False)
 
-    # Save only the predictors as txt file. Include the following line in the file: % ar lrr srr alr sdr smr
-    with open(f'{folder_name}/input.txt', 'w') as f:
+    train.to_csv(f'{folder_name}/train{str(shuffle_id)}.csv', index=False)
+    test.to_csv(f'{folder_name}/test{str(shuffle_id)}.csv', index=False)
+
+    # Adding column names: % ar lrr srr alr sdr smr
+    with open(f'{folder_name}/input{str(shuffle_id)}.txt', 'w') as f:
         f.write('% ' + ' '.join(predictors) + '\n')
-    
-    # Now include the training data into the predictors.txt file
-    train[predictors].to_csv(f'{folder_name}/input.txt', sep=' ', mode='a', header=False, index=False, float_format='%.5f')
+    # Adding training data to the input.txt file
+    train[predictors].to_csv(f'{folder_name}/input{str(shuffle_id)}.txt', sep=' ', mode='a', header=False, index=False, float_format='%.5f')
 
-    # Save only the outputs as txt file. Include the following line in the file: % gamma kappa eta1 sig lam mup sigp rsmax alpha alpha1 alpha2 betam1 n kappa_k res_min
-    with open(f'{folder_name}/output.txt', 'w') as f:
+    # Adding column names: % gamma kappa eta1 sig lam mup sigp rsmax alpha alpha1 alpha2 betam1 n kappa_k res_min
+    with open(f'{folder_name}/output{str(shuffle_id)}.txt', 'w') as f:
         f.write('% ' + ' '.join(outputs) + '\n')
-
     # Now include the training data into the outputs.txt file
-    train[outputs].to_csv(f'{folder_name}/output.txt', sep=' ', mode='a', header=False, index=False, float_format='%.5f')
+    train[outputs].to_csv(f'{folder_name}/output{str(shuffle_id)}.txt', sep=' ', mode='a', header=False, index=False, float_format='%.5f')
 
 
-
-'''split_and_save(data_shear, 'gpModelShear', seed)
-split_and_save(data_flexure, 'gpModelFlexure', seed)
-split_and_save(data_all, 'gpModelAll', seed)'''
+for seed in range(0, 6):
+    split_and_save(data_shear, 'gpModelShear', seed, seed)
+    split_and_save(data_flexure, 'gpModelFlexure', seed, seed)
 
 

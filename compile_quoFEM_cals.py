@@ -9,6 +9,10 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 
+# Use latex for plots (optional, can be commented out)
+plt.rc('text', usetex=True)
+plt.rc('font', family='serif')
+
 '''
 index   parameter
 2       gamma
@@ -107,19 +111,42 @@ def get_info(test_dir):
         return [], [], [], []
 
 
-def plot_hysteresis(test_file, results, filename, save=False):
+def plot_hysteresis(test_file, results, filename, info, save=False):
+
+    length = test_file['L_Inflection']
+    peak_force = np.max(np.array(test_file['cal_data']['force']))
+    mae = info['res_mean']
 
     plt.figure()
     for ii in range(0, 200):
-        plt.plot(test_file['cal_data']['disp'], results.iloc[ii, 17::], 'r:.', linewidth=0.1, alpha=0.2)
+        if ii == 0: # Plot so that legend shows up
+            plt.plot(np.array(test_file['cal_data']['disp'])/length, 
+                     np.array(results.iloc[ii, 17::])/peak_force, 
+                     'r:.', linewidth=0.3, alpha=0.3, markersize=2.0, label='Calibrations')
+        else:
+            plt.plot(np.array(test_file['cal_data']['disp'])/length, 
+                    np.array(results.iloc[ii, 17::])/peak_force, 
+                    'r:.', linewidth=0.3, alpha=0.3, markersize=2.0, label=None)
 
-    plt.plot(test_file['cal_data']['disp'], test_file['cal_data']['force'], 'b:.', alpha=0.5)
-    plt.title(filename)
+    plt.plot(np.array(test_file['cal_data']['disp'])/length, 
+             np.array(test_file['cal_data']['force'])/peak_force, 
+             'b-.', alpha=0.8, label='Test Data', linewidth=1.0, markersize=3.0)
+    
+    
+    title = test_file['Name'] + ' | PEER Id = ' + filename[-3:]
+    plt.title(title)
+    plt.xlabel('Drift Ratio $\Delta/h$')
+    plt.ylabel('Normalized Shear $V/V_s$')
+    plt.legend()
+    # Add text in bottom right corner with the MAE
+    plt.text(0.98, 0.02, r'MAE = %.4f' % mae,
+             horizontalalignment='right', verticalalignment='bottom',
+             transform=plt.gca().transAxes,
+             fontsize=10, color='black',
+             bbox=dict(facecolor='white', alpha=0.5, edgecolor='none'))
 
     if save:
         plt.savefig('CalibrationPlots/'+filename+'.pdf')
-    
-    # plt.show()
 
 
 def get_residual_info(test_file, results):
@@ -154,96 +181,96 @@ if __name__ == '__main__':
     # The directory where the files are stored
     remoteWorkDir = r'D:\tacc scratch'
     month = '25_03'
-    day = '01'
+    
+    for day in [str(i).zfill(2) for i in range(5, 20)]:
+        allJobs = os.listdir(os.path.join(remoteWorkDir, month, day))
+        print(len(allJobs), 'jobs found...' )
+        for ii in range(0, len(allJobs)):
 
-    allJobs = os.listdir(os.path.join(remoteWorkDir, month, day))
-    print(len(allJobs), 'jobs found...' )
-    for ii in range(0, len(allJobs)):
+            info, scInput, test_file, results = get_info(os.path.join(remoteWorkDir, month, day, allJobs[ii]))
+            try:
+                res_stats, best_fit = get_residual_info(test_file, results)
+            except Exception as e:
+                print('Error trying to get residuals... ', e)
+                continue
+            
+            # Add fit information to the info dictionary
+            info['res_mean'] = res_stats['mean']
+            info['res_median'] = res_stats['median']
+            info['res_std'] = res_stats['std']
+            info['res_max'] = res_stats['max']
+            info['res_min'] = res_stats['min']
+            print(best_fit)
+            
+            (info['gamma'], info['kappa'], info['eta1'], info['sig'], info['lam'], 
+            info['mup'], info['sigp'], info['rsmax'], info['alpha'], info['alpha1'], 
+            info['alpha2'], info['betam1'], info['n'], info['kappa_k']) = best_fit.tolist()
 
-        info, scInput, test_file, results = get_info(os.path.join(remoteWorkDir, month, day, allJobs[ii]))
-        try:
-            res_stats, best_fit = get_residual_info(test_file, results)
-        except Exception as e:
-            print('Error trying to get residuals... ', e)
-            continue
-        
-        # Add fit information to the info dictionary
-        info['res_mean'] = res_stats['mean']
-        info['res_median'] = res_stats['median']
-        info['res_std'] = res_stats['std']
-        info['res_max'] = res_stats['max']
-        info['res_min'] = res_stats['min']
-        print(best_fit)
-        
-        (info['gamma'], info['kappa'], info['eta1'], info['sig'], info['lam'], 
-        info['mup'], info['sigp'], info['rsmax'], info['alpha'], info['alpha1'], 
-        info['alpha2'], info['betam1'], info['n'], info['kappa_k']) = best_fit.tolist()
+            #
+            print(info)
 
-        #
-        print(info)
+            # Save the info dictionary to a csv file
 
-        # Save the info dictionary to a csv file
-
-        # Open the calibration_info.csv file and check if the UniqueId exists
-        if os.path.exists('calibration_info.csv'):
-            calibration_info = pd.read_csv('calibration_info.csv')
-            if int(info['UniqueId']) in calibration_info['UniqueId'].values:
-                print('UniqueId already exists... ')
-                # Check if the existing Location is the same as the new one
-                existing_location = calibration_info.loc[calibration_info['UniqueId'] == int(info['UniqueId']), 'Location'].values[0]
-                if existing_location == info['Location']:
-                    print('Location is the same... Updating the info')
-                    # Replace the entire row with the new info
-                    calibration_info.loc[calibration_info['UniqueId'] == info['UniqueId']] = info
-                    # calibration_info = calibration_info.replace(info['UniqueId'], info)
-
-                    # Plot and save
-                    plot_hysteresis(test_file, results, 'test_' + info['UniqueId'] , save=True)
-                    
-                    if os.path.exists('calibration_info.csv'):
-                        # Remove the existing file
-                        os.remove('calibration_info.csv')
-
-                    calibration_info.to_csv('calibration_info.csv', index=False)
-                else:
-                    print('Location is different... ')
-
-                    # Check the mean residuals
-                    existing_res_mean = calibration_info.loc[calibration_info['UniqueId'] == int(info['UniqueId']), 'res_mean'].values[0]
-                    if info['res_mean'] <= existing_res_mean:
-                        print('New mean residual is less than the existing one... Updating the info')
-                        # Replace the row with the new info
-
-                        # calibration_info = calibration_info.replace(info['UniqueId'], info)
+            # Open the calibration_info.csv file and check if the UniqueId exists
+            if os.path.exists('calibration_info.csv'):
+                calibration_info = pd.read_csv('calibration_info.csv')
+                if int(info['UniqueId']) in calibration_info['UniqueId'].values:
+                    print('UniqueId already exists... ')
+                    # Check if the existing Location is the same as the new one
+                    existing_location = calibration_info.loc[calibration_info['UniqueId'] == int(info['UniqueId']), 'Location'].values[0]
+                    if existing_location == info['Location']:
+                        print('Location is the same... Updating the info')
+                        # Replace the entire row with the new info
                         calibration_info.loc[calibration_info['UniqueId'] == info['UniqueId']] = info
+                        # calibration_info = calibration_info.replace(info['UniqueId'], info)
 
                         # Plot and save
-                        plot_hysteresis(test_file, results, 'test_' + info['UniqueId'] , save=True)
-
+                        plot_hysteresis(test_file, results, 'test_' + info['UniqueId'] , info, save=True)
+                        
                         if os.path.exists('calibration_info.csv'):
                             # Remove the existing file
                             os.remove('calibration_info.csv')
-                            
-                        calibration_info.to_csv('calibration_info.csv', index=False)
 
-                        #
+                        calibration_info.to_csv('calibration_info.csv', index=False)
                     else:
-                        # Existing mean residual is less than the new one, don't update the info
-                        print('New mean residual is greater than the existing one...')
-                        print('Existing mean residual: ', existing_res_mean)
-                        print('New mean residual: ', info['res_mean'])
-                
+                        print('Location is different... ')
+
+                        # Check the mean residuals
+                        existing_res_mean = calibration_info.loc[calibration_info['UniqueId'] == int(info['UniqueId']), 'res_mean'].values[0]
+                        if info['res_mean'] <= existing_res_mean:
+                            print('New mean residual is less than the existing one... Updating the info')
+                            # Replace the row with the new info
+
+                            # calibration_info = calibration_info.replace(info['UniqueId'], info)
+                            calibration_info.loc[calibration_info['UniqueId'] == info['UniqueId']] = info
+
+                            # Plot and save
+                            plot_hysteresis(test_file, results, 'test_' + info['UniqueId'] , info, save=True)
+
+                            if os.path.exists('calibration_info.csv'):
+                                # Remove the existing file
+                                os.remove('calibration_info.csv')
+                                
+                            calibration_info.to_csv('calibration_info.csv', index=False)
+
+                            #
+                        else:
+                            # Existing mean residual is less than the new one, don't update the info
+                            print('New mean residual is greater than the existing one...')
+                            print('Existing mean residual: ', existing_res_mean)
+                            print('New mean residual: ', info['res_mean'])
+                    
+                else:
+                    # Append the info to the csv file
+                    print('UniqueId does not exist... Adding new info')
+                    info_df = pd.DataFrame(info, index=[0])
+                    info_df.to_csv('calibration_info.csv', mode='a', header=False, index=False)
+                    plot_hysteresis(test_file, results, 'test_' + info['UniqueId'], info, save=True)
             else:
-                # Append the info to the csv file
-                print('UniqueId does not exist... Adding new info')
-                info_df = pd.DataFrame(info, index=[0])
-                info_df.to_csv('calibration_info.csv', mode='a', header=False, index=False)
-                plot_hysteresis(test_file, results, 'test_' + info['UniqueId'] , save=True)
-        else:
-            # Create the csv file and add the info as the first row
-            print('calibration_info.csv not found... Creating a new one')
-            calibration_info = pd.DataFrame(columns=info.keys())
-            calibration_info.to_csv('calibration_info.csv', index=False)
-            plot_hysteresis(test_file, results, 'test_' + info['UniqueId'] , save=True)
+                # Create the csv file and add the info as the first row
+                print('calibration_info.csv not found... Creating a new one')
+                calibration_info = pd.DataFrame(columns=info.keys())
+                calibration_info.to_csv('calibration_info.csv', index=False)
+                plot_hysteresis(test_file, results, 'test_' + info['UniqueId'] , info, save=True)
 
 
