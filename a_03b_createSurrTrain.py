@@ -41,14 +41,30 @@ colors = {'Flexure': 'blue', 'Flexure-Shear': 'green', 'Shear': 'red'}
 data_all['color'] = data_all['FailureType'].map(colors)
 
 # Plot with colors based on FailureType
+plt.figure(figsize=(6, 4))
 plt.scatter(x_values, res_median, label='res_median', marker='s', c=data_all['color'], s=0.7)
 plt.scatter(x_values, res_median_plus, label='res_median_plus', marker='s', c=data_all['color'], s=0.2)
 plt.scatter(x_values, res_median_minus, label='res_median_minus', marker='s', c=data_all['color'], s=0.2)
 
-# Add a horizontal line at 0.12
-plt.axhline(y=0.1, color='r', linestyle='--', linewidth=0.5)
+# Add a horizontal line at 0.10
+# Add text on top of the line at y=0.1 to indicate the threshold
+plt.text(10, 0.105, 'Threshold at MAE=0.1',
+         horizontalalignment='left', verticalalignment='center', fontsize=10, color='k',
+         bbox=dict(facecolor='white', edgecolor='none', alpha=0.7))
 
-plt.legend()
+plt.axhline(y=0.1, color='k', linestyle='--', linewidth=1.0)
+
+# Create a custom legend for FailureType
+legend_labels = {'Flexure': 'Flexure', 'Flexure-Shear': 'Flexure-Shear', 'Shear': 'Shear'}
+legend_handles = [plt.Line2D([0], [0], marker='o', color='w', markerfacecolor=color, markersize=5, label=label) 
+                  for label, color in colors.items()]
+plt.xlabel('Test \# (Sorted by MAE)')  # X-axis label
+plt.ylabel('Mean Absoulte Error')  # Y-axis label
+plt.xlim([0, 300])
+plt.ylim([0, 0.25])
+plt.grid()
+plt.legend(handles=legend_handles, title="Failure Type")
+plt.savefig('Figures/residuals_plot.pdf')  # Save the figure to a pdf file
 plt.show()
 
 print(data_all.columns)
@@ -71,7 +87,7 @@ for par_y in parameter_names:
     plt.show()'''
 
 # Drop rows with res_median > 0.1
-data_all = data_all[data_all['res_median'] <= 0.12]
+data_all = data_all[data_all['res_median'] <= 0.1]
 
 # Split the data using FailureType
 data_shear = pd.concat([data_all[data_all['FailureType'] == 'Shear'], data_all[data_all['FailureType'] == 'Flexure-Shear']])
@@ -96,7 +112,7 @@ seed = 0
 def split_and_save(data, folder_name, seed, shuffle_id):
 
     os.makedirs(folder_name, exist_ok=True)
-    train = data.sample(frac=0.8, random_state=seed)
+    train = data.sample(frac=0.75, random_state=seed)
     test = data.drop(train.index)
 
     train.to_csv(f'{folder_name}/train{str(shuffle_id)}.csv', index=False)
@@ -115,8 +131,8 @@ def split_and_save(data, folder_name, seed, shuffle_id):
     train[outputs].to_csv(f'{folder_name}/output{str(shuffle_id)}.txt', sep=' ', mode='a', header=False, index=False, float_format='%.5f')
 
 
-for seed in range(0, 6):
-    split_and_save(data_shear, 'gpModelShear', seed, seed)
-    split_and_save(data_flexure, 'gpModelFlexure', seed, seed)
+#for seed in range(0, 6):
+#    split_and_save(data_shear, 'gpModelShear', seed, seed)
+#    split_and_save(data_flexure, 'gpModelFlexure', seed, seed)
 
 
