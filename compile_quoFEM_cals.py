@@ -123,7 +123,7 @@ def plot_hysteresis(test_file, results, filename, info, save=False):
         if ii == random_indices[0]: # Plot so that legend shows up
             plt.plot(np.array(test_file['cal_data']['disp'])/length, 
                      np.array(results.iloc[ii, 17::])/peak_force, 
-                     'r:.', linewidth=0.3, alpha=0.3, markersize=2.0, label='Posterior Samples')
+                     'r:.', linewidth=0.3, alpha=0.3, markersize=2.0, label='Post. Samples')
         else:
             plt.plot(np.array(test_file['cal_data']['disp'])/length, 
                     np.array(results.iloc[ii, 17::])/peak_force, 
@@ -131,14 +131,14 @@ def plot_hysteresis(test_file, results, filename, info, save=False):
 
     plt.plot(np.array(test_file['cal_data']['disp'])/length, 
              np.array(test_file['cal_data']['force'])/peak_force, 
-             'b-.', alpha=0.8, label='Experiment', linewidth=1.0, markersize=3.0)
+             'b-.', alpha=0.8, label='Exp.', linewidth=1.0, markersize=3.0)
     
     
     title = test_file['Name'] + '\n | PEER ID: ' + filename[-3:]
     plt.title(title)
     plt.xlabel('Drift Ratio $\Delta/h$')
     plt.ylabel('Normalized Shear $V/V_s$')
-    plt.legend()
+    plt.legend(loc='upper left')
     # Add text in bottom right corner with the MAE
     plt.text(0.98, 0.02, r'MAE = %.4f' % mae,
              horizontalalignment='right', verticalalignment='bottom',
