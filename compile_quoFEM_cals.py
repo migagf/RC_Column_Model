@@ -182,7 +182,7 @@ if __name__ == '__main__':
     remoteWorkDir = r'D:\tacc scratch'
     month = '25_03'
     
-    for day in [str(i).zfill(2) for i in range(5, 20)]:
+    for day in ['23', '24', '25']:
         allJobs = os.listdir(os.path.join(remoteWorkDir, month, day))
         print(len(allJobs), 'jobs found...' )
         for ii in range(0, len(allJobs)):
