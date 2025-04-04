@@ -117,12 +117,13 @@ def plot_hysteresis(test_file, results, filename, info, save=False):
     peak_force = np.max(np.array(test_file['cal_data']['force']))
     mae = info['res_mean']
 
-    plt.figure()
-    for ii in range(0, 200):
-        if ii == 0: # Plot so that legend shows up
+    plt.figure(figsize=(4, 4))
+    random_indices = np.random.choice(range(0, 200), size=30, replace=False)
+    for ii in random_indices:
+        if ii == random_indices[0]: # Plot so that legend shows up
             plt.plot(np.array(test_file['cal_data']['disp'])/length, 
                      np.array(results.iloc[ii, 17::])/peak_force, 
-                     'r:.', linewidth=0.3, alpha=0.3, markersize=2.0, label='Calibrations')
+                     'r:.', linewidth=0.3, alpha=0.3, markersize=2.0, label='Posterior Samples')
         else:
             plt.plot(np.array(test_file['cal_data']['disp'])/length, 
                     np.array(results.iloc[ii, 17::])/peak_force, 
@@ -130,10 +131,10 @@ def plot_hysteresis(test_file, results, filename, info, save=False):
 
     plt.plot(np.array(test_file['cal_data']['disp'])/length, 
              np.array(test_file['cal_data']['force'])/peak_force, 
-             'b-.', alpha=0.8, label='Test Data', linewidth=1.0, markersize=3.0)
+             'b-.', alpha=0.8, label='Experiment', linewidth=1.0, markersize=3.0)
     
     
-    title = test_file['Name'] + ' | PEER Id = ' + filename[-3:]
+    title = test_file['Name'] + '\n | PEER ID: ' + filename[-3:]
     plt.title(title)
     plt.xlabel('Drift Ratio $\Delta/h$')
     plt.ylabel('Normalized Shear $V/V_s$')
@@ -144,7 +145,10 @@ def plot_hysteresis(test_file, results, filename, info, save=False):
              transform=plt.gca().transAxes,
              fontsize=10, color='black',
              bbox=dict(facecolor='white', alpha=0.5, edgecolor='none'))
-
+    
+    plt.xticks(ticks=plt.xticks()[0], labels=[f'{x:.2f}' for x in plt.xticks()[0]])
+    plt.tight_layout()
+    
     if save:
         plt.savefig('CalibrationPlots/'+filename+'.pdf')
 
@@ -181,8 +185,11 @@ if __name__ == '__main__':
     # The directory where the files are stored
     remoteWorkDir = r'D:\tacc scratch'
     month = '25_03'
+
+    # list folders in month directory to process each day
+    days = os.listdir(os.path.join(remoteWorkDir, month))
     
-    for day in ['23', '24', '25']:
+    for day in days:
         allJobs = os.listdir(os.path.join(remoteWorkDir, month, day))
         print(len(allJobs), 'jobs found...' )
         for ii in range(0, len(allJobs)):
