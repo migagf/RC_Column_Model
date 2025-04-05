@@ -26,6 +26,28 @@ plt.rc('font', family='serif')'''
 # ndParams = ['ar', 'lrr', 'srr', 'alr', 'sdr', 'smr']
 # ndParams = [0.1, 0.1, 0.1, 0.1, 0.1, 0.1]
 
+# Let's create a function that gets the BW_params, but now get's an average for all 6 gp_number models
+def get_BW_params_avg(ndParams, mode='simple'):
+
+    bw_model_params_list = []
+    min_error_list = []
+
+    for gp_number in range(6):
+        # Get the BW parameters for each gp_number
+        bw_model_params, min_error, failure_mode = get_BW_params(ndParams, gp_number=gp_number, mode=mode)
+
+        # Append to the lists
+        bw_model_params_list.append(bw_model_params)
+        min_error_list.append(min_error)
+    
+    # Average the bw_model_params across all gp_numbers
+    bw_model_params_avg = np.mean(bw_model_params_list, axis=0).tolist()
+    # Average the min_error across all gp_numbers
+    min_error_avg = np.mean(min_error_list)
+    
+    return bw_model_params_avg, min_error_avg, failure_mode
+
+
 def get_BW_params(ndParams, gp_number=0, mode='simple'):
 
     # Sort parameters to format of gpPredict

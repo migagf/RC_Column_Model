@@ -2,7 +2,7 @@
 
 # Use latex for plots
 import matplotlib.pyplot as plt
-plt.rc('text', usetex=False)
+plt.rc('text', usetex=True)
 plt.rc('font', family='serif')
 
 import numpy as np
@@ -10,7 +10,7 @@ import pandas as pd
 
 
 # Load error_metrics.csv
-error_metrics = pd.read_csv('error_metrics_interp.csv')
+error_metrics = pd.read_csv('error_metrics_model_0.csv')
 print(error_metrics)
 
 # Remove points with error > 0.5
