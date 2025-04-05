@@ -89,6 +89,9 @@ for par_y in parameter_names:
 # Drop rows with res_median > 0.1
 data_all = data_all[data_all['res_median'] <= 0.1]
 
+# Print how many rows are left after filtering by res_median <= 0.1
+print(f'Number of rows after filtering by res_median <= 0.1: {len(data_all)}')
+
 # Split the data using FailureType
 data_shear = pd.concat([data_all[data_all['FailureType'] == 'Shear'], data_all[data_all['FailureType'] == 'Flexure-Shear']])
 data_flexure = data_all[data_all['FailureType'] == 'Flexure']
