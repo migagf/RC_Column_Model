@@ -4,6 +4,8 @@ import numpy as np
 
 # Set matplotlib text style to latex
 plt.rc('text', usetex=True)
+plt.rc('font', family='serif')
+
 figures_folder = 'Figures'
 
 # Load the dataset
@@ -130,7 +132,7 @@ plt.show()
 
 # Plot the decision boundary
 plt.xlabel('Aspect Ratio ($A_R$)')
-plt.ylabel('$V_p/V_s$')
+plt.ylabel('Strength Ratio $V_p/V_s$')
 
 # Create a meshgrid for the decision boundary
 param1_range = np.linspace(column_data[parameters[0]].min(), column_data[parameters[0]].max(), 500)
@@ -148,7 +150,6 @@ plt.scatter([], [], c='b', edgecolor='b', label='Flexure')
 plt.scatter([], [], c='r', edgecolor='r', label='Shear')
 plt.legend()
 
-plt.title('Failure mode decision boundary')
 # Set axes square
 plt.xlim([1, 8])
 plt.ylim([0, 4])
@@ -173,7 +174,8 @@ pairplot = sns.pairplot(column_data[['ar', 'lrr', 'srr', 'alr', 'sdr', 'smr', 'T
                         plot_kws={'alpha': 0.5},
                         markers=['s', 'o'],
                         palette={'Rectangular': 'blue', 'Spiral': 'black'},
-                        diag_kind='hist')
+                        diag_kind='hist', 
+                        height=1.0)
 
 # Add space between the plots (like tight_layout)
 plt.subplots_adjust(wspace=0.2, hspace=0.2)
@@ -182,40 +184,40 @@ plt.subplots_adjust(wspace=0.2, hspace=0.2)
 for ax in pairplot.axes.flatten():
     if ax.get_xlabel() == 'ar':
         ax.set_xlim(0, 8)
-        ax.set_xlabel('Aspect Ratio ($AR$)')
+        ax.set_xlabel('$AR$')
     if ax.get_ylabel() == 'ar':
         ax.set_ylim(0, 8)
-        ax.set_ylabel('Aspect Ratio ($AR$)')
+        ax.set_ylabel('$AR$')
     if ax.get_xlabel() == 'lrr':
         ax.set_xlim(0, 1.2)
-        ax.set_xlabel('Long. Reinf. Ratio ($LRR$)')
+        ax.set_xlabel('$LRR$')
     if ax.get_ylabel() == 'lrr':
         ax.set_ylim(0, 1.2)
-        ax.set_ylabel('Long. Reinf. Ratio ($LRR$)')
+        ax.set_ylabel('$LRR$')
     if ax.get_xlabel() == 'srr':
         ax.set_xlim(0, 0.6)
-        ax.set_xlabel('Tr. Reinf. Ratio ($TRR$)')
+        ax.set_xlabel('$TRR$')
     if ax.get_ylabel() == 'srr':
         ax.set_ylim(0, 0.6)
-        ax.set_ylabel('Tr. Reinf. Ratio ($TRR$)')
+        ax.set_ylabel('$TRR$')
     if ax.get_xlabel() == 'alr':
         ax.set_xlim(0, 1.2)
-        ax.set_xlabel('Axial Load Ratio ($ALR$)')
+        ax.set_xlabel('$ALR$')
     if ax.get_ylabel() == 'alr':
         ax.set_ylim(0, 1.2)
-        ax.set_ylabel('Axial Load Ratio ($ALR$)')
+        ax.set_ylabel('$ALR$')
     if ax.get_xlabel() == 'sdr':
         ax.set_xlim(0, 10)
-        ax.set_xlabel('$s/6d_{lb}$ ($TSR$)')
+        ax.set_xlabel('$TSR$')
     if ax.get_ylabel() == 'sdr':
         ax.set_ylim(0, 10)
-        ax.set_ylabel('$s/6d_{lb}$ ($TSR$)')
+        ax.set_ylabel('$TSR$')
     if ax.get_xlabel() == 'smr':
         ax.set_xlim(0, 5)
-        ax.set_xlabel('$V_p/V_s$ ($SSR$)')
+        ax.set_xlabel('$SSR$')
     if ax.get_ylabel() == 'smr':
         ax.set_ylim(0, 5)
-        ax.set_ylabel('$V_p/V_s$ ($SSR$)')
+        ax.set_ylabel('$SSR$')
 
 plt.show()
 # plt.savefig(figures_folder + r'/pairplot.pdf', format='pdf')
