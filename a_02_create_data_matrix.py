@@ -414,7 +414,7 @@ def get_moment_strength(test_data, props='expected'):
 
 
 if __name__ == '__main__':
-    do_pairplots = True
+    do_pairplots = False
 
     # Properties of spiral columns
     spiral_cols = [
@@ -592,3 +592,13 @@ if __name__ == '__main__':
 
     # Do pairplot for all columns
     # do_pairplot(merged_data, ['ar', 'lrr', 'srr', 'alr', 'sdr', 'smr', 'FailureType'], 'FailureType')
+
+    # Count how many of each FailureType
+    failure_modes = ['Flexure-Shear', 'Flexure', 'Shear']
+
+    for mode in failure_modes:
+        count = merged_data[merged_data['FailureType'] == mode].shape[0]
+        print(f"Count of {mode}: {count}")
+    # Print total
+    total_count = merged_data.shape[0]
+    print(f"Total count: {total_count}")
