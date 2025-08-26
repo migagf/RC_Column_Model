@@ -1,5 +1,6 @@
-## Surrogate Calibration
+# Surrogate Calibration
 
-### The workflow is as follows:
+## Workflow Details
 
-$a = 1$
+### Step 1: Gather information from the PEER Performance Database
+
