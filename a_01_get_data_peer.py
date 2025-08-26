@@ -321,17 +321,24 @@ def get_test_data(text_vec, data_url):
 
 # Run the script
 if __name__ == '__main__':
-    
+
     current_workdir = os.getcwd()
     files_dir = os.path.join(current_workdir, 'test_data') # r'/Users/miguelgomez/Documents/GitHub/RC_Column_Model/test_data'
 
     url = 'https://nisee.berkeley.edu/spd/servlet/display?format=html&id='
     
-    for ii in range(275, 276):
+    filenames = []
+    for ii in range(1, 417):
         
         # (1) Create name of the file
         filename = files_dir + '/test_' + str(ii).zfill(3) + '.json'
-        
+        filenames.append('test_' + str(ii).zfill(3) + '.json')
+
+        # If file already exists, skip
+        if os.path.exists(filename):
+            print('File already exists, skipping:', filename)
+            continue
+
         # (2) URL to find the information from the test
         url_ii = url + str(ii)
         
@@ -345,23 +352,12 @@ if __name__ == '__main__':
         with open(filename, "w") as outfile: 
             json.dump(test_data_ii, outfile, indent=4)
             print('File created', filename)
-        
-        
-    
-    
-    
-    
-    
-        
 
-
-
-
-
-
-
-
-
-
-
-
+    # If filenames.txt already exist, skip
+    if os.path.exists(os.path.join(files_dir, 'filenames.txt')):
+        print('filenames.txt already exists, skipping')
+    else:
+        # Store the filenames list to a text file
+        with open(os.path.join(files_dir, 'filenames.txt'), 'w') as f:
+            for filename in filenames:
+                f.write("%s\n" % filename)

@@ -17,7 +17,7 @@ import seaborn as sns
 import os
 
 
-def do_pairplot(dataframe, subset, hue):
+def do_pairplot(dataframe, subset, hue, output_dir, filename):
     # Define tex type
     plt.rc('text', usetex=True)
     plt.rc('font', family='serif')
@@ -25,7 +25,8 @@ def do_pairplot(dataframe, subset, hue):
     sns.pairplot(dataframe[subset], hue=hue, height=1.5, plot_kws={'alpha':0.5})
 
     # Use latex for the labels
-    plt.show()
+    plt.savefig(os.path.join(output_dir, f'{filename}.pdf'), bbox_inches='tight')
+    plt.close()
 
     pass
 
@@ -414,7 +415,30 @@ def get_moment_strength(test_data, props='expected'):
 
 
 if __name__ == '__main__':
-    do_pairplots = False
+    
+    # :::
+    # General Settings
+    # :::
+
+    do_pairplots = True
+
+    # Define output location
+    cwd = os.getcwd()
+    output_dir = os.path.join(cwd, 'gp_training_data', 'raw')
+    input_dir = os.path.join(cwd, 'test_data')
+
+    # Check if the output files already exist. If they do exist, don't do anything
+    output_file_list = ['data_spiral.csv', 'data_rect.csv', 'data_all.csv']
+    if all(os.path.exists(os.path.join(output_dir, f)) for f in output_file_list):
+        print('Output files already exist. Exiting...')
+
+        # Here, add the post-processing plots (maybe)
+        exit()
+    
+
+    # :::
+    # Create DataFrames with raw training data
+    # :::
 
     # Properties of spiral columns
     spiral_cols = [
@@ -431,17 +455,29 @@ if __name__ == '__main__':
     ]
     
     # Create dataframes for rectangular and spiral columns
-    data_rect = pd.DataFrame(columns=rect_cols)
+    data_rect   = pd.DataFrame(columns=rect_cols)
     data_spiral = pd.DataFrame(columns=spiral_cols)
     
     # For all tests...
     sp_ii = 0
 
     # Create dataframe for nondimensional parameters
-    ndparams_spiral = pd.DataFrame(columns=['ar', 'lrr', 'srr', 'alr', 'sdr', 'smr'])
-    ndparams_rect   = pd.DataFrame(columns=['ar', 'lrr', 'srr', 'alr', 'sdr', 'smr'])
-    ndparams_all = pd.DataFrame(columns=['ar', 'lrr', 'srr', 'alr', 'sdr', 'smr'])
+    columns = ['UniqueId', 'ar', 'lrr', 'srr', 'alr', 'sdr', 'smr']
+    ndparams_spiral = pd.DataFrame(columns=columns)
+    ndparams_rect   = pd.DataFrame(columns=columns)
+    ndparams_all    = pd.DataFrame(columns=columns)
+
+    # Read the filenames.txt file in the input_dir
+    with open(os.path.join(input_dir, 'filenames.txt'), 'r') as f:
+        test_files = f.read().splitlines()
     
+    # Check that all files in test_files exist in the input_dir
+    for f in test_files:
+        if not os.path.exists(os.path.join(input_dir, f)):
+            print('File not found:', f)
+            print('Go back and run a_01_get_data_peer.py')
+            exit()
+
     # testID is the UniqueId
     for testID in range(1, 417):
         # (1) Load json file to dictionary
@@ -451,7 +487,7 @@ if __name__ == '__main__':
         # json_dir = r'/Users/miguelgomez/Documents/GitHub/RC_Column_Model/test_data/test_' + str(testID).zfill(3) +'.json'
         rawdata = load_json(json_dir)
         
-        # (2) Check if its spiral
+        # (2) Get test type
         test_type = rawdata['Type']
         
         # (3) Turn dict into list with properties
@@ -466,6 +502,9 @@ if __name__ == '__main__':
                 # Get nondimensional parameters for the spiral column
                 ndparams_ii = get_nd_params(data_spiral.loc[len(data_spiral)-1])
 
+                # Add the UniqueId to the ndparams_ii list
+                ndparams_ii = [testID] + ndparams_ii
+
                 # Append at the end of the dataframe
                 ndparams_spiral.loc[len(ndparams_spiral)] = ndparams_ii
 
@@ -479,6 +518,9 @@ if __name__ == '__main__':
                 # Get nondimensional parameters for the rectangular column
                 ndparams_ii = get_nd_params(data_rect.loc[len(data_rect)-1])
 
+                # Add the UniqueId to the ndparams_ii list
+                ndparams_ii = [testID] + ndparams_ii
+
                 # Append at the end of the dataframe
                 ndparams_rect.loc[len(ndparams_rect)] = ndparams_ii
 
@@ -488,75 +530,67 @@ if __name__ == '__main__':
 
             continue
     
+    # Check if the calibrations_ok.csv file exists in the input folder
+    if not os.path.exists(os.path.join(input_dir, 'calibrations_ok.csv')):
+        print('File not found: calibrations_ok.csv. Check calibrations and generate such file.')
+        exit()
 
-    # Read the cals_dr_005.csv file (use or don't use)
-    cals_dr_005 = pd.read_csv('cals_dr_005_use.csv')
-    print(cals_dr_005.columns)
+    # Read the calibrations_ok.csv file (use or don't use)
+    ok_cals = pd.read_csv(os.path.join(input_dir, 'calibrations_ok.csv'))
+
+    # Extract rows where ok_cals in type are Rectangular/Spiral
+    use_rect_data = ok_cals[ok_cals['type'] == 'Rectangular']
+    use_spiral_data = ok_cals[ok_cals['type'] == 'Spiral']
+
+    # Merge use_rect_data and data_rect by UniqueId column / use_spiral_data and data_spiral
+    data_rect = data_rect.merge(use_rect_data, on='UniqueId', how='left')
+    data_spiral = data_spiral.merge(use_spiral_data, on='UniqueId', how='left')
+
+    # Merge the nondimensional parameters with the main dataframes on the UniqueId column
+    data_rect_wnd = pd.merge(data_rect, ndparams_rect, on='UniqueId', how='left')
+    data_spiral_wnd = pd.merge(data_spiral, ndparams_spiral, on='UniqueId', how='left')
     
-    # Extract rows where cals_dr_005 in type are Rectangular
-    use_rect_data = cals_dr_005[cals_dr_005['type'] == 'Rectangular']
-    use_spiral_data = cals_dr_005[cals_dr_005['type'] == 'Spiral']
-
-    use_rect_data = use_rect_data['use']
-    use_spiral_data = use_spiral_data['use']
-    
-    use_rect_data = use_rect_data.reset_index(drop=True)
-    use_spiral_data = use_spiral_data.reset_index(drop=True)
-
-    print(use_spiral_data)
-
-    # Check that use_rect data and data_rect have the same length
-    print(len(use_rect_data), len(data_rect))
-    print(len(use_spiral_data), len(data_spiral))
-
-    # Add the use column to the dataframes
-    data_rect['use'] = use_rect_data
-    data_spiral['use'] = use_spiral_data
-
-    # Store dataframe into a csv file
-    data_spiral.to_csv('data_spiral.csv')
-    data_rect.to_csv('data_rect.csv')
-
-    # Add the nondimensional parameters to the data_spiral dataframe
-    data_spiral_wnd = pd.concat([data_spiral, ndparams_spiral], axis=1)
-
-    # Add the nondimensional parameters to the data_rect dataframe
-    data_rect_wnd = pd.concat([data_rect, ndparams_rect], axis=1)
-
-    #data_spiral_wnd['testcf'] = pd.Categorical(data_spiral_wnd['testcf']).codes
-    # print(pd.Categorical(data_spiral_wnd['testcf']).categories)
-
-    # Get the nondimensional parameters for the spiral columns
-    # No need to turn this into codes...
-    # data_spiral_wnd['ft'] = pd.Categorical(data_spiral_wnd['ft']).codes
-    # data_rect_wnd['ft'] = pd.Categorical(data_rect_wnd['ft']).codes
-    
-    # RELEVANT!! Drop rows where the use column is 0
+    # Drop rows where the use column is 0
     data_spiral_wnd = data_spiral_wnd[data_spiral_wnd['use'] == 1]
     data_rect_wnd = data_rect_wnd[data_rect_wnd['use'] == 1]
 
+    # Generate pairplots (if requested)
     if do_pairplots:
         # Do pairplot for spiral columns
-        do_pairplot(data_spiral_wnd, ['ar', 'lrr', 'srr', 'alr', 'sdr', 'smr', 'ft'], 'ft')
-        
+        do_pairplot(data_spiral_wnd, ['ar', 'lrr', 'srr', 'alr', 'sdr', 'smr', 'ft'], 'ft', output_dir, 'pairplot_spiral')
+
         # Do pairplot for rectangular columns
-        do_pairplot(data_rect_wnd, ['ar', 'lrr', 'srr', 'alr', 'sdr', 'smr', 'ft'], 'ft')
+        do_pairplot(data_rect_wnd, ['ar', 'lrr', 'srr', 'alr', 'sdr', 'smr', 'ft'], 'ft', output_dir, 'pairplot_rectangular')
+
+
+    # Restart index before saving
+    data_rect = data_rect.reset_index(drop=True)
+    data_spiral = data_spiral.reset_index(drop=True)
+    data_spiral_wnd = data_spiral_wnd.reset_index(drop=True)
+    data_rect_wnd = data_rect_wnd.reset_index(drop=True)
+
+    # :::
+    # Save Files
+    # :::
+
+    # Store dataframe into a csv file inside the output folder
+    data_rect.to_csv(os.path.join(output_dir, 'data_rect.csv'))
+    data_spiral.to_csv(os.path.join(output_dir, 'data_spiral.csv'))
 
     # Store dataframe with the newly added columns
-    data_spiral_wnd.to_csv('data_spiral_wnd.csv')
-    data_rect_wnd.to_csv('data_rect_wnd.csv')
+    data_spiral_wnd.to_csv(os.path.join(output_dir, 'data_spiral_wnd.csv'))
+    data_rect_wnd.to_csv(os.path.join(output_dir, 'data_rect_wnd.csv'))
 
+    
     # Merge the two dataframes
     data_wnd = pd.concat([data_spiral_wnd, data_rect_wnd])
 
     # New dataframe with columns: ['UniqueId', 'Name', 'Type', 'FailureType', 'ar', 'lrr', 'srr', 'alr', 'sdr', 'smr']
-
     merged_data = data_wnd[['UniqueId', 'name', 'type', 'ft', 'ar', 'lrr', 'srr', 'alr', 'sdr', 'smr']].copy()
     merged_data.columns = ['UniqueId', 'Name', 'Type', 'FailureType', 'ar', 'lrr', 'srr', 'alr', 'sdr', 'smr']
 
     # Change type of UniqueId to integer
     merged_data['UniqueId'] = merged_data['UniqueId'].astype(int)
-
 
     # The following lines are for correspondence between new dataset and old DesignSafe Id
     # Sort merged_data by UniqueId
@@ -599,6 +633,7 @@ if __name__ == '__main__':
     for mode in failure_modes:
         count = merged_data[merged_data['FailureType'] == mode].shape[0]
         print(f"Count of {mode}: {count}")
+    
     # Print total
     total_count = merged_data.shape[0]
     print(f"Total count: {total_count}")

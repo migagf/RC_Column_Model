@@ -6914,3 +6914,5 @@ https://scikit-learn.org/stable/model_persistence.html#security-maintainability-
  c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\sklearn\base.py:493: UserWarning:X does not have valid feature names, but LogisticRegression was fitted with feature names
  c:\Users\Miguel.MIGUEL-DESK\.conda\envs\simcenter\lib\site-packages\sklearn\base.py:493: UserWarning:X does not have valid feature names, but LogisticRegression was fitted with feature names
  C:\Users\Miguel.MIGUEL-DESK\AppData\Local\Temp\ipykernel_50968\115975400.py:119: FutureWarning:The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+Error running surrogate prediction - Failed to import module:emukit
+Error running surrogate prediction - Failed to import module:emukit

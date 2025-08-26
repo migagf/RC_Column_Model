@@ -233,7 +233,7 @@ plt.show()
 
 
 
-'''
+
 ## --------
 ## Plot # 5
 ## --------
@@ -325,7 +325,7 @@ plt.tight_layout()
 # Show the plot
 plt.savefig(os.path.join(figures_dir, 'error_metrics_pdf_cdf.pdf'), bbox_inches='tight')
 plt.show()
-'''
+
 
 '''
 ## --------
