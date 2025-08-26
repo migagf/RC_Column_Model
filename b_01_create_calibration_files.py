@@ -4,7 +4,7 @@ import numpy as np
 import shutil
 
 from database_processing_functions import *
-from a_02_create_data_matrix import *
+from a_02_createRawTrainData import *
 from b_02_prepareFiles4TMCMC import *
 
 '''
