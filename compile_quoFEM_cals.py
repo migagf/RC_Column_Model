@@ -8,6 +8,7 @@ import json
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
+import pprint
 
 # Use latex for plots (optional, can be commented out)
 plt.rc('text', usetex=True)
@@ -98,10 +99,11 @@ def get_info(test_dir):
                 test_dir_name = test_dir_split[-1]
 
                 UniqueId = scInput["Applications"]["FEM"]["ApplicationData"]["MS_Path"][-3:]
-                info = {'UniqueId': UniqueId,
-                        'Name': test_file['Name'],
-                        'Location': test_dir_name
-                        }
+                info = {
+                    'UniqueId': UniqueId,
+                    'Name': test_file['Name'],
+                    'Location': test_dir_name
+                    }
 
                 return info, scInput, test_file, results
             except Exception as e:
@@ -184,7 +186,7 @@ if __name__ == '__main__':
 
     # The directory where the files are stored
     remoteWorkDir = r'D:\tacc scratch'
-    month = '25_03'
+    month = '25_08'
 
     # list folders in month directory to process each day
     days = os.listdir(os.path.join(remoteWorkDir, month))
@@ -215,8 +217,8 @@ if __name__ == '__main__':
 
             #
             print(info)
-
-            # Save the info dictionary to a csv file
+            # Save the info dictionary to a dataframe
+            info_df = pd.DataFrame(info, index=[0])
 
             # Open the calibration_info.csv file and check if the UniqueId exists
             if os.path.exists('calibration_info.csv'):
@@ -228,28 +230,31 @@ if __name__ == '__main__':
                     if existing_location == info['Location']:
                         print('Location is the same... Updating the info')
                         # Replace the entire row with the new info
-                        calibration_info.loc[calibration_info['UniqueId'] == info['UniqueId']] = info
-                        # calibration_info = calibration_info.replace(info['UniqueId'], info)
+                        calibration_info.loc[calibration_info['UniqueId'] == int(info['UniqueId'])] = info_df.iloc[0]
 
                         # Plot and save
                         plot_hysteresis(test_file, results, 'test_' + info['UniqueId'] , info, save=True)
-                        
+
+                        # Update the calibration_info.csv file
                         if os.path.exists('calibration_info.csv'):
                             # Remove the existing file
                             os.remove('calibration_info.csv')
 
                         calibration_info.to_csv('calibration_info.csv', index=False)
+
                     else:
+                        # In case the location is different, a new calibration was made
                         print('Location is different... ')
 
                         # Check the mean residuals
                         existing_res_mean = calibration_info.loc[calibration_info['UniqueId'] == int(info['UniqueId']), 'res_mean'].values[0]
                         if info['res_mean'] <= existing_res_mean:
                             print('New mean residual is less than the existing one... Updating the info')
-                            # Replace the row with the new info
 
-                            # calibration_info = calibration_info.replace(info['UniqueId'], info)
-                            calibration_info.loc[calibration_info['UniqueId'] == info['UniqueId']] = info
+                            # Replace the row with the new info
+                            print(calibration_info.loc[calibration_info['UniqueId'] == int(info['UniqueId'])])
+                            pprint.pprint(info)
+                            calibration_info.loc[calibration_info['UniqueId'] == int(info['UniqueId'])] = info_df.iloc[0]
 
                             # Plot and save
                             plot_hysteresis(test_file, results, 'test_' + info['UniqueId'] , info, save=True)
@@ -279,5 +284,4 @@ if __name__ == '__main__':
                 calibration_info = pd.DataFrame(columns=info.keys())
                 calibration_info.to_csv('calibration_info.csv', index=False)
                 plot_hysteresis(test_file, results, 'test_' + info['UniqueId'] , info, save=True)
-
 
