@@ -216,7 +216,7 @@ if __name__ == '__main__':
 
     # The directory where the files are stored
     remoteWorkDir = r'D:\tacc scratch'
-    month = '25_08'
+    month = '25_09'
     output_folder = r'gp_training_data\calibrations'
 
     # list folders in month directory to process each day

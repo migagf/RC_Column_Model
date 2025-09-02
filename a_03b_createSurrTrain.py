@@ -11,106 +11,6 @@ import matplotlib.pyplot as plt
 plt.rc('text', usetex=True)  # Use LaTeX for rendering text in plots
 plt.rc('font', family='serif')  # Use serif font for LaTeX text
 
-# Load calibration_info.csv file
-# The calibration_info file contains the best fit for the calibration and the resulting residual statistics
-calibration_info = pd.read_csv('calibration_info.csv')
-
-parameter_names = ['gamma', 'kappa', 'eta1', 'sig', 'lam', 'mup', 'sigp', 'rsmax', 'alpha', 'alpha1', 'alpha2', 'betam1', 'n', 'kappa_k']
-
-# Load the data_all.csv file
-data_all = pd.read_csv('data_all.csv')
-# The data_all file contains the UniqueId, the FailureType, and the non-dimensional parameters representing each experiment
-
-# Merge data_all and calibration_info using UniqueId as key
-data_all = pd.merge(data_all, calibration_info, on='UniqueId')
-
-# Sort data_all per res_median
-data_all = data_all.sort_values(by='res_median')
-
-# Plot the res_median +/- res_std for each calibration with scatter plot
-res_median = data_all['res_median']
-res_median_plus = res_median + data_all['res_std']
-res_median_minus = res_median - data_all['res_std']
-
-x_values = np.arange(1, len(data_all) + 1)
-
-# Define colors based on FailureType
-colors = {'Flexure': 'blue', 'Flexure-Shear': 'green', 'Shear': 'red'}
-
-# Map FailureType to colors
-data_all['color'] = data_all['FailureType'].map(colors)
-
-# Plot with colors based on FailureType
-plt.figure(figsize=(6, 4))
-plt.scatter(x_values, res_median, label='res_median', marker='s', c=data_all['color'], s=0.7)
-plt.scatter(x_values, res_median_plus, label='res_median_plus', marker='s', c=data_all['color'], s=0.2)
-plt.scatter(x_values, res_median_minus, label='res_median_minus', marker='s', c=data_all['color'], s=0.2)
-
-# Add a horizontal line at 0.10
-# Add text on top of the line at y=0.1 to indicate the threshold
-plt.text(10, 0.105, 'Threshold at MAE=0.1',
-         horizontalalignment='left', verticalalignment='center', fontsize=10, color='k',
-         bbox=dict(facecolor='white', edgecolor='none', alpha=0.7))
-
-plt.axhline(y=0.1, color='k', linestyle='--', linewidth=1.0)
-
-# Create a custom legend for FailureType
-legend_labels = {'Flexure': 'Flexure', 'Flexure-Shear': 'Flexure-Shear', 'Shear': 'Shear'}
-legend_handles = [plt.Line2D([0], [0], marker='o', color='w', markerfacecolor=color, markersize=5, label=label) 
-                  for label, color in colors.items()]
-plt.xlabel('Test \# (Sorted by MAE)')  # X-axis label
-plt.ylabel('Mean Absoulte Error')  # Y-axis label
-plt.xlim([0, 300])
-plt.ylim([0, 0.25])
-plt.grid()
-plt.legend(handles=legend_handles, title="Failure Type")
-plt.savefig('Figures/residuals_plot.pdf')  # Save the figure to a pdf file
-plt.show()
-
-print(data_all.columns)
-# Select columns to plot
-x_parameters = ['ar', 'lrr', 'srr', 'alr', 'sdr', 'smr']
-x_parameter_labels = ['AR', 'LRR', 'SRR', 'ALR', 'SDR', 'SR']
-
-'''# Create subplots for each par_y in parameter_names
-for par_y in parameter_names:
-    fig, axs = plt.subplots(1, len(x_parameters), figsize=(20, 3.5))
-    
-    # Plot each set of parameters
-    for i, par_x in enumerate(x_parameters):
-        axs[i].scatter(data_all[par_x], data_all[par_y], c=data_all['color'], s=4.0, alpha=0.3)
-        axs[i].set_xlabel(par_x)
-        axs[i].set_ylabel(par_y)
-        axs[i].set_title(f'{par_x} vs {par_y}')
-    
-    plt.tight_layout()
-    plt.show()'''
-
-# Drop rows with res_median > 0.1
-data_all = data_all[data_all['res_median'] <= 0.1]
-
-# Print how many rows are left after filtering by res_median <= 0.1
-print(f'Number of rows after filtering by res_median <= 0.1: {len(data_all)}')
-
-# Split the data using FailureType
-data_shear = pd.concat([data_all[data_all['FailureType'] == 'Shear'], data_all[data_all['FailureType'] == 'Flexure-Shear']])
-data_flexure = data_all[data_all['FailureType'] == 'Flexure']
-
-# Set predictor labels
-predictors = ['ar', 'lrr', 'srr', 'alr', 'sdr', 'smr']
-
-# Set output labels
-outputs = ['gamma', 'kappa', 'eta1', 'sig', 'lam', 'mup', 'sigp', 'rsmax', 'alpha', 'alpha1', 'alpha2', 'betam1', 'n', 'kappa_k', 'res_min']
-
-
-# Model 1: Shear
-# Create a folder to store the data
-os.makedirs('gpModelShear', exist_ok=True)
-
-# Do split of the data into training and testing
-from sklearn.model_selection import train_test_split
-seed = 0
-
 # Split the data into training and testing
 def split_and_save(data, folder_name, seed, shuffle_id):
 
@@ -134,8 +34,116 @@ def split_and_save(data, folder_name, seed, shuffle_id):
     train[outputs].to_csv(f'{folder_name}/output{str(shuffle_id)}.txt', sep=' ', mode='a', header=False, index=False, float_format='%.5f')
 
 
+def write_to_log(message, logfile):
+    with open(logfile, 'a') as f:
+        f.write(message + '\n')
+    print(message)
+
 #for seed in range(0, 6):
 #    split_and_save(data_shear, 'gpModelShear', seed, seed)
 #    split_and_save(data_flexure, 'gpModelFlexure', seed, seed)
 
+if __name__ == "__main__":
+    # Location for the log file
+    logfile = 'gp_training_data/processed/log.txt'
 
+    # Number of surrogate models to create for cross-validation
+    nsurr = 6
+
+    # The calibration_info file contains the best fit for the calibration and the resulting residual statistics
+    calibration_info = pd.read_csv('gp_training_data/calibrations/calibration_info.csv')
+
+    parameter_names = ['gamma', 'kappa', 'eta1', 'sig', 'lam', 'mup', 'sigp', 'rsmax', 'alpha', 'alpha1', 'alpha2', 'betam1', 'n', 'kappa_k']
+
+    # Load the DataAll_NDonly.csv file. This file contains the non-dimensional parameters for all experiments (rectangular and spiral)
+    data_all = pd.read_csv('gp_training_data/raw/DataAll_NDonly.csv')
+
+    # Merge data_all and calibration_info using UniqueId as key
+    data_all = pd.merge(data_all, calibration_info, on='UniqueId')
+
+    # Sort data_all per res_median
+    data_all = data_all.sort_values(by='res_median')
+
+    # Plot the res_median +/- res_std for each calibration with scatter plot
+    res_median = data_all['res_median']
+    res_median_plus = res_median + data_all['res_std']
+    res_median_minus = res_median - data_all['res_std']
+
+    x_values = np.arange(1, len(data_all) + 1)
+
+    # Define colors based on FailureType
+    colors = {'Flexure': 'blue', 'Flexure-Shear': 'green', 'Shear': 'red'}
+
+    # Map FailureType to colors
+    data_all['color'] = data_all['FailureType'].map(colors)
+
+    # Plot with colors based on FailureType
+    plt.figure(figsize=(6, 4))
+    plt.scatter(x_values, res_median, label='res_median', marker='s', c=data_all['color'], s=0.7)
+    plt.scatter(x_values, res_median_plus, label='res_median_plus', marker='s', c=data_all['color'], s=0.2)
+    plt.scatter(x_values, res_median_minus, label='res_median_minus', marker='s', c=data_all['color'], s=0.2)
+
+    # Add a horizontal line at 0.10
+    # Add text on top of the line at y=0.1 to indicate the threshold
+    plt.text(10, 0.105, 'Threshold at MAE=0.1',
+            horizontalalignment='left', verticalalignment='center', fontsize=10, color='k',
+            bbox=dict(facecolor='white', edgecolor='none', alpha=0.7))
+
+    plt.axhline(y=0.1, color='k', linestyle='--', linewidth=1.0)
+
+    # Create a custom legend for FailureType
+    legend_labels = {'Flexure': 'Flexure', 'Flexure-Shear': 'Flexure-Shear', 'Shear': 'Shear'}
+    legend_handles = [plt.Line2D([0], [0], marker='o', color='w', markerfacecolor=color, markersize=5, label=label) 
+                    for label, color in colors.items()]
+    plt.xlabel('Test \# (Sorted by MAE)')  # X-axis label
+    plt.ylabel('Mean Absoulte Error')  # Y-axis label
+    plt.xlim([0, 300])
+    plt.ylim([0, 0.25])
+    plt.grid()
+    plt.legend(handles=legend_handles, title="Failure Type")
+    plt.savefig('Figures/residuals_plot.pdf')  # Save the figure to a pdf file
+    plt.show()
+
+    print(data_all.columns)
+    # Select columns to plot
+    x_parameters = ['ar', 'lrr', 'srr', 'alr', 'sdr', 'smr']
+    x_parameter_labels = ['AR', 'LRR', 'SRR', 'ALR', 'SDR', 'SR']
+
+    '''# Create subplots for each par_y in parameter_names
+    for par_y in parameter_names:
+        fig, axs = plt.subplots(1, len(x_parameters), figsize=(20, 3.5))
+        
+        # Plot each set of parameters
+        for i, par_x in enumerate(x_parameters):
+            axs[i].scatter(data_all[par_x], data_all[par_y], c=data_all['color'], s=4.0, alpha=0.3)
+            axs[i].set_xlabel(par_x)
+            axs[i].set_ylabel(par_y)
+            axs[i].set_title(f'{par_x} vs {par_y}')
+        
+        plt.tight_layout()
+        plt.show()'''
+
+    '''# Drop rows with res_median > 0.1
+    data_all = data_all[data_all['res_median'] <= 0.1]
+
+    # Print how many rows are left after filtering by res_median <= 0.1
+    print(f'Number of rows after filtering by res_median <= 0.1: {len(data_all)}')
+
+    # Split the data using FailureType
+    data_shear = pd.concat([data_all[data_all['FailureType'] == 'Shear'], data_all[data_all['FailureType'] == 'Flexure-Shear']])
+    data_flexure = data_all[data_all['FailureType'] == 'Flexure']
+
+    # Set predictor labels
+    predictors = ['ar', 'lrr', 'srr', 'alr', 'sdr', 'smr']
+
+    # Set output labels
+    outputs = ['gamma', 'kappa', 'eta1', 'sig', 'lam', 'mup', 'sigp', 'rsmax', 'alpha', 'alpha1', 'alpha2', 'betam1', 'n', 'kappa_k', 'res_min']
+
+
+    # Model 1: Shear
+    # Create a folder to store the data
+    os.makedirs('gpModelShear', exist_ok=True)
+
+    # Do split of the data into training and testing
+    from sklearn.model_selection import train_test_split
+    seed = 0'''
