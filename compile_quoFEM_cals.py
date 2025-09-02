@@ -9,6 +9,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 import pprint
+import traceback
 
 # Use latex for plots (optional, can be commented out)
 plt.rc('text', usetex=True)
@@ -32,20 +33,37 @@ index   parameter
 15      kappa_k
 '''
 
-def get_info(test_dir):
+def get_info(test_dir, log_file):
+    '''
+    Get information of the calibration
+    This function explores the test_dir and checks whether the application corresponds
+    to a UCSD-UQ calibration. If it is, then if extracts the information from the calibration.
+    '''
+    # Before trying anything, check the tapisjob.out file. If the last line of the file contains utils then proceed. Otherwise, print "failed analysis" in the log_file
+    tapisjobFile = test_dir + r'/tapisjob.out'
+    try:
+        with open(tapisjobFile) as f:
+            lines = f.readlines()
+            if not any("utils" in line for line in lines[-5:]):
+                write_to_log(log_file, 'failed analysis')
+                return [], [], [], [], 0
+    except Exception as e:
+        write_to_log(log_file, f'failed analysis ...tapisjob.out not found... (exception: {e})')
+        return [], [], [], [], 0
 
     # (1) Unzip the results.zip file
     resultsFileDir = test_dir + '/results'
     resultsZip = test_dir + '/results.zip'
 
     if not os.path.exists(resultsFileDir):
-        print('Results folder does not exist... Trying to unzip results.zip')
+        write_to_log(log_file, 'Working on folder ' + test_dir)
+        write_to_log(log_file, 'Results folder does not exist... Trying to unzip results.zip')
         if os.path.exists(resultsZip):
-            print('Unzipping results.zip')
+            write_to_log(log_file, 'Unzipping results.zip')
             with zipfile.ZipFile(resultsZip, 'r') as zip_ref:
                 zip_ref.extractall(test_dir)
         else:
-            print('results.zip file does not exist')
+            write_to_log(log_file, 'results.zip file does not exist')
             check = 0
 
     # (2) Load the scInput file
@@ -56,15 +74,16 @@ def get_info(test_dir):
             scInput = json.load(f)
         check = 1
     except Exception as e:
-        print('Error trying to open scInput.json file... ', e)
+        write_to_log(log_file, f'Error trying to open scInput.json file... Cause: {e}')
+        scInputFile = test_dir + r'/DS_Input_Run/templatedir/scInput.json'
         check = 0
 
     # (3) Check if UQ application is UCSD-UQ. If it's not, exit the function
     if check == 1:
         if scInput["Applications"]['UQ']['Application'] != 'UCSD-UQ':
-            print(scInput["Applications"]['UQ'])
-            print('Not a UCSD-UQ Calibration')
-            return [], [], [], []
+            write_to_log(log_file, f"Found UQ application: {scInput['Applications']['UQ']['Application']}")
+            write_to_log(log_file, 'Not a UCSD-UQ Calibration')
+            return [], [], [], [], 0
     
         else:
             try:
@@ -75,14 +94,14 @@ def get_info(test_dir):
                 templatedirZip = test_dir + '/templatedir.zip'
 
                 if not os.path.exists(templatedirDir):
-                    print('Template folder does not exist... Trying to unzip templatedir.zip')
+                    write_to_log(log_file, 'Template folder does not exist... Trying to unzip templatedir.zip')
                     if os.path.exists(templatedirZip):
-                        print('Unzipping templatedir.zip')
+                        write_to_log(log_file, 'Unzipping templatedir.zip')
                         with zipfile.ZipFile(templatedirZip, 'r') as zip_ref:
                             zip_ref.extractall(test_dir)
                     else:
-                        print('templatedir.zip file does not exist')
-                
+                        write_to_log(log_file, 'templatedir.zip file does not exist')
+
                 # (5) Load the dakotaTab.out file
                 dakotaTabFile = test_dir + r'/results/dakotaTab.out'
                 results = pd.read_csv(dakotaTabFile, sep='\s+')
@@ -99,21 +118,26 @@ def get_info(test_dir):
                 test_dir_name = test_dir_split[-1]
 
                 UniqueId = scInput["Applications"]["FEM"]["ApplicationData"]["MS_Path"][-3:]
+
+                write_to_log(log_file, f'\n ::: Found test with UniqueId: {UniqueId}')
+                write_to_log(log_file, f'Location: {test_dir_name} \n :::')
+
                 info = {
                     'UniqueId': UniqueId,
                     'Name': test_file['Name'],
                     'Location': test_dir_name
                     }
 
-                return info, scInput, test_file, results
+                return info, scInput, test_file, results, 1
+            
             except Exception as e:
-                print('Error trying to get calibration data... ', e)
-                return [], [], [], []
+                write_to_log(log_file, f'Error trying to get calibration data... Cause: {e}')
+                return [], [], [], [], 0
     else:
-        return [], [], [], []
+        return [], [], [], [], 0
 
 
-def plot_hysteresis(test_file, results, filename, info, save=False):
+def plot_hysteresis(test_file, results, filename, info, output_dir, save=False):
 
     length = test_file['L_Inflection']
     peak_force = np.max(np.array(test_file['cal_data']['force']))
@@ -152,7 +176,7 @@ def plot_hysteresis(test_file, results, filename, info, save=False):
     plt.tight_layout()
     
     if save:
-        plt.savefig('CalibrationPlots/'+filename+'.pdf')
+        plt.savefig(os.path.join(output_dir, 'plots', f'{filename}.pdf'))
 
 
 def get_residual_info(test_file, results):
@@ -182,25 +206,46 @@ def get_residual_info(test_file, results):
     return residual_statistics, best_fit_parameters
 
 
+def write_to_log(log_file, message):
+    with open(log_file, 'a') as logf:
+        logf.write(f"{message}\n")
+    print(message)
+
+
 if __name__ == '__main__':
 
     # The directory where the files are stored
     remoteWorkDir = r'D:\tacc scratch'
     month = '25_08'
+    output_folder = r'gp_training_data\calibrations'
 
     # list folders in month directory to process each day
     days = os.listdir(os.path.join(remoteWorkDir, month))
     
     for day in days:
-        allJobs = os.listdir(os.path.join(remoteWorkDir, month, day))
-        print(len(allJobs), 'jobs found...' )
-        for ii in range(0, len(allJobs)):
+        # Logfile (to be stored in the day folder)
+        log_file = os.path.join(remoteWorkDir, month, day, 'log.txt')
+        # Remove the log file, if it exists
+        if os.path.exists(log_file):
+            os.remove(log_file)
 
-            info, scInput, test_file, results = get_info(os.path.join(remoteWorkDir, month, day, allJobs[ii]))
+        allJobs = os.listdir(os.path.join(remoteWorkDir, month, day))
+        # Sort the list of allJobs by filename
+        allJobs.sort()
+
+        write_to_log(log_file, f"{len(allJobs)} jobs found...")
+
+        for ii in range(0, len(allJobs)):
+            write_to_log(log_file, f"\n\nProcessing job {ii+1} of {len(allJobs)}: {allJobs[ii]}")
+            # Print the location of the file being processed
+            write_to_log(log_file, f"Location: {os.path.join(remoteWorkDir, month, day, allJobs[ii])}")
+
+            info, scInput, test_file, results, exitcode = get_info(os.path.join(remoteWorkDir, month, day, allJobs[ii]), log_file)
             try:
                 res_stats, best_fit = get_residual_info(test_file, results)
             except Exception as e:
-                print('Error trying to get residuals... ', e)
+                write_to_log(log_file, f'Error trying to get residuals... Cause: {e}')
+                traceback.print_exc()
                 continue
             
             # Add fit information to the info dictionary
@@ -215,14 +260,13 @@ if __name__ == '__main__':
             info['mup'], info['sigp'], info['rsmax'], info['alpha'], info['alpha1'], 
             info['alpha2'], info['betam1'], info['n'], info['kappa_k']) = best_fit.tolist()
 
-            #
-            print(info)
             # Save the info dictionary to a dataframe
             info_df = pd.DataFrame(info, index=[0])
+            print(info_df)
 
             # Open the calibration_info.csv file and check if the UniqueId exists
-            if os.path.exists('calibration_info.csv'):
-                calibration_info = pd.read_csv('calibration_info.csv')
+            if os.path.exists(os.path.join(output_folder, 'calibration_info.csv')):
+                calibration_info = pd.read_csv(os.path.join(output_folder, 'calibration_info.csv'))
                 if int(info['UniqueId']) in calibration_info['UniqueId'].values:
                     print('UniqueId already exists... ')
                     # Check if the existing Location is the same as the new one
@@ -230,17 +274,19 @@ if __name__ == '__main__':
                     if existing_location == info['Location']:
                         print('Location is the same... Updating the info')
                         # Replace the entire row with the new info
-                        calibration_info.loc[calibration_info['UniqueId'] == int(info['UniqueId'])] = info_df.iloc[0]
+                        print(calibration_info.loc[calibration_info['UniqueId'] == int(info['UniqueId'])])
+                        for col in info_df.columns:
+                            calibration_info.loc[calibration_info['UniqueId'] == int(info['UniqueId']), col] = info_df.iloc[0][col]
 
                         # Plot and save
-                        plot_hysteresis(test_file, results, 'test_' + info['UniqueId'] , info, save=True)
+                        plot_hysteresis(test_file, results, 'test_' + info['UniqueId'] , info, output_dir=output_folder, save=True)
 
                         # Update the calibration_info.csv file
-                        if os.path.exists('calibration_info.csv'):
+                        if os.path.exists(os.path.join(output_folder, 'calibration_info.csv')):
                             # Remove the existing file
-                            os.remove('calibration_info.csv')
+                            os.remove(os.path.join(output_folder, 'calibration_info.csv'))
 
-                        calibration_info.to_csv('calibration_info.csv', index=False)
+                        calibration_info.to_csv(os.path.join(output_folder, 'calibration_info.csv'), index=False)
 
                     else:
                         # In case the location is different, a new calibration was made
@@ -259,11 +305,11 @@ if __name__ == '__main__':
                             # Plot and save
                             plot_hysteresis(test_file, results, 'test_' + info['UniqueId'] , info, save=True)
 
-                            if os.path.exists('calibration_info.csv'):
+                            if os.path.exists(os.path.join(output_folder, 'calibration_info.csv')):
                                 # Remove the existing file
-                                os.remove('calibration_info.csv')
-                                
-                            calibration_info.to_csv('calibration_info.csv', index=False)
+                                os.remove(os.path.join(output_folder, 'calibration_info.csv'))
+
+                            calibration_info.to_csv(os.path.join(output_folder, 'calibration_info.csv'), index=False)
 
                             #
                         else:
@@ -276,12 +322,12 @@ if __name__ == '__main__':
                     # Append the info to the csv file
                     print('UniqueId does not exist... Adding new info')
                     info_df = pd.DataFrame(info, index=[0])
-                    info_df.to_csv('calibration_info.csv', mode='a', header=False, index=False)
-                    plot_hysteresis(test_file, results, 'test_' + info['UniqueId'], info, save=True)
+                    info_df.to_csv(os.path.join(output_folder, 'calibration_info.csv'), mode='a', header=False, index=False)
+                    plot_hysteresis(test_file, results, 'test_' + info['UniqueId'], info, output_dir=output_folder, save=True)
             else:
                 # Create the csv file and add the info as the first row
                 print('calibration_info.csv not found... Creating a new one')
                 calibration_info = pd.DataFrame(columns=info.keys())
-                calibration_info.to_csv('calibration_info.csv', index=False)
-                plot_hysteresis(test_file, results, 'test_' + info['UniqueId'] , info, save=True)
+                calibration_info.to_csv(os.path.join(output_folder, 'calibration_info.csv'), index=False)
+                plot_hysteresis(test_file, results, 'test_' + info['UniqueId'] , info, output_dir=output_folder, save=True)
 

@@ -1,4 +1,4 @@
-,UniqueId,name,type_x,testcf,pd,ft,axl,w,d,l,fpc,fyl,fsul,fyt,fsut,dlb,dlb_c,nlb,cc_per,nib_per,cc_par,nib_par,nsl,dtb_rcs,s_rcs,use,why,type_y
+,UniqueId,name,type,testcf,pd,ft,axl,w,d,l,fpc,fyl,fsul,fyt,fsut,dlb,dlb_c,nlb,cc_per,nib_per,cc_par,nib_par,nsl,dtb_rcs,s_rcs,use,why,type_use
 0,1,"Gill et al. 1979, No. 1",Rectangular,Double Ended,Feff computed,Flexure,1815.0,550.0,550.0,1200.0,23.1,375.0,635.6,297.0,416.8,24.0,24.0,12.0,40.0,2.0,40.0,2.0,4.0,10.0,80.0,1,,Rectangular
 1,2,"Gill et al. 1979, No. 2",Rectangular,Double Ended,Feff computed,Flexure,2680.0,550.0,550.0,1200.0,41.4,375.0,635.6,316.0,440.6,24.0,24.0,12.0,38.0,2.0,38.0,2.0,4.0,12.0,75.0,1,,Rectangular
 2,3,"Gill et al. 1979, No. 3",Rectangular,Double Ended,Feff computed,Flexure,2719.0,550.0,550.0,1200.0,21.4,375.0,635.6,297.0,416.8,24.0,24.0,12.0,40.0,2.0,40.0,2.0,4.0,10.0,75.0,1,,Rectangular

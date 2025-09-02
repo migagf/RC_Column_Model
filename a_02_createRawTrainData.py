@@ -428,13 +428,12 @@ if __name__ == '__main__':
     input_dir = os.path.join(cwd, 'test_data')
 
     # Check if the output files already exist. If they do exist, don't do anything
-    output_file_list = ['data_spiral.csv', 'data_rect.csv', 'data_all.csv']
+    output_file_list = ['DataSpiral.csv', 'DataSpiralWnd.csv', 'DataRect.csv', 'DataRectWND.csv', 'DataAll_NDonly.csv']
+
     if all(os.path.exists(os.path.join(output_dir, f)) for f in output_file_list):
         print('Output files already exist. Exiting...')
-
         # Here, add the post-processing plots (maybe)
         exit()
-    
 
     # :::
     # Create DataFrames with raw training data
@@ -543,10 +542,21 @@ if __name__ == '__main__':
     use_spiral_data = ok_cals[ok_cals['type'] == 'Spiral']
 
     # Merge use_rect_data and data_rect by UniqueId column / use_spiral_data and data_spiral
+    # Change the name of use_rect_data column "type" to "type_use"
+    use_rect_data = use_rect_data.rename(columns={'type': 'type_use'})
+    use_spiral_data = use_spiral_data.rename(columns={'type': 'type_use'})
+
+    # Now, merge.
     data_rect = data_rect.merge(use_rect_data, on='UniqueId', how='left')
     data_spiral = data_spiral.merge(use_spiral_data, on='UniqueId', how='left')
 
+    # Check that, for all entries in the merged dataframes, the type and type_use columns match
+    assert (data_rect['type'] == data_rect['type_use']).all(), "Type mismatch in rectangular data"
+    assert (data_spiral['type'] == data_spiral['type_use']).all(), "Type mismatch in spiral data"
+    print("Type checks passed: all type and type_use columns match.")
+
     # Merge the nondimensional parameters with the main dataframes on the UniqueId column
+    # This can't be done on a bigger full dataframe for both column types, because the parameters in data_rect and data_spiral are not guaranteed to match
     data_rect_wnd = pd.merge(data_rect, ndparams_rect, on='UniqueId', how='left')
     data_spiral_wnd = pd.merge(data_spiral, ndparams_spiral, on='UniqueId', how='left')
     
@@ -574,12 +584,12 @@ if __name__ == '__main__':
     # :::
 
     # Store dataframe into a csv file inside the output folder
-    data_rect.to_csv(os.path.join(output_dir, 'data_rect.csv'))
-    data_spiral.to_csv(os.path.join(output_dir, 'data_spiral.csv'))
+    data_rect.to_csv(os.path.join(output_dir, 'DataRect.csv'))
+    data_spiral.to_csv(os.path.join(output_dir, 'DataSpiral.csv'))
 
     # Store dataframe with the newly added columns
-    data_spiral_wnd.to_csv(os.path.join(output_dir, 'data_spiral_wnd.csv'))
-    data_rect_wnd.to_csv(os.path.join(output_dir, 'data_rect_wnd.csv'))
+    data_spiral_wnd.to_csv(os.path.join(output_dir, 'DataSpiralWnd.csv'))
+    data_rect_wnd.to_csv(os.path.join(output_dir, 'DataRectWnd.csv'))
 
     
     # Merge the two dataframes
@@ -599,6 +609,7 @@ if __name__ == '__main__':
     # Restart index in merged_data
     merged_data = merged_data.reset_index(drop=True)
 
+    '''
     # Load merged_data.csv from old folder
     old_merged_data = pd.read_csv('old/merged_data.csv')
 
@@ -620,12 +631,16 @@ if __name__ == '__main__':
     # Drop the id column and reset index
     merged_data = merged_data.drop(columns='id')
     merged_data = merged_data.reset_index(drop=True)
+    '''
     
     # Store merged_data into a csv file
-    # merged_data.to_csv('data_all.csv')
+    merged_data.to_csv(os.path.join(output_dir, 'DataAll_NDonly.csv'))
 
     # Do pairplot for all columns
-    # do_pairplot(merged_data, ['ar', 'lrr', 'srr', 'alr', 'sdr', 'smr', 'FailureType'], 'FailureType')
+    # Add additional input parameters to the pairplot
+    if do_pairplots:
+        additional_params = ['ar', 'lrr', 'srr', 'alr', 'sdr', 'smr', 'FailureType', 'Name', 'Type']
+        do_pairplot(merged_data, additional_params, 'FailureType', output_dir, 'pairplot_all')
 
     # Count how many of each FailureType
     failure_modes = ['Flexure-Shear', 'Flexure', 'Shear']
@@ -637,3 +652,10 @@ if __name__ == '__main__':
     # Print total
     total_count = merged_data.shape[0]
     print(f"Total count: {total_count}")
+
+    # Save the information in a text file
+    with open(os.path.join(output_dir, 'failure_counts.txt'), 'w') as f:
+        f.write(f"Total count: {total_count}\n")
+        for mode in failure_modes:
+            count = merged_data[merged_data['FailureType'] == mode].shape[0]
+            f.write(f"Count of {mode}: {count}\n")

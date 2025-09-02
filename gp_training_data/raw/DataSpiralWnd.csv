@@ -1,4 +1,4 @@
-,UniqueId,name,type_x,testcf,pd,ft,axl,diam,l,fpc,fyl,fsul,fyt,fsut,dlb,nlb,cc,dsp,s,use,why,type_y,ar,lrr,srr,alr,sdr,smr
+,UniqueId,name,type,testcf,pd,ft,axl,diam,l,fpc,fyl,fsul,fyt,fsut,dlb,nlb,cc,dsp,s,use,why,type_use,ar,lrr,srr,alr,sdr,smr
 0,266,"Potangaroa et al. 1979, No. 5B",Spiral,Double Ended,Feff computed,Flexure,6770.0,600.0,1200.0,32.5,307.0,414.0,280.0,0,24.0,16.0,28.0,16.0,55.0,1,,Spiral,2.0,0.24182153846153845,0.10498338527240855,0.7367377536629959,0.5729166666666666,0.43928057258648545
 1,269,"Ang et al. 1985, No. 3",Spiral,Cantilever with Flexible Base,Feff computed,Flexure-Shear,0.0,400.0,1000.0,36.0,436.0,674.0,328.0,0,16.0,20.0,18.0,6.0,60.0,1,,Spiral,2.5,0.38755555555555554,0.021467549799530253,0.0,1.6666666666666667,1.2634613495159657
 2,270,"Ang et al. 1985, No. 4",Spiral,Cantilever with Flexible Base,Feff computed,Shear,0.0,400.0,800.0,30.6,436.0,674.0,316.0,0,16.0,20.0,20.0,10.0,165.0,1,,Spiral,2.0,0.4559477124183006,0.024577720304376473,0.0,2.75,1.4809772199367044

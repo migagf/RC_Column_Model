@@ -1,0 +1,4 @@
+Total count: 291
+Count of Flexure-Shear: 46
+Count of Flexure: 207
+Count of Shear: 38
