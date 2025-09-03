@@ -1,0 +1,50 @@
+Creating 6 surrogate models for cross-validation
+Successfully loaded calibration_info with: 290 calibration records
+Successfully loaded DataAll_NDonly with: 291 records
+Number of rows after filtering by res_median <= 0.1: 264
+Number of shear influenced tests: 77
+Number of flexure tests: 187
+Data shuffled with seed 99
+Data shuffled and split into 6 parts
+  Split 0: 13 samples
+  Split 1: 13 samples
+  Split 2: 13 samples
+  Split 3: 12 samples
+  Split 4: 13 samples
+  Split 5: 13 samples
+Creating training files for split 0
+Created training files for split 0
+Creating training files for split 1
+Created training files for split 1
+Creating training files for split 2
+Created training files for split 2
+Creating training files for split 3
+Created training files for split 3
+Creating training files for split 4
+Created training files for split 4
+Creating training files for split 5
+Created training files for split 5
+Creating training files for no split (all data)
+Created training files for split no_split
+Data shuffled with seed 99
+Data shuffled and split into 6 parts
+  Split 0: 31 samples
+  Split 1: 31 samples
+  Split 2: 32 samples
+  Split 3: 30 samples
+  Split 4: 32 samples
+  Split 5: 31 samples
+Creating training files for split 0
+Created training files for split 0
+Creating training files for split 1
+Created training files for split 1
+Creating training files for split 2
+Created training files for split 2
+Creating training files for split 3
+Created training files for split 3
+Creating training files for split 4
+Created training files for split 4
+Creating training files for split 5
+Created training files for split 5
+Creating training files for no split (all data)
+Created training files for split no_split

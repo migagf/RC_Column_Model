@@ -28,6 +28,7 @@ plt.rc('font', family='serif')'''
 
 # Let's create a function that gets the BW_params, but now get's an average for all 6 gp_number models
 def get_BW_params_avg(ndParams, mode='simple'):
+    ''' deprecated '''
 
     bw_model_params_list = []
     min_error_list = []
@@ -48,7 +49,7 @@ def get_BW_params_avg(ndParams, mode='simple'):
     return bw_model_params_avg, min_error_avg, failure_mode
 
 
-def get_BW_params(ndParams, gp_number=0, mode='simple'):
+def get_BW_params(ndParams, surrogate_path, split='no_split', mode='simple'):
 
     # Sort parameters to format of gpPredict
     params_list = [
@@ -67,12 +68,12 @@ def get_BW_params(ndParams, gp_number=0, mode='simple'):
         # Define the surrogate_file and input_json based on the failure mode
         if failure_mode == 0:
             print('Flexure failure mode')
-            surrogate_file = os.path.join('gpModelFlexure', f'SimGpModel{str(gp_number)}.json')
-            input_json = os.path.join('gpModelFlexure', 'scInput.json')
+            surrogate_file = os.path.join(surrogate_path, 'gpModelFlexure', split, f'SimGpModel.json')
+            input_json = os.path.join(surrogate_path, 'gpModelFlexure', 'scInput.json')
         else:
             print('Shear failure mode')
-            surrogate_file = os.path.join('gpModelShear', f'SimGpModel{str(gp_number)}.json')
-            input_json = os.path.join('gpModelShear', 'scInput.json')
+            surrogate_file = os.path.join(surrogate_path, 'gpModelShear', split, f'SimGpModel.json')
+            input_json = os.path.join(surrogate_path, 'gpModelShear', 'scInput.json')
 
         output = main(params_list, [], surrogate_file, 'dummyout.out', input_json)
         
@@ -87,11 +88,11 @@ def get_BW_params(ndParams, gp_number=0, mode='simple'):
         prob_failure_mode = failure_mode_selection.predict_proba(np.array([[ndParams[0], ndParams[5]]]))[0]
 
         # get output parameters for each failure mode
-        flex_surrogate_file = os.path.join('gpModelFlexure', f'SimGpModel{str(gp_number)}.json')
-        flex_input_json = os.path.join('gpModelFlexure', 'scInput.json')
+        flex_surrogate_file = os.path.join(surrogate_path, 'gpModelFlexure', split, f'SimGpModel.json')
+        flex_input_json = os.path.join(surrogate_path, 'gpModelFlexure', 'scInput.json')
 
-        shear_surrogate_file = os.path.join('gpModelShear', f'SimGpModel{str(gp_number)}.json')
-        shear_input_json = os.path.join('gpModelShear', 'scInput.json')
+        shear_surrogate_file = os.path.join(surrogate_path, 'gpModelShear', split, f'SimGpModel.json')
+        shear_input_json = os.path.join(surrogate_path, 'gpModelShear', 'scInput.json')
 
         # Flexure
         flex_output = main(params_list, [], flex_surrogate_file, 'dummyout.out', flex_input_json)

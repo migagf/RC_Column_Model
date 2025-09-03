@@ -13,7 +13,7 @@ plt.rc('font', family='serif')
 figures_dir = 'Figures'
 
 # Load error_metrics.csv
-error_metrics = pd.read_csv('error_metrics_model_avg.csv')
+error_metrics = pd.read_csv('gp_training_data/error_metrics/err_metrics_split_00.csv')
 print(error_metrics)
 
 # Remove points with error > 0.5
