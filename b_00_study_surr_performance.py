@@ -13,12 +13,13 @@ plt.rc('font', family='serif')
 figures_dir = 'Figures'
 
 # Load error_metrics.csv
-error_metrics = pd.read_csv('gp_training_data/error_metrics/err_metrics_split_00.csv')
+error_metrics = pd.read_csv('gp_training_data/error_metrics/err_metrics_no_split.csv')
 print(error_metrics)
 
 # Remove points with error > 0.5
-error_metrics = error_metrics[error_metrics['err_cal_exp'] < 0.3]
-error_metrics = error_metrics[error_metrics['err_surr_exp'] < 0.3]
+error_metrics = error_metrics[error_metrics['err_cal_exp'] < 0.25]
+error_metrics = error_metrics[error_metrics['err_surr_exp'] < 0.25]
+error_metrics = error_metrics[error_metrics['err_surr_cal'] < 0.25]
 
 # Extract the predictors X = ['ar', 'lrr', 'srr', 'alr', 'sdr', 'smr']
 X = error_metrics[['ar', 'lrr', 'srr', 'alr', 'sdr', 'smr', 'FailureMode']]
