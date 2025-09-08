@@ -11,6 +11,8 @@ from sklearn.preprocessing import StandardScaler
 from matplotlib.gridspec import GridSpec
 from scipy.stats import gaussian_kde
 import numpy as np
+import shutil
+
 
 # Use latex for plots
 plt.rc('text', usetex=True)
@@ -40,7 +42,7 @@ sns.set_theme(style="whitegrid", rc={"font.family": "serif", "text.usetex": True
 
 data_path = 'gp_training_data/raw/DataAll_NDonly.csv'
 
-do_plots = [5, 9]
+do_plots = [1, 5, 7, 8, 9]
 
 # Load the nondimentional parameter data
 df = pd.read_csv(data_path)
@@ -681,4 +683,71 @@ if 9 in do_plots:
     plt.show()
 
 
-# Now, last figure, with the split sets again.
+# Selected hysteresis plots
+
+# Create a folder for the selected figures. If folder already exists, clean it up.
+selected_figures_observed = os.path.join(figures_dir, 'sel_hyst_observed')
+if not os.path.exists(selected_figures_observed):
+    os.makedirs(selected_figures_observed)
+else:
+    # If folder exists, clean it up
+    for filename in os.listdir(selected_figures_observed):
+        file_path = os.path.join(selected_figures_observed, filename)
+        if os.path.isfile(file_path):
+            os.remove(file_path)
+
+selected_figures_unobserved = os.path.join(figures_dir, 'sel_hyst_unobserved')
+if not os.path.exists(selected_figures_unobserved):
+    os.makedirs(selected_figures_unobserved)
+else:
+    # If folder exists, clean it up
+    for filename in os.listdir(selected_figures_unobserved):
+        file_path = os.path.join(selected_figures_unobserved, filename)
+        if os.path.isfile(file_path):
+            os.remove(file_path)
+
+
+sel_ids = [2, 5, 7, 291, 22, 24, 228, 273, 137, 49, 116, 215]
+
+# Load the data_split.csv files from gp_training_data/processed/gpModelFlexure and gpModelShear
+data_flexure = pd.read_csv(os.path.join('gp_training_data', 'processed', 'gpModelFlexure', 'data_split.csv'))
+data_shear = pd.read_csv(os.path.join('gp_training_data', 'processed', 'gpModelShear', 'data_split.csv'))
+# Merge (concatenate)
+data_split = pd.concat([data_flexure, data_shear], ignore_index=True)
+
+# Check the length of data_split
+print(f"Length of data_split: {len(data_split)}")
+
+for id in sel_ids:
+    # Create file name
+    UniqueId = str(id).zfill(3)
+    filename = f'UniqueId_{UniqueId}.pdf'
+
+    # ::: Observed data :::
+    # Move the filename from the 'Figures/surrogate_hysteresis/no_split' to the selected figures directory
+    src_path = os.path.join(figures_dir, 'surrogate_hysteresis', 'no_split', filename)
+    if os.path.isfile(src_path):
+        shutil.copy(src_path, selected_figures_observed)
+        print(f"Copied {src_path} to {selected_figures_observed}")
+    else:
+        print(f"File not found: {src_path}")
+
+    # ::: Unobserved data :::
+    # Now, find the id in the UniqueId column in data_split, and extract the value in the split column
+    split_value = data_split.loc[data_split['UniqueId'] == id, 'split']
+    if not split_value.empty:
+        print(f"Found split value for {UniqueId}: {split_value.values[0]}")
+    else:
+        print(f"No split value found for {UniqueId}")
+
+    split_name = f'split_{str(split_value.values[0]).zfill(2)}'
+    # Now, go to the 'Figures/surrogate_hysteresis/{split_name} to get the selected figures and place them in the selected figures directory
+
+    src_dir = os.path.join(figures_dir, 'surrogate_hysteresis', split_name)
+    if os.path.isdir(src_dir):
+        src_file = os.path.join(src_dir, filename)
+        if os.path.isfile(src_file):
+            shutil.copy(src_file, selected_figures_unobserved)
+            print(f"Copied {src_file} to {selected_figures_unobserved}")
+        else:
+            print(f"File not found: {src_file}")
