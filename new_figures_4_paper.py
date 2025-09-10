@@ -42,7 +42,7 @@ sns.set_theme(style="whitegrid", rc={"font.family": "serif", "text.usetex": True
 
 data_path = 'gp_training_data/raw/DataAll_NDonly.csv'
 
-do_plots = [1, 5, 7, 8, 9]
+do_plots = [5, 7, 8, 9]
 
 # Load the nondimentional parameter data
 df = pd.read_csv(data_path)
@@ -68,7 +68,6 @@ if 1 in do_plots:
 
     plt.savefig(os.path.join(figures_dir, 'pairplot.pdf'), bbox_inches='tight')
     plt.show()
-
 
 
 ## --------
@@ -193,7 +192,6 @@ plt.savefig(os.path.join(figures_dir, 'scatter_histogram_plot.pdf'), bbox_inches
 plt.show()'''
 
 
-
 if 4 in do_plots:
     ## --------
     ## Plot # 4
@@ -302,7 +300,7 @@ error_metrics_5 = error_metrics_5[error_metrics_5['err_surr_exp'] < 0.3]
 error_metrics_a = error_metrics_a[error_metrics_a['err_surr_exp'] < 0.3]
 '''
 
-
+density = True
 if 5 in do_plots:
 
     sel_err_metric = 'err_surr_exp'
@@ -327,7 +325,7 @@ if 5 in do_plots:
                 [error_metrics_0, error_metrics_1, error_metrics_2, error_metrics_3, error_metrics_4, error_metrics_5],
                 ['Val. Set 1', 'Val. Set 2', 'Val. Set 3', 'Val. Set 4', 'Val. Set 5', 'Val. Set 6'],
                 shades):
-            axes[0, 0].hist(data[sel_err_metric], bins=bins, alpha=0.5, label=label, color=color, density=False, edgecolor='black')
+            axes[0, 0].hist(data[sel_err_metric], bins=bins, alpha=0.5, label=label, color=color, density=density, edgecolor='black')
             sorted_data = np.sort(data[sel_err_metric])
             cdf = np.arange(1, len(sorted_data) + 1) / len(sorted_data)
             axes[1, 0].plot(sorted_data, cdf, color=color, linewidth=2, label=label)
@@ -338,8 +336,8 @@ if 5 in do_plots:
     axes[0, 0].set_xlim(0.0, 0.3)
     axes[0, 0].set_xticklabels([])
 
-    axes[1, 0].set_xlabel('Mean Absolute Error', fontsize=14)
-    axes[1, 0].set_ylabel('CDF', fontsize=14)
+    axes[1, 0].set_xlabel('MAE GP/Exp', fontsize=14)
+    axes[1, 0].set_ylabel('Norm. Cum. Density', fontsize=14)
     axes[1, 0].legend(fontsize=12, title_fontsize=14)
     axes[1, 0].grid(True, linestyle='--', alpha=0.7)
     axes[1, 0].set_xlim(0.0, 0.3)
@@ -347,7 +345,7 @@ if 5 in do_plots:
     if plot_type == 'kde':
         plot_kde(error_metrics_a[sel_err_metric], 'Final GP', 'gray', axes[0, 1], axes[1, 1])
     else:
-        axes[0, 1].hist(error_metrics_a[sel_err_metric], bins=bins, alpha=0.7, label='Final GP', color='gray', density=False, edgecolor='black')
+        axes[0, 1].hist(error_metrics_a[sel_err_metric], bins=bins, alpha=0.7, label='Final GP', color='gray', density=density, edgecolor='black')
         axes[0, 1].legend(fontsize=12, title_fontsize=14)
         axes[0, 1].grid(True, linestyle='--', alpha=0.7)
         axes[0, 1].set_xlim(0.0, 0.3)
@@ -364,7 +362,7 @@ if 5 in do_plots:
     axes[0, 1].set_yticklabels([])
     axes[0, 1].set_xticklabels([])
 
-    axes[1, 1].set_xlabel('Mean Absolute Error', fontsize=14)
+    axes[1, 1].set_xlabel('MAE GP/Exp', fontsize=14)
     axes[1, 1].legend(fontsize=12, title_fontsize=14)
     axes[1, 1].grid(True, linestyle='--', alpha=0.7)
     axes[1, 1].set_xlim(0.0, 0.3)
@@ -373,7 +371,6 @@ if 5 in do_plots:
     plt.tight_layout()
     plt.savefig(os.path.join(figures_dir, 'error_metrics_pdf_cdf.pdf'), bbox_inches='tight')
     plt.show()
-
 
 
 '''
@@ -395,7 +392,7 @@ for sel_err_metric, filename in zip(['err_surr_cal'],
     axes[0, 0].set_xlim(0.0, 0.3)  # Set x-axis limits
     axes[0, 0].set_xticklabels([])  # Remove x tick labels
 
-    axes[1, 0].set_xlabel('Mean Absolute Error', fontsize=14)
+    axes[1, 0].set_xlabel('MAE GP/Exp', fontsize=14)
     axes[1, 0].set_ylabel('CDF', fontsize=14)
     axes[1, 0].legend(fontsize=12, title_fontsize=14)
     axes[1, 0].grid(True, linestyle='--', alpha=0.7)
@@ -408,7 +405,7 @@ for sel_err_metric, filename in zip(['err_surr_cal'],
     axes[0, 1].set_yticklabels([])  # Remove y tick labels
     axes[0, 1].set_xticklabels([])  # Remove x tick labels
 
-    axes[1, 1].set_xlabel('Mean Absolute Error', fontsize=14)
+    axes[1, 1].set_xlabel('MAE GP/Exp', fontsize=14)
     axes[1, 1].legend(fontsize=12, title_fontsize=14)
     axes[1, 1].grid(True, linestyle='--', alpha=0.7)
     axes[1, 1].set_xlim(0.0, 0.3)  # Set x-axis limits
@@ -420,7 +417,6 @@ for sel_err_metric, filename in zip(['err_surr_cal'],
 
 
 '''
-
 
 ## --------
 ## Plot # 7
@@ -458,7 +454,7 @@ if 7 in do_plots:
                 [err_metrics_0_flexure, err_metrics_1_flexure, err_metrics_2_flexure, err_metrics_3_flexure, err_metrics_4_flexure, err_metrics_5_flexure],
                 ['Val. Set 1', 'Val. Set 2', 'Val. Set 3', 'Val. Set 4', 'Val. Set 5', 'Val. Set 6'],
                 shades):
-            axes[0, 0].hist(data[sel_err_metric], bins=bins, alpha=0.5, label=label, color=color, density=False, edgecolor='black')
+            axes[0, 0].hist(data[sel_err_metric], bins=bins, alpha=0.5, label=label, color=color, density=density, edgecolor='black')
             sorted_data = np.sort(data[sel_err_metric])
             cdf = np.arange(1, len(sorted_data) + 1) / len(sorted_data)
             axes[1, 0].plot(sorted_data, cdf, color=color, linewidth=2, label=label)
@@ -469,8 +465,8 @@ if 7 in do_plots:
     axes[0, 0].set_xlim(0.0, 0.3)
     axes[0, 0].set_xticklabels([])
 
-    axes[1, 0].set_xlabel('Mean Absolute Error', fontsize=14)
-    axes[1, 0].set_ylabel('CDF', fontsize=14)
+    axes[1, 0].set_xlabel('MAE GP/Exp', fontsize=14)
+    axes[1, 0].set_ylabel('Norm. Cum. Density', fontsize=14)
     axes[1, 0].legend(fontsize=12, title_fontsize=14)
     axes[1, 0].grid(True, linestyle='--', alpha=0.7)
     axes[1, 0].set_xlim(0.0, 0.3)
@@ -478,7 +474,7 @@ if 7 in do_plots:
     if plot_type == 'kde':
         plot_kde(err_metrics_a_flexure[sel_err_metric], 'Final GP', 'gray', axes[0, 1], axes[1, 1])
     else:
-        axes[0, 1].hist(err_metrics_a_flexure[sel_err_metric], bins=bins, alpha=0.7, label='Final GP', color='gray', density=False, edgecolor='black')
+        axes[0, 1].hist(err_metrics_a_flexure[sel_err_metric], bins=bins, alpha=0.7, label='Final GP', color='gray', density=density, edgecolor='black')
         axes[0, 1].legend(fontsize=12, title_fontsize=14)
         axes[0, 1].grid(True, linestyle='--', alpha=0.7)
         axes[0, 1].set_xlim(0.0, 0.3)
@@ -495,7 +491,7 @@ if 7 in do_plots:
     axes[0, 1].set_yticklabels([])
     axes[0, 1].set_xticklabels([])
 
-    axes[1, 1].set_xlabel('Mean Absolute Error', fontsize=14)
+    axes[1, 1].set_xlabel('MAE GP/Exp', fontsize=14)
     axes[1, 1].legend(fontsize=12, title_fontsize=14)
     axes[1, 1].grid(True, linestyle='--', alpha=0.7)
     axes[1, 1].set_xlim(0.0, 0.3)
@@ -504,7 +500,6 @@ if 7 in do_plots:
     plt.tight_layout()
     plt.savefig(os.path.join(figures_dir, 'error_metrics_pdf_cdf_flexure.pdf'), bbox_inches='tight')
     plt.show()
-
 
 
 # Do same plot as above for FailureTYpe = Shear or Flexure-Shear
@@ -516,6 +511,7 @@ err_metrics_3_shear = error_metrics_3[error_metrics_3['FailureMode'].isin(['Flex
 err_metrics_4_shear = error_metrics_4[error_metrics_4['FailureMode'].isin(['Flexure-Shear', 'Shear'])]
 err_metrics_5_shear = error_metrics_5[error_metrics_5['FailureMode'].isin(['Flexure-Shear', 'Shear'])]
 err_metrics_a_shear = error_metrics_a[error_metrics_a['FailureMode'].isin(['Flexure-Shear', 'Shear'])]
+
 
 if 8 in do_plots:
 
@@ -541,7 +537,7 @@ if 8 in do_plots:
                 [err_metrics_0_shear, err_metrics_1_shear, err_metrics_2_shear, err_metrics_3_shear, err_metrics_4_shear, err_metrics_5_shear],
                 ['Val. Set 1', 'Val. Set 2', 'Val. Set 3', 'Val. Set 4', 'Val. Set 5', 'Val. Set 6'],
                 shades):
-            axes[0, 0].hist(data[sel_err_metric], bins=bins, alpha=0.5, label=label, color=color, density=False, edgecolor='black')
+            axes[0, 0].hist(data[sel_err_metric], bins=bins, alpha=0.5, label=label, color=color, density=density, edgecolor='black')
             sorted_data = np.sort(data[sel_err_metric])
             cdf = np.arange(1, len(sorted_data) + 1) / len(sorted_data)
             axes[1, 0].plot(sorted_data, cdf, color=color, linewidth=2, label=label)
@@ -552,8 +548,8 @@ if 8 in do_plots:
     axes[0, 0].set_xlim(0.0, 0.3)
     axes[0, 0].set_xticklabels([])
 
-    axes[1, 0].set_xlabel('Mean Absolute Error', fontsize=14)
-    axes[1, 0].set_ylabel('CDF', fontsize=14)
+    axes[1, 0].set_xlabel('MAE GP/Exp', fontsize=14)
+    axes[1, 0].set_ylabel('Norm. Cum. Density', fontsize=14)
     axes[1, 0].legend(fontsize=12, title_fontsize=14)
     axes[1, 0].grid(True, linestyle='--', alpha=0.7)
     axes[1, 0].set_xlim(0.0, 0.3)
@@ -561,7 +557,7 @@ if 8 in do_plots:
     if plot_type == 'kde':
         plot_kde(err_metrics_a_shear[sel_err_metric], 'Final GP', 'gray', axes[0, 1], axes[1, 1])
     else:
-        axes[0, 1].hist(err_metrics_a_shear[sel_err_metric], bins=bins, alpha=0.7, label='Final GP', color='gray', density=False, edgecolor='black')
+        axes[0, 1].hist(err_metrics_a_shear[sel_err_metric], bins=bins, alpha=0.7, label='Final GP', color='gray', density=density, edgecolor='black')
         axes[0, 1].legend(fontsize=12, title_fontsize=14)
         axes[0, 1].grid(True, linestyle='--', alpha=0.7)
         axes[0, 1].set_xlim(0.0, 0.3)
@@ -578,7 +574,7 @@ if 8 in do_plots:
     axes[0, 1].set_yticklabels([])
     axes[0, 1].set_xticklabels([])
 
-    axes[1, 1].set_xlabel('Mean Absolute Error', fontsize=14)
+    axes[1, 1].set_xlabel('MAE GP/Exp', fontsize=14)
     axes[1, 1].legend(fontsize=12, title_fontsize=14)
     axes[1, 1].grid(True, linestyle='--', alpha=0.7)
     axes[1, 1].set_xlim(0.0, 0.3)
@@ -589,10 +585,12 @@ if 8 in do_plots:
     plt.show()
 
 
+density = False
 if 9 in do_plots:
     # Plot for final models (shear and flexure and all)
     err_metric_1 = 'err_surr_cal'
     err_metric_2 = 'err_surr_exp'
+    err_metric_3 = 'err_cal_exp'
 
     # The plot is the following: kde or hist (depending on selection) for a models shear and flexure separate on the left, and toghether on the right.
     # Second row of plots are the corresponding CDFs.
@@ -617,14 +615,14 @@ if 9 in do_plots:
 
     else:
         # First error metric (surrogate vs calibration)
-        axes[0, 0].hist(err_metrics_a_shear[err_metric_1], bins=bins, alpha=alpha, label='Final GP Shear', color='red', density=False, edgecolor='black')
-        axes[0, 0].hist(err_metrics_a_flexure[err_metric_1], bins=bins, alpha=alpha, label='Final GP Flexure', color='green', density=False, edgecolor='black')
-        axes[0, 0].hist(np.concatenate([err_metrics_a_shear[err_metric_1], err_metrics_a_flexure[err_metric_1]]), bins=bins, alpha=alpha, label='Final GP All', color='gray', density=False, edgecolor='black')
+        axes[0, 0].hist(err_metrics_a_shear[err_metric_1], bins=bins, alpha=alpha, label='Final GP Shear', color='red', density=density, edgecolor='black')
+        axes[0, 0].hist(err_metrics_a_flexure[err_metric_1], bins=bins, alpha=alpha, label='Final GP Flexure', color='green', density=density, edgecolor='black')
+        axes[0, 0].hist(np.concatenate([err_metrics_a_shear[err_metric_1], err_metrics_a_flexure[err_metric_1]]), bins=bins, alpha=alpha, label='Final GP All', color='gray', density=density, edgecolor='black')
         
         # Second error metric (surrogate vs experiment)
-        axes[0, 1].hist(err_metrics_a_shear[err_metric_2], bins=bins, alpha=alpha, label='Final GP Shear', color='red', density=False, edgecolor='black')
-        axes[0, 1].hist(err_metrics_a_flexure[err_metric_2], bins=bins, alpha=alpha, label='Final GP Flexure', color='green', density=False, edgecolor='black')
-        axes[0, 1].hist(np.concatenate([err_metrics_a_shear[err_metric_2], err_metrics_a_flexure[err_metric_2]]), bins=bins, alpha=alpha, label='Final GP All', color='gray', density=False, edgecolor='black')
+        axes[0, 1].hist(err_metrics_a_shear[err_metric_2], bins=bins, alpha=alpha, label='Final GP Shear', color='red', density=density, edgecolor='black')
+        axes[0, 1].hist(err_metrics_a_flexure[err_metric_2], bins=bins, alpha=alpha, label='Final GP Flexure', color='green', density=density, edgecolor='black')
+        axes[0, 1].hist(np.concatenate([err_metrics_a_shear[err_metric_2], err_metrics_a_flexure[err_metric_2]]), bins=bins, alpha=alpha, label='Final GP All', color='gray', density=density, edgecolor='black')
 
         # Now, do cumulative distribution
         # Cumulative distribution (CDF) for surrogate vs calibration
@@ -638,7 +636,7 @@ if 9 in do_plots:
 
         sorted_all = np.sort(np.concatenate([err_metrics_a_shear[err_metric_1], err_metrics_a_flexure[err_metric_1]]))
         cdf_all = np.arange(1, len(sorted_all) + 1) / len(sorted_all)
-        axes[1, 0].plot(sorted_all, cdf_all, color='gray', linewidth=2, label='Final GP All')
+        axes[1, 0].plot(sorted_all, cdf_all, color='gray', linewidth=2, label='Final GP All Data')
 
         # Cumulative distribution (CDF) for surrogate vs calibration
         sorted_shear_2 = np.sort(err_metrics_a_shear[err_metric_2])
@@ -651,28 +649,28 @@ if 9 in do_plots:
 
         sorted_all = np.sort(np.concatenate([err_metrics_a_shear[err_metric_2], err_metrics_a_flexure[err_metric_2]]))
         cdf_all = np.arange(1, len(sorted_all) + 1) / len(sorted_all)
-        axes[1, 1].plot(sorted_all, cdf_all, color='gray', linewidth=2, label='Final GP All')
+        axes[1, 1].plot(sorted_all, cdf_all, color='gray', linewidth=2, label='Final GP All Data')
 
 
-    axes[0, 0].set_ylabel('Density', fontsize=14)
-    axes[0, 0].legend(fontsize=12, title_fontsize=14)
+    axes[0, 0].set_ylabel('Number of tests', fontsize=14)
+    axes[0, 0].legend(fontsize=12, title_fontsize=12)
     axes[0, 0].grid(True, linestyle='--', alpha=0.7)
     axes[0, 0].set_xlim(0.0, 0.3)
     axes[0, 0].set_xticklabels([])  # Remove x tick labels
 
-    axes[0, 1].legend(fontsize=12, title_fontsize=14)
+    axes[0, 1].legend(fontsize=12, title_fontsize=12)
     axes[0, 1].grid(True, linestyle='--', alpha=0.7)
     axes[0, 1].set_xlim(0.0, 0.3)
     axes[0, 1].set_xticklabels([])  # Remove x tick labels
     axes[0, 1].set_yticklabels([])  # Remove y tick labels
 
-    axes[1, 0].set_xlabel('MAE Surr/Cal', fontsize=14)
-    axes[1, 0].set_ylabel('Cumulative \#', fontsize=14)
+    axes[1, 0].set_xlabel('MAE GP/Cal', fontsize=14)
+    axes[1, 0].set_ylabel('Cumulative Density', fontsize=14)
     axes[1, 0].legend(fontsize=12, title_fontsize=14)
     axes[1, 0].grid(True, linestyle='--', alpha=0.7)
     axes[1, 0].set_xlim(0.0, 0.3)
 
-    axes[1, 1].set_xlabel('MAE Surr/Exp', fontsize=14)
+    axes[1, 1].set_xlabel('MAE GP/Exp', fontsize=14)
     axes[1, 1].legend(fontsize=12, title_fontsize=14)
     axes[1, 1].grid(True, linestyle='--', alpha=0.7)
     axes[1, 1].set_xlim(0.0, 0.3)
