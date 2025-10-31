@@ -17,6 +17,7 @@ import shutil
 # Use latex for plots
 plt.rc('text', usetex=True)
 plt.rc('font', family='serif')
+plt.rcParams['hatch.linewidth'] = 0.6  # make hatch patterns visible in print
 
 # :::
 # Functions
@@ -42,7 +43,7 @@ sns.set_theme(style="whitegrid", rc={"font.family": "serif", "text.usetex": True
 
 data_path = 'gp_training_data/raw/DataAll_NDonly.csv'
 
-do_plots = [5, 7, 8, 9]
+do_plots = [10]
 
 # Load the nondimentional parameter data
 df = pd.read_csv(data_path)
@@ -61,12 +62,19 @@ df.columns = data_col_labels
 ## Plot # 1
 ## --------
 if 1 in do_plots:
-    # Do pairplot with df
-    pairplot = sns.pairplot(df, hue='Failure Type', 
-                            diag_kind='hist', palette='colorblind', 
-                            markers=['o', 's', 'D'], height=1.0, plot_kws={'s': 10})
+    # Do pairplot with df using a greyscale palette
+    n_types = df['Failure Type'].nunique()
+    grey_palette = sns.color_palette("Greys", n_colors=n_types)
+    markers = ['o', 's', 'v', '^', 'v', '<', '>'][:n_types]
+    pairplot = sns.pairplot(df, hue='Failure Type',
+                            diag_kind='kde', palette=grey_palette,
+                            markers=markers, height=1.0, plot_kws={'s': 20, 'alpha': 0.7}, diag_kws={'shade': True})
+    # remove grid lines
+    for ax in pairplot.axes.flatten():
+        ax.grid(False)
 
     plt.savefig(os.path.join(figures_dir, 'pairplot.pdf'), bbox_inches='tight')
+    
     plt.show()
 
 
@@ -232,8 +240,15 @@ if 4 in do_plots:
 
     # Scatter plot (PCA_ND_Params vs PCA_Calibration)
     ax_scatter = plt.subplot(gs[0, 0])
-    sns.scatterplot(data=merged_pca_df, x='PCA_ND_Params', y='PCA_Calibration', 
-                    hue='FailureType', palette='colorblind', s=50, ax=ax_scatter)
+    # Plot each failure type with a different marker
+    failure_types = merged_pca_df['FailureType'].unique()
+    markers = ['o', 's', 'D', '^', 'v', '<', '>'][:len(failure_types)]
+    palette = sns.color_palette("Greys", n_colors=len(failure_types))
+    for ft, m, c in zip(failure_types, markers, palette):
+        sub = merged_pca_df[merged_pca_df['FailureType'] == ft]
+        ax_scatter.scatter(sub['PCA_ND_Params'], sub['PCA_Calibration'],
+                           label=ft, marker=m, color=c, s=50,
+                           edgecolor='k', linewidth=0.3)
     ax_scatter.set_xlabel('ND-Parameters PCA (1st component)')
     ax_scatter.set_ylabel('BW-Parameters PCA (1st component)')
     ax_scatter.grid(True)
@@ -245,9 +260,27 @@ if 4 in do_plots:
 
     # Histogram (PCA_ND_Params)
     ax_hist = plt.subplot(gs[1, 0], sharex=ax_scatter)
-    for failure_type in merged_pca_df['FailureType'].unique():
+    grey_palette = sns.color_palette("Greys", n_colors=merged_pca_df['FailureType'].nunique())
+    # add hatch patterns so stacked columns are visually distinct
+    # tighten hatch spacing: decrease hatch line width and increase hatch character repetition
+    plt.rcParams['hatch.linewidth'] = 0.6
+    hatches = ['////', 'xxxx', 'oooo', '....', '****', '----', '++++', '||||', '\\\\\\\\']
+    failure_types = merged_pca_df['FailureType'].unique()[::-1]
+    for i, failure_type in enumerate(failure_types):
+        color = grey_palette[::-1][i % len(grey_palette)]
+        hatch = hatches[i % len(hatches)]
         subset = merged_pca_df[merged_pca_df['FailureType'] == failure_type]
-        ax_hist.hist(subset['PCA_ND_Params'], bins=20, alpha=0.6, label=failure_type, stacked=True)
+        ax_hist.hist(
+            subset['PCA_ND_Params'],
+            bins=20,
+            alpha=0.9,
+            label=failure_type,
+            stacked=True,
+            color=color,
+            edgecolor='white',
+            linewidth=0.1,
+            hatch=hatch
+        )
 
     ax_hist.set_xlabel('ND-Parameters PCA (1st component)')
     ax_hist.set_ylabel('Frequency')
@@ -320,12 +353,16 @@ if 5 in do_plots:
             plot_kde(data[sel_err_metric], label, color, axes[0, 0], axes[1, 0])
         axes[0, 0].set_ylabel('KDE Density', fontsize=14)
     else:
-        # Plot histograms and CDFs for the first 6 models
-        for data, label, color in zip(
+        # Plot histograms and CDFs for the first 6 models (add hatching for grayscale-friendly output)
+        hatches6 = ['////', '\\', 'xx', '..', 'oo', '++']
+        for i, (data, label, color) in enumerate(zip(
                 [error_metrics_0, error_metrics_1, error_metrics_2, error_metrics_3, error_metrics_4, error_metrics_5],
                 ['Val. Set 1', 'Val. Set 2', 'Val. Set 3', 'Val. Set 4', 'Val. Set 5', 'Val. Set 6'],
-                shades):
-            axes[0, 0].hist(data[sel_err_metric], bins=bins, alpha=0.5, label=label, color=color, density=density, edgecolor='black')
+                shades)):
+            axes[0, 0].hist(
+                data[sel_err_metric], bins=bins, alpha=0.5, label=label, color=color,
+                density=density, edgecolor='black', linewidth=0.5, hatch=hatches6[i % len(hatches6)]
+            )
             sorted_data = np.sort(data[sel_err_metric])
             cdf = np.arange(1, len(sorted_data) + 1) / len(sorted_data)
             axes[1, 0].plot(sorted_data, cdf, color=color, linewidth=2, label=label)
@@ -345,7 +382,10 @@ if 5 in do_plots:
     if plot_type == 'kde':
         plot_kde(error_metrics_a[sel_err_metric], 'Final GP', 'gray', axes[0, 1], axes[1, 1])
     else:
-        axes[0, 1].hist(error_metrics_a[sel_err_metric], bins=bins, alpha=0.7, label='Final GP', color='gray', density=density, edgecolor='black')
+        axes[0, 1].hist(
+            error_metrics_a[sel_err_metric], bins=bins, alpha=0.7, label='Final GP', color='gray',
+            density=density, edgecolor='black', linewidth=0.5, hatch='////'
+        )
         axes[0, 1].legend(fontsize=12, title_fontsize=14)
         axes[0, 1].grid(True, linestyle='--', alpha=0.7)
         axes[0, 1].set_xlim(0.0, 0.3)
@@ -449,12 +489,16 @@ if 7 in do_plots:
             plot_kde(data[sel_err_metric], label, color, axes[0, 0], axes[1, 0])
         axes[0, 0].set_ylabel('KDE Density', fontsize=14)
     else:
-        # Plot histograms and CDFs for the first 6 models
-        for data, label, color in zip(
+        # Plot histograms and CDFs for the first 6 models (add hatching for grayscale-friendly output)
+        hatches6 = ['////', '\\', 'xx', '..', 'oo', '++']
+        for i, (data, label, color) in enumerate(zip(
                 [err_metrics_0_flexure, err_metrics_1_flexure, err_metrics_2_flexure, err_metrics_3_flexure, err_metrics_4_flexure, err_metrics_5_flexure],
                 ['Val. Set 1', 'Val. Set 2', 'Val. Set 3', 'Val. Set 4', 'Val. Set 5', 'Val. Set 6'],
-                shades):
-            axes[0, 0].hist(data[sel_err_metric], bins=bins, alpha=0.5, label=label, color=color, density=density, edgecolor='black')
+                shades)):
+            axes[0, 0].hist(
+                data[sel_err_metric], bins=bins, alpha=0.5, label=label, color=color,
+                density=density, edgecolor='black', linewidth=0.5, hatch=hatches6[i % len(hatches6)]
+            )
             sorted_data = np.sort(data[sel_err_metric])
             cdf = np.arange(1, len(sorted_data) + 1) / len(sorted_data)
             axes[1, 0].plot(sorted_data, cdf, color=color, linewidth=2, label=label)
@@ -474,7 +518,10 @@ if 7 in do_plots:
     if plot_type == 'kde':
         plot_kde(err_metrics_a_flexure[sel_err_metric], 'Final GP', 'gray', axes[0, 1], axes[1, 1])
     else:
-        axes[0, 1].hist(err_metrics_a_flexure[sel_err_metric], bins=bins, alpha=0.7, label='Final GP', color='gray', density=density, edgecolor='black')
+        axes[0, 1].hist(
+            err_metrics_a_flexure[sel_err_metric], bins=bins, alpha=0.7, label='Final GP', color='gray',
+            density=density, edgecolor='black', linewidth=0.5, hatch='////'
+        )
         axes[0, 1].legend(fontsize=12, title_fontsize=14)
         axes[0, 1].grid(True, linestyle='--', alpha=0.7)
         axes[0, 1].set_xlim(0.0, 0.3)
@@ -532,12 +579,16 @@ if 8 in do_plots:
             plot_kde(data[sel_err_metric], label, color, axes[0, 0], axes[1, 0])
         axes[0, 0].set_ylabel('KDE Density', fontsize=14)
     else:
-        # Plot histograms and CDFs for the first 6 models
-        for data, label, color in zip(
+        # Plot histograms and CDFs for the first 6 models (add hatching for grayscale-friendly output)
+        hatches6 = ['////', '\\', 'xx', '..', 'oo', '++']
+        for i, (data, label, color) in enumerate(zip(
                 [err_metrics_0_shear, err_metrics_1_shear, err_metrics_2_shear, err_metrics_3_shear, err_metrics_4_shear, err_metrics_5_shear],
                 ['Val. Set 1', 'Val. Set 2', 'Val. Set 3', 'Val. Set 4', 'Val. Set 5', 'Val. Set 6'],
-                shades):
-            axes[0, 0].hist(data[sel_err_metric], bins=bins, alpha=0.5, label=label, color=color, density=density, edgecolor='black')
+                shades)):
+            axes[0, 0].hist(
+                data[sel_err_metric], bins=bins, alpha=0.5, label=label, color=color,
+                density=density, edgecolor='black', linewidth=0.5, hatch=hatches6[i % len(hatches6)]
+            )
             sorted_data = np.sort(data[sel_err_metric])
             cdf = np.arange(1, len(sorted_data) + 1) / len(sorted_data)
             axes[1, 0].plot(sorted_data, cdf, color=color, linewidth=2, label=label)
@@ -557,7 +608,10 @@ if 8 in do_plots:
     if plot_type == 'kde':
         plot_kde(err_metrics_a_shear[sel_err_metric], 'Final GP', 'gray', axes[0, 1], axes[1, 1])
     else:
-        axes[0, 1].hist(err_metrics_a_shear[sel_err_metric], bins=bins, alpha=0.7, label='Final GP', color='gray', density=density, edgecolor='black')
+        axes[0, 1].hist(
+            err_metrics_a_shear[sel_err_metric], bins=bins, alpha=0.7, label='Final GP', color='gray',
+            density=density, edgecolor='black', linewidth=0.5, hatch='////'
+        )
         axes[0, 1].legend(fontsize=12, title_fontsize=14)
         axes[0, 1].grid(True, linestyle='--', alpha=0.7)
         axes[0, 1].set_xlim(0.0, 0.3)
@@ -614,42 +668,60 @@ if 9 in do_plots:
         plot_kde(np.concatenate([err_metrics_a_shear[err_metric_2], err_metrics_a_flexure[err_metric_2]]), 'All GP', 'gray', axes[0, 1], axes[1, 1])
 
     else:
-        # First error metric (surrogate vs calibration)
-        axes[0, 0].hist(err_metrics_a_shear[err_metric_1], bins=bins, alpha=alpha, label='Final GP Shear', color='red', density=density, edgecolor='black')
-        axes[0, 0].hist(err_metrics_a_flexure[err_metric_1], bins=bins, alpha=alpha, label='Final GP Flexure', color='green', density=density, edgecolor='black')
-        axes[0, 0].hist(np.concatenate([err_metrics_a_shear[err_metric_1], err_metrics_a_flexure[err_metric_1]]), bins=bins, alpha=alpha, label='Final GP All', color='gray', density=density, edgecolor='black')
+        # First error metric (surrogate vs calibration) — add hatch patterns and bring Shear to front
+        hatch_shear, hatch_flexure, hatch_all = '////', '\\', '..'
+        # Draw 'All' first, then Flexure, then Shear last with highest zorder
+        axes[0, 0].hist(
+            np.concatenate([err_metrics_a_shear[err_metric_1], err_metrics_a_flexure[err_metric_1]]), bins=bins, alpha=alpha,
+            label='Final GP All', color='gray', density=density, edgecolor='black', linewidth=0.5, hatch=hatch_all, zorder=1
+        )
+        axes[0, 0].hist(
+            err_metrics_a_flexure[err_metric_1], bins=bins, alpha=alpha, label='Final GP Flexure', color='green',
+            density=density, edgecolor='black', linewidth=0.5, hatch=hatch_flexure, zorder=2
+        )
+        axes[0, 0].hist(
+            err_metrics_a_shear[err_metric_1], bins=bins, alpha=alpha, label='Final GP Shear', color='red',
+            density=density, edgecolor='black', linewidth=0.5, hatch=hatch_shear, zorder=3
+        )
         
-        # Second error metric (surrogate vs experiment)
-        axes[0, 1].hist(err_metrics_a_shear[err_metric_2], bins=bins, alpha=alpha, label='Final GP Shear', color='red', density=density, edgecolor='black')
-        axes[0, 1].hist(err_metrics_a_flexure[err_metric_2], bins=bins, alpha=alpha, label='Final GP Flexure', color='green', density=density, edgecolor='black')
-        axes[0, 1].hist(np.concatenate([err_metrics_a_shear[err_metric_2], err_metrics_a_flexure[err_metric_2]]), bins=bins, alpha=alpha, label='Final GP All', color='gray', density=density, edgecolor='black')
+        # Second error metric (surrogate vs experiment) — add hatch patterns and bring Shear to front
+        axes[0, 1].hist(
+            np.concatenate([err_metrics_a_shear[err_metric_2], err_metrics_a_flexure[err_metric_2]]), bins=bins, alpha=alpha,
+            label='Final GP All', color='gray', density=density, edgecolor='black', linewidth=0.5, hatch=hatch_all, zorder=1
+        )
+        axes[0, 1].hist(
+            err_metrics_a_flexure[err_metric_2], bins=bins, alpha=alpha, label='Final GP Flexure', color='green',
+            density=density, edgecolor='black', linewidth=0.5, hatch=hatch_flexure, zorder=2
+        )
+        axes[0, 1].hist(
+            err_metrics_a_shear[err_metric_2], bins=bins, alpha=alpha, label='Final GP Shear', color='red',
+            density=density, edgecolor='black', linewidth=0.5, hatch=hatch_shear, zorder=3
+        )
 
         # Now, do cumulative distribution
         # Cumulative distribution (CDF) for surrogate vs calibration
         sorted_shear_1 = np.sort(err_metrics_a_shear[err_metric_1])
         cdf_shear_1 = np.arange(1, len(sorted_shear_1) + 1) / len(sorted_shear_1)
-        axes[1, 0].plot(sorted_shear_1, cdf_shear_1, color='red', linewidth=2, label='Final GP Shear')
+        axes[1, 0].plot(sorted_shear_1, cdf_shear_1, color='red', linewidth=2.5, linestyle='--', label='Final GP Shear', zorder=3)
 
         sorted_flexure_1 = np.sort(err_metrics_a_flexure[err_metric_1])
         cdf_flexure_1 = np.arange(1, len(sorted_flexure_1) + 1) / len(sorted_flexure_1)
-        axes[1, 0].plot(sorted_flexure_1, cdf_flexure_1, color='green', linewidth=2, label='Final GP Flexure')
-
+        axes[1, 0].plot(sorted_flexure_1, cdf_flexure_1, color='green', linewidth=2, linestyle='-.', label='Final GP Flexure', zorder=2)
         sorted_all = np.sort(np.concatenate([err_metrics_a_shear[err_metric_1], err_metrics_a_flexure[err_metric_1]]))
         cdf_all = np.arange(1, len(sorted_all) + 1) / len(sorted_all)
-        axes[1, 0].plot(sorted_all, cdf_all, color='gray', linewidth=2, label='Final GP All Data')
+        axes[1, 0].plot(sorted_all, cdf_all, color='gray', linewidth=2, label='Final GP All Data', zorder=1)
 
         # Cumulative distribution (CDF) for surrogate vs calibration
         sorted_shear_2 = np.sort(err_metrics_a_shear[err_metric_2])
         cdf_shear_2 = np.arange(1, len(sorted_shear_2) + 1) / len(sorted_shear_2)
-        axes[1, 1].plot(sorted_shear_2, cdf_shear_2, color='red', linewidth=2, label='Final GP Shear')
+        axes[1, 1].plot(sorted_shear_2, cdf_shear_2, color='red', linewidth=2.5, linestyle='--', label='Final GP Shear', zorder=3)
 
         sorted_flexure_2 = np.sort(err_metrics_a_flexure[err_metric_2])
         cdf_flexure_2 = np.arange(1, len(sorted_flexure_2) + 1) / len(sorted_flexure_2)
-        axes[1, 1].plot(sorted_flexure_2, cdf_flexure_2, color='green', linewidth=2, label='Final GP Flexure')
-
+        axes[1, 1].plot(sorted_flexure_2, cdf_flexure_2, color='green', linewidth=2, linestyle='-.', label='Final GP Flexure', zorder=2)
         sorted_all = np.sort(np.concatenate([err_metrics_a_shear[err_metric_2], err_metrics_a_flexure[err_metric_2]]))
         cdf_all = np.arange(1, len(sorted_all) + 1) / len(sorted_all)
-        axes[1, 1].plot(sorted_all, cdf_all, color='gray', linewidth=2, label='Final GP All Data')
+        axes[1, 1].plot(sorted_all, cdf_all, color='gray', linewidth=2, label='Final GP All Data', zorder=1)
 
 
     axes[0, 0].set_ylabel('Number of tests', fontsize=14)

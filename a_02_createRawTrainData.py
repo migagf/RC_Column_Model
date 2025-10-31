@@ -433,7 +433,7 @@ if __name__ == '__main__':
     if all(os.path.exists(os.path.join(output_dir, f)) for f in output_file_list):
         print('Output files already exist. Exiting...')
         # Here, add the post-processing plots (maybe)
-        exit()
+        #exit()
 
     # :::
     # Create DataFrames with raw training data
@@ -582,7 +582,7 @@ if __name__ == '__main__':
     # :::
     # Save Files
     # :::
-
+    
     # Store dataframe into a csv file inside the output folder
     data_rect.to_csv(os.path.join(output_dir, 'DataRect.csv'))
     data_spiral.to_csv(os.path.join(output_dir, 'DataSpiral.csv'))

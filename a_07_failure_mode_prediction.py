@@ -9,7 +9,7 @@ plt.rc('font', family='serif')
 figures_folder = 'Figures'
 
 # Load the dataset
-column_data = pd.read_csv('data_all.csv')
+column_data = pd.read_csv('gp_training_data/raw/DataAll_NDonly.csv')
 
 # Turn the Flexure-Shear values into Shear
 column_data['FailureType'] = column_data['FailureType'].apply(lambda x: 'Shear' if x == 'Flexure-Shear' else x)
@@ -42,9 +42,9 @@ print(lasso.intercept_)
 print(lasso.score(X_test, y_test))
 
 
-# Plot the coefficients as bars
+'''# Plot the coefficients as bars
 plt.bar(X.columns, lasso.coef_)
-plt.show()
+plt.show()'''
 
 # Conclusion:
 # The last two features have the most impact, once they have been normalized
@@ -143,11 +143,22 @@ y_grid = lr.predict(X_grid).reshape(param1_grid.shape)
 
 # Plot the decision boundary
 plt.contourf(param1_grid, param2_grid, y_grid, alpha=0.2, cmap='jet', levels=2)
-plt.scatter(column_data[parameters[0]], column_data[parameters[1]], c=column_data['color'], edgecolor=column_data['color'], alpha=0.5)
 
-# Set manual legend
-plt.scatter([], [], c='b', edgecolor='b', label='Flexure')
-plt.scatter([], [], c='r', edgecolor='r', label='Shear')
+# Plot points with rectangle (square) and circle markers per failure type
+marker_map = {'Flexure': 's', 'Shear': 'o'}
+color_map = {'Flexure': 'b', 'Shear': 'r'}
+
+for t in column_data['FailureType'].unique():
+    df_t = column_data[column_data['FailureType'] == t]
+    plt.scatter(df_t[parameters[0]],
+                df_t[parameters[1]],
+                c=color_map.get(t, 'k'),
+                edgecolor=color_map.get(t, 'k'),
+                marker=marker_map.get(t, 'o'),
+                alpha=0.6,
+                label=t)
+
+# Legend
 plt.legend()
 
 # Set axes square
