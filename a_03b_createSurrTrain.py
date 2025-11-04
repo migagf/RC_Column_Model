@@ -118,7 +118,7 @@ def write_to_log(message, logfile):
 
 if __name__ == "__main__":
     # Main settings
-    showplots = False
+    showplots = True
     logfile = 'gp_training_data/processed/log.txt'
     nsurr = 6   # Number of surrogate models to create for cross-validation
     median_threshold = 0.1
@@ -164,11 +164,14 @@ if __name__ == "__main__":
         # Map FailureType to colors
         data_all['color'] = data_all['FailureType'].map(colors)
 
-        # Plot with colors based on FailureType
+        # Plot in grayscale-friendly style (Option A): single neutral style, larger hollow markers, no failure-mode encoding
         plt.figure(figsize=(6, 4))
-        plt.scatter(x_values, res_median, label='res_median', marker='s', c=data_all['color'], s=0.7)
-        plt.scatter(x_values, res_median_plus, label='res_median_plus', marker='s', c=data_all['color'], s=0.2)
-        plt.scatter(x_values, res_median_minus, label='res_median_minus', marker='s', c=data_all['color'], s=0.2)
+        plt.scatter(x_values, res_median, label='res_median', marker='o',
+                facecolors='none', edgecolors='k', s=16, linewidth=0.5, alpha=0.9)
+        plt.scatter(x_values, res_median_plus, label='res_median_plus', marker='o',
+                facecolors='none', edgecolors='0.5', s=10, linewidth=0.4, alpha=0.6)
+        plt.scatter(x_values, res_median_minus, label='res_median_minus', marker='o',
+                facecolors='none', edgecolors='0.5', s=10, linewidth=0.4, alpha=0.6)
 
         # Add a horizontal line at 0.10 with a text box
         plt.text(10, 0.11, 'Threshold at MAE=0.1',
@@ -191,16 +194,11 @@ if __name__ == "__main__":
         ax2.set_yticks([0, 0.05, 0.10, 0.15, 0.20, 0.25])
         ax2.set_yticklabels(['0', '0.2', '0.4', '0.6', '0.8', '1.0'])
 
-        # Create a custom legend for FailureType
-        legend_labels = {'Flexure': 'Flexure', 'Flexure-Shear': 'Flexure-Shear', 'Shear': 'Shear'}
-        legend_handles = [plt.Line2D([0], [0], marker='o', color='w', markerfacecolor=color, markersize=5, label=label) 
-                for label, color in colors.items()]
         ax1.set_xlabel('Test \# (Sorted by MAE)')  # X-axis label
         ax1.set_ylabel('Mean Absolute Error')  # Y-axis label
         ax1.set_xlim([0, 300])
         ax1.set_ylim([0, 0.25])
-        ax1.grid()
-        ax1.legend(handles=legend_handles, title="Failure Type")
+        ax1.grid(True, linestyle='--', alpha=0.3)
         plt.savefig('Figures/residuals_plot.pdf')  # Save the figure to a pdf file
         plt.show()
 
