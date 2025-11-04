@@ -89,11 +89,17 @@ X_grid_poly = poly.transform(X_grid)
 y1_grid_pred = model_y1.predict(X_grid_poly)
 y2_grid_pred = model_y2.predict(X_grid_poly)
 
-# Plot the predicted values in a 3d surface plot
+# Plot the predicted values in a 3d surface plot (grayscale, high contrast)
 fig = plt.figure()
 ax = fig.add_subplot(111, projection='3d')
-surf1 = ax.plot_surface(ar_grid, srr_grid, y1_grid_pred.reshape(ar_grid.shape), color='red', alpha=0.5, label='Cal/Exp MAE')
-surf2 = ax.plot_surface(ar_grid, srr_grid, y2_grid_pred.reshape(ar_grid.shape), color='blue', alpha=0.5, label='GP/Exp MAE')
+surf1 = ax.plot_surface(
+    ar_grid, srr_grid, y1_grid_pred.reshape(ar_grid.shape),
+    color='0.1', alpha=0.5, edgecolor='k', linewidth=0.1, label='Cal/Exp MAE Surface Fit'
+)
+surf2 = ax.plot_surface(
+    ar_grid, srr_grid, y2_grid_pred.reshape(ar_grid.shape),
+    color='0.9', alpha=0.5, edgecolor='k', linewidth=0.1, label='GP/Exp MAE Surface Fit'
+)
 ax.set_xlabel('AR')
 ax.set_ylabel('SRR')
 ax.set_zlabel('MAE')
@@ -101,12 +107,17 @@ ax.set_zlabel('MAE')
 # Set zlim
 ax.set_zlim(0, 0.3)
 
-ax.view_init(elev=30, azim=-45)
-plt.legend()
-# Now plot the actual data points on top of the surface plot
-sc1 = ax.scatter(X[plot_on[0]], X[plot_on[1]], y1, s=5.0, color='red', label='Cal/Exp MAE')
-sc2 = ax.scatter(X[plot_on[0]], X[plot_on[1]], y2, s=5.0, color='blue', label='GP/Exp MAE')
+ax.view_init(elev=15, azim=-30)
 
+# Now plot the actual data points on top of the surface plot (grayscale markers)
+sc1 = ax.scatter(
+    X[plot_on[0]], X[plot_on[1]], y1, s=10.0, marker='s', color='k', label='Cal/Exp MAE'
+)
+sc2 = ax.scatter(
+    X[plot_on[0]], X[plot_on[1]], y2, s=12.0, marker='o', edgecolors='k', facecolors='none', linewidth=0.8, label='GP/Exp MAE'
+)
+
+plt.legend()
 plt.savefig(os.path.join(figures_dir, 'error_metrics_with_surface.pdf'))
 
 print('saved figure 1 ')
@@ -143,23 +154,28 @@ y3_pred = model_y3.predict(X_poly)
 # Predict the values on the grid for y3
 y3_grid_pred = model_y3.predict(X_grid_poly)
 
-# Plot the predicted values in a 3d surface plot
+# Plot the predicted values in a 3d surface plot (grayscale, high contrast)
 fig = plt.figure()
 ax = fig.add_subplot(111, projection='3d')
-#surf1 = ax.plot_surface(ar_grid, srr_grid, 0*y1_grid_pred.reshape(ar_grid.shape), color='red', alpha=0.5, label='Cal/Cal error (pred)')
-surf2 = ax.plot_surface(ar_grid, srr_grid, y3_grid_pred.reshape(ar_grid.shape), color='green', alpha=0.5, label=None)
+
+# Surface with grayscale styling matching first plot
+surf2 = ax.plot_surface(
+    ar_grid, srr_grid, y3_grid_pred.reshape(ar_grid.shape),
+    color='0.6', alpha=0.5, edgecolor='k', linewidth=0.1
+)
 ax.set_xlabel('AR')
 ax.set_ylabel('SRR')
 ax.set_zlabel('MAE')
 
 ax.set_zlim(0, 0.3)
-# Set view angle to 45 degrees
-ax.view_init(elev=30, azim=-45)
-# Now plot the actual data points on top of the surface plot
-# sc1 = ax.scatter(X[plot_on[0]], X[plot_on[1]], 0*y1, s=5.0, color='red', label='Cal/Cal MAE')
-# Use Failure Mode as categories for plotting with 3 different colors
-categories = X['Failure Mode'].unique()  # Updated column name
-colors = ['green', 'orange', 'purple']  # Define colors for each category
+# Match view angle from first plot
+ax.view_init(elev=15, azim=-30)
+
+# Plot the actual data points with grayscale markers based on Failure Mode
+categories = X['Failure Mode'].unique()
+# Use grayscale tones and different marker shapes for each category
+gray_tones = ['0.1', '0.45', '0.75']  # dark, medium, light gray
+markers = ['s', 'o', '^']  # square, circle, triangle
 
 for i, category in enumerate(categories):
     mask = X['Failure Mode'] == category
@@ -167,8 +183,11 @@ for i, category in enumerate(categories):
         X.loc[mask, plot_on[0]], 
         X.loc[mask, plot_on[1]], 
         y3[mask], 
-        s=5.0, 
-        color=colors[i], 
+        s=10.0, 
+        marker=markers[i % len(markers)],
+        facecolors=gray_tones[i % len(gray_tones)],
+        edgecolors='k',
+        linewidth=0.5,
         label=f'{category}'
     )
 
