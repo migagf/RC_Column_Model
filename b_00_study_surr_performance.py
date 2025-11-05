@@ -94,11 +94,12 @@ fig = plt.figure()
 ax = fig.add_subplot(111, projection='3d')
 surf1 = ax.plot_surface(
     ar_grid, srr_grid, y1_grid_pred.reshape(ar_grid.shape),
-    color='0.1', alpha=0.5, edgecolor='k', linewidth=0.1, label='Cal/Exp MAE Surface Fit'
+    color='0.1', alpha=0.2, edgecolor='k', linewidth=0.1, label='Cal/Exp MAE Surface Fit',
+    hatch='//'
 )
 surf2 = ax.plot_surface(
     ar_grid, srr_grid, y2_grid_pred.reshape(ar_grid.shape),
-    color='0.9', alpha=0.5, edgecolor='k', linewidth=0.1, label='GP/Exp MAE Surface Fit'
+    color='0.9', alpha=0.2, edgecolor='k', linewidth=0.1, label='GP/Exp MAE Surface Fit'
 )
 ax.set_xlabel('AR')
 ax.set_ylabel('SRR')
@@ -161,7 +162,7 @@ ax = fig.add_subplot(111, projection='3d')
 # Surface with grayscale styling matching first plot
 surf2 = ax.plot_surface(
     ar_grid, srr_grid, y3_grid_pred.reshape(ar_grid.shape),
-    color='0.6', alpha=0.5, edgecolor='k', linewidth=0.1
+    color='0.6', alpha=0.2, edgecolor='k', linewidth=0.1
 )
 ax.set_xlabel('AR')
 ax.set_ylabel('SRR')
