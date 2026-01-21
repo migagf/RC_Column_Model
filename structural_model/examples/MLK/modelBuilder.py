@@ -11,7 +11,7 @@ def buildModel(nodes_df, elements_df):
     '''
     Builds a Cantilever Column Model 
     '''
-    geomTrans = "linear"
+    geomTrans = "pdelta"
     
     # Loop over nodes_df to create all nodes
     for ii in range(0, len(nodes_df)):
@@ -22,6 +22,10 @@ def buildModel(nodes_df, elements_df):
         # Fix base nodes
         if str(nodeTag).endswith("0"):
             ops.fix(nodeTag, *[1, 1, 1, 1, 1, 1])
+
+    # Fix abutment nodes
+    ops.fix(16411, *[1, 1, 1, 1, 1, 1])
+    ops.fix(10011, *[1, 1, 1, 1, 1, 1])
 
     # Define material properties for elastic elements (as dictionary)
     concrete_props = {
@@ -95,7 +99,7 @@ def buildModel(nodes_df, elements_df):
             beamProps, dmass = getBeamProps('rect', beam_props, concrete_props)
             # element('elasticBeamColumn', eleTag, *eleNodes, Area, E_mod, G_mod, Jxx, Iy, Iz, transfTag, <'-mass', mass>, <'-cMass'>)
             ops.element('elasticBeamColumn', eleTag, *[node_i, node_j], *beamProps, beam_gt, '-mass', dmass)
-            
+
             
         elif eleType == "eastGirder" or eleType == "westGirder":
             
@@ -107,5 +111,9 @@ def buildModel(nodes_df, elements_df):
             
             # Model Beams with no releases
             # ops.element('elasticBeamColumn', eleTag, *[node_i, node_j], *beamProps, beam_gt, '-mass', dmass)
+        
+        elif eleType == "abutment":
+            # Multi-directional zero-length element to model abutment springs
+            ops.element('zeroLength', eleTag, *[node_i, node_j], '-mat', 11, 13, 12, '-dir', 1, 2, 3) # This will create two srings
             
     pass

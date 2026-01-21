@@ -40,7 +40,14 @@ def getSections(plot=True):
     ops.uniaxialMaterial('Concrete02', 2, fpc, epsc0, fpcu, epsU, lam, f_t, Ets)    # Confined
     ops.uniaxialMaterial('Concrete02', 3, fpc, epsc0, fpcu, -0.003, lam, f_t, Ets)  # Unconfined
     
-    
+    # Create materials for abutment springs
+    kT = 50.0 * kip/inch  # Lateral stiffness
+    kV = 10_000.0 * kip/inch  # Vertical stiffness
+    ops.uniaxialMaterial('Elastic', 11, kT)  # Lateral spring
+    ops.uniaxialMaterial('Elastic', 12, kV)  # Vertical spring
+
+    ops.uniaxialMaterial('ElasticPPGap', 13, 2*kT, 40.0*kip, 0.5*inch)  # Gap material for abutment in longitudinal direction
+
     # ::: 
     # (2) Define geometry
     # :::

@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 
 # Plot Surrogate Predictions
 from old.gp_predict_old import *
-from diff_evolution_col import *
+from old.diff_evolution_col import *
 import matplotlib.pyplot as plt
 import seaborn as sns
 

@@ -43,7 +43,7 @@ sns.set_theme(style="whitegrid", rc={"font.family": "serif", "text.usetex": True
 
 data_path = 'gp_training_data/raw/DataAll_NDonly.csv'
 
-do_plots = [10]
+do_plots = [1]
 
 # Load the nondimentional parameter data
 df = pd.read_csv(data_path)
@@ -821,3 +821,4 @@ for id in sel_ids:
             print(f"Copied {src_file} to {selected_figures_unobserved}")
         else:
             print(f"File not found: {src_file}")
+
