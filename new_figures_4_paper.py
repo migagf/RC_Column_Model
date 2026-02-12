@@ -43,7 +43,8 @@ sns.set_theme(style="whitegrid", rc={"font.family": "serif", "text.usetex": True
 
 data_path = 'gp_training_data/raw/DataAll_NDonly.csv'
 
-do_plots = [1]
+do_plots = [None]
+
 
 # Load the nondimentional parameter data
 df = pd.read_csv(data_path)
@@ -64,7 +65,8 @@ df.columns = data_col_labels
 if 1 in do_plots:
     # Do pairplot with df using a greyscale palette
     n_types = df['Failure Type'].nunique()
-    grey_palette = sns.color_palette("Greys", n_colors=n_types)
+    # increase contrast by sampling darker greys
+    grey_palette = [plt.cm.Greys(x) for x in np.linspace(0.2, 1.0, n_types)]
     markers = ['o', 's', 'v', '^', 'v', '<', '>'][:n_types]
     pairplot = sns.pairplot(df, hue='Failure Type',
                             diag_kind='kde', palette=grey_palette,
@@ -243,12 +245,13 @@ if 4 in do_plots:
     # Plot each failure type with a different marker
     failure_types = merged_pca_df['FailureType'].unique()
     markers = ['o', 's', 'D', '^', 'v', '<', '>'][:len(failure_types)]
-    palette = sns.color_palette("Greys", n_colors=len(failure_types))
+    # higher-contrast greys for print
+    palette = [plt.cm.Greys(x) for x in np.linspace(0.2, 1.0, len(failure_types))]
     for ft, m, c in zip(failure_types, markers, palette):
         sub = merged_pca_df[merged_pca_df['FailureType'] == ft]
         ax_scatter.scatter(sub['PCA_ND_Params'], sub['PCA_Calibration'],
-                           label=ft, marker=m, color=c, s=50,
-                           edgecolor='k', linewidth=0.3)
+                           label=ft, marker=m, color=c, s=50, alpha=0.6,
+                           edgecolor='k', linewidth=0.2)
     ax_scatter.set_xlabel('ND-Parameters PCA (1st component)')
     ax_scatter.set_ylabel('BW-Parameters PCA (1st component)')
     ax_scatter.grid(True)
@@ -263,7 +266,7 @@ if 4 in do_plots:
     grey_palette = sns.color_palette("Greys", n_colors=merged_pca_df['FailureType'].nunique())
     # add hatch patterns so stacked columns are visually distinct
     # tighten hatch spacing: decrease hatch line width and increase hatch character repetition
-    plt.rcParams['hatch.linewidth'] = 0.6
+    plt.rcParams['hatch.linewidth'] = 0.3
     hatches = ['////', 'xxxx', 'oooo', '....', '****', '----', '++++', '||||', '\\\\\\\\']
     failure_types = merged_pca_df['FailureType'].unique()[::-1]
     for i, failure_type in enumerate(failure_types):
@@ -273,12 +276,12 @@ if 4 in do_plots:
         ax_hist.hist(
             subset['PCA_ND_Params'],
             bins=20,
-            alpha=0.9,
+            alpha=0.75,
             label=failure_type,
-            stacked=True,
+            stacked=False,
             color=color,
             edgecolor='white',
-            linewidth=0.1,
+            linewidth=0.01,
             hatch=hatch
         )
 
@@ -777,7 +780,7 @@ else:
             os.remove(file_path)
 
 
-sel_ids = [2, 5, 7, 291, 22, 24, 228, 273, 137, 49, 116, 215]
+sel_ids = [2, 5, 7, 22, 24, 228, 273, 137, 49, 116, 299, 281]
 
 # Load the data_split.csv files from gp_training_data/processed/gpModelFlexure and gpModelShear
 data_flexure = pd.read_csv(os.path.join('gp_training_data', 'processed', 'gpModelFlexure', 'data_split.csv'))
@@ -792,7 +795,8 @@ for id in sel_ids:
     # Create file name
     UniqueId = str(id).zfill(3)
     filename = f'UniqueId_{UniqueId}.pdf'
-
+    print(f"Processing UniqueId: {UniqueId} with filename: {filename}")
+    
     # ::: Observed data :::
     # Move the filename from the 'Figures/surrogate_hysteresis/no_split' to the selected figures directory
     src_path = os.path.join(figures_dir, 'surrogate_hysteresis', 'no_split', filename)
@@ -822,3 +826,26 @@ for id in sel_ids:
         else:
             print(f"File not found: {src_file}")
 
+
+figures_path = r'C:\Users\Miguel.MIGUEL-DESK\Documents\GitHub\RC_Column_Model\gp_training_data\calibrations\plots'
+selected_path = figures_path + '\\selected'
+
+# Remove all files from selected_path
+if os.path.exists(selected_path):
+    for filename in os.listdir(selected_path):
+        file_path = os.path.join(selected_path, filename)
+        if os.path.isfile(file_path):
+            os.remove(file_path)
+
+for id in sel_ids:
+    UniqueId = str(id).zfill(3)
+    filename = f'test_{UniqueId}.pdf'
+    src_path = os.path.join(figures_path, filename)
+    dest_path = os.path.join(selected_path, filename)
+    print(f"Processing {filename} from {src_path} to {dest_path}")
+
+    if os.path.isfile(src_path):
+        shutil.copy(src_path, dest_path)
+        print(f"Copied {src_path} to {dest_path}")
+    else:        
+        print(f"File not found: {src_path}")

@@ -66,7 +66,6 @@ def buildModel(nodes_df, elements_df):
         node_j = int(elements_df.nodej[ii])
         eleType = elements_df.type[ii]
         
-        
         if eleType == "pierCol":
             # If element corresponds to a pier, get the Type and HC values
             pierType = elements_df.ptype[ii]
@@ -78,23 +77,44 @@ def buildModel(nodes_df, elements_df):
             secTag = getSecTag(pierType, pierHC)
             
             # Some properties
-            diam = float(pierType[0])
-            area = np.pi * (diam / 2) ** 2
-            dmass = area * concrete_props["rho"]
+            if pierType.startswith("p"):
+                area = 8.0*ft * 5.0*ft
+                dmass = area * concrete_props["rho"]
+
+                if geomTrans == 'linear':
+                    col_gt = 12
+                elif geomTrans == 'pdelta':
+                    col_gt = 22
+                elif geomTrans == 'corotational':
+                    col_gt = 32
+                
+                # Print pierType and secTag
+                print(f"Pier Type: {pierType}, Section Tag: {secTag}")
+                ops.element('forceBeamColumn', eleTag, *[node_i, node_j], col_gt, secTag, '-iter', 10, 1e-12, '-mass', dmass)
+                
+            else:
+                if geomTrans == 'linear':
+                    col_gt = 10
+                elif geomTrans == 'pdelta':
+                    col_gt = 20
+                elif geomTrans == 'corotational':
+                    col_gt = 30
+
+                diam = float(pierType[0])*ft
+                area = np.pi * (diam / 2) ** 2
+                dmass = area * concrete_props["rho"]
             
-            # element('forceBeamColumn', eleTag, *eleNodes, transfTag, integrationTag, '-iter', maxIter=10, tol=1e-12, '-mass', mass=0.0)
-            ops.element('forceBeamColumn', eleTag, *[node_i, node_j], col_gt, secTag, '-iter', 10, 1e-12, '-mass', dmass)
+                # element('forceBeamColumn', eleTag, *eleNodes, transfTag, integrationTag, '-iter', maxIter=10, tol=1e-12, '-mass', mass=0.0)
+                ops.element('forceBeamColumn', eleTag, *[node_i, node_j], col_gt, secTag, '-iter', 10, 1e-12, '-mass', dmass)
 
             
         elif eleType == "pierRigid":
-            
             # print("Adding Rigidn Column", eleTag)
             #ops.element('forceBeamColumn', eleTag, *[node_i, node_j], col_gt, 101, '-iter', 10, 1e-12)
             ops.rigidLink("beam", *[node_i, node_j])
             
             
         elif eleType == "westRigid" or eleType == "eastRigid":
-            
             # print("Adding Pier Beams", eleTag)
             beamProps, dmass = getBeamProps('rect', beam_props, concrete_props)
             # element('elasticBeamColumn', eleTag, *eleNodes, Area, E_mod, G_mod, Jxx, Iy, Iz, transfTag, <'-mass', mass>, <'-cMass'>)

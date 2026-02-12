@@ -8,14 +8,14 @@ import time
 import matplotlib.pyplot as plt
 
 import os
+
 import json
+from concurrent.futures import ProcessPoolExecutor, as_completed
 
 from structural_utilities import createModel
 
-
 def run_analysis(model, gm_array, dt):
 
-    
     # CRITICAL: Reset model to initial state before each analysis
     model.resetState()
     
@@ -65,7 +65,8 @@ def run_analysis(model, gm_array, dt):
 
 
 def get_gm(selGM):
-    
+    # This function gets an unscaled ground motion (scaled only to represent scenario)
+
     # Open Ground Motion Data
     cd = os.getcwd()
     gmTable = pd.read_csv("gms//site0.csv")
@@ -74,13 +75,13 @@ def get_gm(selGM):
 
     g = 386
 
-    sf = gmTable["factor"][selGM] * 2.0
+    sf = gmTable["factor"][selGM]
 
     print(gmTable["TH_file"][selGM])
 
     with open(cd+"//gms//"+gmTable["TH_file"][selGM]+".json") as file:
         gm_data = json.load(file)
-        
+    
     gmx = np.array(gm_data["data_x"]) * g * sf
     gmy = np.array(gm_data["data_y"]) * g * sf
     dt = float(gm_data["dT"])
@@ -95,6 +96,29 @@ def get_gm(selGM):
     return gmx, gmy, dt, t
 
 
+def process_single_gm(selGM, mlk_models, sf):
+    """Process a single ground motion for all models"""
+    pierDisp_x = []
+    pierAcc_x = []
+    
+    gm_x, gm_y, dt, t = get_gm(selGM)
+    
+    for row in mlk_models.itertuples():
+        row_dict = row._asdict()
+        model = createModel(row_dict)
+
+        model.eig(show=False)
+
+        model.resetState()
+        peak_acc, peak_vel, peak_disp, pga, base_shear_hist_x, ux_hist, elapsed_time = run_analysis(model, sf*gm_x, dt)
+        print(f"GM {selGM} X - Peak Acc: {peak_acc:.3f} in/s², Peak Vel: {peak_vel:.3f} in/s, Peak Disp: {peak_disp:.3f} in, PGA: {pga:.3f} in/s², Time: {elapsed_time:.2f} s")
+        pierDisp_x.append(peak_disp)
+        pierAcc_x.append(peak_acc)
+
+    return selGM, pierDisp_x, pierAcc_x
+
+
+
 if __name__ == "__main__":
 
     # Load model inventory
@@ -103,63 +127,39 @@ if __name__ == "__main__":
     # Filter only MLK model (structure_id == as_06)
     mlk_models = model_inventory[model_inventory["structure_id"] == "as_06"]
     
+    print(f"Total MLK models to simulate: {len(mlk_models)}")
 
+    sf_list = [2.0]
     allGMs = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
-    allPierDisp_x = []
-    allPierDisp_y = []
+    for sf in sf_list:
+        
+        allPierDisp_x = {}
+        allPierAcc_x = {}
 
-    allPierAcc_x = []
-    allPierAcc_y = []
+        out_folder = f"surrogate_out\\sf_{str(sf)}"
 
-    for selGM in allGMs:  # Select ground motion index
-
-        # For each row, generate model
-        pierDisp_x = []
-        pierDisp_y = []
-
-        pierAcc_x = []
-        pierAcc_y = []
-
-        for row in mlk_models.itertuples():
-            row_dict = row._asdict()
-            model = createModel(row_dict)
-
-            model.eig(show=False)
+        # Parallel processing of ground motions
+        with ProcessPoolExecutor(max_workers=20) as executor:
+            futures = {executor.submit(process_single_gm, selGM, mlk_models, sf): selGM for selGM in allGMs}
             
-            gm_x, gm_y, dt, t = get_gm(selGM)
-
-            model.resetState()
-            peak_acc, peak_vel, peak_disp, pga, base_shear_hist_x, ux_hist, elapsed_time = run_analysis(model, gm_x, dt)
-            print(f"Peak Acc: {peak_acc:.3f} in/s², Peak Vel: {peak_vel:.3f} in/s, Peak Disp: {peak_disp:.3f} in, PGA: {pga:.3f} in/s², Time: {elapsed_time:.2f} s")
-            pierDisp_x.append(peak_disp)
-            pierAcc_x.append(peak_acc)
-
-            model.resetState()
-            peak_acc, peak_vel, peak_disp, pga, base_shear_hist_y, uy_hist, elapsed_time = run_analysis(model, gm_y, dt)
-            print(f"Peak Acc: {peak_acc:.3f} in/s², Peak Vel: {peak_vel:.3f} in/s, Peak Disp: {peak_disp:.3f} in, PGA: {pga:.3f} in/s², Time: {elapsed_time:.2f} s")
-            pierDisp_y.append(peak_disp)
-            pierAcc_y.append(peak_acc)
-
-            '''plt.plot(ux_hist, base_shear_hist_x, label='X-dir')
-            plt.plot(uy_hist, base_shear_hist_y, label='Y-dir')
-            plt.show()'''
-
-        allPierDisp_x.append(pierDisp_x)
-        allPierDisp_y.append(pierDisp_y)
-        allPierAcc_x.append(pierAcc_x)
-        allPierAcc_y.append(pierAcc_y)
-
-    # Save results to CSV
-    disp_x_df = pd.DataFrame(allPierDisp_x, index=allGMs)
-    disp_x_df.to_csv("mlk_pier_disp_x.csv", index_label="GM_Index")
-    disp_y_df = pd.DataFrame(allPierDisp_y, index=allGMs)
-    disp_y_df.to_csv("mlk_pier_disp_y.csv", index_label="GM_Index")
-    acc_x_df = pd.DataFrame(allPierAcc_x, index=allGMs)
-    acc_x_df.to_csv("mlk_pier_acc_x.csv", index_label="GM_Index")
-    acc_y_df = pd.DataFrame(allPierAcc_y, index=allGMs)     
-    acc_y_df.to_csv("mlk_pier_acc_y.csv", index_label="GM_Index")
-
+            for future in as_completed(futures):
+                selGM = futures[future]
+                try:
+                    gm_id, disp_x, acc_x = future.result()
+                    allPierDisp_x[gm_id] = disp_x
+                    allPierAcc_x[gm_id] = acc_x
+                    print(f'Completed GM {gm_id}')
+                except Exception as exc:
+                    print(f'Ground motion {selGM} generated an exception: {exc}')
+    
+        # Save results to CSV (sort by GM index to maintain order)
+        disp_x_df = pd.DataFrame([allPierDisp_x[gm] for gm in allGMs], index=allGMs)
+        disp_x_df.to_csv(out_folder+"mlk_pier_disp_x.csv", index_label="GM_Index")
+        acc_x_df = pd.DataFrame([allPierAcc_x[gm] for gm in allGMs], index=allGMs)
+        acc_x_df.to_csv(out_folder+"mlk_pier_acc_x.csv", index_label="GM_Index")
+        
+        print(f'Finished processing all ground motions for sf {sf}')
 
     # Finished all simulations
     print("All simulations completed.")

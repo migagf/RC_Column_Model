@@ -53,7 +53,11 @@ def getSecTag(pierType, hc):
         typeVal = 2
     elif pierType == "6C":
         typeVal = 3
-    
+    elif pierType == "p01":
+        typeVal = 4
+    elif pierType == "p02":
+        typeVal = 5
+
     if hc == 25:
         hcVal = 1
     elif hc == 30:
@@ -67,4 +71,9 @@ def getSecTag(pierType, hc):
         
     secTag = 100 + typeVal * 10 + hcVal * 1
     
+    if typeVal == 4:
+        secTag = 201
+    elif typeVal == 5:
+        secTag = 202
+        
     return secTag

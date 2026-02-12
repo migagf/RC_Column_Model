@@ -10,6 +10,9 @@ def getSections(plot=True):
     '''
     Builds a Reinforced Concrete Fiber Section
     '''
+
+    sectionPlotsDir = 'SectionFigures'
+
     # :::
     # (1) Define materials
     # :::
@@ -41,12 +44,11 @@ def getSections(plot=True):
     ops.uniaxialMaterial('Concrete02', 3, fpc, epsc0, fpcu, -0.003, lam, f_t, Ets)  # Unconfined
     
     # Create materials for abutment springs
-    kT = 50.0 * kip/inch  # Lateral stiffness
+    kT = 500.0 * kip/inch  # Lateral stiffness
     kV = 10_000.0 * kip/inch  # Vertical stiffness
     ops.uniaxialMaterial('Elastic', 11, kT)  # Lateral spring
     ops.uniaxialMaterial('Elastic', 12, kV)  # Vertical spring
-
-    ops.uniaxialMaterial('ElasticPPGap', 13, 2*kT, 40.0*kip, 0.5*inch)  # Gap material for abutment in longitudinal direction
+    ops.uniaxialMaterial('ElasticPPGap', 13, 2*kT, 400.0*kip, 0.5*inch)  # Gap material for abutment in longitudinal direction
 
     # ::: 
     # (2) Define geometry
@@ -122,7 +124,7 @@ def getSections(plot=True):
             matcolor = ['r', 'lightgrey', 'gold', 'w', 'w', 'w']
             opsv.plot_fiber_section(fib_sec_1, matcolor=matcolor)
             plt.axis('equal')
-            plt.savefig('section_'+str(secTag)+'.pdf')
+            plt.savefig(sectionPlotsDir+'\\section_'+str(secTag)+'.pdf')
         
         # Integrator for the Fiber Section (intTag is same as secTag)
         # ops.beamIntegration('lobatto', tag, secTag, N)
@@ -200,7 +202,7 @@ def getSections(plot=True):
             matcolor = ['r', 'lightgrey', 'gold', 'w', 'w', 'w']
             opsv.plot_fiber_section(fib_sec_1, matcolor=matcolor)
             plt.axis('equal')
-            plt.savefig('section_'+str(secTag)+'.pdf')
+            plt.savefig(sectionPlotsDir+'\\section_'+str(secTag)+'.pdf')
         
         # Integrator for the Fiber Section (intTag is same as secTag)
         # ops.beamIntegration('lobatto', tag, secTag, N)
@@ -278,7 +280,7 @@ def getSections(plot=True):
             matcolor = ['r', 'lightgrey', 'gold', 'w', 'w', 'w']
             opsv.plot_fiber_section(fib_sec_1, matcolor=matcolor)
             plt.axis('equal')
-            plt.savefig('section_'+str(secTag)+'.pdf')
+            plt.savefig(sectionPlotsDir+'\\section_'+str(secTag)+'.pdf')
         
         # Integrator for the Fiber Section (intTag is same as secTag)
         # ops.beamIntegration('lobatto', tag, secTag, N)
@@ -366,33 +368,145 @@ def getSections(plot=True):
             matcolor = ['r', 'lightgrey', 'gold', 'w', 'w', 'w']
             opsv.plot_fiber_section(fib_sec_1, matcolor=matcolor)
             plt.axis('equal')
-            plt.savefig('section_'+str(secTag)+'.pdf')
+            plt.savefig(sectionPlotsDir+'\\section_'+str(secTag)+'.pdf')
         
         # Integrator for the Fiber Section (intTag is same as secTag)
         # ops.beamIntegration('lobatto', tag, secTag, N)
         ops.beamIntegration('Lobatto', secTag, secTag, 10)
     
-    # Now, get elastic sections
-    # (2.5) Beam Sections
-    
-    
-    
-    
+    # Now, get special sections for first two piers
+    secTags = [201, 202]
+
+    for secTag in secTags:
+        
+        if secTag == 201:
+            n_out_bars = 28
+
+            diameter = 5.0*ft     # Reference diameter
+            xdist = 2.786*ft    # Distance between center of two circular patches
+            GJ = 10_000_000       # Need to compute this value
+
+            d_bar = 2.257*inch    # Rebar diameter
+            a_bars = np.pi * (d_bar / 2) ** 2 # Area of rebar
+            c_cover = 3.0*inch   # Concrete cover
+            cp_cover = 2.5*inch  # Core cover
+
+            # Discretization for concrete section
+            nfibRad_Core = 4
+            nfibRad_Cov = 2
+            nfibPhi = 20
+
+            fib_sec_1 = [
+                    ['section', 'Fiber', secTag],
+                    ['patch', 'circ', 3, nfibPhi, nfibRad_Cov, *[0.0, -xdist], *[diameter/2 - c_cover, diameter/2], *[0.0, 360.0]], # Unconfined concrete
+                    ['patch', 'circ', 2, nfibPhi, nfibRad_Core, *[0.0, -xdist], *[0.0, diameter/2 - c_cover], *[0.0, 360.0]],  # Confined concrete
+                    ['layer', 'circ', 1, n_out_bars, a_bars, *[0.0, -xdist], diameter/2 - c_cover - d_bar/2, *[0.0, 360.0 - 360 / n_out_bars]],  # Rebar, outer layer
+                    ['patch', 'circ', 3, nfibPhi, nfibRad_Cov, *[0.0, xdist], *[diameter/2 - c_cover, diameter/2], *[0.0, 360.0]], # Unconfined concrete
+                    ['patch', 'circ', 2, nfibPhi, nfibRad_Core, *[0.0, xdist], *[0.0, diameter/2 - c_cover], *[0.0, 360.0]],  # Confined concrete
+                    ['layer', 'circ', 1, n_out_bars, a_bars, *[0.0, xdist], diameter/2 - c_cover - d_bar/2, *[0.0, 360.0 - 360 / n_out_bars]]
+                ]
+            
+            # Create Sections
+            ops.section('Fiber', secTag, '-GJ', GJ)
+            ops.patch(*fib_sec_1[1][1:])
+            ops.patch(*fib_sec_1[2][1:])
+            ops.layer(*fib_sec_1[3][1:])
+            ops.patch(*fib_sec_1[4][1:])
+            ops.patch(*fib_sec_1[5][1:])
+            ops.layer(*fib_sec_1[6][1:])
+
+            if plot:
+                matcolor = ['r', 'lightgrey', 'gold', 'w', 'w', 'w']
+                opsv.plot_fiber_section(fib_sec_1, matcolor=matcolor)
+                plt.axis('equal')
+                plt.savefig(sectionPlotsDir+'\\section_'+str(secTag)+'.pdf')
+
+            # Integrator for the Fiber Section (intTag is same as secTag)
+            ops.beamIntegration('Lobatto', secTag, secTag, 10)
+
+        elif secTag == 202:
+            n_y_bars = 8
+            n_z_bars = 7
+
+            width = 5.0*ft  # Width of the rectangular section
+            depth = 7.5*ft  # Depth of the rectangular section
+            GJ = 10_000_000       # Need to compute this value
+
+            d_bar = 2.257*inch    # Rebar diameter
+            a_bars = np.pi * (d_bar / 2) ** 2 # Area of rebar
+            c_cover = 3.0*inch   # Concrete cover
+            cp_cover = 2.5*inch  # Core cover
+
+            # Discretization for concrete section
+            numSubdivY = 6
+            numSubdivZ = 8
+            coordI = [-width/2 + c_cover, -depth/2 + c_cover]
+            coordJ = [ width/2 - c_cover,  depth/2 - c_cover]
+
+            # Create coordinates for cover rectangles
+            cover_1_I = [-width/2, -depth/2]
+            cover_1_J = [-width/2 + c_cover,  depth/2]  # Left
+            cover_2_I = [ width/2 - c_cover, -depth/2]
+            cover_2_J = [ width/2,  depth/2]  # Right
+            cover_3_I = [-width/2 + c_cover, -depth/2]
+            cover_3_J = [ width/2 - c_cover, -depth/2 + c_cover]  # Bottom
+            cover_4_I = [-width/2 + c_cover,  depth/2 - c_cover]
+            cover_4_J = [ width/2 - c_cover,  depth/2]  # Top
+
+            fib_sec_1 = [
+                ['section', 'Fiber', secTag],
+                ['patch', 'rect', 3, 2, 8, *cover_1_I, *cover_1_J],  # Unconfined concrete - Left
+                ['patch', 'rect', 3, 2, 8, *cover_2_I, *cover_2_J],  # Unconfined concrete - Right
+                ['patch', 'rect', 3, 8, 2, *cover_3_I, *cover_3_J],  # Unconfined concrete - Bottom
+                ['patch', 'rect', 3, 8, 2, *cover_4_I, *cover_4_J],  # Unconfined concrete - Top
+                ['patch', 'rect', 2, numSubdivY, numSubdivZ, *coordI, *coordJ],  # Confined concrete'
+                ['layer', 'straight', 1, n_y_bars, a_bars, *[-width/2 + c_cover + d_bar/2, -depth/2 + c_cover + d_bar/2], *[width/2 - c_cover - d_bar/2, -depth/2 + c_cover + d_bar/2]],  # Bottom layer
+                ['layer', 'straight', 1, n_y_bars, a_bars, *[-width/2 + c_cover + d_bar/2,  depth/2 - c_cover - d_bar/2], *[width/2 - c_cover - d_bar/2,  depth/2 - c_cover - d_bar/2]],  # Top layer
+                ['layer', 'straight', 1, n_z_bars, a_bars, *[-width/2 + c_cover + d_bar/2, -depth/2 + c_cover + d_bar/2], *[-width/2 + c_cover + d_bar/2,  depth/2 - c_cover - d_bar/2]],  # Left layer
+                ['layer', 'straight', 1, n_z_bars, a_bars, *[ width/2 - c_cover - d_bar/2, -depth/2 + c_cover + d_bar/2], *[ width/2 - c_cover - d_bar/2,  depth/2 - c_cover - d_bar/2]]   # Right layer
+            ]
+
+            # Create Sections
+            ops.section('Fiber', secTag, '-GJ', GJ)
+            ops.patch(*fib_sec_1[1][1:])
+            ops.patch(*fib_sec_1[2][1:])
+            ops.patch(*fib_sec_1[3][1:])
+            ops.patch(*fib_sec_1[4][1:])
+            ops.patch(*fib_sec_1[5][1:])
+            ops.layer(*fib_sec_1[6][1:])
+            ops.layer(*fib_sec_1[7][1:])
+            ops.layer(*fib_sec_1[8][1:])
+            ops.layer(*fib_sec_1[9][1:])
+            
+            if plot:
+                matcolor = ['r', 'lightgrey', 'gold', 'w', 'w', 'w']
+                opsv.plot_fiber_section(fib_sec_1, matcolor=matcolor)
+                plt.axis('equal')
+                plt.savefig(sectionPlotsDir+'\\section_'+str(secTag)+'.pdf')
+
+            # Integrator for the Fiber Section (intTag is same as secTag)
+            ops.beamIntegration('Lobatto', secTag, secTag, 10)
+
     
     # :::
     # Geometric Transformations
     # :::
     
-    # For vertical elements:
+    # For vertical elements (not pier 1 and 2)
     ops.geomTransf('Linear', 10, *[0, 1, 0])
     ops.geomTransf('PDelta', 20, *[0, 1, 0])
     ops.geomTransf('Corotational', 30, *[0, 1, 0])
     
+    # For vertical elements (pier 1 and 2)
+    vecxZ = [-np.sin(np.radians(25)), np.cos(np.radians(25)), 0]
+    ops.geomTransf('Linear', 12, *vecxZ)
+    ops.geomTransf('PDelta', 22, *vecxZ)
+    ops.geomTransf('Corotational', 32, *vecxZ)
+
     # For horizontal elements
     ops.geomTransf('Linear', 11, *[0, 0, 1])
     ops.geomTransf('PDelta', 21, *[0, 0, 1])
     ops.geomTransf('Corotational', 31, *[0, 0, 1])
-    
     
     pass
 

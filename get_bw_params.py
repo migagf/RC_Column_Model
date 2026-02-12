@@ -70,6 +70,8 @@ def get_BW_params(ndParams, surrogate_path, split='no_split', mode='simple'):
             print('Flexure failure mode')
             surrogate_file = os.path.join(surrogate_path, 'gpModelFlexure', split, f'SimGpModel.json')
             input_json = os.path.join(surrogate_path, 'gpModelFlexure', 'scInput.json')
+            print('Running flexure surrogate in path:', surrogate_file)
+            print('Using input json:', input_json)
         else:
             print('Shear failure mode')
             surrogate_file = os.path.join(surrogate_path, 'gpModelShear', split, f'SimGpModel.json')
@@ -109,6 +111,5 @@ def get_BW_params(ndParams, surrogate_path, split='no_split', mode='simple'):
         min_error = flex_min_error * prob_failure_mode[0] + shear_min_error * prob_failure_mode[1]
 
         failure_mode = failure_mode_selection.predict(np.array([[ndParams[0], ndParams[5]]]))[0]
-
 
     return bw_model_params, min_error, failure_mode
